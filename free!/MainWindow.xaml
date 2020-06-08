@@ -1,0 +1,43 @@
+﻿<Window x:Class="Free.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Free"
+        mc:Ignorable="d"
+        Title="free!" Height="458" Width="815" KeyUp="Window_KeyUp" KeyDown="Window_KeyDown" ContentRendered="Window_ContentRendered" PreviewMouseDown="Window_MouseDown" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged">
+    <Grid>
+        <ScrollViewer x:Name="Scrollbar" Canvas.Top="384" Height="419" Width="800" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+            <Viewbox>
+                <!-- horizontalscrollbarvisibility / verticalscrollbarvisibility=hidden if dbgmode off-->
+                <Canvas x:Name="Game" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="800">
+                    <Image x:Name="LevelBackground" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="800" Panel.ZIndex="1">
+                        <Image.Source>
+                            <BitmapImage x:Name="LevelBackgroundImage" UriSource="pack://application:,,,/Content/Game/Placeholder.png"></BitmapImage>
+                        </Image.Source>
+                    </Image>
+                </Canvas>
+            </Viewbox>
+        </ScrollViewer>
+        <Menu x:Name="EditModeMenu" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="800">
+            <MenuItem x:Name="FileMenu" Header="File">
+                <MenuItem x:Name="FileMenu_Load" Header="Load Level" Click="FileMenu_Load_Click"></MenuItem>
+                <MenuItem x:Name="FileMenu_Save" Header="Save Level" Click="FileMenu_Save_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="ObjMenu" Header="Object">
+                <!--<MenuItem x:Name="ObjMenu_Add" Header="[DEPRECATED] Add Object" Click="ObjMenu_Add_Click"></MenuItem>
+                <MenuItem x:Name="ObjMenu_Move" Header="[DEPRECATED] Move Object" Click="ObjMenu_Move_Click"></MenuItem>
+                <MenuItem x:Name="ObjMenu_Delete" Header="[DEPRECATED] Delete Object" Click="ObjMenu_Delete_Click"></MenuItem>
+                <Separator/>-->
+                <MenuItem x:Name="ObjMenu_ObjManager" Header="Object Manager V2.0" Click="ObjMenu_ObjManager_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="InteractionMenu" Header="Interaction">
+                <MenuItem x:Name="InteractionMenu_Add" Header="Manage Interactions..." Click="InteractionMenu_Add_Click"></MenuItem>
+                <MenuItem x:Name="InteractionMenu_Save" Header="Save Interactions.xml" Click="InteractionMenu_Save_Click"></MenuItem>
+            </MenuItem>
+            <!--<MenuItem x:Name="AnimationMenu" Header="Animation">
+                <MenuItem x:Name="AnimationMenu_Define" Header="Define Animation..."></MenuItem>
+            </MenuItem>-->
+        </Menu>
+    </Grid>
+</Window>

@@ -1,0 +1,22 @@
+﻿<Window x:Class="Free.MoveObj"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Free"
+        mc:Ignorable="d"
+        Title="Move Object" Height="219.289" Width="657.677">
+    <Grid>
+        <TextBlock x:Name="ObjMove" HorizontalAlignment="Left" Margin="436,3,0,0" TextWrapping="Wrap" Text="Move Object" VerticalAlignment="Top" FontSize="36"/>
+        <TextBlock x:Name="ObjSelect" HorizontalAlignment="Left" Margin="18,13,0,0" TextWrapping="Wrap" Text="Moving Object: " VerticalAlignment="Top" FontSize="18"/>
+        <Button x:Name="CloseButton" Content="Close" HorizontalAlignment="Left" Margin="555,149,0,0" VerticalAlignment="Top" Width="75" Click="CloseButton_Click"/>
+        <TextBlock x:Name="XPos" HorizontalAlignment="Left" Margin="18,42,0,0" TextWrapping="Wrap" Text="X position:" VerticalAlignment="Top" FontSize="18" Height="26" Width="89"/>
+        <TextBlock x:Name="YPos" HorizontalAlignment="Left" Margin="18,73,0,0" TextWrapping="Wrap" Text="Y position:" VerticalAlignment="Top" FontSize="18" Height="26" Width="89"/>
+        <TextBox x:Name="XPosBox" HorizontalAlignment="Left" Height="26" Margin="112,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="133" FontStyle="Italic" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="YPosBox" HorizontalAlignment="Left" Height="26" Margin="112,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="133" FontStyle="Italic" VerticalContentAlignment="Center"/>
+        <TextBlock x:Name="ClickToFill" HorizontalAlignment="Left" Margin="18,153,0,0" TextWrapping="Wrap" Text="Alternatively, right-click on any area of the level and then click the Pick button to auto-fill coordinates." VerticalAlignment="Top" FontStyle="Italic"/>
+        <Button x:Name="PickButton" Content="Pick" HorizontalAlignment="Left" Margin="18,133,0,0" VerticalAlignment="Top" Width="75" Click="PickButton_Click"/>
+        <Button x:Name="MoveButton" Content="Move" HorizontalAlignment="Left" Margin="555,124,0,0" VerticalAlignment="Top" Width="75" Click="OKButton_Click"/>
+
+    </Grid>
+</Window>

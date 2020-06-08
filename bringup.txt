@@ -1,0 +1,8 @@
+free! 2019 bringup
+
+- Replace Settings API
+- WriteableBitmapEx for speed. Specifically, about 30 times the speed. Speeeeeeeeeeeeeeeeeed.
+- Physics and movement speed should NOT be dependent of game framerate
+- Fix physics (everything?)
+- Fix object attributes and weird as fuck capitalisation of variables
+- Scripting system

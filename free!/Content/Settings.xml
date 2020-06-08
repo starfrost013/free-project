@@ -1,0 +1,8 @@
+<Settings>
+	<Setting name="DebugMode" value="true"></Setting>
+	<Setting name="DemoMode" value="false"></Setting>
+	<Setting name="GameName" value="free!"></Setting>
+	<Setting name="TitleScreenPath" value="Game\Title.png"></Setting>
+	<Setting name="Resolution" value="800,419"></Setting>
+	<Setting name="WindowType" value="Windowed"></Setting>
+</Settings>

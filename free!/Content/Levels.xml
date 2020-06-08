@@ -1,0 +1,18 @@
+<!-- NOTE 2019/12/13: LV SIZE MUST BE MULTIPLE OF BG SIZE! OTHERWISE IT WILL LOOK EXTREMELY UGLY! -->
+
+<Levels>
+	<Level id="-1" name="TestLevel" bgpath=".\Levels\TestLevel.png" objlayout="Levels\TestLevel_obj.xml" sizex="800" sizey="600" BackgroundSize="800,600"></Level>
+	<Level id="0" name="Village" bgpath=".\Levels\Level00.png" objlayout="Levels\Level00_obj.xml" sizex="7680" sizey="4320" plrstartx="320" plrstarty="1585" killplaney="2160" BackgroundSize="1920,1080"></Level>
+	<Level id="1" name="Northern Mountains" bgpath=".\Levels\Level01.png" objlayout="Levels\Level01_obj.xml" sizex="3840" sizey="2160" BackgroundSize="1920,1080" ></Level>
+	<Level id="2" name="Ajax City" bgpath=".\Levels\Level02.png" objlayout="Levels\Level02_obj.xml" sizex="3840" sizey="2160" BackgroundSize="1920,1080"></Level>
+	<Level id="3" name="Aero Alley" bgpath=".\Levels\Level03.png" objlayout="Levels\Level03_obj.xml" sizex="3840" sizey="2160" BackgroundSize="1920,1080"></Level>
+	<Level id="4" name="Downhill Rush" bgpath=".\Levels\Level04.png" objlayout="Levels\Level04_obj.xml" sizex="3840" sizey="2160" BackgroundSize="1920,1080"></Level>
+	<Level id="5" name="The Warehouse" bgpath=".\Levels\Level05.png" objlayout="Levels\Level05_obj.xml" sizex="3840" sizey="2160" BackgroundSize="1920,1080"></Level>
+	<Level id="6" name="Central Chemical Station" bgpath=".\Levels\Level06.png" objlayout="Levels\Level06_obj.xml" sizex="3840" sizey="2160" plrstartx="150" plrstarty="1585" killplaney="2160" text="Levels\Level06_text.xml" BackgroundSize="1920,1080"></Level>
+	<Level id="7" name="Overwatch" bgpath=".\Levels\Level07.png" objlayout="Levels\Level07_obj.xml" sizex="3840" sizey="2160" BackgroundSize="1920,1080"></Level>
+	<Level id="8" name="Bullet Train" bgpath=".\Levels\Level08.png" objlayout="Levels\Level08_obj.xml" sizex="3840" sizey="2160" BackgroundSize="1920,1080"></Level>
+	<Level id="9" name="Digital Homicide" bgpath=".\Levels\Level09.png" objlayout="Levels\Level09_obj.xml" sizex="3840" sizey="2160" BackgroundSize="1920,1080"></Level>
+	<Level id="10" name="Prelude" bgpath=".\Levels\Level10.png" objlayout="Levels\Level10_obj.xml" sizex="3840" sizey="2160" BackgroundSize="1920,1080"></Level>
+	<Level id="11" name="Ascension" bgpath=".\Levels\Level11.png" objlayout="Levels\Level11_obj.xml" sizex="3840" sizey="2160" BackgroundSize="1920,1080"></Level>
+	<Level id="12" name="Epilogue" bgpath=".\Levels\Level12.png" objlayout="Levels\Level12_obj.xml" sizex="3840" sizey="2160" BackgroundSize="1920,1080"></Level>
+</Levels>

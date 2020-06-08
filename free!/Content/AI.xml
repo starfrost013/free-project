@@ -1,0 +1,7 @@
+<!-- AI List for v0.20 -->
+<!-- Created 2019-12-30 15:00 -->
+<!-- Modiied 2019-12-30 16:31 -->
+
+<AIDefinitions>
+	<AI obj1="23" obj2="1" type="Fear"/>
+</AIDefinitions>

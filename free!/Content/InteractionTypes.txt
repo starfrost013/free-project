@@ -1,0 +1,11 @@
+Progressive Edge
+
+Interaction Manager
+
+Ver. 1.10
+
+Interaction Types:
+- Crush: obj2 moves when hit by obj1.
+- Fall: obj2 falls and deletes itself. Triggers once only.
+- Hurt: The player is hurt. The exact pain they are placed in depends on OBJPLAYERDAMAGE.
+- Remove: obj2 deletes itself.

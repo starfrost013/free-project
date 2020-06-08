@@ -1,0 +1,23 @@
+<ObjectLayout>
+  <Object id="1" posx="150" posy="1585"/>
+  <Object id="3" posx="0" posy="250" />
+  <Object id="3" posx="96" posy="250" />
+  <Object id="3" posx="192" posy="250" />
+  <Object id="3" posx="288" posy="250" />
+  <Object id="3" posx="384" posy="250" />
+  <Object id="3" posx="480" posy="250" />
+  <Object id="3" posx="576" posy="250" />
+  <Object id="3" posx="672" posy="250" />
+  <Object id="3" posx="768" posy="250" />
+  <Object id="3" posx="864" posy="250" />
+  <Object id="3" posx="960" posy="250" />
+  <Object id="3" posx="1056" posy="250" />
+  <Object id="3" posx="42.5" posy="1750" />
+  <Object id="3" posx="138.5" posy="1750" />
+  <Object id="15" posx="320" posy="1920" />
+  <Object id="13" posx="512" posy="1840" />
+  <Object id="18" posx="460" posy="1930" />
+  <Object id="17" posx="512" posy="1920" />
+  <Object id="17" posx="576" posy="1920" />
+  <Object id="17" posx="640" posy="1920" />
+</ObjectLayout>

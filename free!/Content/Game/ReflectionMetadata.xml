@@ -1,0 +1,10 @@
+﻿<ReflectionMetadata>
+  <Command>
+    <Name>TestCommand</Name>
+    <Class>OnLoad</Class>
+    <Description>A test command.</Description>
+    <ParameterSchema>
+      
+    </ParameterSchema>
+  </Command>
+</ReflectionMetadata>

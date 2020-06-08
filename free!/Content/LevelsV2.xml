@@ -1,0 +1,17 @@
+﻿<!-- Level XML 2.0
+     Created June 8, 2020
+     Copyright © 2019-2020 avant-gardé eyes
+-->
+
+<Levels>
+  <Level>
+    <ID>0</ID>
+    <Name>Chapter One: Tokyo Dreams</Name>
+    <BGPath>.\Levels\TestLevel.png</BGPath>
+    <ObjectLayoutPath>Levels\TestLevel_obj.xml</ObjectLayoutPath>
+    <BackgroundSize>1920,1080</BackgroundSize>
+    <Size>7680,4320</Size>
+    <PlayerStartPos>320,1585</PlayerStartPos>
+    <KillPlaneY>2160</KillPlaneY>
+  </Level>
+</Levels>

@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AB9A22CA-F99A-4679-ADFE-AC12EEC6E03A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Free</RootNamespace>
+    <AssemblyName>free!</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug64|AnyCPU'">
+    <OutputPath>bin\Debug64\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug64|x64'">
+    <OutputPath>bin\x64\Debug64\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WriteableBitmapEx.Wpf, Version=1.6.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WriteableBitmapEx.1.6.5\lib\net40\WriteableBitmapEx.Wpf.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AI\AI.cs" />
+    <Compile Include="AI\AILoader.cs" />
+    <Compile Include="AI\AIType.Fear.cs" />
+    <Compile Include="Animation\Animation.cs" />
+    <Compile Include="Animation\AnimationPlayer.cs" />
+    <Compile Include="Animation\AnimationLoader.cs" />
+    <Compile Include="Audio\Audio.cs" />
+    <Compile Include="Audio\Audio.SFX.cs" />
+    <Compile Include="Collision\Collision.cs" />
+    <Compile Include="EditMode\EditMode.cs" />
+    <Compile Include="EditMode\EditMode.ManageInteractions.xaml.cs">
+      <DependentUpon>EditMode.ManageInteractions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditMode\EditMode.MoveObject.xaml.cs">
+      <DependentUpon>EditMode.MoveObject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditMode\EditMode.ObjectManagerV2.xaml.cs">
+      <DependentUpon>EditMode.ObjectManagerV2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Error\ScriptParseError\ScriptError.cs" />
+    <Compile Include="Error\ScriptParseError\ScriptParseError.xaml.cs">
+      <DependentUpon>ScriptParseError.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Init\EngineInit\Engine_BootNow.cs" />
+    <Compile Include="Interactions\Interaction.cs" />
+    <Compile Include="Interactions\InteractionManager.Bounce.cs" />
+    <Compile Include="Interactions\InteractionManager.BounceRight.cs" />
+    <Compile Include="Interactions\InteractionManager.BounceLeft.cs" />
+    <Compile Include="Interactions\InteractionManager.ChangeLevel.cs" />
+    <Compile Include="Interactions\InteractionManager.cs" />
+    <Compile Include="Interactions\InteractionManager.Hurt.cs" />
+    <Compile Include="Interactions\InteractionManager.Kill.cs" />
+    <Compile Include="Interactions\InteractionManager.Remove.cs" />
+    <Compile Include="Level\LevelPreloader.cs" />
+    <Compile Include="Objects\IObject.cs" />
+    <Compile Include="Objects\ObjManager.cs" />
+    <Compile Include="Objects\SentientBeing.cs" />
+    <Compile Include="Physics\Physics.Init.cs" />
+    <Compile Include="Physics\PhysicsWorker\PhysicsBackgroundWorker.DoWork.cs" />
+    <Compile Include="Render\Render.cs" />
+    <Compile Include="Scripting\Commands\CommandFactory.cs" />
+    <Compile Include="Scripting\Commands\ScriptUtilities.cs" />
+    <Compile Include="Scripting\Commands\Script.TestCommand.cs" />
+    <Compile Include="Scripting\ICommandExecutor.cs" />
+    <Compile Include="Scripting\SimpleESX.cs" />
+    <Compile Include="Scripting\SimpleESX.Parameter.cs" />
+    <Compile Include="Scripting\SimpleESX.Script.cs" />
+    <Compile Include="Settings\SettingLoader.cs" />
+    <Compile Include="Settings\Settings.cs" />
+    <Compile Include="Text\AGTextBlock.cs" />
+    <Compile Include="Text\TextLayoutLoader.cs" />
+    <Compile Include="Text\TextLoader.cs" />
+    <Compile Include="Text\TextManager.cs" />
+    <Compile Include="Title\TitleScreen.cs" />
+    <Compile Include="Weapon\Weapon.AmmoManager.cs" />
+    <Compile Include="Weapon\Weapon.cs" />
+    <Compile Include="Weapon\WeaponLoader.cs" />
+    <Compile Include="Weapon\WeaponManager.cs" />
+    <Compile Include="Window\WindowType.cs" />
+    <Page Include="EditMode\EditMode.ManageInteractions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditMode\EditMode.MoveObject.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditMode\EditMode.ObjectManagerV2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditMode\LevelSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Error\ScriptParseError\ScriptParseError.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\Controls.cs" />
+    <Compile Include="Controls\ControlsLoader.cs" />
+    <Compile Include="Error\Error.cs" />
+    <Compile Include="Init\Init.cs" />
+    <Compile Include="Level\Level.cs" />
+    <Compile Include="EditMode\LevelSelect.xaml.cs">
+      <DependentUpon>LevelSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Level\LevelLoader.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Objects\Obj.cs" />
+    <Compile Include="Objects\ObjLayoutLoader.cs" />
+    <Compile Include="Objects\ObjLoader.cs" />
+    <Compile Include="Physics\PhysicsConstants.cs" />
+    <Compile Include="Physics\Physics.cs" />
+    <Compile Include="Physics\PlayerMovement.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Content\Game\GameOver.pdn" />
+    <None Include="Content\Game\lessurgent.pdn" />
+    <None Include="Content\Game\LoadingTemplate.pdn" />
+    <None Include="Content\Game\Title.pdn" />
+    <None Include="Content\Game\TitleV2.pdn" />
+    <None Include="Content\Game\urgent.pdn" />
+    <None Include="Content\Game\urgent2.pdn" />
+    <None Include="Content\HUD\HUDTimeConcept.pdn" />
+    <None Include="Content\HUD\Level.pdn" />
+    <Content Include="Content\Game\ReflectionMetadata.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Content\LevelsV2.xml" />
+    <Content Include="Content\Levels\Level00.pdn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level06.pdn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Content\Objects\Player\TrincidStanding.pdn" />
+    <None Include="Content\Objects\Player\TrincidStandingL.pdn" />
+    <None Include="Content\Objects\Spring.pdn" />
+    <None Include="Content\Objects\Stg00\SnowCoveredTree.pdn" />
+    <None Include="Content\Objects\Stg00\Stg00_trincidshouse_01.pdn" />
+    <None Include="Content\Objects\Stg06\Stg06_chemicaldisposal_01.pdn" />
+    <None Include="Content\Objects\Stg06\Stg06_chemicaldisposal_02.pdn" />
+    <None Include="Content\Objects\Stg06\Stg06_Load.pdn" />
+    <None Include="Content\Objects\Stg06\Stg06_tunnel_01.pdn" />
+    <None Include="Content\Objects\Stg06\Stg06_tunnel_02.pdn" />
+    <None Include="Content\Objects\Stg06\Stg06_wall_01.pdn" />
+    <None Include="Content\Objects\Stg06\Stg06_wall_02.pdn" />
+    <None Include="Content\Objects\Stg06\Stg06_wall_02_top.pdn" />
+    <None Include="Content\Objects\Stg06\Stg06_wall_platform_01.pdn" />
+    <None Include="Content\Objects\TestObjectPriority2.pdn" />
+    <Content Include="Content\PrepareRelease.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Test.esx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\AI.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Animations.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Audio\TowerLightFireworks.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Controls.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Game\GameOver.png" />
+    <Content Include="Content\Game\Placeholder.png" />
+    <Content Include="Content\Game\Title.png" />
+    <Content Include="Content\Game\TitleV2.png" />
+    <Content Include="Content\HUD\Level.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\HUD\Lives.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Interactions.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\InteractionTypes.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\LevelsIdeasAndThings.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level00.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level00_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level01_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level02_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level03.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level03_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level04.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level04_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level05.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level05_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level06.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level06_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level06_text.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level07.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level07_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level08.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level08_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level09.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level09_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level10_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level11_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level12_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Content\Levels\Testdebugmodexmloutput2.xml" />
+    <Resource Include="Content\Levels\Testdebugmodexmloutput3.xml" />
+    <Resource Include="Content\Levels\Testdebugmodexmloutput4.xml" />
+    <Resource Include="Content\Levels\Testdebugmodexmloutput5.xml" />
+    <Content Include="Content\Levels\TestLevel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\TestLevel_obj.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\AnimationTest.png" />
+    <Content Include="Content\Objects\AnimationTest2.png" />
+    <Content Include="Content\Objects\AnimationTest_Idle.png" />
+    <Content Include="Content\Objects\DebugMode.png" />
+    <Content Include="Content\Objects\FloorTEMPORARY.png" />
+    <Content Include="Content\Objects\General\Yousay.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\PlaceHolderLarge.png" />
+    <Content Include="Content\Objects\PlaceHolderMedium.png" />
+    <Content Include="Content\Objects\PlaceHolderSmall.png" />
+    <Content Include="Content\Objects\PlaceHolderXSmall.png" />
+    <Content Include="Content\Objects\PlayerTEMPORARY.png" />
+    <Content Include="Content\Objects\Player\TrincidIdle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Player\TrincidIdleL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Player\TrincidStanding.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Spring.png" />
+    <Content Include="Content\Objects\SpringLeft.png" />
+    <Content Include="Content\Objects\SpringRight.png" />
+    <Content Include="Content\Objects\Stg00\SnowCoveredTree.png" />
+    <Content Include="Content\Objects\Stg00\Stg00_trincidshouse_01.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_chemicaldisposal_02.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_Load.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_01.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_01_idle.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_02.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_03.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_04.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_05.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_06.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_07.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_08.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_09.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_10.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_tunnel_01.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_wall_01.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_wall_02.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_wall_02_top.png" />
+    <Content Include="Content\Objects\Stg06\Stg06_wall_platform_01.png" />
+    <Content Include="Content\Objects\TestObject.png" />
+    <Content Include="Content\Objects\TestObjectPriority.png" />
+    <Content Include="Content\Objects\TestObjectPriority2.png" />
+    <Content Include="Content\Objects\TestObjectPriority3.png" />
+    <Content Include="Content\Objects\TestObjectPriority4.png" />
+    <Content Include="Content\Objects\TestObjectPriority5.png" />
+    <Content Include="Content\Objects\TestObjectPriority6.png" />
+    <Content Include="Content\REMIND COSMO.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Settings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Text.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Weapons.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Content\Weapons\TestWeapon.png" />
+    <Resource Include="Content\Weapons\TestWeapon_Ammo.png" />
+    <Resource Include="Content\Weapons\TestWeapon_Ammo_Explode_01.png" />
+    <Resource Include="Content\Weapons\TestWeapon_Ammo_Explode_02.png" />
+    <Resource Include="Content\Weapons\TestWeapon_Ammo_Explode_03.png" />
+    <Resource Include="Content\Weapons\TestWeapon_Ammo_Explode_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Emerald\EmeraldGameEngine\Emerald.Utilities\Emerald.Utilities.csproj">
+      <Project>{a677eee2-1fbc-4abe-8072-39fe09cd18b6}</Project>
+      <Name>Emerald.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>REM Robocopy doesn't use xeit code 0 for success, so Visual Studio and MSBUILD crap out.
+
+echo Copying content files...We will be moving all files to \Content\ in the near future...
+echo.
+xcopy /D /MOVE .\Content .
+del /S /Q .\Content\*.*
+rd /S /Q .\Content\
+md Content
+IF NOT EXIST .\Content\Game md .\Content\Game
+copy .\Game\Placeholder.png .\Content\Game\Placeholder.png</PostBuildEvent>
+  </PropertyGroup>
+</Project>
