@@ -58,8 +58,6 @@ namespace Free
             LoadObjects();
 
             Levels = LevelPreloader.LoadLevels(); // Static-class based
-            //TEMP!
-            LoadLevel(0);
 
             Gamestate = GameState.Menu; 
 

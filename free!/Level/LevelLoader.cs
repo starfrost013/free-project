@@ -234,7 +234,7 @@ namespace Free
             try
             {
 
-                if (level.SIZEX == 0 || level.SIZEY == 0) // we didn't put level size in the xml
+                if (level.Size.X == 0 || level.Size.Y == 0) // we didn't put level size in the xml
                 {
                     Error.Throw(new Exception("Level size not defined!"), ErrorSeverity.FatalError, "An error occurred while loading a level. This is most likely because its size was not defined.", "avant-gardé engine", 85);
                 }
