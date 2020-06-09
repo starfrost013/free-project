@@ -36,8 +36,8 @@ namespace Free
             if (obj.OBJY > currentlevel.PLRKILLY && currentlevel.PLRKILLY != null && IsSentientBeing(obj))
             {
                 //move trincid and other SentientBeings to their starting positions
-                obj.OBJX = (double)currentlevel.PLRSTARTX;
-                obj.OBJY = (double)currentlevel.PLRSTARTY;
+                obj.OBJX = currentlevel.PlayerStartPosition.X;
+                obj.OBJY = currentlevel.PlayerStartPosition.Y;
                 obj.OBJPLAYERLIVES -= 1;
             }
 

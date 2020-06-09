@@ -101,15 +101,14 @@ namespace Free
 
                         if (Objx.OBJPLAYER == true)
                         {
-                            if (currentlevel.PLRSTARTX == null || currentlevel.PLRSTARTY == null) // default
+                            if (currentlevel.PlayerStartPosition.X == 0 || currentlevel.PlayerStartPosition.Y == 0) // default
                             {
-                                currentlevel.PLRSTARTX = Objx.OBJX;
-                                currentlevel.PLRSTARTY = Objx.OBJY;
+                                currentlevel.PlayerStartPosition = new Point(Objx.OBJX, Objx.OBJY);
                             }
                             else
                             {
-                                Objx.OBJX = (double)currentlevel.PLRSTARTX;
-                                Objx.OBJY = (double)currentlevel.PLRSTARTY;
+                                Objx.OBJX = currentlevel.PlayerStartPosition.X;
+                                Objx.OBJY = currentlevel.PlayerStartPosition.Y;
                             }
                         }
                        

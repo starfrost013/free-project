@@ -21,8 +21,6 @@ namespace Free
 {
     public partial class MainWindow : Window
     {
-        
-
         public void BootNow_SetCurrentLevel(int LevelId)
         {
             Level level = null;
@@ -56,6 +54,7 @@ namespace Free
                 }
 
                 BitmapImage LvBackNew = (BitmapImage)LevelBackground.Source;
+
                 LvBackNew = new BitmapImage(); // a massive hack but w/e
                 LvBackNew.BeginInit();
                 LvBackNew.DecodePixelWidth = (int)level.BackgroundSize.X;
@@ -64,6 +63,7 @@ namespace Free
                 LevelBackground.Width = LvBackNew.DecodePixelWidth;
                 LevelBackground.Height = LvBackNew.DecodePixelHeight; // something.getsomething function?????????
                 LvBackNew.EndInit();
+
                 UpdateLayout();
 
                 LevelBackgroundImage = LvBackNew;
@@ -89,12 +89,12 @@ namespace Free
             }
             catch (FileNotFoundException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent level, or error loading a level. This is most likely because a change level object attempted to trigger its interaction but the next level by ID doesn't exist (yet).", "avant-gardé engine", 7);
+                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent level. This is most likely because a change level object attempted to trigger its interaction but the next level by ID doesn't exist (yet).", "avant-gardé engine", 7);
                 return;
             }
             catch (PathTooLongException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent level, or error loading a level. PathTooLongException: WINDOWS SUCKS! WINDOWS SUCKS! WINDOWS SUCKS!", "avant-gardé engine", 7);
+                Error.Throw(err, ErrorSeverity.FatalError, "Error loading level; PathTooLongException: WINDOWS SUCKS! WINDOWS SUCKS! WINDOWS SUCKS!", "avant-gardé engine", 7);
                 return;
             }
             catch (FormatException err)

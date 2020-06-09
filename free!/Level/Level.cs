@@ -31,8 +31,6 @@ namespace Free
         public string OBJLAYOUTPATH { get; set; }
         public double? PLRKILLY { get; set; } 
         public Point PlayerStartPosition { get; set; }
-        public double? PLRSTARTX { get; set; }
-        public double? PLRSTARTY { get; set; }
         public string TEXTPATH { get; set; }
         public Point Size { get; set; }
         public Level()
