@@ -130,6 +130,8 @@
     <Compile Include="Scripting\Commands\ScriptUtilities.cs" />
     <Compile Include="Scripting\Commands\Script.TestCommand.cs" />
     <Compile Include="Scripting\ICommandExecutor.cs" />
+    <Compile Include="Scripting\ScriptReference.cs" />
+    <Compile Include="Scripting\SimpleESX.Command.cs" />
     <Compile Include="Scripting\SimpleESX.cs" />
     <Compile Include="Scripting\SimpleESX.Parameter.cs" />
     <Compile Include="Scripting\SimpleESX.Script.cs" />

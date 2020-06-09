@@ -160,8 +160,57 @@ namespace Free
                                         case "Path":
                                             SR.Path = XGreatGrandchildNode.InnerText;
                                             continue;
-                                        case "EventClass":
-                                            SR.EventClass = (EventClass)Enum.Parse(typeof(EventClass), XGreatGrandchildNode.InnerText);
+                                        case "RunOn":
+
+                                            if (!XGreatGrandchildNode.HasChildNodes) Error.Throw(null, ErrorSeverity.FatalError, "E88: Attempted to load an empty RunOn with no parameters! (old format RunOn?)", "Error!", 88);
+
+                                            ScriptReferenceRunOn SRRO = new ScriptReferenceRunOn();
+
+                                            XmlNodeList XGGGrandchildNodes = XGreatGrandchildNode.ChildNodes;
+
+                                            foreach (XmlNode XGGGrandchildNode in XGreatGrandchildNodes)
+                                            {
+                                                switch (XGGGrandchildNode.Name)
+                                                {
+                                                    // The event class.
+                                                    case "EventClass":
+                                                        SRRO.EventClass = (EventClass)Enum.Parse(typeof(EventClass), XGreatGrandchildNode.InnerText);
+                                                        continue;
+                                                    case "Name":
+                                                        SRRO.Name = XGreatGrandchildNode.InnerText;
+                                                        continue;
+                                                    case "Parameters":
+                                                        if (!XGGGrandchildNode.HasChildNodes) Error.Throw(null, ErrorSeverity.FatalError, "E88: Attempted to load an empty RunOn parameter! (old format RunOn?)", "Error!", 89);
+
+                                                        XmlNodeList XOhGod = XGGGrandchildNode.ChildNodes;
+
+                                                        ScriptReferenceRunOnParameter SRROP = new ScriptReferenceRunOnParameter();
+
+                                                        foreach (XmlNode XJeez in XOhGod)
+                                                        {
+                                                            // Iterate through the parameters
+                                                            switch (XJeez.Name)
+                                                            {
+                                                                case "Name":
+                                                                    SRROP.Name = XJeez.InnerText;
+                                                                    continue;
+                                                                case "Value":
+                                                                    SRROP.Value.Add(XJeez.InnerText);
+                                                                    continue;
+                                                            }
+
+                                                        }
+
+                                                        SRRO.ReferenceRunOn.Add(SRROP);
+
+                                                        continue;
+
+
+                                                }
+                                            }
+
+                                            SR.RunOnParameters.Add(SRRO);
+                                            
                                             continue;
                                     }
                                 }

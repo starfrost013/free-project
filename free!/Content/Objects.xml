@@ -2,7 +2,9 @@
 
 <Objects>
 	<Object id="0" name="TestObject" objimage="Objects\TestObject.png" collision="true" gravity="true" cansnap="true"></Object>
-	<Object id="1" name="Trincid" objimage="Objects\Player\TrincidStanding.png" gravity="true" hitbox="8,45,33,63" collision="true" isplayer="true" mass="1" issentient="true"></Object>
+	<Object id="1" name="Trincid" objimage="Objects\Player\TrincidStanding.png" gravity="true" hitbox="8,45,33,63" collision="true" isplayer="true" mass="1" issentient="true">
+    
+  </Object>
 	<Object id="2" name="Floor" objimage="Objects\FloorTEMPORARY.png" gravity="false"></Object>
 	<Object id="3" name="Stg07 Wall/Platform Top" objimage="Objects\Stg06\Stg06_wall_platform_01.png" gravity="false"></Object> 
 	<Object id="4" name="Object Priority Test" objimage="Objects\TestObjectPriority.png" gravity="false" priority="BG1"></Object> 
