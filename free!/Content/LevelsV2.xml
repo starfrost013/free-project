@@ -18,7 +18,7 @@
     <ID>0</ID>
     <Name>Chapter One: Tokyo Dreams</Name>
     <BGPath>.\Levels\Level00.png</BGPath>
-    <ObjectLayoutPath>Levels\Level00.xml</ObjectLayoutPath>
+    <ObjectLayoutPath>Levels\Level00_obj.xml</ObjectLayoutPath>
     <BackgroundSize>1920,1080</BackgroundSize>
     <Size>7680,4320</Size>
     <PlayerStartPos>320,1585</PlayerStartPos>
