@@ -35,8 +35,6 @@ namespace Free
         public double? PLRSTARTY { get; set; }
         public string TEXTPATH { get; set; }
         public Point Size { get; set; }
-        public int SIZEX { get; set; }
-        public int SIZEY { get; set; }
         public Level()
         {
             this.OBJLAYOUT = new List<IObject>();
