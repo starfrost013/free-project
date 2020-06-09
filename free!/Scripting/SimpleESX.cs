@@ -11,7 +11,9 @@ namespace Free
     // Trigger objects?
     public enum EventClass { OnLoad, OnDestroy, OnChangeLevel, OnPlayerSpawn, OnBeingDead, OnGameOver, OnSkillObtained, OnSkillLost, OnLevelChange, OnHurt, OnAIChange, OnAICreate, OnAIDie, OnSpecificObjectSpawn, OnSpecificObject, Routine, EveryFrame, OnAnimationPlayed, OnAnimationPlayed_SpecificFrame, OnObjectInteraction, OnSoundPlayed, OnMusicPlayed, OnVFXSpawn, OnVFXParticleNum, OnVFXDespawn, OnPlayerReachCertainPosition, OnCollide }
     public class SimpleESX
-    { 
+    {
+        internal List<SimpleESXScript> LoadedScripts { get; set; }
+
         /// <summary>
         /// Static globally accesssible copy of the current reflection metadata.
         /// </summary>
@@ -126,12 +128,12 @@ namespace Free
             }
             catch (XmlException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, "An error occurred loading the script reflection metadata.", "Error", 73);
+                Error.Throw(err, ErrorSeverity.FatalError, "An error occurred loading the script reflection metadata.", "Error", 77);
                 return;
             }
             catch (ArgumentException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, "An error occurred loading a command type.", "Error", 74);
+                Error.Throw(err, ErrorSeverity.FatalError, "An error occurred loading a command type.", "Error", 78);
                 return;
             }
         }
@@ -166,6 +168,21 @@ namespace Free
         public void ExecuteCurrentScript()
         {
             ScriptContext.ExecuteScript();
+        }
+
+        /// <summary>
+        /// Sets the current script. It must be loaded,.
+        /// </summary>
+        /// <param name="ScriptName"></param>
+        public void SetCurrentScript(string ScriptName)
+        {
+            foreach (SimpleESXScript SESXScript in LoadedScripts)
+            {
+                if (SESXScript.Name == ScriptName)
+                {
+                    ScriptContext = SESXScript;
+                }
+            }
         }
     }
 

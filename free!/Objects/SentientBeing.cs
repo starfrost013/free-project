@@ -77,6 +77,11 @@ namespace Free
             this.ChgAcceleration(0, -Physics.JumpForce);
             this.OBJISJUMPING = true;
         }
+
+        public SentientBeing()
+        {
+            AssociatedScriptPaths = new List<ScriptReference>(); 
+        }
         
     }
 

@@ -26,7 +26,7 @@ namespace Free
         public BitmapImage LOADINGSCREEN { get; set; }
         public string MUSICPATH { get; set; }
         public MediaPlayer MUSICPLAYER { get; set; }
-        public string NAME { get; set; }
+        public string Name { get; set; }
         public List<IObject> OBJLAYOUT { get; set; } // 2do: load this in this class. (0.01X)
         public string OBJLAYOUTPATH { get; set; }
         public double? PLRKILLY { get; set; } 

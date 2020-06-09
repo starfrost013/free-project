@@ -110,21 +110,71 @@ namespace Free
                                             obj.OBJPRIORITY = Priority.High;
                                             continue;
                                     }
+
                                     continue;
                                 case "cansnap":
+                                case "CanSnap":
                                     obj.OBJCANSNAP = Convert.ToBoolean(XmlAttribute.Value);
                                     continue;
                                 case "collision":
+                                case "Collision":
+                                case "CanCollide":
                                     obj.OBJCANCOLLIDE = Convert.ToBoolean(XmlAttribute.Value);
                                     continue;
                                 case "issentient":
+                            case "IsSentient":
                                     obj = new SentientBeing(obj, obj.OBJPLAYER, obj.OBJPLAYERDAMAGE, obj.OBJPLAYERHEALTH, obj.OBJPLAYERLEVEL, obj.OBJPLAYERDAMAGE, obj.OBJPLAYERLIVES, obj.OBJINTERNALID); // convert to sentientbeing
                                     continue;
                             }
                         }
+                    // NEW 2020-06-08
+                    // Parse AssociatedScripts
+
+                    XmlNodeList XGrandchildNodes = XmlNode.ChildNodes;
+
+                    // Loop through all the scripts in XML
+
+                    foreach (XmlNode XGrandchildNode in XmlNode.ChildNodes)
+                    {
+                        switch (XGrandchildNode.Name)
+                        {
+                            // The scripts associated with this node. 
+                            case "AssociatedScripts":
+
+                                if (!XGrandchildNode.HasChildNodes) Error.Throw(null, ErrorSeverity.FatalError, "E78: Attempted to load an empty AssociatedScript node!", "Error!", 78);
+
+                                XmlNodeList XGreatGrandchildNodes = XGrandchildNode.ChildNodes;
+
+                                ScriptReference SR = new ScriptReference(); 
+
+                                // Iterate through the associatedscript properties.
+                                
+                                foreach (XmlNode XGreatGrandchildNode in XGreatGrandchildNodes)
+                                {
+                                    switch (XGreatGrandchildNode.Name)
+                                    {
+                                        // If the node name is...
+                                        case "Name":
+                                            SR.Name = XGreatGrandchildNode.InnerText;
+                                            continue;
+                                        case "Path":
+                                            SR.Path = XGreatGrandchildNode.InnerText;
+                                            continue;
+                                        case "EventClass":
+                                            SR.EventClass = (EventClass)Enum.Parse(typeof(EventClass), XGreatGrandchildNode.InnerText);
+                                            continue;
+                                    }
+                                }
+
+                                obj.AssociatedScriptPaths.Add(SR);
+                                continue; 
+                        }
+                    }
+
+
                     //set default values if null
 
-                    if (obj.OBJMASS == 0.0d)
+                    if (obj.OBJMASS == 0.0)
                     {
                         obj.OBJMASS = 1;
                     }
@@ -144,6 +194,7 @@ namespace Free
                         obj.OBJCANCOLLIDE = true;
                         //obj.OBJCANCOLLIDE = (bool)obj.OBJCANCOLLIDE; // bool? to bool
                     }
+
                     if (obj.OBJPLAYERHEALTH == 0 && obj.OBJPLAYER)
                     {
                         obj.OBJPLAYERHEALTH = 100;//TEST value.
@@ -158,14 +209,13 @@ namespace Free
             }
             catch (XmlException err)
             {
-                MessageBox.Show($"A critical error occurred while loading Objects.xml: \n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
-                Environment.Exit(6666);
+                Error.Throw(err, ErrorSeverity.FatalError, $"Objects.xml is corrupted or malformed: \n\n{err}", "avant-gardé engine", 87);
             }
             catch (FormatException err)
             {
-                MessageBox.Show($"A critical error occurred while loading Objects.xml: \n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
-                Environment.Exit(6666);
+                Error.Throw(err, ErrorSeverity.FatalError, $"A critical error occurred while loading Objects.xml: \n\n{err}", "avant-gardé engine", 79);
             }
+
             catch (FileNotFoundException err)
             {
                 Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent object, or error loading an object. This is most likely because the object doesn't exist yet.", "avant-gardé engine", 9);

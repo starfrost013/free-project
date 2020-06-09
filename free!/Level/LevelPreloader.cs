@@ -66,7 +66,7 @@ namespace Free
                                         CurrentLevel.ID = Convert.ToInt32(XLevelGrandchild.InnerText);
                                         continue;
                                     case "Name": // The name used to identify the level.
-                                        CurrentLevel.NAME = XLevelGrandchild.InnerText;
+                                        CurrentLevel.Name = XLevelGrandchild.InnerText;
                                         continue;
                                     case "BGPath": // The path to the level's background.
                                         CurrentLevel.BGPATH = XLevelGrandchild.InnerText;

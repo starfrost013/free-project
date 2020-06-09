@@ -82,6 +82,7 @@ namespace Free
         public double OBJSPEEDY { get; set; }
         public double OBJX { get; set; }
         public double OBJY { get; set; }
+        public List<ScriptReference> AssociatedScriptPaths { get; set; }
         public virtual bool OBJISPLAYER { get; set; }// new for compatibility purposes
         public virtual double OBJDAMAGE { get; set; }
         public virtual double OBJHEALTH { get; set; }
@@ -89,6 +90,12 @@ namespace Free
         public virtual double OBJLEVELDAMAGE { get; set; }
         public virtual int OBJLIVES { get; set; }
         public virtual AI OBJAI { get; set; }
+
+        public Obj()
+        {
+            AssociatedScriptPaths = new List<ScriptReference>(); 
+        }
+
         public void SetAcceleration(double x, double y) // sets the acceleration
         {
             OBJACCELERATION = x;

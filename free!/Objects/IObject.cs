@@ -80,7 +80,7 @@ namespace Free
         double OBJLEVELDAMAGE { get; set; }
         int OBJLIVES { get; set; }
         AI OBJAI { get; set; }
-
+        List<ScriptReference> AssociatedScriptPaths { get; set; }
         
         void SetAcceleration(double x, double y); // sets the acceleration
 
