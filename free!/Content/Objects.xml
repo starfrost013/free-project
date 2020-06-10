@@ -1,4 +1,4 @@
-<!--If you know what You Say! references, you get a cookie. DM me at @Cosmo224 on Twitter if you get this ;)-->
+<!--If you know what You Say! references, you get a cookie. DM me at @Cosmo224 on Twitter if you get this :)-->
 
 <Objects>
 	<Object id="0" name="TestObject" objimage="Objects\TestObject.png" collision="true" gravity="true" cansnap="true"></Object>

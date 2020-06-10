@@ -463,12 +463,11 @@
     <Resource Include="Content\Weapons\TestWeapon_Ammo_Explode_04.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Emerald\EmeraldGameEngine\Emerald.Utilities\Emerald.Utilities.csproj">
+    <ProjectReference Include="..\Emerald.Utilities\Emerald.Utilities.csproj">
       <Project>{a677eee2-1fbc-4abe-8072-39fe09cd18b6}</Project>
       <Name>Emerald.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>REM Robocopy doesn't use xeit code 0 for success, so Visual Studio and MSBUILD crap out.

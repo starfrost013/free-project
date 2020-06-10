@@ -39,6 +39,11 @@ namespace Free
         public string Name { get; set; } // Name string. 
         public List<object> Value { get; set; } // Contextually interpreted by the command on execution. ScriptReference is passed if not null. 
 
+        public ScriptReferenceRunOnParameter()
+        {
+            Value = new List<object>();
+        }
+
         
     }
 }

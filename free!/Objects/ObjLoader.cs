@@ -184,10 +184,10 @@ namespace Free
                                                 {
                                                     // The event class.
                                                     case "EventClass":
-                                                        SRRO.EventClass = (EventClass)Enum.Parse(typeof(EventClass), XGreatGrandchildNode.InnerText);
+                                                        SRRO.EventClass = (EventClass)Enum.Parse(typeof(EventClass), XGGGrandchildNode.ChildNodes[0].Value); // hack to get around shitty system.xml handling
                                                         continue;
                                                     case "Name":
-                                                        SRRO.Name = XGreatGrandchildNode.InnerText;
+                                                        SRRO.Name = XGGGrandchildNode.ChildNodes[0].Value;
                                                         continue;
                                                     case "Parameter":
                                                         if (!XGGGrandchildNode.HasChildNodes) Error.Throw(null, ErrorSeverity.FatalError, "E89: Attempted to load an empty RunOn parameter! (old format RunOn?)", "Error!", 89);

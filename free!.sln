@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "free!", "free!\free!.csproj", "{AB9A22CA-F99A-4679-ADFE-AC12EEC6E03A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emerald.Utilities", "..\..\Emerald\EmeraldGameEngine\Emerald.Utilities\Emerald.Utilities.csproj", "{A677EEE2-1FBC-4ABE-8072-39FE09CD18B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emerald.Utilities", "Emerald.Utilities\Emerald.Utilities.csproj", "{A677EEE2-1FBC-4ABE-8072-39FE09CD18B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
