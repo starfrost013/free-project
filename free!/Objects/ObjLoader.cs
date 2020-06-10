@@ -48,24 +48,32 @@ namespace Free
                             switch (XmlAttribute.Name)
                             {
                                 case "id":
+                                case "Id":
                                     obj.OBJID = Convert.ToInt32(XmlAttribute.Value); // yeah.
                                     continue;
                                 case "name":
+                                case "Name":
                                     obj.OBJNAME = XmlAttribute.Value;
                                     continue;
                                 case "objimage":
+                                case "ObjImage":
+                                case "ObjectImage":
                                     obj.OBJIMAGEPATH = XmlAttribute.Value;
                                     continue;
                                 case "gravity":
+                                case "Gravity":
                                     obj.OBJGRAV = Convert.ToBoolean(XmlAttribute.Value);
                                     continue;
                                 case "playerdamage":
+                                case "PlayerDamage":
                                     obj.OBJPLAYERDAMAGE = Convert.ToInt32(XmlAttribute.Value);
                                     continue;
                                 case "isplayer":
+                                case "IsPlayer":
                                     obj.OBJPLAYER = Convert.ToBoolean(XmlAttribute.Value);
                                     continue;
                                 case "hitbox":
+                                case "Hitbox":
                                     string XmlValue = XmlAttribute.Value.Trim();
                                     XmlValue = XmlValue.Replace(" ", "");
                                     string[] hitboxpre = XmlValue.Split(',');
@@ -74,10 +82,11 @@ namespace Free
                                     obj.OBJHITBOX.Add(new Point(Convert.ToDouble(hitboxpre[2]), Convert.ToDouble(hitboxpre[3])));
                                     continue;
                                 case "mass": // the mass of the object
+                                case "Mass":
                                     obj.OBJMASS = Convert.ToDouble(XmlAttribute.Value);
                                     continue;
                                 case "priority": //todo: optimize
-
+                                case "Priority":
                                     switch (XmlAttribute.Value)
                                     {
                                         case "invisible":
@@ -122,7 +131,7 @@ namespace Free
                                     obj.OBJCANCOLLIDE = Convert.ToBoolean(XmlAttribute.Value);
                                     continue;
                                 case "issentient":
-                            case "IsSentient":
+                                case "IsSentient":
                                     obj = new SentientBeing(obj, obj.OBJPLAYER, obj.OBJPLAYERDAMAGE, obj.OBJPLAYERHEALTH, obj.OBJPLAYERLEVEL, obj.OBJPLAYERDAMAGE, obj.OBJPLAYERLIVES, obj.OBJINTERNALID); // convert to sentientbeing
                                     continue;
                             }
@@ -139,7 +148,7 @@ namespace Free
                         switch (XGrandchildNode.Name)
                         {
                             // The scripts associated with this node. 
-                            case "AssociatedScripts":
+                            case "AssociatedScript":
 
                                 if (!XGrandchildNode.HasChildNodes) Error.Throw(null, ErrorSeverity.FatalError, "E78: Attempted to load an empty AssociatedScript node!", "Error!", 78);
 
@@ -162,13 +171,14 @@ namespace Free
                                             continue;
                                         case "RunOn":
 
+                                            // What this event runs on. 
                                             if (!XGreatGrandchildNode.HasChildNodes) Error.Throw(null, ErrorSeverity.FatalError, "E88: Attempted to load an empty RunOn with no parameters! (old format RunOn?)", "Error!", 88);
 
                                             ScriptReferenceRunOn SRRO = new ScriptReferenceRunOn();
 
                                             XmlNodeList XGGGrandchildNodes = XGreatGrandchildNode.ChildNodes;
 
-                                            foreach (XmlNode XGGGrandchildNode in XGreatGrandchildNodes)
+                                            foreach (XmlNode XGGGrandchildNode in XGGGrandchildNodes)
                                             {
                                                 switch (XGGGrandchildNode.Name)
                                                 {
