@@ -12,6 +12,7 @@ namespace Free
         public MainWindow MnWindow { get; set; }
         public string Name { get; set; }
         public List<SimpleESXParameter> Parameters { get; set; }
+        public ScriptReference SR { get; set; }
 
         public TestCommand()
         {
@@ -20,8 +21,27 @@ namespace Free
 
         public void GetParameters(List<SimpleESXParameter> Params)
         {
-            
             Parameters = Params;
+        }
+
+        public void SetScriptReference(ScriptReference ScriptRef)
+        {
+            SR = ScriptRef;
+        }
+
+        public bool CheckSatisfiesScriptReference()
+        {
+            if (SR == null) return true; 
+
+            foreach (ScriptReferenceRunOn SRX in SR.RunOnParameters)
+            {
+                if (ScriptReferenceResolver.Resolve(SRX.EventClass, SRX.ReferenceRunOn))
+                {
+                    return true;
+                }
+
+            }
+            return false;
         }
 
         public void Verify()
@@ -34,6 +54,7 @@ namespace Free
 
         public void Execute()
         {
+            if (!CheckSatisfiesScriptReference()) return; 
             MessageBox.Show("It works!"); 
         }
     }
