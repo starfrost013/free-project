@@ -179,8 +179,8 @@ namespace Free
                                                     case "Name":
                                                         SRRO.Name = XGreatGrandchildNode.InnerText;
                                                         continue;
-                                                    case "Parameters":
-                                                        if (!XGGGrandchildNode.HasChildNodes) Error.Throw(null, ErrorSeverity.FatalError, "E88: Attempted to load an empty RunOn parameter! (old format RunOn?)", "Error!", 89);
+                                                    case "Parameter":
+                                                        if (!XGGGrandchildNode.HasChildNodes) Error.Throw(null, ErrorSeverity.FatalError, "E89: Attempted to load an empty RunOn parameter! (old format RunOn?)", "Error!", 89);
 
                                                         XmlNodeList XOhGod = XGGGrandchildNode.ChildNodes;
 
@@ -264,7 +264,10 @@ namespace Free
             {
                 Error.Throw(err, ErrorSeverity.FatalError, $"A critical error occurred while loading Objects.xml: \n\n{err}", "avant-gardé engine", 79);
             }
-
+            catch (ArgumentException err)
+            {
+                Error.Throw(err, ErrorSeverity.FatalError, $"A critical error occurred while loading Objects.xml: Error converting to enum (most likely RunOn)\n\n{err}", "avant-gardé engine", 90);
+            }
             catch (FileNotFoundException err)
             {
                 Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent object, or error loading an object. This is most likely because the object doesn't exist yet.", "avant-gardé engine", 9);
