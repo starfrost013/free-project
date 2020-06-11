@@ -106,7 +106,7 @@ namespace Free
             }
             catch (FormatException err)
             {
-                Error.Throw(null, ErrorSeverity.FatalError, $"Fatal level loading error - error converting between types\n\n{err}", "BootNow! Fatal Error", 83);
+                Error.Throw(null, ErrorSeverity.FatalError, $"Fatal level loading error - error converting between types!\n\n{err}", "BootNow! Fatal Error", 83);
                 return null; 
             }
             catch (FileNotFoundException err)
