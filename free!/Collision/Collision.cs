@@ -295,13 +295,40 @@ namespace Free
         /// <summary>
         /// Tests if the top of obj1's bounding box collides with 2.
         /// </summary>
-        public void TestCollideTop(Obj Obj1, Obj Obj2)
+        public bool TestCollideTop(Obj Obj1, Obj Obj2)
         {
             List<Rect> Rects = Internal_GetObjectBoundingBoxes(Obj1, Obj2);
 
             // Gonna work ons cripting
-            //if (Rects[0].Y > Rects[1].Y && Rects[0])
+            double FX = Rects[1].TopLeft.Y + ((Rects[1].BottomRight.Y - Rects[1].TopLeft.Y) / 2);
+
+            if (Rects[0].TopLeft.Y > Rects[1].TopLeft.Y && Rects[0].TopLeft.Y < Rects[1].TopLeft.Y + FX) 
+            {
+                return true; 
+            }
+            else
+            {
+                return false;
+            }
         }
+
+        public bool TestCollideBottom(Obj Obj1, Obj Obj2)
+        {
+            List<Rect> Rects = Internal_GetObjectBoundingBoxes(Obj1, Obj2);
+
+            // Gonna work ons cripting
+            double FX = Rects[1].TopLeft.Y + ((Rects[1].BottomRight.Y - Rects[1].TopLeft.Y) / 2);
+
+            if (Rects[0].TopLeft.Y > Rects[1].TopLeft.Y + FX && Rects[0].TopLeft.Y < Rects[1].Bottom)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
         private List<Rect> Internal_GetObjectBoundingBoxes(Obj Obj1, Obj Obj2)
         {
