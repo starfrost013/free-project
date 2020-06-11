@@ -64,42 +64,7 @@ namespace Free
                                     rectangle.Fill = new ImageBrush(CurObj.OBJIMAGE);
                                     Game.Children.Add(rectangle);
 
-                                    if (CurObj.OBJHELDWEAPON != null) // weapon drawing
-                                    {
-                                        Rectangle WeaponRectangle = new Rectangle();
-                                        WeaponRectangle.Height = CurObj.OBJHELDWEAPON.WEAPONIMAGE.Height;
-                                        WeaponRectangle.Width = CurObj.OBJHELDWEAPON.WEAPONIMAGE.Width;
-                                        WeaponRectangle.StrokeThickness = 0;
-                                        CurObj.OBJHELDWEAPON.WEAPONPOSITIONX = CurObj.OBJX + CurObj.OBJIMAGE.PixelWidth / 1.33;
-                                        CurObj.OBJHELDWEAPON.WEAPONPOSITIONY = CurObj.OBJY + CurObj.OBJIMAGE.PixelHeight / 2;
-                                        Canvas.SetLeft(WeaponRectangle, CurObj.OBJHELDWEAPON.WEAPONPOSITIONX);
-                                        Canvas.SetTop(WeaponRectangle, CurObj.OBJHELDWEAPON.WEAPONPOSITIONY);
-                                        WeaponRectangle.Fill = new ImageBrush(CurObj.OBJHELDWEAPON.WEAPONIMAGE); // the image.
-                                        Game.Children.Add(WeaponRectangle);
-
-                                        if (CurObj.OBJHELDWEAPON.WEAPONAMMOLIST.Count > 0) // ammo
-                                        {
-                                            for (int j = 0; j < CurObj.OBJHELDWEAPON.WEAPONAMMOLIST.Count; j++)
-                                            {
-                                                Ammo ammo = CurObj.OBJHELDWEAPON.WEAPONAMMOLIST[j];
-                                                if (ammo.X - Scrollbar.HorizontalOffset > 0 - CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelWidth & ammo.X - Scrollbar.HorizontalOffset < this.Width + CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelWidth & ammo.Y - Scrollbar.VerticalOffset > 0 - CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelHeight & ammo.Y - Scrollbar.VerticalOffset < this.Width + CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelHeight)
-                                                {
-                                                    Rectangle AmmoRectangle = new Rectangle();
-                                                    AmmoRectangle.Width = CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.Width;
-                                                    AmmoRectangle.Height = CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.Height;
-                                                    AmmoRectangle.StrokeThickness = 0;
-                                                    Canvas.SetLeft(AmmoRectangle, ammo.X);
-                                                    Canvas.SetTop(AmmoRectangle, ammo.Y);
-                                                    AmmoRectangle.Fill = new ImageBrush(ammo.AMMOIMAGE);
-                                                    Game.Children.Add(AmmoRectangle);
-                                                }
-                                                else
-                                                {
-                                                    CurObj.OBJHELDWEAPON.WEAPONAMMOLIST.RemoveAt(j);
-                                                }
-                                            }
-                                        }
-                                    }
+                                    RenderWeapons(CurObj); 
                                 }
                             }
                         }
@@ -150,6 +115,47 @@ namespace Free
 
             UpdateLayout();
         }
+
+        public void RenderWeapons(IObject CurObj)
+        {
+            if (CurObj.OBJHELDWEAPON != null) // weapon drawing
+            {
+                Rectangle WeaponRectangle = new Rectangle();
+                WeaponRectangle.Height = CurObj.OBJHELDWEAPON.WEAPONIMAGE.Height;
+                WeaponRectangle.Width = CurObj.OBJHELDWEAPON.WEAPONIMAGE.Width;
+                WeaponRectangle.StrokeThickness = 0;
+                CurObj.OBJHELDWEAPON.WEAPONPOSITIONX = CurObj.OBJX + CurObj.OBJIMAGE.PixelWidth / 1.33;
+                CurObj.OBJHELDWEAPON.WEAPONPOSITIONY = CurObj.OBJY + CurObj.OBJIMAGE.PixelHeight / 2;
+                Canvas.SetLeft(WeaponRectangle, CurObj.OBJHELDWEAPON.WEAPONPOSITIONX);
+                Canvas.SetTop(WeaponRectangle, CurObj.OBJHELDWEAPON.WEAPONPOSITIONY);
+                WeaponRectangle.Fill = new ImageBrush(CurObj.OBJHELDWEAPON.WEAPONIMAGE); // the image.
+                Game.Children.Add(WeaponRectangle);
+
+                if (CurObj.OBJHELDWEAPON.WEAPONAMMOLIST.Count > 0) // ammo
+                {
+                    for (int j = 0; j < CurObj.OBJHELDWEAPON.WEAPONAMMOLIST.Count; j++)
+                    {
+                        Ammo ammo = CurObj.OBJHELDWEAPON.WEAPONAMMOLIST[j];
+                        if (ammo.X - Scrollbar.HorizontalOffset > 0 - CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelWidth && ammo.X - Scrollbar.HorizontalOffset < this.Width + CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelWidth && ammo.Y - Scrollbar.VerticalOffset > 0 - CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelHeight & ammo.Y - Scrollbar.VerticalOffset < this.Width + CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelHeight)
+                        {
+                            Rectangle AmmoRectangle = new Rectangle();
+                            AmmoRectangle.Width = CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.Width;
+                            AmmoRectangle.Height = CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.Height;
+                            AmmoRectangle.StrokeThickness = 0;
+                            Canvas.SetLeft(AmmoRectangle, ammo.X);
+                            Canvas.SetTop(AmmoRectangle, ammo.Y);
+                            AmmoRectangle.Fill = new ImageBrush(ammo.AMMOIMAGE);
+                            Game.Children.Add(AmmoRectangle);
+                        }
+                        else
+                        {
+                            CurObj.OBJHELDWEAPON.WEAPONAMMOLIST.RemoveAt(j);
+                        }
+                    }
+                }
+            }
+        }
+
 
         // Engine Version 2.21.1288.2 [Physics code now on its own thread] 
         public void RunPhysics()

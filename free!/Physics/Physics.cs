@@ -51,15 +51,15 @@ namespace Free
                 }
             }
 
-            if (obj.OBJGRAV & obj.OBJCOLLISIONS == 0)
+            if (obj.OBJGRAV && obj.OBJCOLLISIONS == 0)
             {
                 obj.ChgAcceleration(0, Physics.Gravity * obj.OBJMASS);
             }
-            else if (IsSentientBeing(obj) & obj.OBJISJUMPING) // jump physics
+            else if (IsSentientBeing(obj) && obj.OBJISJUMPING) // jump physics
             {
                 obj.ChgAcceleration(0, (Physics.Acceleration * obj.OBJMASS) / (3.1 - obj.JumpIntensity));
 
-                obj.JumpIntensity += 0.0333;
+                if (obj.SpaceHeld) obj.JumpIntensity += 0.0333;
 
                 //TEMP
                 if (obj.JumpIntensity > 1.5) obj.JumpIntensity = 1.5;
@@ -136,7 +136,7 @@ namespace Free
             obj.OBJX += obj.OBJSPEED;
             obj.OBJY += obj.OBJSPEEDY; // when plr is at bottom of level y pos = level bg height
 
-            if (obj.OBJHELDWEAPON != null & obj.OBJPLAYER) // Draws the ammo.
+            if (obj.OBJHELDWEAPON != null && obj.OBJPLAYER) // Draws the ammo.
             {
                 if (obj.OBJHELDWEAPON.WEAPONAMMOLIST.Count != 0) // if ammo is being drawn...
                 {

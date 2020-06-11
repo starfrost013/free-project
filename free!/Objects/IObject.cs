@@ -38,10 +38,10 @@ namespace Free
         bool OBJCANMOVELEFT { get; set; }
         bool OBJCANMOVERIGHT { get; set; }
         bool OBJCANSNAP { get; set; }
-        bool ObjCollidesLeft { get; set; }
-        bool ObjCollidesRight { get; set; }
-        bool ObjCollidesTop { get; set; }
-        bool ObjCollidesBottom { get; set; }
+        bool CollidesLeft { get; set; }
+        bool CollidesRight { get; set; }
+        bool CollidesTop { get; set; }
+        bool CollidesBottom { get; set; }
         int OBJCOLLISIONS { get; set; } // if 0, fall.
         List<IObject> OBJCOLLIDEDOBJECTS { get; set; } //a bad idea? maybe. 
         double OBJDECELERATION { get; set; }
@@ -82,6 +82,7 @@ namespace Free
         AI OBJAI { get; set; }
         List<ScriptReference> AssociatedScriptPaths { get; set; }
         double JumpIntensity { get; set; }
+        bool SpaceHeld { get; set; }
         void SetAcceleration(double x, double y); // sets the acceleration
 
         void ChgAcceleration(double x, double y); // changes the acceleration

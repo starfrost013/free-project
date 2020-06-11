@@ -25,14 +25,12 @@ namespace Free
             InitializeComponent();
             MainWindow = MnWindow; // oh oh
         }
+
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (PleaseEnterLevelBox.Text == "")
-                {
-                    Error.Throw(new Exception(), ErrorSeverity.Warning, "No level ID was entered.", "avant-gardé engine ver 2.5.0/03", 2);
-                }
+                if (PleaseEnterLevelBox.Text == "") Error.Throw(new Exception(), ErrorSeverity.Warning, "No level ID was entered.", "avant-gardé engine ver 2.5.0/03", 2);
 
                 int levelId = Convert.ToInt32(PleaseEnterLevelBox.Text);
 

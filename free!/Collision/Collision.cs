@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Shapes;
 
 /// <summary>
 /// 
@@ -289,7 +290,27 @@ namespace Free
                 }
             }
 
+        }
 
+        /// <summary>
+        /// Tests if the top of obj1's bounding box collides with 2.
+        /// </summary>
+        public void TestCollideTop(Obj Obj1, Obj Obj2)
+        {
+            List<Rect> Rects = Internal_GetObjectBoundingBoxes(Obj1, Obj2);
+
+            // Gonna work ons cripting
+            //if (Rects[0].Y > Rects[1].Y && Rects[0])
+        }
+
+        private List<Rect> Internal_GetObjectBoundingBoxes(Obj Obj1, Obj Obj2)
+        {
+            // fix bad code - obj.Size (point) 
+            List<Rect> Rects = new List<Rect>();
+            Rects.Add(new Rect(new Point(Obj1.OBJX, Obj1.OBJY), new Point(Obj1.OBJX + Obj1.OBJIMAGE.PixelWidth, Obj1.OBJY + Obj1.OBJIMAGE.PixelHeight)));
+            Rects.Add(new Rect(new Point(Obj2.OBJX, Obj2.OBJY), new Point(Obj2.OBJX + Obj2.OBJIMAGE.PixelWidth, Obj2.OBJY + Obj2.OBJIMAGE.PixelHeight)));
+
+            return Rects;
         }
     }
 }

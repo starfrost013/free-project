@@ -68,6 +68,7 @@ namespace Free
                         else if (e.Key == Controls.Jump)
                         {
 
+                            obj.SpaceHeld = true; 
 
                             if (obj.OBJCOLLISIONS > 0 && !e.IsRepeat)
                             {
@@ -106,8 +107,10 @@ namespace Free
                     // LastCtrl is kept here for physcheck
                     if (Object.OBJPLAYER)
                     {
+                        // overhaul this later
                         Object.OBJMOVELEFT = false;
                         Object.OBJMOVERIGHT = false;
+                        Object.SpaceHeld = false;
                         //Object.JumpIntensity = 1;
                         return;
                     }

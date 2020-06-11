@@ -46,10 +46,10 @@ namespace Free
         public bool OBJCANMOVELEFT { get; set; }
         public bool OBJCANMOVERIGHT { get; set; }
         public bool OBJCANSNAP { get; set; }
-        public bool ObjCollidesLeft { get; set; }
-        public bool ObjCollidesRight { get; set; }
-        public bool ObjCollidesTop { get; set; }
-        public bool ObjCollidesBottom { get; set; }
+        public bool CollidesLeft { get; set; }
+        public bool CollidesRight { get; set; }
+        public bool CollidesTop { get; set; }
+        public bool CollidesBottom { get; set; }
         public int OBJCOLLISIONS { get; set; } // if 0, fall.
         public List<IObject> OBJCOLLIDEDOBJECTS { get; set; } //a bad idea? maybe. 
         public double OBJDECELERATION { get; set; }
@@ -70,7 +70,7 @@ namespace Free
         public bool OBJMOVEUP { get; set; }
         public bool OBJMOVEDOWN { get; set; }
         public string OBJNAME { get; set; }
-        public bool OBJJUMP { get; set; }
+        public bool SpaceHeld { get; set; }
         public bool OBJPLAYER { get; set; }
         public int OBJPLAYERDAMAGE { get; set; } // default -1;
         public int OBJPLAYERHEALTH { get; set; }

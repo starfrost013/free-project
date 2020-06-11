@@ -35,6 +35,7 @@ namespace Free
         public enum GameState { Init = 0, Menu, Loading, Game, Pause, Options, EditMode, Exiting }
         public Timer GameTickTimer { get; set; }
         public Timer PhysicsTimer { get; set; }
+        public Timer MainLoopTimer { get; set; }
         public List<Interaction> InteractionList { get; set; }
         public List<IObject> ObjectList { get; set; } // might need to change this
         public List<Animation> NonObjAnimList { get; set; }
@@ -62,6 +63,17 @@ namespace Free
                 Window_ContentRendered(this, new EventArgs());
                 return;
             });
+        }
+
+        public void MainLoop(object sender, EventArgs e)
+        {
+            foreach (IObject Object in currentlevel.OBJLAYOUT)
+            {
+                HandlePhys(Object);
+                if (Object.OBJCANCOLLIDE != false) HandleCollision(Object);
+                HandleAnimations(Object); 
+                HandleAI(Object);
+            }
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e) // handles stuff like controls? maybe?
