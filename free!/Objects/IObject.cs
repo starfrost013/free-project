@@ -81,7 +81,7 @@ namespace Free
         int OBJLIVES { get; set; }
         AI OBJAI { get; set; }
         List<ScriptReference> AssociatedScriptPaths { get; set; }
-        
+        double JumpIntensity { get; set; }
         void SetAcceleration(double x, double y); // sets the acceleration
 
         void ChgAcceleration(double x, double y); // changes the acceleration

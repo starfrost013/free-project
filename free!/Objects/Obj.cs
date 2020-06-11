@@ -83,6 +83,7 @@ namespace Free
         public double OBJX { get; set; }
         public double OBJY { get; set; }
         public List<ScriptReference> AssociatedScriptPaths { get; set; }
+        public double JumpIntensity { get; set; } // Jumping intensity.
         public virtual bool OBJISPLAYER { get; set; }// new for compatibility purposes
         public virtual double OBJDAMAGE { get; set; }
         public virtual double OBJHEALTH { get; set; }

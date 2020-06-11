@@ -24,7 +24,7 @@ using System.Windows.Shapes;
 /// 
 /// Purpose: Controls the physics and collision
 /// 
-/// Version: 1.55
+/// Version: 1.60 [bringup-2.21.1352.0 v1.55 → v1.60 make it slightly less shit, implement jumpintensity]
 /// 
 /// </summary>
 
@@ -51,13 +51,13 @@ namespace Free
                 }
             }
 
-            if (obj.OBJGRAV == true & obj.OBJCOLLISIONS == 0)
+            if (obj.OBJGRAV & obj.OBJCOLLISIONS == 0)
             {
                 obj.ChgAcceleration(0, Physics.Gravity * obj.OBJMASS);
             }
-            else if (IsSentientBeing(obj) & obj.OBJISJUMPING == true) // jump physics
+            else if (IsSentientBeing(obj) & obj.OBJISJUMPING) // jump physics
             {
-                obj.ChgAcceleration(0, (Physics.Acceleration * obj.OBJMASS) / 1.7);
+                obj.ChgAcceleration(0, (Physics.Acceleration * obj.OBJMASS) / (2 - obj.JumpIntensity));
 
                 if (obj.OBJACCELERATIONY > 1) // if we're coming down from a jump, set the jumping to false
                 {

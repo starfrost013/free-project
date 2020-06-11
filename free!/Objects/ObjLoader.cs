@@ -233,6 +233,8 @@ namespace Free
 
                     //set default values if null
 
+                    obj.JumpIntensity = 1;
+
                     if (obj.OBJMASS == 0.0)
                     {
                         obj.OBJMASS = 1;
@@ -251,7 +253,6 @@ namespace Free
                     if (obj.OBJCANCOLLIDE == null)
                     {
                         obj.OBJCANCOLLIDE = true;
-                        //obj.OBJCANCOLLIDE = (bool)obj.OBJCANCOLLIDE; // bool? to bool
                     }
 
                     if (obj.OBJPLAYERHEALTH == 0 && obj.OBJPLAYER)

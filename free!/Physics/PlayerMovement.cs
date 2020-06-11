@@ -20,9 +20,9 @@ using System.Windows.Shapes;
 /// 
 /// Created: 2019-11-03
 /// 
-/// Modified: 2019-12-22
+/// Modified: 2020-06-11 [bringup-2.21.1352.0 v7.50 → v7.60: Implement JumpIntensity.]
 /// 
-/// Version: 7.50
+/// Version: 7.60 [Needs rewrite]
 /// 
 /// Purpose: Handles player movement.
 /// 
@@ -42,7 +42,7 @@ namespace Free
             {
                 IObject obj = currentlevel.OBJLAYOUT[i];
 
-                if (obj.OBJISPLAYER == true) 
+                if (obj.OBJISPLAYER) 
                 {   
                     if (Gamestate == GameState.Game) // if the game isn't paused.
                     {
@@ -64,11 +64,22 @@ namespace Free
                                 Window_ContentRendered(this, new EventArgs()); // re-render the canvas.
                             }
                         }
+                        // This is real bad code, fix it, In fact this whole file needs rewriting.
                         else if (e.Key == Controls.Jump)
                         {
-                            if (!obj.OBJISJUMPING & obj.OBJCOLLISIONS > 0 && !e.IsRepeat)
+                            if (obj.OBJISJUMPING)
                             {
-                                obj.Jump(); 
+                                obj.JumpIntensity += 0.02;
+
+                                //TEMP
+                                if (obj.JumpIntensity > 1.5) obj.JumpIntensity = 1;
+                                return; 
+                            }
+
+                            if (obj.OBJCOLLISIONS > 0 && !e.IsRepeat)
+                            {
+                                obj.Jump();
+                                
                             }
 
                             Window_ContentRendered(this, new EventArgs());
@@ -104,6 +115,7 @@ namespace Free
                     {
                         Object.OBJMOVELEFT = false;
                         Object.OBJMOVERIGHT = false;
+                        Object.JumpIntensity = 1;
                         return;
                     }
                 }

@@ -17,6 +17,9 @@ namespace Free
     {
         public void SetFullscreen()
         {
+
+            if (currentlevel == null) return; 
+
             switch (FullScreen)
             {
                 case false:
@@ -26,12 +29,6 @@ namespace Free
                     Scrollbar.Width = this.Width;
                     Scrollbar.Height = this.Height;
 
-                    if (Gamestate != GameState.Game && Gamestate != GameState.Pause)
-                    {
-                        Game.Width = currentlevel.Size.X;
-                        Game.Height = currentlevel.Size.Y;
-                    }
-
                     return;
                 case true:
                     FullScreen = false;
@@ -39,12 +36,6 @@ namespace Free
                     this.WindowState = WindowState.Normal;
                     Scrollbar.Width = this.Width;
                     Scrollbar.Height = this.Height;
-
-                    if (Gamestate != GameState.Game && Gamestate != GameState.Pause)
-                    {
-                        Game.Width = currentlevel.Size.X;
-                        Game.Height = currentlevel.Size.Y;
-                    }
 
                     return;
             }
