@@ -9,11 +9,12 @@ namespace Free
 {
     public class SimpleESXScript
     {
+        public EventClass RunOnEvent { get; set; } // Loaded from ScriptReference.
         public string Name { get; set; }
         public string Path { get; set; }
         public List<SimpleESXCommand> SEXCommands { get; set; }
         public List<string> SEXLines { get; set; }
-
+        public bool Loaded { get; set; }
         public SimpleESXScript()
         {
             SEXCommands = new List<SimpleESXCommand>();
@@ -122,6 +123,10 @@ namespace Free
                     SEXCommands.Add(CurCommand);
                 }
             }
+
+            // THe script has now loaded
+            Loaded = true;
+            return; 
         }
 
         public void ExecuteScript()
@@ -133,6 +138,11 @@ namespace Free
                 SEXCommand.CommandExecutor.Execute();
             }
         }
-        
+
+        public void SetScriptClass(ScriptReferenceRunOn SR)
+        {
+            RunOnEvent = SR.EventClass;
+            return;
+        }
     }
 }

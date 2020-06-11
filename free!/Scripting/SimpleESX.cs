@@ -151,9 +151,19 @@ namespace Free
         /// Executes all SimpleESX (SEX/SESX) scripts of a specific ESX/Lua CommandClass.
         /// </summary>
         /// <param name="CmdClass">The command class to execute the scripts of.</param>
-        public void ExecuteAllScriptsOfType(CommandClass CmdClass)
+        public void ExecuteAllScriptsOfType(EventClass EVTClass)
         {
-            
+            foreach (SimpleESXScript SESXScript in LoadedScripts)
+            {
+                // Is the script loaded and parsed?
+                if (SESXScript.Loaded)
+                {
+                    if (SESXScript.RunOnEvent == EVTClass)
+                    {
+                        SESXScript.ExecuteScript(); 
+                    } 
+                }
+            }
         }
 
         /// <summary>
@@ -184,6 +194,7 @@ namespace Free
                 }
             }
         }
+
     }
 
     public class CommandClass
