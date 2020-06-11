@@ -67,14 +67,7 @@ namespace Free
                         // This is real bad code, fix it, In fact this whole file needs rewriting.
                         else if (e.Key == Controls.Jump)
                         {
-                            if (obj.OBJISJUMPING)
-                            {
-                                obj.JumpIntensity += 0.02;
 
-                                //TEMP
-                                if (obj.JumpIntensity > 1.5) obj.JumpIntensity = 1;
-                                return; 
-                            }
 
                             if (obj.OBJCOLLISIONS > 0 && !e.IsRepeat)
                             {
@@ -115,7 +108,7 @@ namespace Free
                     {
                         Object.OBJMOVELEFT = false;
                         Object.OBJMOVERIGHT = false;
-                        Object.JumpIntensity = 1;
+                        //Object.JumpIntensity = 1;
                         return;
                     }
                 }

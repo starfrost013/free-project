@@ -57,11 +57,17 @@ namespace Free
             }
             else if (IsSentientBeing(obj) & obj.OBJISJUMPING) // jump physics
             {
-                obj.ChgAcceleration(0, (Physics.Acceleration * obj.OBJMASS) / (2 - obj.JumpIntensity));
+                obj.ChgAcceleration(0, (Physics.Acceleration * obj.OBJMASS) / (3.1 - obj.JumpIntensity));
+
+                obj.JumpIntensity += 0.0333;
+
+                //TEMP
+                if (obj.JumpIntensity > 1.5) obj.JumpIntensity = 1.5;
 
                 if (obj.OBJACCELERATIONY > 1) // if we're coming down from a jump, set the jumping to false
                 {
                     obj.OBJISJUMPING = false;
+                    obj.JumpIntensity = 1;
                 }
             }
 
