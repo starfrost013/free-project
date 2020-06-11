@@ -329,7 +329,6 @@ namespace Free
             }
         }
 
-
         private List<Rect> Internal_GetObjectBoundingBoxes(Obj Obj1, Obj Obj2)
         {
             // fix bad code - obj.Size (point) 
