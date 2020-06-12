@@ -99,7 +99,7 @@ namespace Free
                             }
                         }
 
-                        if (Objx.OBJPLAYER == true)
+                        if (Objx.OBJPLAYER)
                         {
                             if (currentlevel.PlayerStartPosition.X == 0 || currentlevel.PlayerStartPosition.Y == 0) // default
                             {
@@ -111,7 +111,15 @@ namespace Free
                                 Objx.OBJY = currentlevel.PlayerStartPosition.Y;
                             }
                         }
-                       
+
+
+                        
+
+                        if (Objx.OBJANIMATIONS.Count == 0)
+                        {
+                            if (Objx.OBJIMAGE.CanFreeze) Objx.OBJIMAGE.Freeze();
+                        }
+
                         currentlevel.OBJLAYOUT.Add(Objx);
                         currentIntId++;
                     }

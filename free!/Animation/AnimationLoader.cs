@@ -12,12 +12,12 @@ using System.Windows.Media.Imaging;
 /// 
 /// Created: 2019-11-22
 /// 
-/// Modified: 2019-11-22
+/// Modified: 2020-06-13
 /// 
-/// Version: 1.00
+/// Version: 1.10
 /// 
-/// Free Version: 0.08+ (Engine Ver 2.8.0/05)
-/// 
+/// Free Version: bringup-2.21.1361.46+ [v1.00 → v1.10 2020/06/13: Freeze objects for optimisation purposes]
+///  
 /// Purpose: Loads the animation list for every object in the game.
 /// 
 /// </summary>
@@ -61,10 +61,12 @@ namespace Free
                                 continue;
                         }
                     }
+
                     if (!XmlNode.HasChildNodes)
                     {
                         Error.Throw(new Exception($"Attempted to load nonexistent animation for object ID {objId} and type {Animation.animationType}"), ErrorSeverity.FatalError, "Cannot load an empty animation.", "avant-gardé engine", 14);
                     }
+
                     XmlNodeList XmlNode_C = XmlNode.ChildNodes;
                     foreach (XmlNode XmlNode_Cc in XmlNode_C)
                     {
@@ -104,15 +106,6 @@ namespace Free
                     }
 
                     //Freeze the object to increase performance if we do not have animations.
-
-                    //WARNING HACK
-
-                    IGameObject Iobj = ObjectList[(int)objId];
-
-                    if (Iobj.OBJANIMATIONS.Count == 0)
-                    {
-                        if (Iobj.OBJIMAGE.CanFreeze) Iobj.OBJIMAGE.Freeze();
-                    }
 
                     //added
 
