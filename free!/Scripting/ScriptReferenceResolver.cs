@@ -8,7 +8,9 @@ namespace Free
 {
 
     /// <summary>
-    /// Interface to implement script reference resolving for classes so we can verify for event classes. Potentially make an interface later
+    /// Interface to implement script reference resolving for classes so we can verify for event classes. Potentially make an interface later.
+    /// 
+    /// Call this which checks this for playersatcertainpositio when the player first reaches this certain position and then mark the script as run. 
     /// </summary>
     public static class ScriptReferenceResolver
     {

@@ -23,6 +23,7 @@ namespace Free
 
         public SimpleESX()
         {
+            LoadedScripts = new List<SimpleESXScript>(); 
             ReflectionMetadata = new List<SimpleESXCommand>();
             Stack = new List<SimpleESXScript>();
         }
@@ -149,7 +150,8 @@ namespace Free
 
                 foreach (ScriptReference SR in LevelObject.AssociatedScriptPaths)
                 {
-                    LoadScript(SR.Path);
+                    SimpleESXScript SESX = LoadScript(SR.Path);
+                    SESX.SetScriptClass(SR.RunOnParameters[0]); // Thank you have a nice day
                 }
             }
         }
@@ -161,13 +163,14 @@ namespace Free
             ScriptContext = null; // we are not running a script.
         }
 
-        public void LoadScript(string ScriptPath)
+        public SimpleESXScript LoadScript(string ScriptPath)
         {
             SimpleESXScript SEXScript = new SimpleESXScript();
             SEXScript.LoadScript(ScriptPath);
             SEXScript.ParseScript();
             ScriptContext = SEXScript;
             LoadedScripts.Add(SEXScript);
+            return SEXScript;
         }
 
         /// <summary>

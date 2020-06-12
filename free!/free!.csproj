@@ -132,6 +132,7 @@
     <Compile Include="Scripting\ICommandExecutor.cs" />
     <Compile Include="Scripting\ScriptReference.cs" />
     <Compile Include="Scripting\ScriptReferenceResolver.cs" />
+    <Compile Include="Scripting\ScriptReturnValue.cs" />
     <Compile Include="Scripting\SimpleESX.Command.cs" />
     <Compile Include="Scripting\SimpleESX.cs" />
     <Compile Include="Scripting\SimpleESX.Parameter.cs" />
@@ -217,6 +218,7 @@
     <None Include="Content\Game\GameOver.pdn" />
     <None Include="Content\Game\lessurgent.pdn" />
     <None Include="Content\Game\LoadingTemplate.pdn" />
+    <None Include="Content\Game\Scripts\PlayerCore.esx" />
     <None Include="Content\Game\Title.pdn" />
     <None Include="Content\Game\TitleV2.pdn" />
     <None Include="Content\Game\urgent.pdn" />
@@ -471,7 +473,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>REM Robocopy doesn't use xeit code 0 for success, so Visual Studio and MSBUILD crap out.
+    <PostBuildEvent>REM Robocopy doesn't use exit code 0 for success, so Visual Studio and MSBUILD crap out.
 
 echo Copying content files...We will be moving all files to \Content\ in the near future...
 echo.
@@ -480,6 +482,7 @@ del /S /Q .\Content\*.*
 rd /S /Q .\Content\
 md Content
 IF NOT EXIST .\Content\Game md .\Content\Game
-copy .\Game\Placeholder.png .\Content\Game\Placeholder.png</PostBuildEvent>
+copy .\Game\Placeholder.png .\Content\Game\Placeholder.png
+</PostBuildEvent>
   </PropertyGroup>
 </Project>

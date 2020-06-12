@@ -8,7 +8,10 @@ namespace Free
 {
     public interface ICommandExecutor
     {
-        MainWindow MnWindow { get; set;  }// This is ugly, but it works. Eventually we'll have a Good2ShitCodeService redirector 
+
+        bool ScriptRan { get; set; } // RunOnce
+        bool ScriptRunOnce { get; set; } // Does the script run once?
+        MainWindow MnWindow { get; set; }// This is ugly, but it works. Eventually we'll have a Good2ShitCodeService redirector 
         string Name { get; set; }
         List<SimpleESXParameter> Parameters { get; set; }
         ScriptReference SR { get; set; }

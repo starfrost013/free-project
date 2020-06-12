@@ -135,7 +135,7 @@ namespace Free
             {
                 SEXCommand.CommandExecutor.GetParameters(SEXCommand.UserParameters); 
                 SEXCommand.CommandExecutor.Verify();
-                SEXCommand.CommandExecutor.Execute();
+                SEXCommand.CommandExecutor.Execute(); // ADD COMMAND RETURN VALUES...
             }
         }
 

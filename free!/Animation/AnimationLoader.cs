@@ -74,12 +74,17 @@ namespace Free
 
                             foreach (XmlAttribute XmlNode_CcAttribute in XmlNode_CcAttributes)
                             {
-                                switch (XmlNode_CcAttribute.Name) {
+                                switch (XmlNode_CcAttribute.Name)
+                                {
+                                    case "Image":
                                     case "image":  // load the image
                                         WriteableBitmap AnimFrame = new WriteableBitmap(BitmapFactory.FromStream(new FileStream(XmlNode_CcAttribute.Value, FileMode.Open)));
 
                                         Animation.animImages.Add(AnimFrame);
                                         continue;
+                                    case "Dispms":
+                                    case "DisplayMs":
+                                    case "DisplayMilliseconds":
                                     case "dispms":
                                         Animation.numMs.Add(Convert.ToInt32(XmlNode_CcAttribute.Value));
                                         continue;
@@ -89,12 +94,24 @@ namespace Free
                         }
                     }
 
-                    foreach (Obj obj in ObjectList) //add the anim to the object
+
+                    foreach (IGameObject obj in ObjectList) //add the anim to the object
                     {
-                        if (obj.OBJID == objId & obj.OBJID != -1) // -1 = "no object"
+                        if (obj.OBJID == objId && obj.OBJID != -1) // -1 = "no object"
                         {
                             obj.OBJANIMATIONS.Add(Animation);
                         }
+                    }
+
+                    //Freeze the object to increase performance if we do not have animations.
+
+                    //WARNING HACK
+
+                    IGameObject Iobj = ObjectList[(int)objId];
+
+                    if (Iobj.OBJANIMATIONS.Count == 0)
+                    {
+                        if (Iobj.OBJIMAGE.CanFreeze) Iobj.OBJIMAGE.Freeze();
                     }
 
                     //added

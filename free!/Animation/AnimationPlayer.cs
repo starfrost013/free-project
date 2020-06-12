@@ -45,6 +45,7 @@ namespace Free
                 if (animation.animationType == anim)
                 {
                     WriteableBitmap OriginalImage = new WriteableBitmap(obj.OBJIMAGE);
+
                     if (obj.OBJANIMNUMBER == 0)
                     {
                         OriginalImage = obj.OBJIMAGE;

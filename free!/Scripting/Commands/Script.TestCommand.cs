@@ -13,7 +13,8 @@ namespace Free
         public string Name { get; set; }
         public List<SimpleESXParameter> Parameters { get; set; }
         public ScriptReference SR { get; set; }
-
+        public bool ScriptRan { get; set; }
+        public bool ScriptRunOnce { get; set; }
         public TestCommand()
         {
             Parameters = new List<SimpleESXParameter>();

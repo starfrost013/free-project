@@ -5,7 +5,7 @@
 	<Object id="1" name="Trincid" objimage="Objects\Player\TrincidStanding.png" gravity="true" hitbox="8,45,33,63" collision="true" isplayer="true" mass="1" issentient="true">
     <AssociatedScript>
     <Name>Player Core Script</Name>
-    <Path>Content\Game\Scripts\PlayerCore.esx</Path>
+    <Path>Game\Scripts\PlayerCore.esx</Path>
 			<RunOn>
 				<EventClass>EveryFrame</EventClass>
 				<Name>RunNow</Name>
