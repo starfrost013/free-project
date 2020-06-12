@@ -19,6 +19,6 @@ namespace Free
         void GetParameters(List<SimpleESXParameter> Params);
         void SetScriptReference(ScriptReference SR);
         void Verify();
-        void Execute();
+        ScriptReturnValue Execute();
     }
 }

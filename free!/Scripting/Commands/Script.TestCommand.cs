@@ -54,10 +54,11 @@ namespace Free
             }
         }
 
-        public void Execute()
+        public ScriptReturnValue Execute()
         {
-            if (!CheckSatisfiesScriptReference()) return; 
-            MessageBox.Show("It works!"); 
+            if (!CheckSatisfiesScriptReference()) return new ScriptReturnValue { ReturnCode = 1, ReturnInformation = "Script reference information unsatisfied" }; 
+            MessageBox.Show("It works!");
+            return new ScriptReturnValue { ReturnCode = 0, ReturnInformation = "Execution successful." };
         }
     }
 }

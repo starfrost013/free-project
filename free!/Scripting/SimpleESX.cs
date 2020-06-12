@@ -208,13 +208,16 @@ namespace Free
             }
         }
 
+        /// <summary>
+        /// Executes the current ScriptContext.
+        /// </summary>
         public void ExecuteCurrentScript()
         {
             ScriptContext.ExecuteScript();
         }
 
         /// <summary>
-        /// Sets the current script. It must be loaded,.
+        /// Sets the current script. It must be loaded first.
         /// </summary>
         /// <param name="ScriptName"></param>
         public void SetCurrentScript(string ScriptName)
@@ -231,6 +234,9 @@ namespace Free
 
     }
 
+    /// <summary>
+    /// Command type class.
+    /// </summary>
     public class CommandClass
     {
         public EventClass TriggerOnEvent { get; set; }

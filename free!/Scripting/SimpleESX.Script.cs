@@ -128,14 +128,38 @@ namespace Free
             Loaded = true;
             return; 
         }
-
+        
+        /// <summary>
+        /// Execute this command.
+        /// </summary>
         public void ExecuteScript()
         {
-            foreach (SimpleESXCommand SEXCommand in SEXCommands)
+            for (int i = 0; i < SEXCommands.Count; i++)
             {
+                SimpleESXCommand SEXCommand = SEXCommands[i];
+
+                // Get the command executor for this command.
                 SEXCommand.CommandExecutor.GetParameters(SEXCommand.UserParameters); 
+                
+                // Verify the parameters, etc.
+
                 SEXCommand.CommandExecutor.Verify();
-                SEXCommand.CommandExecutor.Execute(); // ADD COMMAND RETURN VALUES...
+                
+                // Execute the command.
+                ScriptReturnValue SRV = SEXCommand.CommandExecutor.Execute(); // ADD COMMAND RETURN VALUES...
+
+                // An error occurred - nonzero return value
+                if (SRV.ReturnCode != 0)
+                {
+                    if (SRV.ReturnInformation != null)
+                    {
+                        ScriptError.Throw($"An error occurred executing the command {SEXCommand.CommandName}.", 8, i + 1, Path);
+                    }
+                    else
+                    {
+                        ScriptError.Throw($"An error occurred executing the command {SEXCommand.CommandName}:\n\n{SRV.ReturnInformation}.", 9, i + 1, Path);
+                    }
+                }
             }
         }
 
