@@ -35,7 +35,7 @@ namespace Free
 
     public enum Priority { Invisible=0, Background1, Background2, Low, Medium, High} //tiles/objects use Medium priority by default.
 
-    public class Obj : IObject
+    public class Obj : IGameObject
     {
         public double OBJACCELERATION { get; set; } // Newton would be ashamed.
         public double OBJACCELERATIONY { get; set; }
@@ -51,7 +51,7 @@ namespace Free
         public bool CollidesTop { get; set; }
         public bool CollidesBottom { get; set; }
         public int OBJCOLLISIONS { get; set; } // if 0, fall.
-        public List<IObject> OBJCOLLIDEDOBJECTS { get; set; } //a bad idea? maybe. 
+        public List<IGameObject> OBJCOLLIDEDOBJECTS { get; set; } //a bad idea? maybe. 
         public double OBJDECELERATION { get; set; }
         public double OBJDECELERATIONY { get; set; }
         public double OBJFORCE { get; set; }

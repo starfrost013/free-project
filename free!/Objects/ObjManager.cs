@@ -22,9 +22,9 @@ namespace Free
 {
     partial class MainWindow //move to its own class maybe?
     {
-        public void DeleteObj(IObject objToDel, int int2id) // Deletes an object from the level layout.
+        public void DeleteObj(IGameObject objToDel, int int2id) // Deletes an object from the level layout.
         {
-            foreach (IObject Obj in currentlevel.OBJLAYOUT)
+            foreach (IGameObject Obj in currentlevel.OBJLAYOUT)
             {
                 if (Obj == objToDel)
                 {

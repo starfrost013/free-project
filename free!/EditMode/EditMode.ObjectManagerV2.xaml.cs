@@ -66,7 +66,7 @@ namespace Free
                 }
 
                 // EWW!! WHY DOES THIS CODE EXIST! IT IS VERY UGLY AND RETARDED! USE THE OBJ FOR GOD SAKE!
-                foreach (IObject obj in MnWindow.ObjectList)
+                foreach (IGameObject obj in MnWindow.ObjectList)
                 {
                     if (obj.OBJID == ObjNameList.SelectedIndex)
                     {
@@ -88,7 +88,7 @@ namespace Free
                         objx.OBJPRIORITY = obj.OBJPRIORITY;
                         objx.OBJCANSNAP = obj.OBJCANSNAP;
                         objx.OBJAI = obj.OBJAI;
-                        objx.OBJCOLLIDEDOBJECTS = new List<IObject>(); // yeah.
+                        objx.OBJCOLLIDEDOBJECTS = new List<IGameObject>(); // yeah.
                         objx.OBJX = MainWindow.RoundNearest(Convert.ToDouble(XPosBox.Text), objx.OBJIMAGE.PixelWidth / 2);
                         objx.OBJY = MainWindow.RoundNearest(Convert.ToDouble(YPosBox.Text), objx.OBJIMAGE.PixelHeight / 2);
                         XPosBox.Text = objx.OBJX.ToString();

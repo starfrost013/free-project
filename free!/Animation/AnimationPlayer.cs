@@ -9,7 +9,7 @@ namespace Free
 {
     public partial class MainWindow
     {
-        public void HandleAnimations(IObject obj)
+        public void HandleAnimations(IGameObject obj)
         {
             foreach (Animation animation in obj.OBJANIMATIONS)
             {

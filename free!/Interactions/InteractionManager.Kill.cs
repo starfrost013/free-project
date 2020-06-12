@@ -8,7 +8,7 @@ namespace Free
 {
     partial class MainWindow
     {
-        public IObject Interaction_Kill(IObject obj)
+        public IGameObject Interaction_Kill(IGameObject obj)
         {
             obj.OBJPLAYERHEALTH = 0;
             return obj;

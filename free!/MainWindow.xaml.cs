@@ -37,7 +37,7 @@ namespace Free
         public Timer PhysicsTimer { get; set; }
         public Timer MainLoopTimer { get; set; }
         public List<Interaction> InteractionList { get; set; }
-        public List<IObject> ObjectList { get; set; } // might need to change this
+        public List<IGameObject> ObjectList { get; set; } // might need to change this
         public List<Animation> NonObjAnimList { get; set; }
         public List<AGTextBlock> TextList { get; set; }
         public List<Weapon> WeaponList { get; set; }
@@ -67,7 +67,7 @@ namespace Free
 
         public void MainLoop(object sender, EventArgs e)
         {
-            foreach (IObject Object in currentlevel.OBJLAYOUT)
+            foreach (IGameObject Object in currentlevel.OBJLAYOUT)
             {
                 HandlePhys(Object);
                 if (Object.OBJCANCOLLIDE != false) HandleCollision(Object);

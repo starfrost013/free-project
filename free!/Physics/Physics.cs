@@ -32,7 +32,7 @@ namespace Free
 {
     partial class MainWindow
     {
-        public IObject HandlePhys(IObject obj)
+        public IGameObject HandlePhys(IGameObject obj)
         {
 
             obj.OBJACCELERATION /= Physics.Friction + 1;

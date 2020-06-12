@@ -29,7 +29,7 @@ namespace Free
         public override double OBJLEVELDAMAGE { get; set; }
         public override int OBJLIVES { get; set; }
         public override AI OBJAI { get; set; } // eww
-        public SentientBeing(IObject obj, bool ObjIsPlayer, double PlayerDamage, double BeingHealth, double BeingLevel, double BeingLevelDamage, int BeingLives, int currentIntId)
+        public SentientBeing(IGameObject obj, bool ObjIsPlayer, double PlayerDamage, double BeingHealth, double BeingLevel, double BeingLevelDamage, int BeingLives, int currentIntId)
         {
             this.OBJANIMATIONS = obj.OBJANIMATIONS;
             this.OBJINTERNALID = obj.OBJINTERNALID;
@@ -46,7 +46,7 @@ namespace Free
             this.OBJPRIORITY = obj.OBJPRIORITY;
             this.OBJCANCOLLIDE = obj.OBJCANCOLLIDE;
             this.OBJCANSNAP = obj.OBJCANSNAP;
-            this.OBJCOLLIDEDOBJECTS = new List<IObject>(); 
+            this.OBJCOLLIDEDOBJECTS = new List<IGameObject>(); 
             this.OBJX = obj.OBJX;
             this.OBJY = obj.OBJY;
             this.OBJAI = obj.OBJAI;

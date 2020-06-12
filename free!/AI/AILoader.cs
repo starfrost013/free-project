@@ -59,7 +59,7 @@ namespace Free
                                             continue;
                                     }
                                 }
-                                foreach (IObject Obj in ObjectList)
+                                foreach (IGameObject Obj in ObjectList)
                                 {
                                     if (AI.Obj1Id == Obj.OBJID & IsSentientBeing(Obj))// assign the aitype
                                     {

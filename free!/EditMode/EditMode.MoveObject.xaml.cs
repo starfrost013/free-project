@@ -20,8 +20,8 @@ namespace Free
     public partial class MoveObj : Window
     {
         public MainWindow MnWindow { get; set; }
-        public IObject objectToEdit { get; set; }
-        public MoveObj(MainWindow MainWindow, IObject objToEdit)
+        public IGameObject objectToEdit { get; set; }
+        public MoveObj(MainWindow MainWindow, IGameObject objToEdit)
         {
             InitializeComponent();
             MnWindow = MainWindow;

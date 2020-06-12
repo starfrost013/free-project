@@ -8,7 +8,7 @@ namespace Free
 {
     public partial class MainWindow
     {
-        public void Interaction_Remove(IObject obj, Interaction interaction)
+        public void Interaction_Remove(IGameObject obj, Interaction interaction)
         {
             obj.OBJCOLLISIONS--;
             obj.OBJCOLLIDEDOBJECTS.Remove(obj);

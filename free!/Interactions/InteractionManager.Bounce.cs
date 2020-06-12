@@ -8,7 +8,7 @@ namespace Free
 {
     partial class MainWindow
     {
-        public void Interaction_Bounce(IObject obj)
+        public void Interaction_Bounce(IGameObject obj)
         {
             // Wow this is an ugly hack and we need to get rid of it.
             obj.OBJY -= 10;

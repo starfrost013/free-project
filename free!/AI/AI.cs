@@ -32,9 +32,9 @@ namespace Free
 
     public partial class MainWindow 
     {
-        public void HandleAI(IObject obj)
+        public void HandleAI(IGameObject obj)
         {
-            foreach (IObject obj2 in currentlevel.OBJLAYOUT)
+            foreach (IGameObject obj2 in currentlevel.OBJLAYOUT)
             {
                 //HandleAI
                 if (IsSentientBeing(obj) & obj.OBJAI != null)

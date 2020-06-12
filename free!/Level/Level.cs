@@ -27,7 +27,7 @@ namespace Free
         public string MUSICPATH { get; set; }
         public MediaPlayer MUSICPLAYER { get; set; }
         public string Name { get; set; }
-        public List<IObject> OBJLAYOUT { get; set; } // 2do: load this in this class. (0.01X)
+        public List<IGameObject> OBJLAYOUT { get; set; } // 2do: load this in this class. (0.01X)
         public string OBJLAYOUTPATH { get; set; }
         public double? PLRKILLY { get; set; } 
         public Point PlayerStartPosition { get; set; }
@@ -35,7 +35,7 @@ namespace Free
         public Point Size { get; set; }
         public Level()
         {
-            this.OBJLAYOUT = new List<IObject>();
+            this.OBJLAYOUT = new List<IGameObject>();
         }
     }
 }

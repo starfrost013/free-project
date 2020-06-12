@@ -40,7 +40,7 @@ namespace Free
         {
             for (int i = 0; i < currentlevel.OBJLAYOUT.Count; i++)
             {
-                IObject obj = currentlevel.OBJLAYOUT[i];
+                IGameObject obj = currentlevel.OBJLAYOUT[i];
 
                 if (obj.OBJISPLAYER) 
                 {   

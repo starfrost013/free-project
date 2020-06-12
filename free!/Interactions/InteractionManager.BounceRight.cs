@@ -8,7 +8,7 @@ namespace Free
 {
     partial class MainWindow // move to obj in the obj/player split?
     {
-        public void Interaction_BounceRight(IObject obj)
+        public void Interaction_BounceRight(IGameObject obj)
         {
             obj.OBJACCELERATION = 28.5;
             obj.OBJSPEED = Physics.MaxSpeed;

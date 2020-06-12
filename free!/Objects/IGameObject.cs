@@ -13,7 +13,7 @@ using System.Windows.Threading;
 
 /// <summary>
 /// 
-/// /Objects/IObject.cs
+/// /Objects/IGameObject.cs
 /// 
 /// Created: 2019-12-26
 /// 
@@ -27,7 +27,7 @@ using System.Windows.Threading;
 
 namespace Free
 {
-    public interface IObject
+    public interface IGameObject
     {
         double OBJACCELERATION { get; set; } // Newton would be ashamed.
         double OBJACCELERATIONY { get; set; }
@@ -43,7 +43,7 @@ namespace Free
         bool CollidesTop { get; set; }
         bool CollidesBottom { get; set; }
         int OBJCOLLISIONS { get; set; } // if 0, fall.
-        List<IObject> OBJCOLLIDEDOBJECTS { get; set; } //a bad idea? maybe. 
+        List<IGameObject> OBJCOLLIDEDOBJECTS { get; set; } //a bad idea? maybe. 
         double OBJDECELERATION { get; set; }
         double OBJDECELERATIONY { get; set; }
         double OBJFORCE { get; set; }

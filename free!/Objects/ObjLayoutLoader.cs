@@ -20,7 +20,7 @@ namespace Free
 {
     partial class Level
     {
-        public bool LoadObjLayout(List<IObject> listOfObjects, Level currentlevel) // loads an object layout.
+        public bool LoadObjLayout(List<IGameObject> listOfObjects, Level currentlevel) // loads an object layout.
         {
             try
             {
@@ -43,7 +43,7 @@ namespace Free
                     if (XmlNode.Name != "#comment")
                     {
                         XmlAttributeCollection XmlAttributes = XmlNode.Attributes; // get the attribute out of each node. 
-                        IObject Objx = new Obj(); 
+                        IGameObject Objx = new Obj(); 
 
                         foreach (Obj Object in listOfObjects) // yikes. 
                         {
@@ -53,7 +53,7 @@ namespace Free
                                 if (!MainWindow.IsSentientBeing(Object))
                                 {
                                     Objx.OBJANIMATIONS = Object.OBJANIMATIONS;
-                                    Objx.OBJCOLLIDEDOBJECTS = new List<IObject>(); // yeah.
+                                    Objx.OBJCOLLIDEDOBJECTS = new List<IGameObject>(); // yeah.
                                     Objx.OBJINTERNALID = currentIntId;
                                     Objx.OBJID = Object.OBJID;
                                     Objx.OBJIMAGE = Object.OBJIMAGE;

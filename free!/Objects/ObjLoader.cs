@@ -38,7 +38,7 @@ namespace Free
 
                 foreach (XmlNode XmlNode in XmlNodes)
                 {
-                    IObject obj = new Obj();
+                    IGameObject obj = new Obj();
                     // initial values
                     //obj.OBJGRAV = false;
                     XmlAttributeCollection XmlAttributes = XmlNode.Attributes; // get the attributes (we dont need to care what the node is called, we just need the right information)

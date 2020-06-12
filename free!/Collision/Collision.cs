@@ -28,7 +28,7 @@ namespace Free
 {
     partial class MainWindow
     {
-        public void HandleCollision(IObject obj)
+        public void HandleCollision(IGameObject obj)
         {
             Rect ObjPos = new Rect();
             Rect ObjxPos = new Rect();
@@ -53,7 +53,7 @@ namespace Free
             //TODO: CONVERT TO
             for (int i = 0; i < currentlevel.OBJLAYOUT.Count; i++)
             {
-                IObject objx = currentlevel.OBJLAYOUT[i];
+                IGameObject objx = currentlevel.OBJLAYOUT[i];
 
                 if (obj.OBJINTERNALID != objx.OBJINTERNALID)
                 {
@@ -271,7 +271,7 @@ namespace Free
 
             for (int i = 0; i < obj.OBJCOLLIDEDOBJECTS.Count; i++) // collided objects 
             {
-                IObject objx = obj.OBJCOLLIDEDOBJECTS[i];
+                IGameObject objx = obj.OBJCOLLIDEDOBJECTS[i];
                 if (obj.OBJINTERNALID != objx.OBJINTERNALID)
                 {
                     if (objx.OBJHITBOX == null)

@@ -139,9 +139,9 @@ namespace Free
             }
         }
 
-        public void LoadAllLevelScripts(List<IObject> LevelObjects)
+        public void LoadAllLevelScripts(List<IGameObject> LevelObjects)
         {
-            foreach (IObject LevelObject in LevelObjects)
+            foreach (IGameObject LevelObject in LevelObjects)
             {
                 // Check that there's stuff to load
                 if (LevelObject.AssociatedScriptPaths == null) continue;

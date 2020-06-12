@@ -32,7 +32,7 @@ namespace Free
             // Load initial structures
             InteractionList = new List<Interaction>();
             NonObjAnimList = new List<Animation>();
-            ObjectList = new List<IObject>();
+            ObjectList = new List<IGameObject>();
             TextList = new List<AGTextBlock>();
             WeaponList = new List<Weapon>();
             ScriptingCore = new SimpleESX();
