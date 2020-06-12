@@ -46,6 +46,7 @@ namespace Free
                 BootNow_SetCurrentLevel(LevelId);
 
                 currentlevel.LoadObjLayout(ObjectList, currentlevel);
+                ScriptingCore.LoadAllLevelScripts(ObjectList); 
                 currentlevel.LoadLevelMusic();
 
                 Gamestate = GameState.Game; //yeah 

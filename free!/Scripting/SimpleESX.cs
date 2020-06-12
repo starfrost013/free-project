@@ -118,6 +118,7 @@ namespace Free
                                         continue; 
                                 }
                             }
+
                             if (SEXCommand.CommandName == null) Error.Throw(null, ErrorSeverity.FatalError, "Attempted to load a command with no name!", "Error!", 75);
                             SEXCommand.GetExecutor();
                             ReflectionMetadata.Add(SEXCommand);
@@ -136,6 +137,28 @@ namespace Free
                 Error.Throw(err, ErrorSeverity.FatalError, "An error occurred loading a command type.", "Error", 78);
                 return;
             }
+        }
+
+        public void LoadAllLevelScripts(List<IObject> LevelObjects)
+        {
+            foreach (IObject LevelObject in LevelObjects)
+            {
+                // Check that there's stuff to load
+                if (LevelObject.AssociatedScriptPaths == null) continue;
+                if (LevelObject.AssociatedScriptPaths.Count == 0) continue; 
+
+                foreach (ScriptReference SR in LevelObject.AssociatedScriptPaths)
+                {
+                    LoadScript(SR.Path);
+                }
+            }
+        }
+
+        public void ClearLoadedScripts()
+        {
+            LoadedScripts.Clear();
+            Stack.Clear();
+            ScriptContext = null; // we are not running a script.
         }
 
         public void LoadScript(string ScriptPath)
@@ -158,7 +181,7 @@ namespace Free
                 // Is the script loaded and parsed?
                 if (SESXScript.Loaded)
                 {
-                    if (SESXScript.RunOnEvent == EVTClass)
+                    if (SESXScript.RunOnEvent.EventClass == EVTClass)
                     {
                         SESXScript.ExecuteScript(); 
                     } 

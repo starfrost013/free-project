@@ -23,8 +23,11 @@ namespace Free
     {
         public void BootNow_SetCurrentLevel(int LevelId)
         {
+            // Clear all loaded scripts.
+            ScriptingCore.ClearLoadedScripts(); 
+            
             Level level = null;
-
+            
             // Get the level with this level id./
             foreach (Level Level in Levels)
             {

@@ -9,7 +9,7 @@ namespace Free
 {
     public class SimpleESXScript
     {
-        public EventClass RunOnEvent { get; set; } // Loaded from ScriptReference.
+        public ScriptReferenceRunOn RunOnEvent { get; set; } // Loaded from ScriptReference.
         public string Name { get; set; }
         public string Path { get; set; }
         public List<SimpleESXCommand> SEXCommands { get; set; }
@@ -141,7 +141,7 @@ namespace Free
 
         public void SetScriptClass(ScriptReferenceRunOn SR)
         {
-            RunOnEvent = SR.EventClass;
+            RunOnEvent = SR;
             return;
         }
     }

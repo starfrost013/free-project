@@ -19,6 +19,7 @@ namespace Free
                 case EventClass.EveryFrame:
                     return true; // EveryFrame has no parameters.
             }
+
             return false; 
         } 
 
