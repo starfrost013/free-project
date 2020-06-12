@@ -144,7 +144,7 @@ namespace Free
             SEXScript.LoadScript(ScriptPath);
             SEXScript.ParseScript();
             ScriptContext = SEXScript;
-            Stack.Add(SEXScript);
+            LoadedScripts.Add(SEXScript);
         }
 
         /// <summary>
@@ -172,7 +172,14 @@ namespace Free
         /// <param name="ScriptName">The script name to execute.</param>
         public void ExecuteScriptWithName(string ScriptName)
         {
-
+            foreach (SimpleESXScript SESXScript in LoadedScripts)
+            {
+                if (SESXScript.Name == ScriptName && SESXScript.Loaded)
+                {
+                    ScriptContext = SESXScript;
+                    ExecuteCurrentScript();
+                }
+            }
         }
 
         public void ExecuteCurrentScript()
@@ -191,6 +198,7 @@ namespace Free
                 if (SESXScript.Name == ScriptName)
                 {
                     ScriptContext = SESXScript;
+                    return;
                 }
             }
         }
