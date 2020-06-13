@@ -51,9 +51,9 @@ namespace Free
                 ObjPos = new Rect(new Point(obj.OBJX + obj.OBJHITBOX[0].X, obj.OBJY + obj.OBJHITBOX[0].Y), new Point(obj.OBJX + obj.OBJHITBOX[1].X, obj.OBJY + obj.OBJHITBOX[1].Y)); // get the hitbox
             }
             //TODO: CONVERT TO
-            for (int i = 0; i < currentlevel.OBJLAYOUT.Count; i++)
+            for (int i = 0; i < currentlevel.LevelObjects.Count; i++)
             {
-                IGameObject objx = currentlevel.OBJLAYOUT[i];
+                IGameObject objx = currentlevel.LevelObjects[i];
 
                 if (obj.OBJINTERNALID != objx.OBJINTERNALID)
                 {

@@ -37,7 +37,7 @@ namespace Free
             {
                 objectToEdit.OBJX = Convert.ToDouble(XPosBox.Text);
                 objectToEdit.OBJY = Convert.ToDouble(YPosBox.Text);
-                MnWindow.currentlevel.OBJLAYOUT[objectToEdit.OBJINTERNALID] = objectToEdit;
+                MnWindow.currentlevel.LevelObjects[objectToEdit.OBJINTERNALID] = objectToEdit;
                 ObjSelect.Text = $"Moving Object: {objectToEdit.OBJNAME} @ X: {objectToEdit.OBJX} Y: {objectToEdit.OBJY}";
                 //this.Close(); V0.14.1035.0 remove
             }

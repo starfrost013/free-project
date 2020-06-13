@@ -48,7 +48,7 @@ namespace Free
                 ObjNameListLvl.Items.Clear();
             }
 
-            foreach (Obj obj in MnWindow.currentlevel.OBJLAYOUT)
+            foreach (Obj obj in MnWindow.currentlevel.LevelObjects)
             {
                 ObjNameListLvl.Items.Add($"{obj.OBJNAME} (X: {obj.OBJX} Y: {obj.OBJY})");
             }
@@ -72,7 +72,7 @@ namespace Free
                     {
                         Obj objx = new Obj();
                         objx.OBJANIMATIONS = obj.OBJANIMATIONS;
-                        objx.OBJINTERNALID = MnWindow.currentlevel.OBJLAYOUT.Count;
+                        objx.OBJINTERNALID = MnWindow.currentlevel.LevelObjects.Count;
                         objx.OBJID = obj.OBJID;
                         objx.OBJIMAGE = obj.OBJIMAGE;
                         objx.OBJIMAGEPATH = obj.OBJIMAGEPATH;
@@ -95,7 +95,7 @@ namespace Free
                         YPosBox.Text = objx.OBJY.ToString();
                         objx.OBJX = Convert.ToDouble(XPosBox.Text);
                         objx.OBJY = Convert.ToDouble(YPosBox.Text);
-                        MnWindow.currentlevel.OBJLAYOUT.Add(objx);
+                        MnWindow.currentlevel.LevelObjects.Add(objx);
                     }
                 }
                 Refresh(); // lol lazy code
@@ -116,7 +116,7 @@ namespace Free
                 Error.Throw(new Exception("DEBUG: The user did not select an object to remove when using edit mode."), ErrorSeverity.Warning, "Please select an object to remove.", "avant-gardé engine ver 2.11", 16);
             }
 
-            MnWindow.currentlevel.OBJLAYOUT.RemoveAt(ObjNameListLvl.SelectedIndex);
+            MnWindow.currentlevel.LevelObjects.RemoveAt(ObjNameListLvl.SelectedIndex);
             Refresh();
             //this.Close(); V0.14.1036.0 remove
         }
@@ -124,7 +124,7 @@ namespace Free
         // Restored old code. 
         private void MoveButton_Click(object sender, RoutedEventArgs e)
         {
-            MoveObj MObj = new MoveObj(MnWindow, MnWindow.currentlevel.OBJLAYOUT[ObjNameListLvl.SelectedIndex]); // EWW EWW EWW
+            MoveObj MObj = new MoveObj(MnWindow, MnWindow.currentlevel.LevelObjects[ObjNameListLvl.SelectedIndex]); // EWW EWW EWW
             MObj.Owner = this;
             MObj.Show();
         }

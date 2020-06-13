@@ -29,7 +29,7 @@ namespace Free
 
                 if (currentlevel != null)
                 {
-                    foreach (Obj obj in currentlevel.OBJLAYOUT)
+                    foreach (Obj obj in currentlevel.LevelObjects)
                     {
                         if (obj.OBJHELDWEAPON != null)
                         {
@@ -45,7 +45,7 @@ namespace Free
                 //currentlevel = LoadLevel(LevelId);
                 BootNow_SetCurrentLevel(LevelId);
 
-                currentlevel.LoadObjLayout(ObjectList, currentlevel);
+                currentlevel.LoadLevelObjects(ObjectList, currentlevel);
                 ScriptingCore.LoadAllLevelScripts(ObjectList); 
                 currentlevel.LoadLevelMusic();
 
@@ -61,7 +61,7 @@ namespace Free
 
                 Obj tempgiveweaponobj = new Obj();
 
-                foreach (Obj tempiteration in currentlevel.OBJLAYOUT)
+                foreach (Obj tempiteration in currentlevel.LevelObjects)
                 {
                     if (tempiteration.OBJPLAYER)
                     {

@@ -24,13 +24,13 @@ namespace Free
     {
         public void DeleteObj(IGameObject objToDel, int int2id) // Deletes an object from the level layout.
         {
-            foreach (IGameObject Obj in currentlevel.OBJLAYOUT)
+            foreach (IGameObject Obj in currentlevel.LevelObjects)
             {
                 if (Obj == objToDel)
                 {
                     if (Obj.OBJID == int2id)
                     {
-                        currentlevel.OBJLAYOUT.Remove(Obj);
+                        currentlevel.LevelObjects.Remove(Obj);
                         return;
                     }
                 }
@@ -42,7 +42,7 @@ namespace Free
         //do we need this?
         public Obj SetObjPos(Obj objToMove, double x, double y) // Sets an object's position to a certain value.
         {
-            foreach (Obj Obj in currentlevel.OBJLAYOUT)
+            foreach (Obj Obj in currentlevel.LevelObjects)
             {
                 if (Obj == objToMove)
                 {
@@ -57,7 +57,7 @@ namespace Free
 
         public Obj SetObjPriority(Obj objToModify, Priority priority)
         {
-            foreach (Obj Obj in currentlevel.OBJLAYOUT)
+            foreach (Obj Obj in currentlevel.LevelObjects)
             {
                 if (Obj == objToModify)
                 {

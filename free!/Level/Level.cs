@@ -27,15 +27,15 @@ namespace Free
         public string MUSICPATH { get; set; }
         public MediaPlayer MUSICPLAYER { get; set; }
         public string Name { get; set; }
-        public List<IGameObject> OBJLAYOUT { get; set; } // 2do: load this in this class. (0.01X)
-        public string OBJLAYOUTPATH { get; set; }
+        public List<IGameObject> LevelObjects { get; set; } // 2do: load this in this class. (0.01X)
+        public string LevelObjectsPATH { get; set; }
         public double? PLRKILLY { get; set; } 
         public Point PlayerStartPosition { get; set; }
         public string TEXTPATH { get; set; }
         public Point Size { get; set; }
         public Level()
         {
-            this.OBJLAYOUT = new List<IGameObject>();
+            this.LevelObjects = new List<IGameObject>();
         }
     }
 }

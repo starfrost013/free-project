@@ -34,7 +34,7 @@ namespace Free
     {
         public void HandleAI(IGameObject obj)
         {
-            foreach (IGameObject obj2 in currentlevel.OBJLAYOUT)
+            foreach (IGameObject obj2 in currentlevel.LevelObjects)
             {
                 //HandleAI
                 if (IsSentientBeing(obj) & obj.OBJAI != null)

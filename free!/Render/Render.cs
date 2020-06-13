@@ -27,9 +27,9 @@ namespace Free
                     if (Gamestate == GameState.Game || Gamestate == GameState.EditMode)
                     {
                         // v2 for 0.06+
-                        for (int i = 0; i < currentlevel.OBJLAYOUT.Count; i++)
+                        for (int i = 0; i < currentlevel.LevelObjects.Count; i++)
                         {
-                            IGameObject CurObj = currentlevel.OBJLAYOUT[i];
+                            IGameObject CurObj = currentlevel.LevelObjects[i];
 
                             if (CurObj.OBJX - Scrollbar.HorizontalOffset > 0 - CurObj.OBJIMAGE.PixelWidth && CurObj.OBJX - Scrollbar.HorizontalOffset < this.Width + CurObj.OBJIMAGE.PixelWidth & CurObj.OBJY - Scrollbar.VerticalOffset > 0 - CurObj.OBJIMAGE.PixelHeight && CurObj.OBJY - Scrollbar.VerticalOffset < this.Height + CurObj.OBJIMAGE.PixelHeight || IsSentientBeing(CurObj))
                             { // optimization (bld 1037-41) 
@@ -164,7 +164,7 @@ namespace Free
             PhysThread.DoWork += PhysicsDoWork;
             PhysThread.RunWorkerCompleted += PhysicsDone;
 
-            PhysThread.RunWorkerAsync(currentlevel.OBJLAYOUT);
+            PhysThread.RunWorkerAsync(currentlevel.LevelObjects);
         }
     }
 }

@@ -67,7 +67,7 @@ namespace Free
 
         public void MainLoop(object sender, EventArgs e)
         {
-            foreach (IGameObject Object in currentlevel.OBJLAYOUT)
+            foreach (IGameObject Object in currentlevel.LevelObjects)
             {
                 HandlePhys(Object);
                 if (Object.OBJCANCOLLIDE != false) HandleCollision(Object);

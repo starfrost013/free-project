@@ -38,9 +38,9 @@ namespace Free
         /// <param name="e"></param>
         public void PlayerMovement(KeyEventArgs e) // pass.
         {
-            for (int i = 0; i < currentlevel.OBJLAYOUT.Count; i++)
+            for (int i = 0; i < currentlevel.LevelObjects.Count; i++)
             {
-                IGameObject obj = currentlevel.OBJLAYOUT[i];
+                IGameObject obj = currentlevel.LevelObjects[i];
 
                 if (obj.OBJISPLAYER) 
                 {   
@@ -101,7 +101,7 @@ namespace Free
         {
             if (currentlevel != null) // ADD ISLOADED!
             {
-                foreach (Obj Object in currentlevel.OBJLAYOUT)
+                foreach (Obj Object in currentlevel.LevelObjects)
                 {
 
                     // LastCtrl is kept here for physcheck

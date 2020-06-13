@@ -103,7 +103,7 @@ namespace Free
                 XmlNode XRootnode = Xdoc.CreateElement("ObjectLayout");
                 Xdoc.AppendChild(XRootnode); //create the root node.
 
-                foreach (Obj obj in currentlevel.OBJLAYOUT)
+                foreach (Obj obj in currentlevel.LevelObjects)
                 {
                     XmlNode XChild = Xdoc.CreateElement("Object"); // main
                     XmlAttribute XChildObjId = Xdoc.CreateAttribute("id"); // object id

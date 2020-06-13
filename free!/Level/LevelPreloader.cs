@@ -72,7 +72,7 @@ namespace Free
                                         CurrentLevel.BGPATH = XLevelGrandchild.InnerText;
                                         continue;
                                     case "ObjectLayoutPath": // The path to the object layout of the level.
-                                        CurrentLevel.OBJLAYOUTPATH = XLevelGrandchild.InnerText;
+                                        CurrentLevel.LevelObjectsPATH = XLevelGrandchild.InnerText;
                                         continue;
                                     case "Music": // The path to the level's music.
                                         CurrentLevel.MUSICPATH = XLevelGrandchild.InnerText;

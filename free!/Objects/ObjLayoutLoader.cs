@@ -20,12 +20,12 @@ namespace Free
 {
     partial class Level
     {
-        public bool LoadObjLayout(List<IGameObject> listOfObjects, Level currentlevel) // loads an object layout.
+        public bool LoadLevelObjects(List<IGameObject> listOfObjects, Level currentlevel) // loads an object layout.
         {
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();
-                XmlDocument.Load(this.OBJLAYOUTPATH);
+                XmlDocument.Load(this.LevelObjectsPATH);
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 
                 while (XmlRootNode.Name != "ObjectLayout")
@@ -120,7 +120,7 @@ namespace Free
                             if (Objx.OBJIMAGE.CanFreeze) Objx.OBJIMAGE.Freeze();
                         }
 
-                        currentlevel.OBJLAYOUT.Add(Objx);
+                        currentlevel.LevelObjects.Add(Objx);
                         currentIntId++;
                     }
                     
@@ -128,12 +128,12 @@ namespace Free
             }
             catch (XmlException err)
             {
-                MessageBox.Show($"A critical error occurred while loading {this.OBJLAYOUTPATH}:\n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"A critical error occurred while loading {this.LevelObjectsPATH}:\n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(6666);
             }
             catch (FormatException err)
             {
-                MessageBox.Show($"A critical error occurred while loading {this.OBJLAYOUTPATH}:\n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"A critical error occurred while loading {this.LevelObjectsPATH}:\n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(6666);
             }
             catch (FileNotFoundException err)

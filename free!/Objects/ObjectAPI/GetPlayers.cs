@@ -27,7 +27,7 @@ namespace Free
         {
             List<IGameObject> Players = new List<IGameObject>();
 
-            foreach (IGameObject LevelObject in OBJLAYOUT)
+            foreach (IGameObject LevelObject in LevelObjects)
             {
                 if (LevelObject.OBJISPLAYER) Players.Add(LevelObject);
             }

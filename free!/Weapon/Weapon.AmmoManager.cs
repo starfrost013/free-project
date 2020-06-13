@@ -24,7 +24,7 @@ namespace Free
     {
         public void FireAmmo() // determines the correct obj to fire a bullet from
         {
-            foreach (Obj obj in currentlevel.OBJLAYOUT)
+            foreach (Obj obj in currentlevel.LevelObjects)
             {
                 if (obj.OBJHELDWEAPON != null)
                 {
