@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel; 
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -10,16 +10,33 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-// Currently, the movement speed is locked to the game's framerate. This is very very very very very bad and should be avoided.
+
+/// <summary>
+/// 
+/// /Render/ThreadedRender.cs
+/// 
+/// Created: 2020-06-13
+/// 
+/// Modified: 2020-06-13
+/// 
+/// Version: 1.00
+/// 
+/// Purpose: The main UI thread rendering for fully multithreaded free!. 
+/// 
+/// </summary
 
 namespace Free
 {
     public partial class MainWindow // Potentially have a renderer class
     {
-        public void DrawScene() // draws the scene, starting with the lowest priority objects and then going up to the highest priority ones, then draws any text objects and the debug display if it is on. 
+
+        // Currently, the movement speed is locked to the game's framerate. This is very very very very very bad and should be avoided.
+        // We will not be doing this in future.
+        public void DrawScene_Threaded() // draws the scene, starting with the lowest priority objects and then going up to the highest priority ones, then draws any text objects and the debug display if it is on. 
         {
             Priority currentPriority = Priority.Background1;
             Game.Children.Clear();
+
             while (currentPriority <= Priority.High)
             {
                 if (currentPriority != Priority.Invisible)
@@ -31,11 +48,11 @@ namespace Free
                         {
                             IGameObject CurObj = currentlevel.OBJLAYOUT[i];
 
-                            if (CurObj.OBJX - Scrollbar.HorizontalOffset > 0 - CurObj.OBJIMAGE.PixelWidth && CurObj.OBJX - Scrollbar.HorizontalOffset < this.Width + CurObj.OBJIMAGE.PixelWidth & CurObj.OBJY - Scrollbar.VerticalOffset > 0 - CurObj.OBJIMAGE.PixelHeight && CurObj.OBJY - Scrollbar.VerticalOffset < this.Height + CurObj.OBJIMAGE.PixelHeight || IsSentientBeing(CurObj))
+                            if (CurObj.OBJX - Scrollbar.HorizontalOffset > 0 - CurObj.OBJIMAGE.PixelWidth && CurObj.OBJX - Scrollbar.HorizontalOffset < this.Width + CurObj.OBJIMAGE.PixelWidth && CurObj.OBJY - Scrollbar.VerticalOffset > 0 - CurObj.OBJIMAGE.PixelHeight && CurObj.OBJY - Scrollbar.VerticalOffset < this.Height + CurObj.OBJIMAGE.PixelHeight || IsSentientBeing(CurObj))
                             { // optimization (bld 1037-41) 
                                 if (CurObj.OBJPRIORITY == currentPriority)
                                 {
-                                    if (CurObj.OBJPLAYER == true & Gamestate == GameState.Game)
+                                    if (CurObj.OBJPLAYER && Gamestate == GameState.Game)
                                     {
                                         Scrollbar.ScrollToHorizontalOffset(CurObj.OBJX - this.Width / 6); // level scrolling
                                         Scrollbar.ScrollToVerticalOffset(CurObj.OBJY - this.Width / 6); // vertical level scrolling
@@ -45,26 +62,13 @@ namespace Free
                                     rectangle.Height = CurObj.OBJIMAGE.Height;
                                     rectangle.Width = CurObj.OBJIMAGE.Width;
                                     rectangle.StrokeThickness = 0;
-                                    HandleAnimations(CurObj);
-
-                                    if (Gamestate == GameState.Game & CurObj.OBJGRAV)
-                                    {
-                                        HandlePhys(CurObj);
-
-                                        // Just a test. Onto the physics thread this goes
-                                        if (CurObj.OBJCANCOLLIDE != false)
-                                        { // only handle collisions if cancollide is true or null
-                                            HandleCollision(CurObj);
-                                        }
-                                    }
-
-                                    HandleAI(CurObj);
+                                   
                                     Canvas.SetLeft(rectangle, CurObj.OBJX);
                                     Canvas.SetTop(rectangle, CurObj.OBJY);
                                     rectangle.Fill = new ImageBrush(CurObj.OBJIMAGE);
                                     Game.Children.Add(rectangle);
 
-                                    RenderWeapons(CurObj); 
+                                    RenderWeapons_Threaded(CurObj);
                                 }
                             }
                         }
@@ -116,18 +120,22 @@ namespace Free
             UpdateLayout();
         }
 
-        public void RenderWeapons(IGameObject CurObj)
+        public void RenderWeapons_Threaded(IGameObject CurObj)
         {
             if (CurObj.OBJHELDWEAPON != null) // weapon drawing
             {
                 Rectangle WeaponRectangle = new Rectangle();
+
                 WeaponRectangle.Height = CurObj.OBJHELDWEAPON.WEAPONIMAGE.Height;
                 WeaponRectangle.Width = CurObj.OBJHELDWEAPON.WEAPONIMAGE.Width;
                 WeaponRectangle.StrokeThickness = 0;
+
                 CurObj.OBJHELDWEAPON.WEAPONPOSITIONX = CurObj.OBJX + CurObj.OBJIMAGE.PixelWidth / 1.33;
                 CurObj.OBJHELDWEAPON.WEAPONPOSITIONY = CurObj.OBJY + CurObj.OBJIMAGE.PixelHeight / 2;
+
                 Canvas.SetLeft(WeaponRectangle, CurObj.OBJHELDWEAPON.WEAPONPOSITIONX);
                 Canvas.SetTop(WeaponRectangle, CurObj.OBJHELDWEAPON.WEAPONPOSITIONY);
+
                 WeaponRectangle.Fill = new ImageBrush(CurObj.OBJHELDWEAPON.WEAPONIMAGE); // the image.
                 Game.Children.Add(WeaponRectangle);
 
@@ -136,15 +144,19 @@ namespace Free
                     for (int j = 0; j < CurObj.OBJHELDWEAPON.WEAPONAMMOLIST.Count; j++)
                     {
                         Ammo ammo = CurObj.OBJHELDWEAPON.WEAPONAMMOLIST[j];
+
                         if (ammo.X - Scrollbar.HorizontalOffset > 0 - CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelWidth && ammo.X - Scrollbar.HorizontalOffset < this.Width + CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelWidth && ammo.Y - Scrollbar.VerticalOffset > 0 - CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelHeight & ammo.Y - Scrollbar.VerticalOffset < this.Width + CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelHeight)
                         {
                             Rectangle AmmoRectangle = new Rectangle();
                             AmmoRectangle.Width = CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.Width;
                             AmmoRectangle.Height = CurObj.OBJHELDWEAPON.WEAPONIMAGEAMMO.Height;
+
                             AmmoRectangle.StrokeThickness = 0;
                             Canvas.SetLeft(AmmoRectangle, ammo.X);
                             Canvas.SetTop(AmmoRectangle, ammo.Y);
+
                             AmmoRectangle.Fill = new ImageBrush(ammo.AMMOIMAGE);
+
                             Game.Children.Add(AmmoRectangle);
                         }
                         else
@@ -154,17 +166,6 @@ namespace Free
                     }
                 }
             }
-        }
-
-
-        // Engine Version 2.21.1288.2 [Physics code now on its own thread] 
-        public void RunPhysics()
-        {
-            BackgroundWorker PhysThread = new BackgroundWorker();
-            PhysThread.DoWork += PhysicsDoWork;
-            PhysThread.RunWorkerCompleted += PhysicsDone;
-
-            PhysThread.RunWorkerAsync(currentlevel.OBJLAYOUT);
         }
     }
 }

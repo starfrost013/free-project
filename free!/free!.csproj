@@ -126,6 +126,7 @@
     <Compile Include="Physics\Physics.Init.cs" />
     <Compile Include="Physics\PhysicsWorker\PhysicsBackgroundWorker.DoWork.cs" />
     <Compile Include="Render\Render.cs" />
+    <Compile Include="Render\ThreadedRender.cs" />
     <Compile Include="Scripting\Commands\CommandFactory.cs" />
     <Compile Include="Scripting\Commands\ScriptUtilities.cs" />
     <Compile Include="Scripting\Commands\Script.TestCommand.cs" />
