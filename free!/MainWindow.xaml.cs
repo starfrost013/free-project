@@ -69,7 +69,6 @@ namespace Free
         {
             foreach (IGameObject Object in currentlevel.LevelObjects)
             {
-                HandlePhys(Object);
                 if (Object.OBJCANCOLLIDE != false) HandleCollision(Object);
                 HandleAnimations(Object); 
                 HandleAI(Object);
@@ -121,9 +120,11 @@ namespace Free
                 case GameState.Game:
                     // Temporary
                     DrawScene();
+                    //DrawScene_Threaded();
                     return;
                 case GameState.EditMode:
                     DrawScene();
+                    //DrawScene_Threaded();
                     return; // yeah
                 case GameState.Menu:
                     if (!TitleInitialized)

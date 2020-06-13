@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDLX
 {
-    public class Class1
+    public class SDLX
     {
     }
 }

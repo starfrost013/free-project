@@ -20,9 +20,9 @@ using System.Windows.Shapes;
 /// 
 /// Created: 2019-11-03
 /// 
-/// Modified: 2020-06-11 [bringup-2.21.1352.0 v7.50 → v7.60: Implement JumpIntensity.]
+/// Modified: 2020-06-14 [bringup-2.21.1368.49 v7.60 → v7.70: Call DrawScene instead of whatever the fuck we were doing before]
 /// 
-/// Version: 7.60 [Needs rewrite]
+/// Version: 7.70 [Needs rewrite]
 /// 
 /// Purpose: Handles player movement.
 /// 
@@ -52,7 +52,8 @@ namespace Free
                             {
                                 obj.OBJMOVELEFT = true;
                                 obj.LastControl = LastCtrl.MoveLeft;
-                                Window_ContentRendered(this, new EventArgs()); // re-render the canvas.
+                                DrawScene(); 
+                                //DrawScene_Threaded(); 
                             }
                         }
                         else if (e.Key == Controls.MoveRight)
@@ -61,7 +62,8 @@ namespace Free
                             {
                                 obj.OBJMOVERIGHT = true;
                                 obj.LastControl = LastCtrl.MoveRight;
-                                Window_ContentRendered(this, new EventArgs()); // re-render the canvas.
+                                DrawScene();
+                                //DrawScene_Threaded(); 
                             }
                         }
                         // This is real bad code, fix it, In fact this whole file needs rewriting.
