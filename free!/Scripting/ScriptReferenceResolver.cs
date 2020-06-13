@@ -25,8 +25,23 @@ namespace Free
                 case EventClass.EveryFrame:
                     return true; // EveryFrame has no parameters.
                 case EventClass.OnPlayerReachCertainPosition:
-                    
-                    return true; 
+                    List<IGameObject> Players = MnWindow.currentlevel.GetPlayers();
+
+                    if (EvtClass.ReferenceRunOn.Count > 1)
+                    {
+                        ScriptError.Throw("Error: Only one RunOn is allowed for OnPlayerReachCertainPosition event-handler scripts", 9, 0, "XML Bug"); 
+                    }
+
+                   
+                    // TEMP (multiplayer later)
+                    if (Players[0].OBJX > (double)EvtClass.ReferenceRunOn[0].Value[0] && Players[0].OBJY > (double)EvtClass.ReferenceRunOn[0].Value[1])
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
             }
 
             return false; 

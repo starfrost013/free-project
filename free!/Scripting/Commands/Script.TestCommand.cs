@@ -37,7 +37,7 @@ namespace Free
             foreach (ScriptReferenceRunOn SRX in SR.RunOnParameters)
             {
                 // Check if we satisfy the script reference. 
-                if (ScriptReferenceResolver.Resolve(SRX.EventClass, SRX.ReferenceRunOn))
+                if (ScriptReferenceResolver.Resolve(SRX))
                 {
                     return true;
                 }
