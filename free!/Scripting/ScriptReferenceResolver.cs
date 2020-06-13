@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Free
 {
@@ -14,12 +15,18 @@ namespace Free
     /// </summary>
     public static class ScriptReferenceResolver
     {
-        public static bool Resolve(EventClass EvtClass, List<ScriptReferenceRunOnParameter> Params)
+        public static bool Resolve(ScriptReferenceRunOn EvtClass)
         {
-            switch (EvtClass)
+            // WPF only
+            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+
+            switch (EvtClass.EventClass)
             {
                 case EventClass.EveryFrame:
                     return true; // EveryFrame has no parameters.
+                case EventClass.OnPlayerReachCertainPosition:
+                    
+                    return true; 
             }
 
             return false; 

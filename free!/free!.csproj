@@ -121,6 +121,7 @@
     <Compile Include="Interactions\InteractionManager.Remove.cs" />
     <Compile Include="Level\LevelPreloader.cs" />
     <Compile Include="Objects\IGameObject.cs" />
+    <Compile Include="Objects\ObjectAPI\GetPlayers.cs" />
     <Compile Include="Objects\ObjManager.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
     <Compile Include="Physics\Physics.Init.cs" />
