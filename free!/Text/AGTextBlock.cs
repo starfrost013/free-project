@@ -16,7 +16,7 @@ using System.Windows.Controls;
 /// 
 /// Version: 1.21
 /// 
-/// Purpose: Defines the AGTextBlcok class, allowing text to be displayed in free!.
+/// Purpose: Defines the AGTextBlock class, allowing text to be displayed in free!.
 /// 
 /// </summary>
 

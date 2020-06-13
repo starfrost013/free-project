@@ -23,7 +23,8 @@ namespace Free
             {
                 Gamestate = GameState.Loading;
                 GameTickTimer.Stop();
-
+                MainLoopTimer.Stop(); 
+                PhysicsTimer.Stop();
 
                 //Clear ammo
 
@@ -113,6 +114,8 @@ namespace Free
             }
 
             GameTickTimer.Start();
+            //MainLoopTimer.Start(); 
+            PhysicsTimer.Start();
         }
     }
 }

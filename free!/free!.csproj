@@ -110,6 +110,7 @@
       <DependentUpon>ScriptParseError.xaml</DependentUpon>
     </Compile>
     <Compile Include="Init\EngineInit\Engine_BootNow.cs" />
+    <Compile Include="Init\EngineInit\Engine_BootNow_InitMainGameThread.cs" />
     <Compile Include="Interactions\Interaction.cs" />
     <Compile Include="Interactions\InteractionManager.Bounce.cs" />
     <Compile Include="Interactions\InteractionManager.BounceRight.cs" />
@@ -471,6 +472,10 @@
     <ProjectReference Include="..\Emerald.Utilities\Emerald.Utilities.csproj">
       <Project>{a677eee2-1fbc-4abe-8072-39fe09cd18b6}</Project>
       <Name>Emerald.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SDLX\SDLX.csproj">
+      <Project>{2bece7a3-3bb0-4213-a097-2698058767b4}</Project>
+      <Name>SDLX</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

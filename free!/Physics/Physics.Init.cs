@@ -15,7 +15,7 @@ namespace Free
             PhysicsTimer.Interval = 0.001; // Run AFAP.
             PhysicsTimer.AutoReset = false;
             PhysicsTimer.Elapsed += PhysicsTimerElapsed;
-            PhysicsTimer.Start();
+            //PhysicsTimer.Start();
         }
     }
 }

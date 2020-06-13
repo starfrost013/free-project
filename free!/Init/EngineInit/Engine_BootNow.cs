@@ -54,8 +54,8 @@ namespace Free
             LoadAI();
             LoadAnimations();
             LoadTextXml();
-            //LoadLevels();
             LoadObjects();
+            InitPhysics(); 
 
             Levels = LevelPreloader.LoadLevels(); // Static-class based
 
