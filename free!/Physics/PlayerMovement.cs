@@ -105,7 +105,6 @@ namespace Free
             {
                 foreach (Obj Object in currentlevel.LevelObjects)
                 {
-
                     // LastCtrl is kept here for physcheck
                     if (Object.OBJPLAYER)
                     {
@@ -113,7 +112,6 @@ namespace Free
                         Object.OBJMOVELEFT = false;
                         Object.OBJMOVERIGHT = false;
                         Object.SpaceHeld = false;
-                        //Object.JumpIntensity = 1;
                         return;
                     }
                 }

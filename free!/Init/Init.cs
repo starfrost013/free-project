@@ -69,6 +69,7 @@ namespace Free
                     }
                 }
 
+                // END TEMP CODE //
                 // DEBUG CODE - SHOWS GLOBAL TIMER VALUE //
 
                 if (Settings.DebugMode)
@@ -95,7 +96,6 @@ namespace Free
                     }
                 }
 
-                // END TEMP CODE REMOVE WHEN HUD ADDED //
 
                 // Script Init - This will be moved to Engine_PreInit()
                 SimpleESX Sesx = new SimpleESX();
@@ -103,8 +103,7 @@ namespace Free
                 SimpleESXScript SEXScript = new SimpleESXScript();
                 Sesx.LoadScript("Test.esx");
                 Sesx.ExecuteCurrentScript(); // Execute the current script.
-
-                // END SCRIPT INIT // 
+                // End Temp Script Init
 
             }
             catch (FileNotFoundException err)

@@ -28,5 +28,6 @@ namespace Free
         public static double JumpForce = 7.25; 
         public static double MaxSpeed = 8.5;
         public static double SpeedConst = 13;
+        public static double MaxJumpIntensity = 1.5; 
     }
 }

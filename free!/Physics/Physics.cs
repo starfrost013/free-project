@@ -62,7 +62,7 @@ namespace Free
                 if (obj.SpaceHeld) obj.JumpIntensity += 0.0333;
 
                 //TEMP
-                if (obj.JumpIntensity > 1.5) obj.JumpIntensity = 1.5;
+                if (obj.JumpIntensity > Physics.MaxJumpIntensity) obj.JumpIntensity = 1.5;
 
                 if (obj.OBJACCELERATIONY > 1) // if we're coming down from a jump, set the jumping to false
                 {
