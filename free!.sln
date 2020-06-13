@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "free!", "free!\free!.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emerald.Utilities", "Emerald.Utilities\Emerald.Utilities.csproj", "{A677EEE2-1FBC-4ABE-8072-39FE09CD18B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDLX", "SDLX\SDLX.csproj", "{2BECE7A3-3BB0-4213-A097-2698058767B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{A677EEE2-1FBC-4ABE-8072-39FE09CD18B6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A677EEE2-1FBC-4ABE-8072-39FE09CD18B6}.Release|x64.ActiveCfg = Release|x64
 		{A677EEE2-1FBC-4ABE-8072-39FE09CD18B6}.Release|x64.Build.0 = Release|x64
+		{2BECE7A3-3BB0-4213-A097-2698058767B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BECE7A3-3BB0-4213-A097-2698058767B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BECE7A3-3BB0-4213-A097-2698058767B4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2BECE7A3-3BB0-4213-A097-2698058767B4}.Debug|x64.Build.0 = Debug|Any CPU
+		{2BECE7A3-3BB0-4213-A097-2698058767B4}.Debug64|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BECE7A3-3BB0-4213-A097-2698058767B4}.Debug64|Any CPU.Build.0 = Debug|Any CPU
+		{2BECE7A3-3BB0-4213-A097-2698058767B4}.Debug64|x64.ActiveCfg = Debug|Any CPU
+		{2BECE7A3-3BB0-4213-A097-2698058767B4}.Debug64|x64.Build.0 = Debug|Any CPU
+		{2BECE7A3-3BB0-4213-A097-2698058767B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BECE7A3-3BB0-4213-A097-2698058767B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BECE7A3-3BB0-4213-A097-2698058767B4}.Release|x64.ActiveCfg = Release|Any CPU
+		{2BECE7A3-3BB0-4213-A097-2698058767B4}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
