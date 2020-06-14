@@ -55,7 +55,8 @@ namespace Free
             LoadAnimations();
             LoadTextXml();
             LoadObjects();
-            InitPhysics(); 
+            BootNow_InitMainGameThread();
+            InitPhysics();
 
             Levels = LevelPreloader.LoadLevels(); // Static-class based
 
