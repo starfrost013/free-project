@@ -248,20 +248,25 @@ namespace Free
                             for (int j = 0; j < obj.OBJHELDWEAPON.WEAPONAMMOLIST.Count; j++)
                             {
                                 Ammo ammo = obj.OBJHELDWEAPON.WEAPONAMMOLIST[j];
-                                Rect rect = new Rect(new Point(ammo.X, ammo.Y), new Point(ammo.X + obj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelWidth, ammo.Y + obj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelHeight));
 
-                                if (rect.IntersectsWith(ObjxPos))
+                                // Get a lock for the ammo. 
+                                lock (ammo)
                                 {
-                                    //annihilate.
-                                    PlayAmmoAnimation(obj.OBJHELDWEAPON, ammo, AnimationType.Hit);
-                                    
-                                    if (IsSentientBeing(obj)) //damage the player
+                                    Rect rect = new Rect(new Point(ammo.X, ammo.Y), new Point(ammo.X + obj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelWidth, ammo.Y + obj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelHeight));
+
+                                    if (rect.IntersectsWith(ObjxPos))
                                     {
-                                        //still considering having a level system.
-                                        obj.OBJHEALTH -= 10; //TESTING PURPOSES ONLY.
+                                        //annihilate.
+                                        PlayAmmoAnimation(obj.OBJHELDWEAPON, ammo, AnimationType.Hit);
+
+                                        if (IsSentientBeing(obj)) //damage the player
+                                        {
+                                            //still considering having a level system.
+                                            obj.OBJHEALTH -= 10; //TESTING PURPOSES ONLY.
+                                        }
+
+                                        ammo.SPEEDX = 0;
                                     }
-                                        
-                                    ammo.SPEEDX = 0;
                                 }
                             } 
                         }
