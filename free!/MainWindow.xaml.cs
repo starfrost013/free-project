@@ -118,14 +118,11 @@ namespace Free
             switch (Gamestate)
             {
                 case GameState.Game:
-                    // Temporary
-                    DrawScene();
-                    //DrawScene_Threaded();
-                    return;
                 case GameState.EditMode:
-                    DrawScene();
-                    //DrawScene_Threaded();
-                    return; // yeah
+                    // Temporary
+                    //DrawScene();
+                    DrawScene_Threaded();
+                    return;
                 case GameState.Menu:
                     if (!TitleInitialized)
                     {

@@ -114,7 +114,7 @@ namespace Free
             }
 
             GameTickTimer.Start();
-            //MainLoopTimer.Start(); 
+            MainLoopTimer.Start(); 
             PhysicsTimer.Start();
         }
     }
