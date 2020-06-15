@@ -17,9 +17,9 @@ using System.Windows.Threading;
 /// 
 /// Created: 2019-12-22
 /// 
-/// Modified: 2019-12-22
+/// Modified: 2020-06-15
 /// 
-/// Version: 1.00
+/// Version: 1.60
 /// 
 /// Purpose: Handles settings
 /// 
@@ -27,7 +27,7 @@ using System.Windows.Threading;
 
 namespace Free
 {
-    public enum WindowType { Windowed=0, Maximized, FullScreen }
+    public enum WindowType { Windowed, Maximized, FullScreen }
     public static class Settings
     {
         public static bool DebugMode { get; set; }

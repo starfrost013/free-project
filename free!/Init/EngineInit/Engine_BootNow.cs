@@ -57,7 +57,7 @@ namespace Free
             Title = "free! (nightly build for June 15th, 2020)";
 
             // Load everything that we can load at init
-            LoadSettings();
+            LoadSettingsV2();
             ScriptingCore.LoadReflection(); 
             LoadControls();
             LoadInteractions(); // Will be replaced with the scripting engine

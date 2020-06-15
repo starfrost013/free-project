@@ -142,6 +142,7 @@
     <Compile Include="Scripting\SimpleESX.Parameter.cs" />
     <Compile Include="Scripting\SimpleESX.Script.cs" />
     <Compile Include="Settings\SettingLoader.cs" />
+    <Compile Include="Settings\SettingLoader2.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Settings\Settings.Manager.cs" />
     <Compile Include="Text\AGTextBlock.cs" />

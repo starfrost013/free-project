@@ -8,10 +8,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+/// <summary>
+/// 
+/// SDLX/SDLX/SDL_Init.cs
+/// 
+/// Created: 2020-06-14
+/// 
+/// Modified: 2020-06-15
+/// 
+/// Version: 1.10 (bringup-2.21.1375.55 v1.00 → v1.10): Added SDL_WindowPtr and SDL_RenderPtr
+/// 
+/// Purpose: Provides rendering initalisation services utilising C# bindings for the Simple DirectMedia Layer, version 2.0.x where SDLX is enabled..
+/// 
+/// </summary>
 namespace SDLX
 {
     public class Game
     {
+        /// <summary>
+        /// Unmanaged code pointer to the SDL game window.
+        /// </summary>
+        public IntPtr SDL_WindowPtr { get; set; }
+        /// <summary>
+        /// Unmanaged code pointer to the SDL game renderer.
+        /// </summary>
+        public IntPtr SDL_RenderPtr { get; set; }
+
         public bool Game_Init()
         {
             if (!Game_InitSDL()) return false;
@@ -39,6 +61,7 @@ namespace SDLX
 #if DEBUG
             SDL.SDL_LogSetAllPriority(SDL.SDL_LogPriority.SDL_LOG_PRIORITY_WARN);
 #endif
+
             return true;
             
         }
