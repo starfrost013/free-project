@@ -12,8 +12,20 @@
     <Description>Inserts the object with global object ID objId at position X,Y.</Description>
     <ParameterSchema>
       <Parameter>
-        
+        <Description>The global object ID of the game object to insert.</Description>
+        <Name>ID</Name>
+        <ParameterType>String</ParameterType>
+      </Parameter>
+      <Parameter>
+        <Description>The X position of the object when it is inserted.</Description>
+        <Name>X</Name>
+        <ParameterType>Int</ParameterType>
       </Parameter>
     </ParameterSchema>
+    <Parameter>
+      <Description>The Y position of the object when it is inserted.</Description>
+      <Name>Y</Name>
+      <ParameterType>Int</ParameterType>
+    </Parameter>
   </Command>
 </ReflectionMetadata>
