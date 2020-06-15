@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Emerald.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Windows;
+using Emerald.Utilities;
 
 /// <summary>
 /// 
@@ -14,7 +16,7 @@ using System.Windows;
 /// 
 /// Modified: 2019-12-22
 /// 
-/// Version: 1.00
+/// Version: 1.00 (Will be entirely rewritten)
 /// 
 /// Purpose: Loads settings
 /// 
@@ -80,12 +82,15 @@ namespace Free
                                                     continue;
                                                 case "Resolution": // window size
                                                     string[] ResolutionStr = XmlAttributes[1].Value.Split(',');
-                                                    Settings.Resolution = new Point(Convert.ToDouble(ResolutionStr[0]), Convert.ToDouble(ResolutionStr[1]));
+                                                    Settings.Resolution = XmlAttributes[1].Value.SplitXY();
                                                     continue;
                                                 case "TitleScreen":
                                                 case "TitleScreenPath": // title screen path
                                                     Settings.TitleScreenPath = XmlAttributes[1].Value;
                                                     continue;
+                                                case "UseSDLX": //use innertext
+                                                    Settings.UseSDLX = Convert.ToBoolean(XmlAttributes[1].Value);
+                                                    continue; 
                                                 case "WindowType": // window type (min/max/fullscreen)
                                                     Settings.WindowType = (WindowType)Enum.Parse(typeof(WindowType), XmlAttributes[1].Value);
                                                     continue;

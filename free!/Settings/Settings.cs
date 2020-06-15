@@ -37,6 +37,7 @@ namespace Free
         public static string GameName { get; set; }
         public static Point Resolution { get; set; }
         public static string TitleScreenPath { get; set; }
+        public static bool UseSDLX { get; set; }
         public static WindowType WindowType { get; set; }
         
     }

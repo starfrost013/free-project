@@ -120,8 +120,16 @@ namespace Free
                 case GameState.Game:
                 case GameState.EditMode:
                     // Temporary
-                    //DrawScene();
-                    DrawScene_Threaded();
+
+                    if (Settings.UseSDLX)
+                    {
+                        DrawScene_Threaded();
+                    }
+                    else
+                    {
+                        DrawScene();
+                    }
+
                     return;
                 case GameState.Menu:
                     if (!TitleInitialized)

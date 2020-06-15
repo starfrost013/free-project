@@ -4,5 +4,6 @@
 	<Setting name="GameName" value="free!"></Setting>
 	<Setting name="TitleScreenPath" value="Game\Title.png"></Setting>
 	<Setting name="Resolution" value="800,419"></Setting>
+  <Setting name="UseSDLX" value="false"></Setting> <!-- WARNING: EXTREMELY UNSTABLE IF SET TO TRUE! Multithreaded SDL2 mode. -->
 	<Setting name="WindowType" value="Windowed"></Setting>
 </Settings>
