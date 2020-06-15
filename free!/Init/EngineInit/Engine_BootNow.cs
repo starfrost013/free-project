@@ -27,6 +27,17 @@ namespace Free
         {
             // Set gamestate
             Utils.LogDebug("BootNow!", $"BootNow! © 2020 avant-gardé eyes | Engine Now Initialising (version {Utils.GetVersion()})...");
+            
+            // Log if we're using SDL
+            if (Settings.UseSDLX)
+            {
+                Utils.LogDebug("BootNow!", "Using SDL2 renderer");
+            }
+            else
+            {
+                Utils.LogDebug("BootNow!", "Using WPF renderer");
+            }
+
             Gamestate = GameState.Init; 
 
             // Load initial structures

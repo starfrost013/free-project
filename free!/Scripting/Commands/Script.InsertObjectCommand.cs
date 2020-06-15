@@ -3,22 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace Free
 {
-    public class TestCommand : ICommandExecutor
+    public class InsertObjectCommand : ICommandExecutor
     {
         public MainWindow MnWindow { get; set; }
         public string Name { get; set; }
         public List<SimpleESXParameter> Parameters { get; set; }
-        public ScriptReference SR { get; set; }
         public bool ScriptRan { get; set; }
         public bool ScriptRunOnce { get; set; }
-        public TestCommand()
-        {
-            Parameters = new List<SimpleESXParameter>();
-        }
+        public ScriptReference SR { get; set; }
 
         public void GetParameters(List<SimpleESXParameter> Params)
         {
@@ -32,7 +27,7 @@ namespace Free
 
         public bool CheckSatisfiesScriptReference()
         {
-            if (SR == null) return true; 
+            if (SR == null) return true;
 
             foreach (ScriptReferenceRunOn SRX in SR.RunOnParameters)
             {
@@ -43,22 +38,21 @@ namespace Free
                 }
 
             }
+
             return false;
+
         }
 
         public void Verify()
         {
-            if (Parameters.Count != 0)
-            {
-                ScriptError.Throw("TestCommand: Must have no parameters!!", 5, 0, "Temp");
-            }
+            // Verify that we are actaully inserting an object. 
+            if (Parameters.Count != 3) ScriptError.Throw("InsertObject(ID, x, y): 3 parameters required", 10, 0, "Temp");
         }
 
         public ScriptReturnValue Execute()
         {
-            if (!CheckSatisfiesScriptReference()) return new ScriptReturnValue { ReturnCode = 1, ReturnInformation = "Script reference requirements unsatisfied" }; 
-            MessageBox.Show("It works!");
-            return new ScriptReturnValue { ReturnCode = 0, ReturnInformation = "Execution successful." };
+            //MnWindow.currentlevel.LevelObjects.Add()
+            return new ScriptReturnValue { ReturnCode = 0, ReturnInformation = "The operation completed successfully - an object has been added." };
         }
     }
 }

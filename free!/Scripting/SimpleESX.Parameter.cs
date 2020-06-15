@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    public enum ScriptParameterType { Boolean, String, Int };
+    public enum ScriptParameterType { Bool, String, Int, Double };
     public class SimpleESXParameter
     {
         public string Description { get; set; }

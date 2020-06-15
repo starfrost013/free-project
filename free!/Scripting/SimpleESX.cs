@@ -92,32 +92,48 @@ namespace Free
                                     // The parameter schema
                                     case "ParameterSchema":
                                         // Get the child nodes
+
                                         XmlNodeList XGreatGrandchildNodes = XGrandChildNode.ChildNodes;
 
                                         foreach (XmlNode XGreatGrandchildNode in XGreatGrandchildNodes)
                                         {
-                                            // Create a new SimpleEsX parameter.
-                                            SimpleESXParameter SEXParameter = new SimpleESXParameter();
-                                            // Read the parameter information 
                                             switch (XGreatGrandchildNode.Name)
                                             {
-                                                case "Description": // The description of this parameter.
-                                                    SEXParameter.Description = XGreatGrandchildNode.InnerText;
+                                                case "Parameter":
+                                                    // Create a new SimpleEsX parameter.
+                                                    SimpleESXParameter SEXParameter = new SimpleESXParameter();
+                                                    XmlNodeList XGGGrandchildNodes = XGreatGrandchildNode.ChildNodes;
+
+                                                    foreach (XmlNode XGGGrandchildNode in XGGGrandchildNodes)
+                                                    {
+                                                        // Read the parameter information 
+                                                        switch (XGGGrandchildNode.Name)
+                                                        {
+                                                            case "Description": // The description of this parameter.
+                                                                SEXParameter.Description = XGreatGrandchildNode.InnerText;
+                                                                continue;
+                                                            case "Name": // The name of this parameter.
+                                                                SEXParameter.Name = XGreatGrandchildNode.InnerText;
+                                                                continue;
+                                                            case "ParameterType": // The type of this parameter.
+                                                                SEXParameter.ScParamType = (ScriptParameterType)Enum.Parse(typeof(ScriptParameterType), XGreatGrandchildNode.InnerText);
+                                                                continue;
+                                                        }
+                                                        continue;
+                                                    }
+
+                                                    if (SEXParameter.Name == null) Error.Throw(null, ErrorSeverity.FatalError, "Attempted to load a parameter with no name!", "Error!", 76);
+
+                                                    SEXCommand.CommandParameters.Add(SEXParameter);
                                                     continue; 
-                                                case "Name": // The name of this parameter.
-                                                    SEXParameter.Name = XGreatGrandchildNode.InnerText;
-                                                    continue;
-                                                case "ParameterType": // The type of this parameter.
-                                                    SEXParameter.ScParamType = (ScriptParameterType)Enum.Parse(typeof(ScriptParameterType), XGreatGrandchildNode.InnerText);
-                                                    continue;
                                             }
 
-                                            if (SEXParameter.Name == null) Error.Throw(null, ErrorSeverity.FatalError, "Attempted to load a parameter with no name!", "Error!", 76);
-
-                                            SEXCommand.CommandParameters.Add(SEXParameter); 
+                                            
+                                            
                                         }
                                         continue; 
                                 }
+                            
                             }
 
                             if (SEXCommand.CommandName == null) Error.Throw(null, ErrorSeverity.FatalError, "Attempted to load a command with no name!", "Error!", 75);

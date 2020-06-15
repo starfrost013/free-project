@@ -100,6 +100,7 @@ namespace Free
 
                         // Check that we didn't do something stupid like x::400 or x:800:460
                         if (SexLineComponentParameters.Length != 2) ScriptError.Throw($"Invalid parameter format @ {SEXLine}.", 4, i + 1, Path);
+
                         SimpleESXParameter CurParameter = null;
 
                         foreach (SimpleESXParameter SEXParameter in CurCommand.CommandParameters)
@@ -111,7 +112,7 @@ namespace Free
                             }
                         }
 
-                        // Error checking
+                        // Check that the script does not have a parameter that doesn't actually exist in ReflectionMetadata.
                         if (CurParameter == null) ScriptError.Throw($"Invalid parameter {CurParameter.Name} found.", 3, i + 1, Path);
 
                         CurParameter.Value = SexLineComponentParameters[1];

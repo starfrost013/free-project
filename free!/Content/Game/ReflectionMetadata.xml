@@ -3,8 +3,17 @@
     <Name>TestCommand</Name>
     <Class>OnLoad</Class>
     <Description>A test command.</Description>
+    <ParameterSchema/>
+  </Command>
+  
+  <Command>
+    <Name>InsertObject</Name>
+    <Class>OnLoad</Class> <!-- Command classes are deprecated -->
+    <Description>Inserts the object with global object ID objId at position X,Y.</Description>
     <ParameterSchema>
-      
+      <Parameter>
+        
+      </Parameter>
     </ParameterSchema>
   </Command>
 </ReflectionMetadata>
