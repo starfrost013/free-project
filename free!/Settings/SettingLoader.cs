@@ -106,6 +106,8 @@ namespace Free
                                 Error.Throw(new Exception("Empty node found in Settings.xml"), ErrorSeverity.FatalError, "Empty node found in Settings.xml.", "avant-gardé engine", 33);
                                 return;
                             }
+                        case "#comment":
+                            continue;
                         default:
                             Error.Throw(new Exception("Invalid node found in Settings.xml"), ErrorSeverity.FatalError, "Invalid node found in Settings.xml. The only accepted node is the Setting node.", "avant-gardé engine", 32);
                             return;
