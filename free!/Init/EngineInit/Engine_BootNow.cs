@@ -43,7 +43,7 @@ namespace Free
             GameTickTimer.Interval = 0.001; // We run AFAP as of 2020-05-26
 
             //TEMP:
-            Title = "free! (nightly build for June 14th, 2020)";
+            Title = "free! (nightly build for June 15th, 2020)";
 
             // Load everything that we can load at init
             LoadSettings();
