@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 /// <summary>
 /// 
@@ -37,6 +36,10 @@ namespace SDLX
         public bool Game_Init()
         {
             if (!Game_InitSDL()) return false;
+
+            // Add ressolution 
+            if (!Game_InitSDL_Window()) return false;
+
             return true;
         }
 
@@ -65,5 +68,29 @@ namespace SDLX
             return true;
             
         }
+
+        public bool Game_InitSDL_Window()
+        {
+            // Work around C# shit
+
+            IntPtr _ = SDL_WindowPtr;
+            IntPtr _2 = SDL_RenderPtr;
+
+            if (SDL.SDL_CreateWindowAndRenderer(800, 450, SDL.SDL_WindowFlags.SDL_WINDOW_SHOWN | SDL.SDL_WindowFlags.SDL_WINDOW_RESIZABLE, out _, out _2) < 0)
+            {
+                Debug.WriteLine($"SDL createwindow failure: {SDL.SDL_GetError()}");
+                return false;
+            }
+            else
+            {
+                SDL_WindowPtr = _;
+                SDL_RenderPtr = _2;
+                return true;
+            }
+
+            
+        }
+
+
     }
 }
