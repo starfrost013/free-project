@@ -26,7 +26,7 @@ namespace Free
             {
                 XmlDocument XDoc = new XmlDocument();
 
-                if (!File.Exists("Settings.xml") || !File.Exists("Emerald.xml"))
+                if (!File.Exists("Settings.xml"))
                 {
                     GenerateSettings(); 
                 }
@@ -42,6 +42,7 @@ namespace Free
                     XRoot = XRoot.NextSibling;
                 }
 
+                
                 return XRoot;
             }
             // can't load serversettings.xml because it doesn't exist
@@ -67,7 +68,8 @@ namespace Free
         private static void GenerateSettings()
         {
             // TEMP
-            File.Create("Settings.xml");
+            FileStream Fstream = File.Create("Settings.xml");
+            Fstream.Close();
             // END TEMP
         }
 
