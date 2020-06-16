@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 /// <summary>
 /// 
-/// Object API - Get Players - Temporarily inside MainWindow 
+/// Object API - Get Players (Objects\ObjectAPI\ObjectAPI.GetPlayers.cs)
 /// 
 /// Created: 2020-06-13
 /// 

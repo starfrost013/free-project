@@ -20,6 +20,11 @@ namespace Free
             Parameters = new List<SimpleESXParameter>();
         }
 
+        public object GetParameter(string ParameterName)
+        {
+            throw new NotImplementedException(); 
+        }
+
         public void GetParameters(List<SimpleESXParameter> Params)
         {
             Parameters = Params;

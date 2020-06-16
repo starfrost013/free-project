@@ -15,8 +15,12 @@ namespace Free
         {
             switch (Command)
             {
+                case "InsertObject":
+                    return new InsertObjectCommand();
+                case "Test":
                 case "TestCommand":
                     return new TestCommand();
+
             }
 
             // Error

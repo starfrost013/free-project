@@ -16,6 +16,7 @@ namespace Free
         List<SimpleESXParameter> Parameters { get; set; }
         ScriptReference SR { get; set; }
         bool CheckSatisfiesScriptReference();
+        object GetParameter(string GetParam); 
         void GetParameters(List<SimpleESXParameter> Params);
         void SetScriptReference(ScriptReference SR);
         void Verify();
