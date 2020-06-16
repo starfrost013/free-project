@@ -110,13 +110,14 @@ namespace Free
                                                         switch (XGGGrandchildNode.Name)
                                                         {
                                                             case "Description": // The description of this parameter.
-                                                                SEXParameter.Description = XGreatGrandchildNode.InnerText;
+                                                                SEXParameter.Description = XGGGrandchildNode.ChildNodes[0].Value;
                                                                 continue;
                                                             case "Name": // The name of this parameter.
-                                                                SEXParameter.Name = XGreatGrandchildNode.InnerText;
+                                                                SEXParameter.Name = XGGGrandchildNode.ChildNodes[0].Value;
                                                                 continue;
                                                             case "ParameterType": // The type of this parameter.
-                                                                SEXParameter.ScParamType = (ScriptParameterType)Enum.Parse(typeof(ScriptParameterType), XGreatGrandchildNode.InnerText);
+                                                                SEXParameter.ScParamType = (ScriptParameterType)Enum.Parse(typeof(ScriptParameterType), XGGGrandchildNode.ChildNodes[0].Value);
+                                                                
                                                                 continue;
                                                         }
                                                         continue;
