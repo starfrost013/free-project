@@ -114,7 +114,7 @@ namespace Free
             }
 
             GameTickTimer.Start();
-            if (Settings.UseSDLX) MainLoopTimer.Start(); 
+            //if (Settings.UseSDLX) MainLoopTimer.Start(); 
             PhysicsTimer.Start();
         }
     }

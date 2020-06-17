@@ -94,7 +94,7 @@ namespace Free
                     // Skip the first one
                     for (int j = 1; j < SEXLineComponents.Length; j++)
                     {
-                        string SEXLineComponent = SEXLineComponents[i];
+                        string SEXLineComponent = SEXLineComponents[j];
                         // Verify parameters. More checking of this is done by the individual commands.
                         string[] SexLineComponentParameters = SEXLineComponent.Split(':');
 

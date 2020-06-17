@@ -82,6 +82,11 @@ namespace Free
 
         }
 
+        public InsertObjectCommand()
+        {
+            MnWindow = (MainWindow)Application.Current.MainWindow;
+        }
+
         public void Verify()
         {
             // Verify that we are actaully inserting an object. 
