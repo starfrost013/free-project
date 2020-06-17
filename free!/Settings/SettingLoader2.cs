@@ -12,7 +12,7 @@ namespace Free
         /// <summary>
         /// Load settings using the Emerald Settings API.
         /// </summary>
-        public void LoadSettingsV2()
+        public void LoadSettings()
         {
             try
             {

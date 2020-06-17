@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 /// 
 /// Created: 2020-06-14
 /// 
-/// Modified: 2020-06-15
+/// Modified: 2020-06-17
 /// 
-/// Version: 1.10 (bringup-2.21.1375.55 v1.00 → v1.10): Added SDL_WindowPtr and SDL_RenderPtr
+/// Version: 1.30 (bringup-2.21.1385.62 v1.20 → v1.30): added title setting
 /// 
 /// Purpose: Provides rendering initalisation services utilising C# bindings for the Simple DirectMedia Layer, version 2.0.x where SDLX is enabled..
 /// 
@@ -28,10 +28,12 @@ namespace SDLX
         /// Unmanaged code pointer to the SDL game window.
         /// </summary>
         public IntPtr SDL_WindowPtr { get; set; }
+
         /// <summary>
         /// Unmanaged code pointer to the SDL game renderer.
         /// </summary>
         public IntPtr SDL_RenderPtr { get; set; }
+        
 
         public bool Game_Init()
         {
@@ -43,7 +45,7 @@ namespace SDLX
             return true;
         }
 
-        public bool Game_InitSDL()
+        private bool Game_InitSDL()
         {
             // Check that we haven't done any stupid crap like running with the wrong SDL version.
             SDL.SDL_version SDL_Ver = new SDL.SDL_version();
@@ -69,7 +71,7 @@ namespace SDLX
             
         }
 
-        public bool Game_InitSDL_Window()
+        private bool Game_InitSDL_Window()
         {
             // Work around C# shit
 
@@ -83,6 +85,8 @@ namespace SDLX
             }
             else
             {
+                SDL.SDL_SetWindowTitle(_, "Emerald Simple DirectMedia Layer Renderer");
+
                 SDL_WindowPtr = _;
                 SDL_RenderPtr = _2;
                 return true;

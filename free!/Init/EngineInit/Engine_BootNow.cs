@@ -54,10 +54,19 @@ namespace Free
             GameTickTimer.Interval = 0.001; // We run AFAP as of 2020-05-26
 
             //TEMP:
-            Title = "free! (nightly build for June 16th, 2020)";
+            Title = "free! (nightly build for June 17th, 2020)";
 
             // Load everything that we can load at init
-            LoadSettingsV2();
+            LoadSettings();
+
+            // Init SDL
+
+            if (Settings.UseSDLX)
+            {
+                App WinApp = (App)Application.Current;
+                WinApp.SDLGame.Game_Init(); 
+            }
+
             ScriptingCore.LoadReflection(); 
             LoadControls();
             LoadInteractions(); // Will be replaced with the scripting engine

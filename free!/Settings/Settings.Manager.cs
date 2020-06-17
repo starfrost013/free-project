@@ -17,7 +17,6 @@ namespace Free
     /// Ported from Emerald Lite/NetEmerald/Emerald Mini with enhancements 
     /// </summary>
     /// 
-    public enum SettingFile { Engine, Game }; // engine/game level settings
     public static class GameSettings 
     {
         internal static XmlNode LoadSettingsXml()

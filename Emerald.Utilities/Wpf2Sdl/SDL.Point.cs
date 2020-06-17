@@ -77,5 +77,9 @@ namespace Emerald.Utilities.Wpf2Sdl
             return base.Equals(obj);
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

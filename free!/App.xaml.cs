@@ -14,14 +14,11 @@ namespace Free
     /// </summary>
     public partial class App : Application
     {
+        public Game SDLGame { get; set; }
         private void Application_Activated(object sender, EventArgs e)
         {
+            SDLGame = new Game();
 
-            /*
-            if (Settings.UseSDLX)
-            {
-                SDL_Init();
-            }*/
 
             MainWindow MnWindow = new MainWindow();
             MnWindow.Show();
