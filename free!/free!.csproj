@@ -123,6 +123,7 @@
     <Compile Include="Level\LevelPreloader.cs" />
     <Compile Include="Objects\IGameObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.AddObject.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.DeleteObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.GetPlayers.cs" />
     <Compile Include="Objects\ObjManager.cs" />
     <Compile Include="Objects\SentientBeing.cs" />

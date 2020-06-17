@@ -294,7 +294,16 @@ namespace Free
                     }
                 }
             }
+        }
 
+        private List<Rect> Internal_GetObjectBoundingBoxes(Obj Obj1, Obj Obj2)
+        {
+            // fix bad code - obj.Size (point) 
+            List<Rect> Rects = new List<Rect>();
+            Rects.Add(new Rect(new Point(Obj1.OBJX, Obj1.OBJY), new Point(Obj1.OBJX + Obj1.OBJIMAGE.PixelWidth, Obj1.OBJY + Obj1.OBJIMAGE.PixelHeight)));
+            Rects.Add(new Rect(new Point(Obj2.OBJX, Obj2.OBJY), new Point(Obj2.OBJX + Obj2.OBJIMAGE.PixelWidth, Obj2.OBJY + Obj2.OBJIMAGE.PixelHeight)));
+
+            return Rects;
         }
 
         /// <summary>
@@ -307,7 +316,7 @@ namespace Free
             // Gonna work ons cripting
             double FX = Rects[1].TopLeft.Y + ((Rects[1].BottomRight.Y - Rects[1].TopLeft.Y) / 2);
 
-            if (Rects[0].TopLeft.Y > Rects[1].TopLeft.Y && Rects[0].TopLeft.Y < Rects[1].TopLeft.Y + FX) 
+            if (Rects[0].TopLeft.Y > Rects[1].TopLeft.Y && Rects[0].TopLeft.Y <= FX) 
             {
                 return true; 
             }
@@ -324,7 +333,7 @@ namespace Free
             // Gonna work ons cripting
             double FX = Rects[1].TopLeft.Y + ((Rects[1].BottomRight.Y - Rects[1].TopLeft.Y) / 2);
 
-            if (Rects[0].TopLeft.Y > Rects[1].TopLeft.Y + FX && Rects[0].TopLeft.Y < Rects[1].Bottom)
+            if (Rects[0].TopLeft.Y > FX && Rects[0].TopLeft.Y < Rects[1].Bottom)
             {
                 return true;
             }
@@ -334,14 +343,36 @@ namespace Free
             }
         }
 
-        private List<Rect> Internal_GetObjectBoundingBoxes(Obj Obj1, Obj Obj2)
+        public bool TestCollideLeft(Obj Obj1, Obj Obj2)
         {
-            // fix bad code - obj.Size (point) 
-            List<Rect> Rects = new List<Rect>();
-            Rects.Add(new Rect(new Point(Obj1.OBJX, Obj1.OBJY), new Point(Obj1.OBJX + Obj1.OBJIMAGE.PixelWidth, Obj1.OBJY + Obj1.OBJIMAGE.PixelHeight)));
-            Rects.Add(new Rect(new Point(Obj2.OBJX, Obj2.OBJY), new Point(Obj2.OBJX + Obj2.OBJIMAGE.PixelWidth, Obj2.OBJY + Obj2.OBJIMAGE.PixelHeight)));
+            List<Rect> Rects = Internal_GetObjectBoundingBoxes(Obj1, Obj2);
 
-            return Rects;
+            double Max = Rects[1].TopLeft.X + ((Rects[1].TopRight.Y - Rects[1].TopLeft.Y) / 2);
+
+            if (Rects[0].TopLeft.X > Rects[1].TopLeft.X && Rects[0].TopLeft.X <= Max)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool TestCollideRight(Obj Obj1, Obj Obj2)
+        {
+            List<Rect> Rects = Internal_GetObjectBoundingBoxes(Obj1, Obj2);
+
+            double Max = Rects[1].TopLeft.X + ((Rects[1].TopRight.Y - Rects[1].TopLeft.Y) / 2);
+
+            if (Rects[0].TopLeft.X > Rects[1].TopLeft.X + Max && Rects[0].TopLeft.X < Rects[1].TopRight.X)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
