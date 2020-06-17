@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emerald.Utilities; 
+using System;
 using System.Collections.Generic;
 using System.IO; 
 using System.Linq;
@@ -6,11 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Windows;
+using System.Windows.Media; 
 
 namespace Free
 {
     /// <summary>
-    /// Emerald Settings
+    /// Emerald Game Engine Settings © 2020 avant-gardé eyes.
     /// 
     /// Ported from Emerald Lite/NetEmerald/Emerald Mini with enhancements 
     /// </summary>
@@ -18,18 +20,18 @@ namespace Free
     public enum SettingFile { Engine, Game }; // engine/game level settings
     public static class GameSettings 
     {
-        internal static XmlNode LoadSettingsXml(SettingFile SettingType)
+        internal static XmlNode LoadSettingsXml()
         {
             try
             {
                 XmlDocument XDoc = new XmlDocument();
 
-                if (!File.Exists("GameSettings.xml") || !File.Exists("Emerald.xml"))
+                if (!File.Exists("Settings.xml"))
                 {
                     GenerateSettings(); 
                 }
 
-                XDoc.Load("GameSettings.xml");
+                XDoc.Load("Settings.xml");
 
                 // get the xmlnode
                 XmlNode XRoot = XDoc.FirstChild;
@@ -40,6 +42,7 @@ namespace Free
                     XRoot = XRoot.NextSibling;
                 }
 
+                
                 return XRoot;
             }
             // can't load serversettings.xml because it doesn't exist
@@ -65,8 +68,8 @@ namespace Free
         private static void GenerateSettings()
         {
             // TEMP
-            File.Create("Emerald.xml");
-            File.Create("GameSettings.xml");
+            FileStream Fstream = File.Create("Settings.xml");
+            Fstream.Close();
             // END TEMP
         }
 
@@ -98,11 +101,11 @@ namespace Free
         /// </summary>
         /// <param name="SettingsElement">The name of the setting to acquire.</param>
         /// <returns></returns>
-        public static bool GetBool(SettingFile SettingType, string SettingsElement)
+        public static bool GetBool(string SettingsElement)
         {
             try
             {
-                XmlNode XRoot = LoadSettingsXml(SettingType);
+                XmlNode XRoot = LoadSettingsXml();
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
                 //throw an error if xelement is null
@@ -127,11 +130,11 @@ namespace Free
         /// </summary>
         /// <param name="SettingsElement">The name of the setting to acquire.</param>
         /// <returns></returns>
-        public static double GetDouble(SettingFile SettingType, string SettingsElement)
+        public static double GetDouble(string SettingsElement)
         {
             try
             {
-                XmlNode XRoot = LoadSettingsXml(SettingType);
+                XmlNode XRoot = LoadSettingsXml();
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
 
                 //throw an error if xelement is null
@@ -156,11 +159,11 @@ namespace Free
         /// </summary>
         /// <param name="SettingsElement">The name of the setting to acquire.</param>
         /// <returns></returns>
-        public static int GetInt(SettingFile SettingType, string SettingsElement)
+        public static int GetInt(string SettingsElement)
         {
             try
             {
-                XmlNode XRoot = LoadSettingsXml(SettingType);
+                XmlNode XRoot = LoadSettingsXml();
                 XmlNode XElement = GetNode(XRoot, SettingsElement);
                 if (XElement == null) MessageBox.Show($"Temp error. Attempted to load invalid setting int! Error 15!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
 
@@ -183,9 +186,9 @@ namespace Free
         /// Obtains a string setting.
         /// </summary>
         /// <param name="SettingsElement">The name of the setting to acquire.</param>
-        public static string GetString(SettingFile SettingType, string SettingsElement)
+        public static string GetString(string SettingsElement)
         {
-            XmlNode XRoot = LoadSettingsXml(SettingType);
+            XmlNode XRoot = LoadSettingsXml();
             XmlNode XElement = GetNode(XRoot, SettingsElement);
 
             if (XElement == null)
@@ -203,5 +206,45 @@ namespace Free
             return Val;
 
         }
+
+        /// <summary>
+        /// Obtains a point setting.
+        /// </summary>
+        /// <param name="SettingsElement">The element name to grab.</param>
+        /// <returns></returns>
+        public static Point GetPoint(string SettingsElement)
+        {
+            XmlNode XRoot = LoadSettingsXml();
+            XmlNode XElement = GetNode(XRoot, SettingsElement);
+
+            // throw an error if xelement is null
+            if (XElement == null)
+            {
+                MessageBox.Show($"Temp error. Attempted to load invalid setting point! Error 18!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                Application.Current.Shutdown(18);
+            }
+
+            Point XY = XElement.InnerText.SplitXY();
+
+            return XY;
+        }
+
+        public static Color GetColour(string SettingsElement)
+        {
+            XmlNode XRoot = LoadSettingsXml();
+            XmlNode XElement = GetNode(XRoot, SettingsElement);
+
+            if (XElement == null)
+            {
+                MessageBox.Show($"Temp error. Attempted to load invalid setting colour! Error 19!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                Application.Current.Shutdown(19);
+            }
+
+
+            Color RGB = XElement.InnerText.SplitRGB();
+
+            return RGB;
+        }
+
     }
 }

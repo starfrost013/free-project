@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SDLX
+namespace Free
 {
-    public class SDLX
+    public partial class Level
     {
     }
 }

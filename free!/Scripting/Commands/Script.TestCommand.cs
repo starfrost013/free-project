@@ -20,6 +20,11 @@ namespace Free
             Parameters = new List<SimpleESXParameter>();
         }
 
+        public object GetParameter(string ParameterName)
+        {
+            throw new NotImplementedException(); 
+        }
+
         public void GetParameters(List<SimpleESXParameter> Params)
         {
             Parameters = Params;
@@ -56,7 +61,7 @@ namespace Free
 
         public ScriptReturnValue Execute()
         {
-            if (!CheckSatisfiesScriptReference()) return new ScriptReturnValue { ReturnCode = 1, ReturnInformation = "Script reference information unsatisfied" }; 
+            if (!CheckSatisfiesScriptReference()) return new ScriptReturnValue { ReturnCode = 1, ReturnInformation = "Script reference requirements unsatisfied" }; 
             MessageBox.Show("It works!");
             return new ScriptReturnValue { ReturnCode = 0, ReturnInformation = "Execution successful." };
         }

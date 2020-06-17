@@ -122,8 +122,8 @@
     <Compile Include="Interactions\InteractionManager.Remove.cs" />
     <Compile Include="Level\LevelPreloader.cs" />
     <Compile Include="Objects\IGameObject.cs" />
-    <Compile Include="Objects\ObjectAPI\GetPlayers.cs" />
-    <Compile Include="Objects\ObjectAPI\InsertObject.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.AddObject.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.GetPlayers.cs" />
     <Compile Include="Objects\ObjManager.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
     <Compile Include="Physics\Physics.Init.cs" />
@@ -131,6 +131,7 @@
     <Compile Include="Render\Render.cs" />
     <Compile Include="Render\ThreadedRender.cs" />
     <Compile Include="Scripting\Commands\CommandFactory.cs" />
+    <Compile Include="Scripting\Commands\Script.InsertObjectCommand.cs" />
     <Compile Include="Scripting\Commands\ScriptUtilities.cs" />
     <Compile Include="Scripting\Commands\Script.TestCommand.cs" />
     <Compile Include="Scripting\ICommandExecutor.cs" />
@@ -142,6 +143,7 @@
     <Compile Include="Scripting\SimpleESX.Parameter.cs" />
     <Compile Include="Scripting\SimpleESX.Script.cs" />
     <Compile Include="Settings\SettingLoader.cs" />
+    <Compile Include="Settings\SettingLoader2.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Settings\Settings.Manager.cs" />
     <Compile Include="Text\AGTextBlock.cs" />
@@ -482,16 +484,17 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>REM Robocopy doesn't use exit code 0 for success, so Visual Studio and MSBUILD crap out.
+    <PostBuildEvent>
+      REM Robocopy doesn't use exit code 0 for success, so Visual Studio and MSBUILD crap out.
 
-echo Copying content files...We will be moving all files to \Content\ in the near future...
-echo.
-xcopy /D /MOVE .\Content .
-del /S /Q .\Content\*.*
-rd /S /Q .\Content\
-md Content
-IF NOT EXIST .\Content\Game md .\Content\Game
-copy .\Game\Placeholder.png .\Content\Game\Placeholder.png
-</PostBuildEvent>
+      echo Copying content files...We will be moving all files to \Content\ in the near future...
+      echo.
+      xcopy /D /MOVE .\Content .
+      del /S /Q .\Content\*.*
+      rd /S /Q .\Content\
+      md Content
+      IF NOT EXIST .\Content\Game md .\Content\Game
+      copy .\Game\Placeholder.png .\Content\Game\Placeholder.png
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

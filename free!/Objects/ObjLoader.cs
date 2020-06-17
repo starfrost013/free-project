@@ -150,7 +150,7 @@ namespace Free
                             // The scripts associated with this node. 
                             case "AssociatedScript":
 
-                                if (!XGrandchildNode.HasChildNodes) Error.Throw(null, ErrorSeverity.FatalError, "E78: Attempted to load an empty AssociatedScript node!", "Error!", 78);
+                                if (!XGrandchildNode.HasChildNodes) Error.Throw(null, ErrorSeverity.FatalError, "E78: Attempted to load an empty AssociatedScript node!", "Error!", 90);
 
                                 XmlNodeList XGreatGrandchildNodes = XGrandchildNode.ChildNodes;
 
@@ -277,7 +277,7 @@ namespace Free
             }
             catch (ArgumentException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, $"A critical error occurred while loading Objects.xml: Error converting to enum (most likely RunOn)\n\n{err}", "avant-gardé engine", 90);
+                Error.Throw(err, ErrorSeverity.FatalError, $"A critical error occurred while loading Objects.xml: Error converting to enum (most likely RunOn)\n\n{err}", "avant-gardé engine", 91);
             }
             catch (FileNotFoundException err)
             {
