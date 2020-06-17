@@ -18,6 +18,7 @@ namespace Free
         public SimpleESXCommand()
         {
             CmdClass = new CommandClass();
+            CommandParameters = new List<SimpleESXParameter>();
             UserParameters = new List<SimpleESXParameter>();
         }
 

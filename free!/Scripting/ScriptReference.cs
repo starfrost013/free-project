@@ -13,7 +13,6 @@ namespace Free
     {
         public string Name { get; set; }
         public string Path { get; set; }
-
         public List<ScriptReferenceRunOn> RunOnParameters { get; set; }
 
         public ScriptReference()
