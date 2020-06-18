@@ -95,6 +95,17 @@ namespace SDLX
             
         }
 
+        private void Game_Shutdown()
+        {
+            SDL.SDL_AudioQuit();
+
+            SDL.SDL_VideoQuit();
+
+            SDL.SDL_Quit();
+
+            // bad
+            Environment.Exit(0); 
+        }
 
     }
 }

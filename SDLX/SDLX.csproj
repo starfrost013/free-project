@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="SDL_Init.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SDL_Main.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
