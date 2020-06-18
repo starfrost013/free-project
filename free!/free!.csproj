@@ -132,6 +132,7 @@
     <Compile Include="Render\Render.cs" />
     <Compile Include="Render\ThreadedRender.cs" />
     <Compile Include="Scripting\Commands\CommandFactory.cs" />
+    <Compile Include="Scripting\Commands\Script.DeleteObjectCommand.cs" />
     <Compile Include="Scripting\Commands\Script.InsertObjectCommand.cs" />
     <Compile Include="Scripting\Commands\ScriptUtilities.cs" />
     <Compile Include="Scripting\Commands\Script.TestCommand.cs" />

@@ -16,13 +16,18 @@ namespace SDLX
 
             while (SDL.SDL_PollEvent(out _) == 1)
             {
+                
                 switch (_.type)
                 {
                     case SDL.SDL_EventType.SDL_QUIT:
                         // VERY TEMPORARY CODE
-                        Game_Shutdown(); 
-                        return;
+                        Game_Shutdown();
+                        continue;
                 }
+
+                // Destroy
+                SDL.SDL_DestroyRenderer(SDL_RenderPtr);
+                SDL.SDL_DestroyWindow(SDL_WindowPtr);
             }
         }
     }

@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 /// </summary>
 namespace SDLX
 {
-    public class Game
+    public partial class Game
     {
         /// <summary>
         /// Unmanaged code pointer to the SDL game window.
