@@ -123,6 +123,7 @@
     <Compile Include="Level\LevelPreloader.cs" />
     <Compile Include="Objects\IGameObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.AddObject.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.DeleteObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.GetPlayers.cs" />
     <Compile Include="Objects\ObjManager.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
@@ -142,7 +143,6 @@
     <Compile Include="Scripting\SimpleESX.cs" />
     <Compile Include="Scripting\SimpleESX.Parameter.cs" />
     <Compile Include="Scripting\SimpleESX.Script.cs" />
-    <Compile Include="Settings\SettingLoader.cs" />
     <Compile Include="Settings\SettingLoader2.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Settings\Settings.Manager.cs" />
@@ -260,6 +260,7 @@
     <Content Include="Content\PrepareRelease.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\SDL2.dll" />
     <Content Include="Content\Test.esx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -473,9 +474,9 @@
     <Resource Include="Content\Weapons\TestWeapon_Ammo_Explode_04.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Emerald.Utilities\Emerald.Utilities.csproj">
+    <ProjectReference Include="..\Emerald.Utilities\PresentationCompatibility.csproj">
       <Project>{a677eee2-1fbc-4abe-8072-39fe09cd18b6}</Project>
-      <Name>Emerald.Utilities</Name>
+      <Name>PresentationCompatibility</Name>
     </ProjectReference>
     <ProjectReference Include="..\SDLX\SDLX.csproj">
       <Project>{2bece7a3-3bb0-4213-a097-2698058767b4}</Project>
@@ -484,17 +485,19 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-      REM Robocopy doesn't use exit code 0 for success, so Visual Studio and MSBUILD crap out.
+    <PostBuildEvent>REM Robocopy doesn't use exit code 0 for success, so Visual Studio and MSBUILD crap out.
 
-      echo Copying content files...We will be moving all files to \Content\ in the near future...
-      echo.
-      xcopy /D /MOVE .\Content .
-      del /S /Q .\Content\*.*
-      rd /S /Q .\Content\
-      md Content
-      IF NOT EXIST .\Content\Game md .\Content\Game
-      copy .\Game\Placeholder.png .\Content\Game\Placeholder.png
-    </PostBuildEvent>
+echo Copying SDL2...
+copy Content\SDL2.dll SDL2.dll
+
+echo Copying content files...We will be moving all files to \Content\ in the near future...
+echo.
+xcopy /D /MOVE .\Content .
+del /S /Q .\Content\*.*
+rd /S /Q .\Content\
+md Content
+IF NOT EXIST Content\Game md Content\Game
+copy Game\Placeholder.png Content\Game\Placeholder.png
+</PostBuildEvent>
   </PropertyGroup>
 </Project>

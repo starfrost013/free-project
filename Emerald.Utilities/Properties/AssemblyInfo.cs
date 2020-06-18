@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Emerald Logging & Utilities")]
-[assembly: AssemblyDescription("Handles logging and utility methods for the Emerald game engine.")]
+[assembly: AssemblyTitle("Emerald SDL2 Utilities & WPF Compatibility Layer")]
+[assembly: AssemblyDescription("Provides WPF compatibility services for SDL2-based Emerald applications. Also handles logging and utility methods for the Emerald game engine.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Emerald Game Engine")]
-[assembly: AssemblyCopyright("Copyright © Connor Hyde, 2020.")]
+[assembly: AssemblyCopyright("Copyright © Connor Hyde, 2019-20.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.61.0")]
-[assembly: AssemblyFileVersion("1.0.61.0")]
+[assembly: AssemblyVersion("1.0.65.0")]
+[assembly: AssemblyFileVersion("1.0.65.0")]

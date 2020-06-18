@@ -43,6 +43,10 @@ namespace Free
         bool CollidesTop { get; set; }
         bool CollidesBottom { get; set; }
         int OBJCOLLISIONS { get; set; } // if 0, fall.
+        int CollisionsLeft { get; set; }
+        int CollisionsRight { get; set; }
+        int CollisionsTop { get; set; }
+        int CollisionsBottom { get; set; }
         List<IGameObject> OBJCOLLIDEDOBJECTS { get; set; } //a bad idea? maybe. 
         double OBJDECELERATION { get; set; }
         double OBJDECELERATIONY { get; set; }
