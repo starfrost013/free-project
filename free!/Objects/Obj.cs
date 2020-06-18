@@ -55,7 +55,7 @@ namespace Free
         public int CollisionsRight { get; set; }
         public int CollisionsTop { get; set; }
         public int CollisionsBottom { get; set; }
-        public List<IGameObject> OBJCOLLIDEDOBJECT { get; set; } //a bad idea? maybe. 
+        public List<IGameObject> OBJCOLLIDEDOBJECTS { get; set; } //a bad idea? maybe. 
         public double OBJDECELERATION { get; set; }
         public double OBJDECELERATIONY { get; set; }
         public double OBJFORCE { get; set; }
