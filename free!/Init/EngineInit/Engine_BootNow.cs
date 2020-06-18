@@ -61,11 +61,9 @@ namespace Free
 
             // Init SDL
 
-            if (Settings.UseSDLX)
-            {
-                App WinApp = (App)Application.Current;
-                WinApp.SDLGame.Game_Init(); 
-            }
+            App WinApp = (App)Application.Current;
+            WinApp.SDLGame.Game_Init();
+
 
             ScriptingCore.LoadReflection(); 
             LoadControls();
