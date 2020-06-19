@@ -219,6 +219,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="Content\zlib1.dll" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -258,10 +259,15 @@
     <None Include="Content\Objects\Stg06\Stg06_wall_02_top.pdn" />
     <None Include="Content\Objects\Stg06\Stg06_wall_platform_01.pdn" />
     <None Include="Content\Objects\TestObjectPriority2.pdn" />
+    <Content Include="Content\libjpeg-9.dll" />
+    <Content Include="Content\libpng16-16.dll" />
+    <Content Include="Content\libtiff-5.dll" />
+    <Content Include="Content\libwebp-7.dll" />
     <Content Include="Content\PrepareRelease.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\SDL2.dll" />
+    <Content Include="Content\SDL2_image.dll" />
     <Content Include="Content\Test.esx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
