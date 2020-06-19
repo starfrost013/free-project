@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SDLX;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
@@ -60,6 +61,9 @@ namespace Free
         {
             this.Dispatcher.Invoke(() =>
             {
+                App CApp = (App)Application.Current;
+                CApp.SDLGame.SDL_Main(); 
+
                 Window_ContentRendered(this, new EventArgs());
                 return;
             });

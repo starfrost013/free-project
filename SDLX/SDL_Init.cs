@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 /// </summary>
 namespace SDLX
 {
-    public class Game
+    public partial class Game
     {
         /// <summary>
         /// Unmanaged code pointer to the SDL game window.
@@ -60,7 +60,14 @@ namespace SDLX
             // Initialise SDL.
             if (SDL.SDL_Init(SDL.SDL_INIT_VIDEO | SDL.SDL_INIT_AUDIO) < 0)
             {
-                Debug.WriteLine($"SDL init fail: {SDL.SDL_GetError()}"); 
+                Debug.WriteLine($"SDL init fail: {SDL.SDL_GetError()}");
+                return false;
+            }
+
+            if (SDL_image.IMG_Init(SDL_image.IMG_InitFlags.IMG_INIT_PNG) < 0)
+            {
+                Debug.WriteLine($"SDL_image init fail: {SDL.SDL_GetError()}"); 
+                return false;
             }
 
 #if DEBUG
@@ -95,6 +102,19 @@ namespace SDLX
             
         }
 
+        private void Game_Shutdown()
+        {
+            SDL_image.IMG_Quit(); 
+
+            SDL.SDL_AudioQuit();
+
+            SDL.SDL_VideoQuit();
+
+            SDL.SDL_Quit();
+
+            // bad
+            Environment.Exit(0); 
+        }
 
     }
 }
