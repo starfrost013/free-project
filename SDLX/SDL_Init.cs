@@ -104,6 +104,10 @@ namespace SDLX
 
         private void Game_Shutdown()
         {
+            // Shutdown various things
+            SDL.SDL_DestroyRenderer(SDL_RenderPtr);
+            SDL.SDL_DestroyWindow(SDL_WindowPtr);
+
             SDL_image.IMG_Quit(); 
 
             SDL.SDL_AudioQuit();

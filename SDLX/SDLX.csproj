@@ -45,12 +45,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SDL_API_LoadImage.cs" />
+    <Compile Include="SDL_Image.cs" />
     <Compile Include="SDL_Init.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SDL_Main.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Emerald.Utilities\PresentationCompatibility.csproj">
+      <Project>{a677eee2-1fbc-4abe-8072-39fe09cd18b6}</Project>
+      <Name>PresentationCompatibility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
