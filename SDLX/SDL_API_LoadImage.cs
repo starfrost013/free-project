@@ -12,6 +12,12 @@ namespace SDLX
     public partial class Game
     {
         public List<SDL_Sprite> SDLTextureCache { get; set; }
+
+        public Game()
+        {
+            SDLTextureCache = new List<SDL_Sprite>(); 
+        }
+
         public bool LoadImage(string ImageLoad, int SizeX, int SizeY)
         {
             // Load the image using SDLImage
