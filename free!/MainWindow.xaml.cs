@@ -60,16 +60,23 @@ namespace Free
         
         public void GameTick(object sender, EventArgs e)
         {
-            this.Dispatcher.Invoke(() =>
+            try
             {
-                
-                
-                App CApp = (App)Application.Current;
-                Task.Factory.StartNew(() => CApp.SDLGame.SDL_Main()); 
+                this.Dispatcher.Invoke(() =>
+                {
 
-                Window_ContentRendered(this, new EventArgs());
-                return;
-            });
+
+                    App CApp = (App)Application.Current;
+                    Task.Factory.StartNew(() => CApp.SDLGame.SDL_Main());
+
+                    Window_ContentRendered(this, new EventArgs());
+                    return;
+                });
+            }
+            catch (TaskCanceledException) // BAD but all of our wpf code will be soon obsolete anyway
+            {
+                Close();
+            }
         }
 
         public void MainLoop(object sender, EventArgs e)

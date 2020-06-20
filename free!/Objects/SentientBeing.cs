@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 /// <summary>
 /// 
@@ -10,9 +11,9 @@ using System.Threading.Tasks;
 /// 
 /// Created: 2019-12-20
 /// 
-/// Modified: 2020-05-27
+/// Modified: 2020-06-20
 /// 
-/// Version: 1.60
+/// Version: 1.70
 /// 
 /// Purpose: Defines Sentient Beings, such as players and AI-enabled objects. Obj/Being split (ver. 0.20)
 /// 
@@ -62,6 +63,14 @@ namespace Free
             this.OBJCANMOVERIGHT = true;
         }
 
+        public SentientBeing()
+        {
+            AssociatedScriptPaths = new List<ScriptReference>();
+            OBJCOLLIDEDOBJECTS = new List<IGameObject>();
+            OBJHITBOX = new List<Point>();
+            OBJANIMATIONS = new List<Animation>();
+        }
+
         public override void MoveLeft()
         {
             this.ChgAcceleration(-Physics.Acceleration, 0);
@@ -76,11 +85,6 @@ namespace Free
         {
             this.ChgAcceleration(0, -Physics.JumpForce);
             this.OBJISJUMPING = true;
-        }
-
-        public SentientBeing()
-        {
-            AssociatedScriptPaths = new List<ScriptReference>(); 
         }
         
     }
