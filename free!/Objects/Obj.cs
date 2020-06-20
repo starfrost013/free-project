@@ -98,7 +98,10 @@ namespace Free
 
         public Obj()
         {
-            AssociatedScriptPaths = new List<ScriptReference>(); 
+            AssociatedScriptPaths = new List<ScriptReference>();
+            OBJCOLLIDEDOBJECTS = new List<IGameObject>();
+            OBJHITBOX = new List<Point>();
+            OBJANIMATIONS = new List<Animation>();
         }
 
         public void SetAcceleration(double x, double y) // sets the acceleration

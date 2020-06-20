@@ -96,14 +96,25 @@ namespace SDLX
 
                 SDL_WindowPtr = _;
                 SDL_RenderPtr = _2;
+                
+                RunningNow = true;
+
                 return true;
             }
+
+             
 
             
         }
 
         private void Game_Shutdown()
         {
+            // Shutdown various things
+            RunningNow = false; 
+
+            SDL.SDL_DestroyRenderer(SDL_RenderPtr);
+            SDL.SDL_DestroyWindow(SDL_WindowPtr);
+
             SDL_image.IMG_Quit(); 
 
             SDL.SDL_AudioQuit();

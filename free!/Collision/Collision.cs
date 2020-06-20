@@ -42,7 +42,7 @@ namespace Free
                 obj.OBJPLAYERLIVES -= 1;
             }
 
-            if (obj.OBJHITBOX == null)
+            if (obj.OBJHITBOX.Count == 0)
             {
                 ObjPos = new Rect(new Point(obj.OBJX, obj.OBJY), new Point(obj.OBJX + obj.OBJIMAGE.PixelWidth, obj.OBJY + obj.OBJIMAGE.PixelHeight)); // default hitbox - image size
             }
@@ -57,7 +57,7 @@ namespace Free
 
                 if (obj.OBJINTERNALID != objx.OBJINTERNALID)
                 {
-                    if (objx.OBJHITBOX == null)
+                    if (objx.OBJHITBOX.Count == 0)
                     {
                         ObjxPos = new Rect(new Point(objx.OBJX, objx.OBJY), new Point(objx.OBJX + objx.OBJIMAGE.PixelWidth, objx.OBJY + objx.OBJIMAGE.PixelHeight));
                     }
@@ -68,7 +68,7 @@ namespace Free
 
                     // What the fuck was I on?
 
-                    if (obj.OBJGRAV & obj.OBJCOLLISIONS > 0 & !obj.OBJISJUMPING) // bld 932: don't accidentally assign objgrav to false!
+                    if (obj.OBJGRAV && obj.OBJCOLLISIONS > 0 & !obj.OBJISJUMPING) // bld 932: don't accidentally assign objgrav to false!
                     {
                         obj.OBJSPEEDY = 0;
                         obj.OBJACCELERATIONY = 0;
@@ -125,7 +125,7 @@ namespace Free
                     }
                     else
                     {
-                        if (objx.OBJHITBOX == null)
+                        if (objx.OBJHITBOX.Count == 0)
                         {                            
                             if (obj.OBJY - objx.OBJY > 1 & obj.OBJY - objx.OBJY < objx.OBJIMAGE.PixelHeight & IsSentientBeing(obj))
                             {
@@ -175,7 +175,7 @@ namespace Free
                         }
 
 
-                        if (obj.OBJHITBOX == null)
+                        if (obj.OBJHITBOX.Count == 0)
                         {
                             if (obj.OBJX - objx.OBJX < 0 & obj.OBJX - objx.OBJX > -obj.OBJIMAGE.PixelWidth & obj.OBJY - objx.OBJY < 0 & obj.OBJY - objx.OBJY > -obj.OBJIMAGE.PixelHeight / 1.6 & IsSentientBeing(obj))
                             {
@@ -279,7 +279,7 @@ namespace Free
                 IGameObject objx = obj.OBJCOLLIDEDOBJECTS[i];
                 if (obj.OBJINTERNALID != objx.OBJINTERNALID)
                 {
-                    if (objx.OBJHITBOX == null)
+                    if (objx.OBJHITBOX.Count == 0)
                     {
                         ObjxPos = new Rect(new Point(objx.OBJX, objx.OBJY), new Point(objx.OBJX + objx.OBJIMAGE.PixelWidth, objx.OBJY + objx.OBJIMAGE.PixelHeight));
                     }

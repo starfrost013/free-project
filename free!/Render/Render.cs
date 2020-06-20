@@ -35,7 +35,7 @@ namespace Free
                             { // optimization (bld 1037-41) 
                                 if (CurObj.OBJPRIORITY == currentPriority)
                                 {
-                                    if (CurObj.OBJPLAYER == true & Gamestate == GameState.Game)
+                                    if (CurObj.OBJPLAYER && Gamestate == GameState.Game)
                                     {
                                         Scrollbar.ScrollToHorizontalOffset(CurObj.OBJX - this.Width / 6); // level scrolling
                                         Scrollbar.ScrollToVerticalOffset(CurObj.OBJY - this.Width / 6); // vertical level scrolling
