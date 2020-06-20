@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Threading.Tasks;
 
 /// <summary>
 /// 
@@ -61,8 +62,10 @@ namespace Free
         {
             this.Dispatcher.Invoke(() =>
             {
+                
+                
                 App CApp = (App)Application.Current;
-                CApp.SDLGame.SDL_Main(); 
+                Task.Factory.StartNew(() => CApp.SDLGame.SDL_Main()); 
 
                 Window_ContentRendered(this, new EventArgs());
                 return;
