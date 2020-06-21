@@ -66,6 +66,7 @@
     <Compile Include="Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Version.cs" />
+    <Compile Include="Wpf2Sdl\SDL.Colour.cs" />
     <Compile Include="Wpf2Sdl\SDL.Point.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

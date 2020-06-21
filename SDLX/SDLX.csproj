@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SDL_API_LoadImage.cs" />
+    <Compile Include="SDL_API_SetBgColour.cs" />
     <Compile Include="SDL_Image.cs" />
     <Compile Include="SDL_Init.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
