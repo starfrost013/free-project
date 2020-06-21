@@ -18,7 +18,7 @@ namespace SDLX
             SDLTextureCache = new List<SDL_Sprite>(); 
         }
 
-        public bool LoadImage(string ImageLoad, int SizeX, int SizeY)
+        public bool LoadImage(string ImageLoad, SDLPoint Position, int SizeX, int SizeY)
         {
             // Load the image using SDLImage
             var ImagePtr = SDL_image.IMG_LoadTexture(SDL_RenderPtr, ImageLoad);
@@ -48,6 +48,8 @@ namespace SDLX
                 RenderRect.h = SizeY;
 
                 SDL_Sprite.RenderRect = RenderRect;
+
+                SDL_Sprite.Position = Position; 
 
                 // Add it to the texture cache
                 SDLTextureCache.Add(SDL_Sprite);

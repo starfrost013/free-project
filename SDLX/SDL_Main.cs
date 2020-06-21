@@ -38,6 +38,9 @@ namespace SDLX
                         // Temporary 0,0 
                         SDL.SDL_Rect SpriteRenderRect = SDLSprite.RenderRect;
 
+                        SpriteDestRect.x = (int)SDLSprite.Position.X;
+                        SpriteDestRect.y = (int)SDLSprite.Position.Y;
+
                         SpriteDestRect.w = SpriteRenderRect.w;
                         SpriteDestRect.h = SpriteRenderRect.h;
 
