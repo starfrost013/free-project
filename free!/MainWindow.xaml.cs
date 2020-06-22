@@ -36,9 +36,9 @@ namespace Free
         public List<Level> Levels { get; set; }
         public GameState Gamestate { get; set; } 
         public enum GameState { Init = 0, Menu, Loading, Game, Pause, Options, EditMode, Exiting }
-        public Timer GameTickTimer { get; set; }
-        public Timer PhysicsTimer { get; set; }
-        public Timer MainLoopTimer { get; set; }
+        public System.Timers.Timer GameTickTimer { get; set; }
+        public System.Timers.Timer PhysicsTimer { get; set; }
+        public System.Timers.Timer MainLoopTimer { get; set; }
         public List<Interaction> InteractionList { get; set; }
         public List<IGameObject> ObjectList { get; set; } // might need to change this
         public List<Animation> NonObjAnimList { get; set; }

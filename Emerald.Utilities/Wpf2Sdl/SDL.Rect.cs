@@ -88,7 +88,7 @@ namespace Emerald.Utilities.Wpf2Sdl
         {
             TopLeft = P1;
             BottomRight = P2;
-                
         }
+
     }
 }
