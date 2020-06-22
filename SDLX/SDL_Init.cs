@@ -1,4 +1,5 @@
-﻿using SDL2;
+﻿using Emerald.Utilities.Wpf2Sdl;
+using SDL2;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,9 +14,9 @@ using System.Threading.Tasks;
 /// 
 /// Created: 2020-06-14
 /// 
-/// Modified: 2020-06-17
+/// Modified: 2020-06-21
 /// 
-/// Version: 1.30 (bringup-2.21.1385.62 v1.20 → v1.30): added title setting
+/// Version: 1.40 (core_new_source-v2.21.1402.65 v1.30 → v1.40): added title setting
 /// 
 /// Purpose: Provides rendering initalisation services utilising C# bindings for the Simple DirectMedia Layer, version 2.0.x where SDLX is enabled..
 /// 
@@ -94,6 +95,7 @@ namespace SDLX
             {
                 SDL.SDL_SetWindowTitle(_, "Emerald Simple DirectMedia Layer Renderer");
 
+
                 SDL_WindowPtr = _;
                 SDL_RenderPtr = _2;
                 
@@ -101,10 +103,6 @@ namespace SDLX
 
                 return true;
             }
-
-             
-
-            
         }
 
         private void Game_Shutdown()

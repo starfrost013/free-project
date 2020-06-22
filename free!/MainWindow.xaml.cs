@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Threading.Tasks;
+using System.Threading;
 
 /// <summary>
 /// 
@@ -50,6 +51,7 @@ namespace Free
         public BitmapImage BG { get; set; } // used for the title screen, maybe change 
         public bool Paused { get; set; }
         public bool FullScreen { get; set; }
+        public Thread SDLThread { get; set; }
         //TEMP
         public SimpleESX ScriptingCore { get; set; }
         public MainWindow()

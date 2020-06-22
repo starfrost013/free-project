@@ -1,4 +1,5 @@
-﻿using SDL2;
+﻿using Emerald.Utilities.Wpf2Sdl;
+using SDL2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,9 @@ namespace SDLX
         public void SDL_Main()
         {
             SDL.SDL_Event _ = EventHandler;
+
+            // Initial colour
+            SDL_SetBgColour(new SDLColor { R = 255, G = 255, B = 255, A = 255 });
 
             while (RunningNow)
             {
