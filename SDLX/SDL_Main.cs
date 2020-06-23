@@ -34,7 +34,7 @@ namespace SDLX
 
                     // Render each SDLTexture in the TextureCache. 
                     // Pending major refactoring we just draw everything at 0,0 for now.
-                    foreach (SDL_Sprite SDLSprite in SDLTextureCache)
+                    foreach (SDLSprite SDLSprite in SDLTextureCache)
                     {
 
                         SDL.SDL_Rect SpriteDestRect = new SDL.SDL_Rect();

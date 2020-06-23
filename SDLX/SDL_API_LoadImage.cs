@@ -11,11 +11,11 @@ namespace SDLX
 {
     public partial class Game
     {
-        public List<SDL_Sprite> SDLTextureCache { get; set; }
+        public List<SDLSprite> SDLTextureCache { get; set; }
 
         public Game()
         {
-            SDLTextureCache = new List<SDL_Sprite>(); 
+            SDLTextureCache = new List<SDLSprite>(); 
         }
 
         public bool LoadImage(string ImageLoad, SDLPoint Position, int SizeX, int SizeY)
@@ -37,8 +37,8 @@ namespace SDLX
             else
             {
                 // Create a new SDLX sprite. 
-                SDL_Sprite SDL_Sprite = new SDL_Sprite();
-                SDL_Sprite.Sprite = ImagePtr;
+                SDLSprite SDLSprite = new SDLSprite();
+                SDLSprite.Sprite = ImagePtr;
 
                 // Create a new SDL rect.
                 SDL.SDL_Rect RenderRect = new SDL.SDL_Rect();
@@ -47,12 +47,12 @@ namespace SDLX
                 RenderRect.w = SizeX;
                 RenderRect.h = SizeY;
 
-                SDL_Sprite.RenderRect = RenderRect;
+                SDLSprite.RenderRect = RenderRect;
 
-                SDL_Sprite.Position = Position; 
+                SDLSprite.Position = Position; 
 
                 // Add it to the texture cache
-                SDLTextureCache.Add(SDL_Sprite);
+                SDLTextureCache.Add(SDLSprite);
                 return true; 
             }
         }

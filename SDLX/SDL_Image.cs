@@ -11,7 +11,7 @@ namespace SDLX
     /// <summary>
     /// SDL2 2D accelerated rendering API.
     /// </summary>
-    public class SDL_Sprite
+    public class SDLSprite
     {
         public IntPtr Sprite { get; set; }
         public SDL.SDL_Rect RenderRect { get; set; }
