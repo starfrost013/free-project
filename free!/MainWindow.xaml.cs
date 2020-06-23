@@ -30,7 +30,7 @@ using System.Threading;
 
 namespace Free
 {
-    public partial class MainWindow : Window
+    public partial class FreeSDL : Window
     {
         public Level currentlevel { get; set; }
         public List<Level> Levels { get; set; }
@@ -51,9 +51,11 @@ namespace Free
         public bool Paused { get; set; }
         public bool FullScreen { get; set; }
         //TEMP
+        public Game SDLGame { get; set; }
         public SimpleESX ScriptingCore { get; set; }
         public Thread SDLThread { get; set; }
-        public MainWindow()
+
+        public FreeSDL()
         {
             // Yay
             InitializeComponent();

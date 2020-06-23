@@ -16,11 +16,12 @@ namespace Free
     {
         public Game SDLGame { get; set; }
         private void Application_Activated(object sender, EventArgs e)
+        
         {
             SDLGame = new Game();
 
 
-            MainWindow MnWindow = new MainWindow();
+            FreeSDL MnWindow = new FreeSDL();
             MnWindow.Show();
         }
     }

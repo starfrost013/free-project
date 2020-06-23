@@ -19,11 +19,11 @@ namespace Free
     /// </summary>
     public partial class LevelSelect : Window
     {
-        public MainWindow MainWindow { get; set; }
-        public LevelSelect(MainWindow MnWindow)
+        public FreeSDL FreeSDL { get; set; }
+        public LevelSelect(FreeSDL MnWindow)
         {
             InitializeComponent();
-            MainWindow = MnWindow; // oh oh
+            FreeSDL = MnWindow; // oh oh
         }
 
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
@@ -34,7 +34,7 @@ namespace Free
 
                 int levelId = Convert.ToInt32(PleaseEnterLevelBox.Text);
 
-                MainWindow.LoadNow(levelId);
+                FreeSDL.LoadNow(levelId);
                 this.Close();
                 
             }

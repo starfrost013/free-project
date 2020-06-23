@@ -7,7 +7,7 @@ using System.Windows.Media.Imaging;
 
 namespace Free
 {
-    public partial class MainWindow
+    public partial class FreeSDL
     {
         public void HandleAnimations(IGameObject obj)
         {

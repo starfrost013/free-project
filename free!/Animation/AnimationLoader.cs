@@ -23,7 +23,7 @@ using System.Windows.Media.Imaging;
 /// </summary>
 namespace Free
 {
-    partial class MainWindow
+    partial class FreeSDL
     {
         public void LoadAnimations()
         {

@@ -9,7 +9,7 @@ namespace Free
 {
     public class TestCommand : ICommandExecutor
     {
-        public MainWindow MnWindow { get; set; }
+        public FreeSDL MnWindow { get; set; }
         public string Name { get; set; }
         public List<SimpleESXParameter> Parameters { get; set; }
         public ScriptReference SR { get; set; }

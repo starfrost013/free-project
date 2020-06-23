@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 /// </summary>
 namespace Free
 {
-    partial class MainWindow //move to its own class maybe?
+    partial class FreeSDL //move to its own class maybe?
     {
         public void DeleteObj(IGameObject objToDel, int int2id) // Deletes an object from the level layout.
         {

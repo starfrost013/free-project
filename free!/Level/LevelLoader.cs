@@ -19,7 +19,7 @@ using System.Windows.Shapes;
 
 namespace Free
 {
-    public partial class MainWindow : Window
+    public partial class FreeSDL : Window
     {
         public void BootNow_SetCurrentLevel(int LevelId)
         {
@@ -75,10 +75,8 @@ namespace Free
                 if (LvBackNew.DecodePixelWidth > Width || LvBackNew.DecodePixelHeight > Height)
                 {
                     LvBackNew.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Aliased);
-                    LvBackNew.SetValue(RenderOptions.BitmapScalingModeProperty, BitmapScalingMode.NearestNeighbor); // "pixelated" look -- IMPORTANT!! LEVEL SIZE MUST BE MULTIPLE OF BG IMAGE SIZE OR IT WILL LOOK LIKE SHIT!!!!
+                    LvBackNew.SetValue(RenderOptions.BitmapScalingModeProperty, BitmapScalingMode.NearestNeighbor);
                 }
-
-               
 
                 currentlevel = level;
 

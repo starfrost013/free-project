@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    partial class MainWindow
+    partial class FreeSDL
     {
         public IGameObject Interaction_Kill(IGameObject obj)
         {

@@ -19,15 +19,15 @@ namespace Free
     /// </summary>
     public partial class ManageInteractions : Window
     {
-        public MainWindow MainWindow;
+        public FreeSDL FreeSDL;
         public bool EditMode;
-        public ManageInteractions(MainWindow MnWindow)
+        public ManageInteractions(FreeSDL MnWindow)
         {
             InitializeComponent();
-            MainWindow = MnWindow;
+            FreeSDL = MnWindow;
             CurrentInteractionTypeBox.ItemsSource = Enum.GetNames(typeof(InteractionType));
             CurrentInteractionTypeBox.SelectedIndex = 1;
-            Interactions.ItemsSource = MainWindow.InteractionList;
+            Interactions.ItemsSource = FreeSDL.InteractionList;
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e) // adds a new interaction
@@ -38,7 +38,7 @@ namespace Free
                 interaction.OBJ1ID = Convert.ToInt32(CurrentInteractionObj1Box.Text);
                 interaction.OBJ2ID = Convert.ToInt32(CurrentInteractionObj2Box.Text);
                 interaction.OBJINTERACTIONTYPE = (InteractionType)Enum.Parse(typeof(InteractionType), CurrentInteractionTypeBox.Text);
-                MainWindow.InteractionList.Add(interaction);
+                FreeSDL.InteractionList.Add(interaction);
                 Interactions.Items.Refresh();
             }
             catch (FormatException)
@@ -60,12 +60,12 @@ namespace Free
                 return;
             }
 
-            for (int i = 0; i < MainWindow.InteractionList.Count; i++)
+            for (int i = 0; i < FreeSDL.InteractionList.Count; i++)
             {
-                Interaction interactioncheck = MainWindow.InteractionList[i];
+                Interaction interactioncheck = FreeSDL.InteractionList[i];
                 if (i == Interactions.SelectedIndex)
                 {
-                    MainWindow.InteractionList.Remove(interactioncheck);
+                    FreeSDL.InteractionList.Remove(interactioncheck);
                     Interactions.Items.Refresh();
                 }
             }
@@ -83,9 +83,9 @@ namespace Free
                         Error.Throw(new Exception("DEBUG: The user attempted to edit a non-existent interaction. "), ErrorSeverity.Warning, "Attempted to edit a nonexistent interaction.", "avant-gardé engine ver 2.11.0/03", 19);
                     }
 
-                    for (int i = 0; i < MainWindow.InteractionList.Count; i++)
+                    for (int i = 0; i < FreeSDL.InteractionList.Count; i++)
                     {
-                        Interaction interaction = MainWindow.InteractionList[i];
+                        Interaction interaction = FreeSDL.InteractionList[i];
 
                         if (i == Interactions.SelectedIndex)
                         {
@@ -104,16 +104,16 @@ namespace Free
                         Error.Throw(new Exception("DEBUG: The user attempted to edit a non-existent interaction. "), ErrorSeverity.Warning, "Attempted to edit a nonexistent interaction.", "avant-gardé engine ver 2.11.0/03", 20);
                     }
 
-                    for (int i = 0; i < MainWindow.InteractionList.Count; i++)
+                    for (int i = 0; i < FreeSDL.InteractionList.Count; i++)
                     {
-                        Interaction interaction = MainWindow.InteractionList[i];
+                        Interaction interaction = FreeSDL.InteractionList[i];
 
                         if (i == Interactions.SelectedIndex)
                         {
                             interaction.OBJ1ID = Convert.ToInt32(CurrentInteractionObj1Box.Text);
                             interaction.OBJ2ID = Convert.ToInt32(CurrentInteractionObj2Box.Text);
                             interaction.OBJINTERACTIONTYPE = (InteractionType)Enum.Parse(typeof(InteractionType), CurrentInteractionTypeBox.Text);
-                            MainWindow.InteractionList[i] = interaction;
+                            FreeSDL.InteractionList[i] = interaction;
                         }
                     }
                     Interactions.Items.Refresh();

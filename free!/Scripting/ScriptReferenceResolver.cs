@@ -18,7 +18,7 @@ namespace Free
         public static bool Resolve(ScriptReferenceRunOn EvtClass)
         {
             // WPF only
-            MainWindow MnWindow = (MainWindow)Application.Current.MainWindow;
+            FreeSDL MnWindow = (FreeSDL)Application.Current.MainWindow;
 
             switch (EvtClass.EventClass)
             {
@@ -29,7 +29,7 @@ namespace Free
 
                     if (EvtClass.ReferenceRunOn.Count > 1)
                     {
-                        ScriptError.Throw("Error: Only one RunOn is allowed for OnPlayerReachCertainPosition event-handler scripts", 9, 0, "XML Bug"); 
+                        ScriptError.Throw("Error: Only one RunOn is allowed for OnPlayerReachCertainPosition event-handler scripts", 9, 0, "ScriptXML Bug"); 
                     }
 
                    

@@ -30,7 +30,7 @@ using System.Windows.Shapes;
 
 namespace Free
 {
-    partial class MainWindow
+    partial class FreeSDL
     {
         /// <summary>
         /// REWRITE! SHITTY CODE!

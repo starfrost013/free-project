@@ -36,7 +36,7 @@ using System.Windows.Shapes;
 
 namespace Free
 {
-    public partial class MainWindow
+    public partial class FreeSDL
     {
         public void EnterEditMode()
         {

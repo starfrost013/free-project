@@ -27,7 +27,7 @@ using System.Windows.Threading;
 
 namespace Free
 {
-    public partial class MainWindow
+    public partial class FreeSDL
     {
         public AGTextBlock LoadText(string Text, double x, double y)
         {

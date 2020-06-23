@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace Free
 {
-    public partial class MainWindow : Window
+    public partial class FreeSDL : Window
     {
         /// <summary>
         /// Load settings using the Emerald Settings API.

@@ -20,7 +20,7 @@ using System.Windows;
 
 namespace Free
 {
-    partial class MainWindow
+    partial class FreeSDL
     {
         // placeholder until object manager is done
         public void LoadInteractions()

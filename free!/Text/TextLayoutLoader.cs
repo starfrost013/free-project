@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace Free
 {
-    partial class MainWindow
+    partial class FreeSDL
     {
         public void LoadLevelText()
         {

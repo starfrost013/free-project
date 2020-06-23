@@ -23,7 +23,7 @@ using System.Windows.Media.Imaging;
 
 namespace Free
 {
-    partial class MainWindow
+    partial class FreeSDL
     {
         public void LoadWeapons() //TODO: XMLManager
         {

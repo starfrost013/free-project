@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace Free
 {
-    public partial class MainWindow // Potentially have a renderer class
+    public partial class FreeSDL // Potentially have a renderer class
     {
         public void DrawScene() // draws the scene, starting with the lowest priority objects and then going up to the highest priority ones, then draws any text objects and the debug display if it is on. 
         {

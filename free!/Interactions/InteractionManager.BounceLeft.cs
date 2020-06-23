@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    partial class MainWindow // move to obj in the obj/player split?
+    partial class FreeSDL // move to obj in the obj/player split?
     {
         public void Interaction_BounceLeft(IGameObject obj)
         {

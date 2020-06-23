@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emerald.Utilities.Wpf2Sdl; 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,6 +16,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Threading;
 using System.Windows.Shapes;
+
+/// <summary>
+/// 
+/// Objects/ObjLayoutLoader.cs
+/// 
+/// Created: 2020-06-23
+/// 
+/// Modified: 2020-06-23
+/// 
+/// Version: 1.60
+/// 
+/// Purpose: Handles object loading for SDL-based free!. 
+/// 
+/// </summary>
+
 
 namespace Free
 {
@@ -36,7 +52,7 @@ namespace Free
                 XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the Objects node.
                 int currentIntId = 0;
                 
-                // WORKAROUND for weird bug
+                // WORKAROUND for weird bug (RETARDED CODE FIX 2020-06-23 21:43)
                 
                 foreach (XmlNode XmlNode in XmlNodes)
                 {                        
@@ -50,7 +66,7 @@ namespace Free
                             // 2020-05-26: This code is literally horrific. Jesus fucking christ.
                             if (Object.OBJID == Convert.ToInt32(XmlNode.Attributes[0].Value))
                             {
-                                if (!MainWindow.IsSentientBeing(Object))
+                                if (!FreeSDL.IsSentientBeing(Object))
                                 {
                                     Objx.OBJANIMATIONS = Object.OBJANIMATIONS;
                                     Objx.OBJCOLLIDEDOBJECTS = new List<IGameObject>(); // yeah.
@@ -90,9 +106,11 @@ namespace Free
                         {
                             switch (XmlAttribute.Name)
                             {
+                                case "PosX":
                                 case "posx":
                                     Objx.OBJX = Convert.ToDouble(XmlAttribute.Value);
                                     continue;
+                                case "PosY":
                                 case "posy":
                                     Objx.OBJY = Convert.ToDouble(XmlAttribute.Value);
                                     continue;
@@ -104,6 +122,7 @@ namespace Free
                             if (currentlevel.PlayerStartPosition.X == 0 || currentlevel.PlayerStartPosition.Y == 0) // default
                             {
                                 currentlevel.PlayerStartPosition = new Point(Objx.OBJX, Objx.OBJY);
+
                             }
                             else
                             {
@@ -112,15 +131,19 @@ namespace Free
                             }
                         }
 
-
-                        
-
                         if (Objx.OBJANIMATIONS.Count == 0)
                         {
                             if (Objx.OBJIMAGE.CanFreeze) Objx.OBJIMAGE.Freeze();
                         }
 
+                        // Send to SDL for rendering.
+                        App AppSDL = (App)Application.Current;
+
+                        // Here we temporarily use WPF.variables. 
+                        AppSDL.SDLGame.LoadImage(Objx.OBJIMAGEPATH, new SDLPoint(Objx.OBJX, Objx.OBJY), Objx.OBJIMAGE.PixelWidth, Objx.OBJIMAGE.PixelHeight);
+
                         currentlevel.LevelObjects.Add(Objx);
+
                         currentIntId++;
                     }
                     

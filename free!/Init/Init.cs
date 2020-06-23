@@ -11,7 +11,7 @@ using System.Windows.Threading;
 
 namespace Free
 {
-    partial class MainWindow
+    partial class FreeSDL
     {
         /// <summary>
         /// Make this less messy. Preloader efforts have worked great but it's still a mess. 
@@ -112,7 +112,7 @@ namespace Free
                 Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent level, or error loading a level. This is most likely because a change level object attempted to trigger its interaction but the next level by ID doesn't exist yet.", "avant-gardé engine", 10);
                 return;
             }
-
+            
             GameTickTimer.Start();
             //if (Settings.UseSDLX) MainLoopTimer.Start(); 
             PhysicsTimer.Start();
