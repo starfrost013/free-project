@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading; 
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
@@ -38,7 +39,9 @@ namespace Free
                 Utils.LogDebug("BootNow!", "Using WPF renderer");
             }
 
-            Gamestate = GameState.Init; 
+            Gamestate = GameState.Init;
+
+            App WinApp = (App)Application.Current;
 
             // Load initial structures
             InteractionList = new List<Interaction>();
@@ -47,9 +50,9 @@ namespace Free
             TextList = new List<AGTextBlock>();
             WeaponList = new List<Weapon>();
             ScriptingCore = new SimpleESX();
-
+            SDLThread = new Thread(new ThreadStart(WinApp.SDLGame.SDL_Main));
             // Register the game timer. 
-            GameTickTimer = new Timer();
+            GameTickTimer = new System.Timers.Timer();
             GameTickTimer.Elapsed += GameTick;
             GameTickTimer.Interval = 0.001; // We run AFAP as of 2020-05-26
 
@@ -61,7 +64,7 @@ namespace Free
 
             // Init SDL
 
-            App WinApp = (App)Application.Current;
+
             WinApp.SDLGame.Game_Init();
 
 

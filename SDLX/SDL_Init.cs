@@ -105,7 +105,7 @@ namespace SDLX
             }
         }
 
-        private void Game_Shutdown()
+        public void Game_Shutdown()
         {
             // Shutdown various things
             RunningNow = false; 

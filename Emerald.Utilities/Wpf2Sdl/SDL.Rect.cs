@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 /// <summary>
 /// Emerald.Utilities/Wpf2Sdl/SDL.Rect.cs 
 /// 
 /// Created: 2020-06-21
 /// 
-/// Modified: 2020-06-21
+/// Modified: 2020-06-22
 /// 
-/// Version: 1.00
+/// Version: 1.50
 /// 
-/// Purpose: Reimplementation of the Windows Presentation Foundation (WPF) 
+/// Purpose: Reimplementation of the Windows Presentation Foundation (WPF) Rect class.
 /// 
 /// </summary>
 namespace Emerald.Utilities.Wpf2Sdl
@@ -86,9 +87,30 @@ namespace Emerald.Utilities.Wpf2Sdl
 
         public SDLRect(SDLPoint P1, SDLPoint P2)
         {
-            TopLeft = P1;
-            BottomRight = P2;
+            FromPoints(P1, P2); 
         }
 
+        private void FromPoints(SDLPoint P1, SDLPoint P2)
+        {
+            TopLeft = P1;
+            Left = P1.X;
+            Top = P1.Y;
+
+            BottomRight = P2;
+            Right = P2.X;
+            Bottom = P2.Y;
+
+            Width = P2.X - P1.X;
+            Height = P1.Y - P1.Y;
+
+            if (Width < 0 || Height < 0)
+            {
+                // temp code
+                Debug.WriteLine("Width/Height less than 0!");
+
+                // VERY TEMPORARY
+                Environment.Exit(0x0010DEAD);
+            }
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace SDLX
             SDL.SDL_Event _ = EventHandler;
 
             // Initial colour
-            SDL_SetBgColour(new SDLColor { R = 255, G = 255, B = 255, A = 255 });
+            SDL_SetBgColour(new SDLColor { R = 170, G = 170, B = 255, A = 255 });
 
             while (RunningNow)
             {

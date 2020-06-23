@@ -48,16 +48,17 @@ namespace Free
         public double DbgMouseClickLevelY { get; set; }
         public static int GlobalTimer { get; set; }
         public bool TitleInitialized { get; set; }
-        public BitmapImage BG { get; set; } // used for the title screen, maybe change 
         public bool Paused { get; set; }
         public bool FullScreen { get; set; }
-        public Thread SDLThread { get; set; }
         //TEMP
         public SimpleESX ScriptingCore { get; set; }
+        public Thread SDLThread { get; set; }
         public MainWindow()
         {
             // Yay
             InitializeComponent();
+
+             
         }
         
         public void GameTick(object sender, EventArgs e)
@@ -66,10 +67,6 @@ namespace Free
             {
                 this.Dispatcher.Invoke(() =>
                 {
-
-
-                    App CApp = (App)Application.Current;
-                    Task.Factory.StartNew(() => CApp.SDLGame.SDL_Main());
 
                     Window_ContentRendered(this, new EventArgs());
                     return;

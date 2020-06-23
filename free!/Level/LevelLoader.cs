@@ -76,10 +76,13 @@ namespace Free
                 {
                     LvBackNew.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Aliased);
                     LvBackNew.SetValue(RenderOptions.BitmapScalingModeProperty, BitmapScalingMode.NearestNeighbor); // "pixelated" look -- IMPORTANT!! LEVEL SIZE MUST BE MULTIPLE OF BG IMAGE SIZE OR IT WILL LOOK LIKE SHIT!!!!
-
                 }
 
+               
+
                 currentlevel = level;
+
+                SDLThread.Start();
 
                 return;
             }
