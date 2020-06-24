@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    public partial class MainWindow
+    public partial class FreeSDL
     {
         public void FireAmmo() // determines the correct obj to fire a bullet from
         {

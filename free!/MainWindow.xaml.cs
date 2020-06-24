@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Threading.Tasks;
+using System.Threading;
 
 /// <summary>
 /// 
@@ -29,15 +30,15 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    public partial class MainWindow : Window
+    public partial class FreeSDL : Window
     {
         public Level currentlevel { get; set; }
         public List<Level> Levels { get; set; }
         public GameState Gamestate { get; set; } 
         public enum GameState { Init = 0, Menu, Loading, Game, Pause, Options, EditMode, Exiting }
-        public Timer GameTickTimer { get; set; }
-        public Timer PhysicsTimer { get; set; }
-        public Timer MainLoopTimer { get; set; }
+        public System.Timers.Timer GameTickTimer { get; set; }
+        public System.Timers.Timer PhysicsTimer { get; set; }
+        public System.Timers.Timer MainLoopTimer { get; set; }
         public List<Interaction> InteractionList { get; set; }
         public List<IGameObject> ObjectList { get; set; } // might need to change this
         public List<Animation> NonObjAnimList { get; set; }
@@ -47,15 +48,19 @@ namespace Free
         public double DbgMouseClickLevelY { get; set; }
         public static int GlobalTimer { get; set; }
         public bool TitleInitialized { get; set; }
-        public BitmapImage BG { get; set; } // used for the title screen, maybe change 
         public bool Paused { get; set; }
         public bool FullScreen { get; set; }
         //TEMP
+        public Game SDLGame { get; set; }
         public SimpleESX ScriptingCore { get; set; }
-        public MainWindow()
+        public Thread SDLThread { get; set; }
+
+        public FreeSDL()
         {
             // Yay
             InitializeComponent();
+
+             
         }
         
         public void GameTick(object sender, EventArgs e)
@@ -64,10 +69,6 @@ namespace Free
             {
                 this.Dispatcher.Invoke(() =>
                 {
-
-
-                    App CApp = (App)Application.Current;
-                    Task.Factory.StartNew(() => CApp.SDLGame.SDL_Main());
 
                     Window_ContentRendered(this, new EventArgs());
                     return;

@@ -7,7 +7,7 @@ using System.Timers;
 
 namespace Free
 {
-    public partial class MainWindow
+    public partial class FreeSDL
     {
         public void InitPhysics()
         {

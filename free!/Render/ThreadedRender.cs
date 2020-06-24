@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Free
 {
-    public partial class MainWindow // Potentially have a renderer class
+    public partial class FreeSDL // Potentially have a renderer class
     {
 
         // Currently, the movement speed is locked to the game's framerate. This is very very very very very bad and should be avoided.

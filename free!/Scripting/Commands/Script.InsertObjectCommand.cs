@@ -9,7 +9,7 @@ namespace Free
 {
     public class InsertObjectCommand : ICommandExecutor
     {
-        public MainWindow MnWindow { get; set; }
+        public FreeSDL MnWindow { get; set; }
         public string Name { get; set; }
         public List<SimpleESXParameter> Parameters { get; set; }
         public bool ScriptRan { get; set; }
@@ -84,7 +84,7 @@ namespace Free
 
         public InsertObjectCommand()
         {
-            MnWindow = (MainWindow)Application.Current.MainWindow;
+            MnWindow = (FreeSDL)Application.Current.MainWindow;
         }
 
         public void Verify()

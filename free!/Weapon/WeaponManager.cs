@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 namespace Free
 {
-    public partial class MainWindow
+    public partial class FreeSDL
     {
         public void GiveWeapon(Obj obj, string WeaponName)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    public partial class MainWindow
+    public partial class FreeSDL
     {
         public void Interaction_Remove(IGameObject obj, Interaction interaction)
         {

@@ -25,6 +25,8 @@ namespace Free
         // Totally rewrote this function. It was crap
         public static void Throw(Exception err, ErrorSeverity severity, string text, string caption = "avant-gardé engine", int id = 0)
         {
+            App AppCurrent = (App)Application.Current;
+
             switch (severity)
             {
                 case ErrorSeverity.Warning: // Warning
@@ -32,10 +34,16 @@ namespace Free
                     return;
                 case ErrorSeverity.FatalError: // Fatal Error
                     MessageBox.Show($"An error has occurred.\n\nFatal Error #{id}: {text}\n\nDetailed Information: {err}", caption, MessageBoxButton.OK, MessageBoxImage.Error);
+
+                    AppCurrent.SDLGame.Game_Shutdown(); 
+
                     Environment.Exit(id);
                     return;
                 case ErrorSeverity.NonDebugError: // Game crash while not in debug
                     MessageBox.Show($"An error has occurred.\n\nPlease note down or screenshot the details of this error for support purposes and then exit {Settings.GameName}.\n\nError ID {id}: {text}\nDetailed Error Information: {err}", caption, MessageBoxButton.OK, MessageBoxImage.Error);
+
+                    AppCurrent.SDLGame.Game_Shutdown();
+
                     Environment.Exit(id);
                     return; 
             }

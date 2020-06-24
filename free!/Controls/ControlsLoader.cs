@@ -25,7 +25,7 @@ using System.Windows.Input;
 /// </summary>
 namespace Free
 {
-    partial class MainWindow
+    partial class FreeSDL
     {
         // v2.4.0/06+
         public void LoadControls()

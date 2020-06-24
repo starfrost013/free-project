@@ -19,12 +19,12 @@ namespace Free
     /// </summary>
     public partial class MoveObj : Window
     {
-        public MainWindow MnWindow { get; set; }
+        public FreeSDL MnWindow { get; set; }
         public IGameObject objectToEdit { get; set; }
-        public MoveObj(MainWindow MainWindow, IGameObject objToEdit)
+        public MoveObj(FreeSDL FreeSDL, IGameObject objToEdit)
         {
             InitializeComponent();
-            MnWindow = MainWindow;
+            MnWindow = FreeSDL;
             objectToEdit = objToEdit;
             ObjSelect.Text = $"Moving Object: {objectToEdit.OBJNAME} @ X: {objectToEdit.OBJX} Y: {objectToEdit.OBJY}";
             //clear if its already full

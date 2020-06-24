@@ -26,7 +26,7 @@ using System.Windows.Shapes;
 
 namespace Free
 {
-    partial class MainWindow
+    partial class FreeSDL
     {
         public void HandleCollision(IGameObject obj)
         {
@@ -316,7 +316,7 @@ namespace Free
             // Gonna work ons cripting
             double FX = Rects[1].TopLeft.Y + ((Rects[1].BottomRight.Y - Rects[1].TopLeft.Y) / 2);
 
-            if (Rects[0].TopLeft.Y > Rects[1].TopLeft.Y && Rects[0].TopLeft.Y <= FX) 
+            if (Rects[0].TopLeft.Y >= Rects[1].TopLeft.Y && Rects[0].TopLeft.Y <= FX) 
             {
                 return true; 
             }
@@ -333,7 +333,7 @@ namespace Free
             // Gonna work ons cripting
             double FX = Rects[1].TopLeft.Y + ((Rects[1].BottomRight.Y - Rects[1].TopLeft.Y) / 2);
 
-            if (Rects[0].TopLeft.Y > FX && Rects[0].TopLeft.Y < Rects[1].Bottom)
+            if (Rects[0].TopLeft.Y >= FX && Rects[0].TopLeft.Y <= Rects[1].Bottom)
             {
                 return true;
             }
@@ -349,7 +349,7 @@ namespace Free
 
             double Max = Rects[1].TopLeft.X + ((Rects[1].TopRight.Y - Rects[1].TopLeft.Y) / 2);
 
-            if (Rects[0].TopLeft.X > Rects[1].TopLeft.X && Rects[0].TopLeft.X <= Max)
+            if (Rects[0].TopLeft.X >= Rects[1].TopLeft.X && Rects[0].TopLeft.X <= Max)
             {
                 return true;
             }
@@ -365,7 +365,7 @@ namespace Free
 
             double Max = Rects[1].TopLeft.X + ((Rects[1].TopRight.Y - Rects[1].TopLeft.Y) / 2);
 
-            if (Rects[0].TopLeft.X > Rects[1].TopLeft.X + Max && Rects[0].TopLeft.X < Rects[1].TopRight.X)
+            if (Rects[0].TopLeft.X >= Rects[1].TopLeft.X + Max && Rects[0].TopLeft.X <= Rects[1].TopRight.X)
             {
                 return true;
             }

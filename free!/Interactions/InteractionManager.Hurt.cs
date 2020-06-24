@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    public partial class MainWindow
+    public partial class FreeSDL
     {
         public void Interaction_Hurt(IGameObject Obj, int amount)
         {

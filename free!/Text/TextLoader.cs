@@ -22,7 +22,7 @@ using System.Windows.Media;
 
 namespace Free
 {
-    partial class MainWindow
+    partial class FreeSDL
     {
         public void LoadTextXml()
         {

@@ -89,7 +89,7 @@ namespace Free
         
     }
 
-    public partial class MainWindow
+    public partial class FreeSDL
     {
         public static bool IsSentientBeing(object obj)
         {

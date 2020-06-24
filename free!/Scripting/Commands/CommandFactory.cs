@@ -15,6 +15,8 @@ namespace Free
         {
             switch (Command)
             {
+                case "DeleteObject":
+                    return new DeleteObjectCommand();
                 case "InsertObject":
                     return new InsertObjectCommand();
                 case "Test":

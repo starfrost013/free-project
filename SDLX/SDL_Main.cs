@@ -1,4 +1,5 @@
-﻿using SDL2;
+﻿using Emerald.Utilities.Wpf2Sdl;
+using SDL2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,9 @@ namespace SDLX
         {
             SDL.SDL_Event _ = EventHandler;
 
+            // Initial colour
+            SDL_SetBgColour(new SDLColor { R = 170, G = 170, B = 255, A = 255 });
+
             while (RunningNow)
             {
                 while (SDL.SDL_PollEvent(out _) == 1)
@@ -30,13 +34,16 @@ namespace SDLX
 
                     // Render each SDLTexture in the TextureCache. 
                     // Pending major refactoring we just draw everything at 0,0 for now.
-                    foreach (SDL_Sprite SDLSprite in SDLTextureCache)
+                    foreach (SDLSprite SDLSprite in SDLTextureCache)
                     {
 
                         SDL.SDL_Rect SpriteDestRect = new SDL.SDL_Rect();
 
                         // Temporary 0,0 
                         SDL.SDL_Rect SpriteRenderRect = SDLSprite.RenderRect;
+
+                        SpriteDestRect.x = (int)SDLSprite.Position.X;
+                        SpriteDestRect.y = (int)SDLSprite.Position.Y;
 
                         SpriteDestRect.w = SpriteRenderRect.w;
                         SpriteDestRect.h = SpriteRenderRect.h;

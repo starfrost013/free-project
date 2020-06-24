@@ -20,11 +20,11 @@ namespace Free
 
     public partial class ObjectManager : Window
     {
-        public MainWindow MnWindow { get; set; }
-        public ObjectManager(MainWindow MainWindow)
+        public FreeSDL MnWindow { get; set; }
+        public ObjectManager(FreeSDL FreeSDL)
         {
             InitializeComponent();
-            MnWindow = MainWindow;
+            MnWindow = FreeSDL;
             Refresh();
             //clear if its already full
 
@@ -89,8 +89,8 @@ namespace Free
                         objx.OBJCANSNAP = obj.OBJCANSNAP;
                         objx.OBJAI = obj.OBJAI;
                         objx.OBJCOLLIDEDOBJECTS = new List<IGameObject>(); // yeah.
-                        objx.OBJX = MainWindow.RoundNearest(Convert.ToDouble(XPosBox.Text), objx.OBJIMAGE.PixelWidth / 2);
-                        objx.OBJY = MainWindow.RoundNearest(Convert.ToDouble(YPosBox.Text), objx.OBJIMAGE.PixelHeight / 2);
+                        objx.OBJX = FreeSDL.RoundNearest(Convert.ToDouble(XPosBox.Text), objx.OBJIMAGE.PixelWidth / 2);
+                        objx.OBJY = FreeSDL.RoundNearest(Convert.ToDouble(YPosBox.Text), objx.OBJIMAGE.PixelHeight / 2);
                         XPosBox.Text = objx.OBJX.ToString();
                         YPosBox.Text = objx.OBJY.ToString();
                         objx.OBJX = Convert.ToDouble(XPosBox.Text);

@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 
 namespace Free
 {
-    partial class MainWindow
+    partial class FreeSDL
     {
         public void InitTitle()
         {

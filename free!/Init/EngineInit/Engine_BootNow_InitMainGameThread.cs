@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace Free
 {
-    public partial class MainWindow : Window
+    public partial class FreeSDL : Window
     {
         public void BootNow_InitMainGameThread()
         {

@@ -21,6 +21,5 @@ namespace Emerald.Utilities
         public int Revision { get; set; }
         public string Status { get; set; } // eg "Beta"
 
-
     }
 }

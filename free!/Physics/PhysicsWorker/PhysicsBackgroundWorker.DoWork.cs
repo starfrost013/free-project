@@ -9,7 +9,7 @@ using System.Windows;
 namespace Free
 {
     // temporary?
-    public partial class MainWindow
+    public partial class FreeSDL
     {
         // This is what the physicsworker does.
         public void PhysicsDoWork(object sender, DoWorkEventArgs e)

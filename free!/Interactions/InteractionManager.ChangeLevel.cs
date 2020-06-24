@@ -23,7 +23,7 @@ using System.Windows;
 
 namespace Free
 {
-    partial class MainWindow
+    partial class FreeSDL
     {
         public void Interaction_ChangeLevel()
         {

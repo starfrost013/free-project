@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 
 namespace Free
 {
-    partial class MainWindow
+    partial class FreeSDL
     {
         // implement in Object class? (0.06)
         public void LoadObjects()

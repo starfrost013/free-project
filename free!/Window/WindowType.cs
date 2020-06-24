@@ -13,7 +13,7 @@ using System.Windows.Threading;
 
 namespace Free
 { 
-    partial class MainWindow
+    partial class FreeSDL
     {
         public void SetFullscreen()
         {

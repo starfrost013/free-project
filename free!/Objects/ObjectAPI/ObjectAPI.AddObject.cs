@@ -7,10 +7,10 @@ using System.Windows;
 
 namespace Free
 {
-    public partial class MainWindow
+    public partial class FreeSDL
     {
         /// <summary>
-        /// Add an object. WILL BE MOVED TO LEVEL!!!!!!!!!!!! MAKE MAINWINDOW.GAMEOBJECT STATIC
+        /// Add an object. WILL BE MOVED TO LEVEL!!!!!!!!!!!! MAKE FreeSDL.GAMEOBJECT STATIC
         /// </summary>
         /// <param name="ID">ID of the object to insert</param>
         /// <param name="Position">Point (soon to be SDLPoint) for position. </param>
