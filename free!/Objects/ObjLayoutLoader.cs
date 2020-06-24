@@ -140,7 +140,10 @@ namespace Free
                         App AppSDL = (App)Application.Current;
 
                         // Here we temporarily use WPF.variables. 
-                        AppSDL.SDLGame.LoadImage(Objx.OBJIMAGEPATH, new SDLPoint(Objx.OBJX, Objx.OBJY), Objx.OBJIMAGE.PixelWidth, Objx.OBJIMAGE.PixelHeight);
+                        if (!AppSDL.SDLGame.LoadImage(Objx.OBJIMAGEPATH, new SDLPoint(Objx.OBJX, Objx.OBJY), Objx.OBJIMAGE.PixelWidth, Objx.OBJIMAGE.PixelHeight))
+                        {
+                            Error.Throw(null, ErrorSeverity.FatalError, "Fatal error loading image", "avant-garde engine", 93); 
+                        }
 
                         currentlevel.LevelObjects.Add(Objx);
 
