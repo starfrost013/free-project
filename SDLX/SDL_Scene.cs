@@ -14,8 +14,8 @@ namespace SDLX
     public class GameScene
     {
         public List<SDLSprite> GameObjects { get; set; }
-        public GameCamera GameCamera { get; set; } 
-
+        public GameCamera GameCamera { get; set; }
+        public List<SDLSprite> SDLTextureCache { get; set; }
         public GameScene()
         {
             GameCamera = new GameCamera();
