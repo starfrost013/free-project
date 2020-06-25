@@ -1,4 +1,4 @@
 SDLX Game class
 	--Contains Scene
 		--Contains Camera
-			--UpdateCamera() function
+			--UpdateCamera() function#

@@ -21,5 +21,10 @@ namespace SDLX
             GameCamera = new GameCamera();
             GameObjects = new List<SDLSprite>();
         }
+
+        public void OnChangeScene()
+        {
+            GameObjects.Clear(); 
+        }
     }
 }

@@ -10,8 +10,10 @@ namespace SDLX
 {
     public partial class Game
     {
+        public GameScene CurrentScene { get; set; }
         public SDL.SDL_Event EventHandler { get; set; } // naive?
         public bool RunningNow { get; set; }
+
         public void SDL_Main()
         {
             SDL.SDL_Event _ = EventHandler;
