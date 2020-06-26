@@ -39,18 +39,23 @@ namespace SDLX
                     foreach (SDLSprite SDLSprite in CurrentScene.SDLTextureCache)
                     {
 
-                        SDL.SDL_Rect SpriteDestRect = new SDL.SDL_Rect();
+                        if (SDLSprite.Position.X >= CurrentScene.GameCamera.CameraPosition.X 
+                            && SDLSprite.Position.X <= CurrentScene.GameCamera.CameraPosition.X + CurrentScene.Resolution.X 
+                            && SDLSprite.Position.Y >= CurrentScene.GameCamera.CameraPosition.Y
+                            && SDLSprite.Position.Y <= CurrentScene.GameCamera.CameraPosition.Y + CurrentScene.Resolution.Y)
+                        {
+                            SDL.SDL_Rect SpriteDestRect = new SDL.SDL_Rect();
 
-                        // Temporary 0,0 
-                        SDL.SDL_Rect SpriteRenderRect = SDLSprite.RenderRect;
+                            SDL.SDL_Rect SpriteRenderRect = SDLSprite.RenderRect;
 
-                        SpriteDestRect.x = (int)SDLSprite.Position.X;
-                        SpriteDestRect.y = (int)SDLSprite.Position.Y;
+                            SpriteDestRect.x = (int)SDLSprite.Position.X;
+                            SpriteDestRect.y = (int)SDLSprite.Position.Y;
 
-                        SpriteDestRect.w = SpriteRenderRect.w;
-                        SpriteDestRect.h = SpriteRenderRect.h;
+                            SpriteDestRect.w = SpriteRenderRect.w;
+                            SpriteDestRect.h = SpriteRenderRect.h;
 
-                        SDL.SDL_RenderCopy(SDL_RenderPtr, SDLSprite.Sprite, ref SpriteRenderRect, ref SpriteDestRect);
+                            SDL.SDL_RenderCopy(SDL_RenderPtr, SDLSprite.Sprite, ref SpriteRenderRect, ref SpriteDestRect);
+                        }
                     }
 
                     SDL.SDL_RenderPresent(SDL_RenderPtr);

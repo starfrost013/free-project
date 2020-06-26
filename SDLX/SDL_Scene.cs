@@ -10,6 +10,16 @@ using System.Threading.Tasks;
 
 /// <summary>
 /// 
+/// SDLX/SDL_Scene.cs
+/// 
+/// Created: 2020-06-23
+/// 
+/// Modified: 2020-06-26
+/// 
+/// Version: 1.30
+/// 
+/// Purpose: Handles SDL-based rendering engine scenes. 
+/// 
 /// </summary>
 
 namespace SDLX
@@ -18,6 +28,7 @@ namespace SDLX
     {
         public GameCamera GameCamera { get; set; }
         public List<SDLSprite> SDLTextureCache { get; set; }
+        public SDLPoint Resolution { get; set; }
 
         public GameScene()
         {

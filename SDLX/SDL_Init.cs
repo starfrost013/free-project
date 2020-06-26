@@ -38,12 +38,13 @@ namespace SDLX
 
         public bool Game_Init()
         {
-            if (!Game_InitSDL()) return false;
-
-            // Add ressolution 
-            if (!Game_InitSDL_Window()) return false;
 
             if (!Game_InitScene()) return false;
+
+            if (!Game_InitSDL()) return false;
+
+            // Add resolution 
+            if (!Game_InitSDL_Window()) return false;
 
             return true;
         }
@@ -88,9 +89,14 @@ namespace SDLX
             IntPtr _ = SDL_WindowPtr;
             IntPtr _2 = SDL_RenderPtr;
 
+            
             if (SDL.SDL_CreateWindowAndRenderer(800, 450, SDL.SDL_WindowFlags.SDL_WINDOW_SHOWN | SDL.SDL_WindowFlags.SDL_WINDOW_RESIZABLE, out _, out _2) < 0)
             {
                 Debug.WriteLine($"SDL createwindow failure: {SDL.SDL_GetError()}");
+
+                //Set scene resolution (TEMP)
+                CurrentScene.Resolution.X = 800;
+                CurrentScene.Resolution.Y = 450;
                 return false;
             }
             else
