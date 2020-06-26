@@ -33,7 +33,7 @@ namespace SDLX
         /// <summary>
         /// Unmanaged code pointer to the SDL game renderer.
         /// </summary>
-        public IntPtr SDL_RenderPtr { get; set; }
+        public static IntPtr SDL_RenderPtr { get; set; }
         
 
         public bool Game_Init()
@@ -42,6 +42,8 @@ namespace SDLX
 
             // Add ressolution 
             if (!Game_InitSDL_Window()) return false;
+
+            if (!Game_InitScene()) return false;
 
             return true;
         }
@@ -103,6 +105,14 @@ namespace SDLX
 
                 return true;
             }
+        }
+
+        // this will be used for more later
+        private bool Game_InitScene()
+        {
+            CurrentScene = new GameScene();
+
+            return true; 
         }
 
         public void Game_Shutdown()

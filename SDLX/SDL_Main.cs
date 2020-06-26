@@ -10,8 +10,10 @@ namespace SDLX
 {
     public partial class Game
     {
+        public GameScene CurrentScene { get; set; }
         public SDL.SDL_Event EventHandler { get; set; } // naive?
         public bool RunningNow { get; set; }
+
         public void SDL_Main()
         {
             SDL.SDL_Event _ = EventHandler;
@@ -34,7 +36,7 @@ namespace SDLX
 
                     // Render each SDLTexture in the TextureCache. 
                     // Pending major refactoring we just draw everything at 0,0 for now.
-                    foreach (SDLSprite SDLSprite in SDLTextureCache)
+                    foreach (SDLSprite SDLSprite in CurrentScene.SDLTextureCache)
                     {
 
                         SDL.SDL_Rect SpriteDestRect = new SDL.SDL_Rect();
