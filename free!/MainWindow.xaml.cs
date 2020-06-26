@@ -102,8 +102,12 @@ namespace Free
                     MessageBox.Show($"avant-gardé engine\nVer. {FVI.FileVersion} (pre-release)\n© 2019-2020 avant-gardé eyes", "About Engine", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 case Key.F9:
-                    LevelSelect LevelSelect = new LevelSelect(this);
-                    LevelSelect.Show();
+                    if (Settings.DebugMode)
+                    {
+                        LevelSelect LevelSelect = new LevelSelect(this);
+                        LevelSelect.Show();
+                    }
+
                     return;
                 case Key.F11:
                     SetFullscreen();
