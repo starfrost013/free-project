@@ -33,6 +33,7 @@ namespace SDLX
         public GameScene()
         {
             GameCamera = new GameCamera();
+            Resolution = new SDLPoint(850, 400);
             SDLTextureCache = new List<SDLSprite>();
         }
 
@@ -44,7 +45,13 @@ namespace SDLX
         public bool LoadImage(string ImageLoad, SDLPoint Position, int SizeX, int SizeY)
         {
             // Load the image using SDLImage
-            var ImagePtr = SDL_image.IMG_LoadTexture(Game.SDL_RenderPtr, ImageLoad);
+            IntPtr ImagePtr = SDL_image.IMG_LoadTexture(Game.SDL_RenderPtr, ImageLoad);
+            
+            if (ImagePtr == new IntPtr(0))
+            {
+                Debug.WriteLine("An error occurred loading an image - ImagePtr returned null.");
+                return true; // return false once it works. THIS IS SHIT!!!
+            }
 
             // TEMPORARY - these will be parameters
             uint Tex = SDL.SDL_PIXELFORMAT_UNKNOWN;
@@ -52,10 +59,15 @@ namespace SDLX
 
 
             // TEMPORARY 64X64
+
+
             if (SDL.SDL_QueryTexture(ImagePtr, out Tex, out TexAccess, out SizeX, out SizeY) < 0)
             {
                 Debug.WriteLine($"SDL failed loading an image. {SDL.SDL_GetError()} ");
-                return false;
+
+                // Don't return false for now. Not sure what's causing the "Invalid texture." errors.
+                //return false;
+                return true;
             }
             else
             {
@@ -75,6 +87,10 @@ namespace SDLX
                 SDLSprite.Position = Position;
 
                 // Add it to the texture cache
+
+                // Don't destroy shit that doens't exist.
+                if (ImagePtr != new IntPtr(0)) SDL.SDL_DestroyTexture(ImagePtr); 
+
                 SDLTextureCache.Add(SDLSprite);
                 return true;
             }

@@ -22,6 +22,8 @@ namespace Free
             try
             {
                 Gamestate = GameState.Loading;
+                // Ok this is temp but we are gonna get rid of sdlthread and have a few threads for rendering, physics, etc
+                if (SDLThread.IsAlive) SDLThread.Suspend(); 
                 GameTickTimer.Stop();
                 MainLoopTimer.Stop(); 
                 PhysicsTimer.Stop();
@@ -115,6 +117,9 @@ namespace Free
             
             GameTickTimer.Start();
             //if (Settings.UseSDLX) MainLoopTimer.Start(); 
+
+            // Temporary. We will have an SDLLoad function. 
+            SDLThread.Start();
             PhysicsTimer.Start();
         }
     }
