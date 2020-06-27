@@ -33,6 +33,7 @@ namespace Free
         public Point PlayerStartPosition { get; set; }
         public string TEXTPATH { get; set; }
         public Point Size { get; set; }
+        public List<WriteableBitmap> ImageCacheWPF { get; set; }
         public Level()
         {
             this.LevelObjects = new List<IGameObject>();

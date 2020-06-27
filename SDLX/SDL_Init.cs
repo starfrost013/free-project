@@ -74,6 +74,12 @@ namespace SDLX
                 return false;
             }
 
+            if (SDL_ttf.TTF_Init() < 0)
+            {
+                Debug.WriteLine($"SDL_ttf init fail: {SDL.SDL_GetError()}");
+                return false;
+            }
+
 #if DEBUG
             SDL.SDL_LogSetAllPriority(SDL.SDL_LogPriority.SDL_LOG_PRIORITY_WARN);
 #endif
@@ -89,7 +95,8 @@ namespace SDLX
             IntPtr _ = SDL_WindowPtr;
             IntPtr _2 = SDL_RenderPtr;
 
-            
+
+
             if (SDL.SDL_CreateWindowAndRenderer(800, 450, SDL.SDL_WindowFlags.SDL_WINDOW_SHOWN | SDL.SDL_WindowFlags.SDL_WINDOW_RESIZABLE, out _, out _2) < 0)
             {
                 Debug.WriteLine($"SDL createwindow failure: {SDL.SDL_GetError()}");
@@ -106,7 +113,9 @@ namespace SDLX
 
                 SDL_WindowPtr = _;
                 SDL_RenderPtr = _2;
-                
+
+                CurrentScene.PreLoadScene();
+
                 RunningNow = true;
 
                 return true;
@@ -117,6 +126,7 @@ namespace SDLX
         private bool Game_InitScene()
         {
             CurrentScene = new GameScene();
+
 
             return true; 
         }

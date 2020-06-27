@@ -29,6 +29,7 @@ namespace SDLX
         public GameCamera GameCamera { get; set; }
         public List<SDLSprite> SDLTextureCache { get; set; }
         public SDLPoint Resolution { get; set; }
+        public IntPtr TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS { get; set; } // Pre-FreeUI font
 
         public GameScene()
         {
@@ -39,7 +40,12 @@ namespace SDLX
 
         public void PreLoadScene()
         {
-            SDLTextureCache.Clear();
+            TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS = SDL_ttf.TTF_OpenFont("consolaz.ttf", 18);
+
+            if (TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS == IntPtr.Zero)
+            {
+                Debug.WriteLine($"Error loading font: {SDL.SDL_GetError()}");
+            }
         }
 
         public bool LoadImage(string ImageLoad, SDLPoint Position, int SizeX, int SizeY)
@@ -87,9 +93,6 @@ namespace SDLX
                 SDLSprite.Position = Position;
 
                 // Add it to the texture cache
-
-                // Don't destroy shit that doens't exist.
-                if (ImagePtr != new IntPtr(0)) SDL.SDL_DestroyTexture(ImagePtr); 
 
                 SDLTextureCache.Add(SDLSprite);
                 return true;

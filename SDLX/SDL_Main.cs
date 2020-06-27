@@ -13,7 +13,6 @@ namespace SDLX
         public GameScene CurrentScene { get; set; }
         public SDL.SDL_Event EventHandler { get; set; } // naive?
         public bool RunningNow { get; set; }
-
         public void SDL_Main()
         {
             SDL.SDL_Event _ = EventHandler;
@@ -47,9 +46,9 @@ namespace SDLX
 
                 // Render each SDLTexture in the TextureCache. 
                 // Pending major refactoring we just draw everything at 0,0 for now.
+
                 foreach (SDLSprite SDLSprite in CurrentScene.SDLTextureCache)
                 {
-
                     if (SDLSprite.Position.X >= CurrentScene.GameCamera.CameraPosition.X
                         && SDLSprite.Position.X <= (CurrentScene.GameCamera.CameraPosition.X + CurrentScene.Resolution.X)
                         && SDLSprite.Position.Y >= CurrentScene.GameCamera.CameraPosition.Y
@@ -65,9 +64,45 @@ namespace SDLX
                         SpriteDestRect.w = SpriteRenderRect.w;
                         SpriteDestRect.h = SpriteRenderRect.h;
 
+
                         SDL.SDL_RenderCopy(SDL_RenderPtr, SDLSprite.Sprite, ref SpriteRenderRect, ref SpriteDestRect);
                     }
+
+                    // TEMPORARY CODE START DO NOT USE AFTER FREEUI
+
+                    // Render the text to a surface.
+                    IntPtr Surface = SDL_ttf.TTF_RenderText_Solid(CurrentScene.TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS, $"Camera Position: {CurrentScene.GameCamera.CameraPosition.X}, {CurrentScene.GameCamera.CameraPosition.Y}", new SDL.SDL_Color { a = 255, r = 255, g = 255, b = 255 });
+
+                    // Render the text surface to a texture.
+                    IntPtr Texture = SDL.SDL_CreateTextureFromSurface(SDL_RenderPtr, Surface);
+
+                    SDL.SDL_Rect SrcRect = new SDL.SDL_Rect()
+                    {
+                        x = 0,
+                        y = 0,
+                        h = 24,
+                        w = 300
+
+                    };
+
+                    SDL.SDL_Rect DestRect = new SDL.SDL_Rect()
+                    {
+                        x = 0,
+                        y = 0,
+                        h = 24,
+                        w = 300
+
+                    };
+
+
+                    SDL.SDL_RenderCopy(SDL_RenderPtr, Texture, ref SrcRect, ref DestRect);
+
+                    SDL.SDL_DestroyTexture(Texture);
+                    
+                    // TEMPORARY CODE END DO NOT USE AFTER FREEUI
+
                 }
+                
 
                 SDL.SDL_RenderPresent(SDL_RenderPtr);
             }
