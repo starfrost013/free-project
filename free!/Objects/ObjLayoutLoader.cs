@@ -96,7 +96,6 @@ namespace Free
                                 else
                                 {
                                     Objx = new SentientBeing(Object, Object.OBJPLAYER, Object.OBJPLAYERDAMAGE, Object.OBJPLAYERHEALTH, Object.OBJPLAYERLEVEL, Object.OBJPLAYERLEVELDAMAGE, Object.OBJPLAYERLIVES, currentIntId);
-
                                 }
                                 // This is real shit code, like yandere simulator shit, and it is, in fact, an ugly hack. Damn reference types...
 
@@ -122,7 +121,6 @@ namespace Free
                             if (currentlevel.PlayerStartPosition.X == 0 || currentlevel.PlayerStartPosition.Y == 0) // default
                             {
                                 currentlevel.PlayerStartPosition = new Point(Objx.OBJX, Objx.OBJY);
-
                             }
                             else
                             {
@@ -139,8 +137,8 @@ namespace Free
                         // Send to SDL for rendering.
                         App AppSDL = (App)Application.Current;
 
-                        // Here we temporarily use WPF.variables. 
-                        if (!AppSDL.SDLGame.CurrentScene.LoadImage(Objx.OBJIMAGEPATH, new SDLPoint(Objx.OBJX, Objx.OBJY), Objx.OBJIMAGE.PixelWidth, Objx.OBJIMAGE.PixelHeight))
+                        // Here we temporarily use WPF.variables. THIS IS EXTREMELY TEMPORARY CODE WE WILL HAVE OUR OWN SDLLOAD METHOD OK
+                        if (!AppSDL.SDLGame.CurrentScene.LoadImage(@Objx.OBJIMAGEPATH, new SDLPoint(Objx.OBJX, Objx.OBJY), Objx.OBJIMAGE.PixelWidth, Objx.OBJIMAGE.PixelHeight))
                         {
                             Error.Throw(null, ErrorSeverity.FatalError, "Fatal error loading image", "avant-garde engine", 93); 
                         }
@@ -155,17 +153,21 @@ namespace Free
             catch (XmlException err)
             {
                 MessageBox.Show($"A critical error occurred while loading {this.LevelObjectsPATH}:\n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
-                Environment.Exit(6666);
+                Environment.Exit(0x6666DEAD);
             }
             catch (FormatException err)
             {
                 MessageBox.Show($"A critical error occurred while loading {this.LevelObjectsPATH}:\n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
-                Environment.Exit(6666);
+                Environment.Exit(0x6667DEAD);
             }
             catch (FileNotFoundException err)
             {
                 Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent object layout, or error loading an object layout. This is most likely because the Goal object attempted to trigger its interaction but the next level by ID doesn't have an object layout or it failed to load.", "avant-gardé engine", 8);
+                Environment.Exit(0x6668DEAD);
             }
+
+
+
             return true;
         }
     }

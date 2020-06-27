@@ -80,7 +80,6 @@ namespace Free
 
                 currentlevel = level;
 
-                SDLThread.Start();
 
                 return;
             }

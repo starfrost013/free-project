@@ -13,6 +13,10 @@ namespace SDLX
         public SDLSprite FocusedObject { get; set; }
         public bool IsFocusing { get; set; }
 
+        public GameCamera()
+        {
+            CameraPosition = new SDLPoint(0, 0); 
+        }
         public void UpdateCamera(SDLPoint Pos)
         {
             CameraPosition = Pos;
