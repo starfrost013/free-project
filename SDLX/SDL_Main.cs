@@ -23,7 +23,11 @@ namespace SDLX
 
             while (RunningNow)
             {
-                while (SDL.SDL_PollEvent(out _) == 1)
+
+                // Clear the SDL window
+                SDL.SDL_RenderClear(SDL_RenderPtr);
+
+                while (SDL.SDL_PollEvent(out _) != 0)
                 {
                     // Check for the events we want to handle.
 
@@ -39,8 +43,7 @@ namespace SDLX
                     }
                 }
 
-                // Clear the SDL window
-                SDL.SDL_RenderClear(SDL_RenderPtr);
+
 
                 // Render each SDLTexture in the TextureCache. 
                 // Pending major refactoring we just draw everything at 0,0 for now.
