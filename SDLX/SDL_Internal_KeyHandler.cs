@@ -28,16 +28,16 @@ namespace SDLX
             switch (KeyX.keysym.sym)
             {
                 case SDL.SDL_Keycode.SDLK_w:
-                    CurrentScene.GameCamera.CameraPosition.Y -= 5; 
+                    CurrentScene.GameCamera.CameraPosition.Y -= 10; 
                     return;
                 case SDL.SDL_Keycode.SDLK_a:
-                    CurrentScene.GameCamera.CameraPosition.X -= 5;
+                    CurrentScene.GameCamera.CameraPosition.X -= 10;
                     return;
                 case SDL.SDL_Keycode.SDLK_s:
-                    CurrentScene.GameCamera.CameraPosition.Y += 5;
+                    CurrentScene.GameCamera.CameraPosition.Y += 10;
                     return;
                 case SDL.SDL_Keycode.SDLK_d:
-                    CurrentScene.GameCamera.CameraPosition.X += 5;
+                    CurrentScene.GameCamera.CameraPosition.X += 10;
                     return; 
             }
         }
