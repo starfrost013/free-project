@@ -16,5 +16,7 @@ namespace SDLX
         public IntPtr Sprite { get; set; }
         public SDL.SDL_Rect RenderRect { get; set; }
         public SDLPoint Position { get; set; }
+        public string Name { get; set; }
     }
+
 }

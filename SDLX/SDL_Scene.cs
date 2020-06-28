@@ -26,7 +26,7 @@ namespace SDLX
 {
     public partial class GameScene
     {
-        public List<IntPtr> CachedTextures { get; set; }
+        public List<SDLSprite> CachedTextures { get; set; }
         public GameCamera GameCamera { get; set; }
         public List<SDLSprite> SDLTextureCache { get; set; }
         public SDLPoint Resolution { get; set; }
