@@ -49,17 +49,17 @@ namespace SDLX
 
                 foreach (SDLSprite SDLSprite in CurrentScene.SDLTextureCache)
                 {
-                    if (SDLSprite.Position.X >= CurrentScene.GameCamera.CameraPosition.X
-                        && SDLSprite.Position.X <= (CurrentScene.GameCamera.CameraPosition.X + CurrentScene.Resolution.X)
-                        && SDLSprite.Position.Y >= CurrentScene.GameCamera.CameraPosition.Y
-                        && SDLSprite.Position.Y <= (CurrentScene.GameCamera.CameraPosition.Y + CurrentScene.Resolution.Y))
+                    if (SDLSprite.Position.X >= (CurrentScene.GameCamera.CameraPosition.X - SDLSprite.Size.X)
+                        && SDLSprite.Position.X <= (CurrentScene.GameCamera.CameraPosition.X + (CurrentScene.Resolution.X + SDLSprite.Size.X))
+                        && SDLSprite.Position.Y >= (CurrentScene.GameCamera.CameraPosition.Y - SDLSprite.Size.Y)
+                        && SDLSprite.Position.Y <= (CurrentScene.GameCamera.CameraPosition.Y + (CurrentScene.Resolution.Y + SDLSprite.Size.Y)))
                     {
                         SDL.SDL_Rect SpriteDestRect = new SDL.SDL_Rect();
 
                         SDL.SDL_Rect SpriteRenderRect = SDLSprite.RenderRect;
 
-                        SpriteDestRect.x = (int)SDLSprite.Position.X;
-                        SpriteDestRect.y = (int)SDLSprite.Position.Y;
+                        SpriteDestRect.x = (int)SDLSprite.Position.X - (int)CurrentScene.GameCamera.CameraPosition.X;
+                        SpriteDestRect.y = (int)SDLSprite.Position.Y - (int)CurrentScene.GameCamera.CameraPosition.Y;
 
                         SpriteDestRect.w = SpriteRenderRect.w;
                         SpriteDestRect.h = SpriteRenderRect.h;
@@ -80,7 +80,7 @@ namespace SDLX
                     {
                         x = 0,
                         y = 0,
-                        h = 24,
+                        h = 20,
                         w = 300
 
                     };
@@ -89,7 +89,7 @@ namespace SDLX
                     {
                         x = 0,
                         y = 0,
-                        h = 24,
+                        h = 20,
                         w = 300
 
                     };

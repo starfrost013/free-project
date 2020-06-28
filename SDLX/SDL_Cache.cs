@@ -38,6 +38,8 @@ namespace SDLX
                     return Spr;
                 }
             }
+
+            return null;
         }
     }
 }

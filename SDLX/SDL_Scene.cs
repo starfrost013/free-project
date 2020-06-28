@@ -93,6 +93,8 @@ namespace SDLX
 
                 SDLSprite.Position = Position;
 
+                SDLSprite.Size = new SDLPoint(SizeX, SizeY);
+
                 // Add it to the texture cache
 
                 SDLTextureCache.Add(SDLSprite);
