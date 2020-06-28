@@ -134,7 +134,9 @@ namespace SDLX
         public void Game_Shutdown()
         {
             // Shutdown various things
-            RunningNow = false; 
+            RunningNow = false;
+
+            SDL_ttf.TTF_CloseFont(CurrentScene.TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS);
 
             SDL.SDL_DestroyRenderer(SDL_RenderPtr);
             SDL.SDL_DestroyWindow(SDL_WindowPtr);

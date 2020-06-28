@@ -24,8 +24,9 @@ using System.Threading.Tasks;
 
 namespace SDLX
 {
-    public class GameScene
+    public partial class GameScene
     {
+        public List<IntPtr> CachedTextures { get; set; }
         public GameCamera GameCamera { get; set; }
         public List<SDLSprite> SDLTextureCache { get; set; }
         public SDLPoint Resolution { get; set; }

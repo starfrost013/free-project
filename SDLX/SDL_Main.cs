@@ -98,7 +98,8 @@ namespace SDLX
                     SDL.SDL_RenderCopy(SDL_RenderPtr, Texture, ref SrcRect, ref DestRect);
 
                     SDL.SDL_DestroyTexture(Texture);
-                    
+                    SDL.SDL_FreeSurface(Surface); 
+
                     // TEMPORARY CODE END DO NOT USE AFTER FREEUI
 
                 }

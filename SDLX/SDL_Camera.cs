@@ -17,6 +17,7 @@ namespace SDLX
         {
             CameraPosition = new SDLPoint(0, 0); 
         }
+
         public void UpdateCamera(SDLPoint Pos)
         {
             CameraPosition = Pos;
