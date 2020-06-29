@@ -72,9 +72,9 @@ namespace Emerald.Utilities.Wpf2Sdl
         {
             return new SDLPoint(Point1.X / Point2.X, Point1.Y / Point2.Y);
         }
-        public override bool Equals(object obj)
+        public override bool Equals(IGameObject GameObject)
         {
-            return base.Equals(obj);
+            return base.Equals(GameObject);
         }
 
         public override int GetHashCode()

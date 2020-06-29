@@ -20,9 +20,9 @@ namespace Free
 {
     public partial class FreeSDL
     {
-        public void Interaction_Hurt(IGameObject Obj, int amount)
+        public void Interaction_Hurt(IGameObject GameObject, int amount)
         {
-            Obj.OBJPLAYERHEALTH -= amount;
+            GameObject.GameObjectPLAYERHEALTH -= amount;
             return;
         }
     }

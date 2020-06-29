@@ -15,47 +15,47 @@ using System.Windows.Shapes;
 namespace Free
 {
     /// <summary>
-    /// Interaction logic for MoveObj.xaml
+    /// Interaction logic for MoveGameObject.xaml
     /// </summary>
-    public partial class MoveObj : Window
+    public partial class MoveGameObject : Window
     {
         public FreeSDL MnWindow { get; set; }
-        public IGameObject objectToEdit { get; set; }
-        public MoveObj(FreeSDL FreeSDL, IGameObject objToEdit)
+        public IGameObject IGameObjectToEdit { get; set; }
+        public MoveGameObject(FreeSDL FreeSDL, IGameObject GameObjectToEdit)
         {
             InitializeComponent();
             MnWindow = FreeSDL;
-            objectToEdit = objToEdit;
-            ObjSelect.Text = $"Moving Object: {objectToEdit.OBJNAME} @ X: {objectToEdit.OBJX} Y: {objectToEdit.OBJY}";
+            IGameObjectToEdit = GameObjectToEdit;
+            GameObjectSelect.Text = $"Moving IGameObject: {IGameObjectToEdit.GameObjectNAME} @ X: {IGameObjectToEdit.GameObjectX} Y: {IGameObjectToEdit.GameObjectY}";
             //clear if its already full
 
         }
 
-        private void OKButton_Click(object sender, RoutedEventArgs e)
+        private void OKButton_Click(IGameObject sender, RoutedEventArgs e)
         {
             try
             {
-                objectToEdit.OBJX = Convert.ToDouble(XPosBox.Text);
-                objectToEdit.OBJY = Convert.ToDouble(YPosBox.Text);
-                MnWindow.currentlevel.LevelObjects[objectToEdit.OBJINTERNALID] = objectToEdit;
-                ObjSelect.Text = $"Moving Object: {objectToEdit.OBJNAME} @ X: {objectToEdit.OBJX} Y: {objectToEdit.OBJY}";
+                IGameObjectToEdit.GameObjectX = Convert.ToDouble(XPosBox.Text);
+                IGameObjectToEdit.GameObjectY = Convert.ToDouble(YPosBox.Text);
+                MnWindow.currentlevel.LevelIGameObjects[IGameObjectToEdit.GameObjectINTERNALID] = IGameObjectToEdit;
+                GameObjectSelect.Text = $"Moving IGameObject: {IGameObjectToEdit.GameObjectNAME} @ X: {IGameObjectToEdit.GameObjectX} Y: {IGameObjectToEdit.GameObjectY}";
                 //this.Close(); V0.14.1035.0 remove
             }
             catch (FormatException)
             {
-                Error.Throw(new Exception("DEBUG: The user did not select an object to move when using edit mode."), ErrorSeverity.Warning, "Please input X/Y positions in the correct format.", "avant-gardé engine ver 2.11", 22);
+                Error.Throw(new Exception("DEBUG: The user did not select an IGameObject to move when using edit mode."), ErrorSeverity.Warning, "Please input X/Y positions in the correct format.", "avant-gardé engine ver 2.11", 22);
                 return;
             }
 
         }
 
-        private void PickButton_Click(object sender, RoutedEventArgs e)
+        private void PickButton_Click(IGameObject sender, RoutedEventArgs e)
         {
             XPosBox.Text = Convert.ToString(MnWindow.DbgMouseClickLevelX);
             YPosBox.Text = Convert.ToString(MnWindow.DbgMouseClickLevelY);
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(IGameObject sender, RoutedEventArgs e)
         {
             this.Close(); // close the window
         }

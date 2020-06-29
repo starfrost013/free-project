@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 /// <summary>
 /// 
-/// File name: ObjManager.cs
+/// File name: GameObjectManager.cs
 /// 
 /// Created: 2019-11-18
 /// 
@@ -15,58 +15,58 @@ using System.Threading.Tasks;
 /// 
 /// Version: 1.00
 /// 
-/// Purpose: Provides methods for managing and deleting objects. Required for the Interaction Manager.
+/// Purpose: Provides methods for managing and deleting IGameObjects. Required for the Interaction Manager.
 /// 
 /// </summary>
 namespace Free
 {
     partial class FreeSDL //move to its own class maybe?
     {
-        public void DeleteObj(IGameObject objToDel, int int2id) // Deletes an object from the level layout.
+        public void DeleteGameObject(IGameObject GameObjectToDel, int int2id) // Deletes an IGameObject from the level layout.
         {
-            foreach (IGameObject Obj in currentlevel.LevelObjects)
+            foreach (IGameObject GameObject in currentlevel.LevelIGameObjects)
             {
-                if (Obj == objToDel)
+                if (GameObject == GameObjectToDel)
                 {
-                    if (Obj.OBJID == int2id)
+                    if (GameObject.GameObjectID == int2id)
                     {
-                        currentlevel.LevelObjects.Remove(Obj);
+                        currentlevel.LevelIGameObjects.Remove(GameObject);
                         return;
                     }
                 }
             }
-            Error.Throw(new Exception("Failed to delete object. You probably tried to delete an object that doesn't exist."), ErrorSeverity.FatalError, "", "avant-gardé engine ver 2.7.0/01", 3);
+            Error.Throw(new Exception("Failed to delete IGameObject. You probably tried to delete an IGameObject that doesn't exist."), ErrorSeverity.FatalError, "", "avant-gardé engine ver 2.7.0/01", 3);
             return;
         }
 
         //do we need this?
-        public Obj SetObjPos(Obj objToMove, double x, double y) // Sets an object's position to a certain value.
+        public GameObject SetGameObjectPos(GameObject GameObjectToMove, double x, double y) // Sets an IGameObject's position to a certain value.
         {
-            foreach (Obj Obj in currentlevel.LevelObjects)
+            foreach (GameObject GameObject in currentlevel.LevelIGameObjects)
             {
-                if (Obj == objToMove)
+                if (GameObject == GameObjectToMove)
                 {
-                    Obj.OBJX = x;
-                    Obj.OBJY = y;
-                    return objToMove;
+                    GameObject.GameObjectX = x;
+                    GameObject.GameObjectY = y;
+                    return GameObjectToMove;
                 }
             }
-            Error.Throw(new Exception("Failed to move object. You probably tried to move an object that doesn't exist."), ErrorSeverity.FatalError, "", "avant-gardé engine ver 2.7.0/01", 22);
+            Error.Throw(new Exception("Failed to move IGameObject. You probably tried to move an IGameObject that doesn't exist."), ErrorSeverity.FatalError, "", "avant-gardé engine ver 2.7.0/01", 22);
             return null;
         }
 
-        public Obj SetObjPriority(Obj objToModify, Priority priority)
+        public GameObject SetGameObjectPriority(GameObject GameObjectToModify, Priority priority)
         {
-            foreach (Obj Obj in currentlevel.LevelObjects)
+            foreach (GameObject GameObject in currentlevel.LevelIGameObjects)
             {
-                if (Obj == objToModify)
+                if (GameObject == GameObjectToModify)
                 {
-                    Obj.OBJPRIORITY = priority;
-                    return objToModify; //should return null.
+                    GameObject.GameObjectPRIORITY = priority;
+                    return GameObjectToModify; //should return null.
                 }
             }
 
-            Error.Throw(new Exception("Failed to set object priority. You probably tried to change the priority of an object that doesn't exist."), ErrorSeverity.FatalError, "", "avant-gardé engine ver 2.7.0/01", 23);
+            Error.Throw(new Exception("Failed to set IGameObject priority. You probably tried to change the priority of an IGameObject that doesn't exist."), ErrorSeverity.FatalError, "", "avant-gardé engine ver 2.7.0/01", 23);
             return null;
         }
     }

@@ -10,7 +10,7 @@ namespace SDLX
     public class GameCamera
     {
         public SDLPoint CameraPosition { get; set; } // The center of the camera.
-        public SDLSprite FocusedObject { get; set; }
+        public SDLSprite FocusedIGameObject { get; set; }
         public bool IsFocusing { get; set; }
 
         public GameCamera()
@@ -23,10 +23,10 @@ namespace SDLX
             CameraPosition = Pos;
         }
 
-        public void SetFocusedObject(SDLSprite SDLSprite)
+        public void SetFocusedIGameObject(SDLSprite SDLSprite)
         {
-            FocusedObject = SDLSprite;
-            CameraPosition = FocusedObject.Position;
+            FocusedIGameObject = SDLSprite;
+            CameraPosition = FocusedIGameObject.Position;
             IsFocusing = true; 
         }
 

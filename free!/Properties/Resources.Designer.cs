@@ -61,7 +61,8 @@ namespace Free.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to 29/06/2020 22:23:37.33 
+        ///.
         /// </summary>
         internal static string CoreBuildDate {
             get {

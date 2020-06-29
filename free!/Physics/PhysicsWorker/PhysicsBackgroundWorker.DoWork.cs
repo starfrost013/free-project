@@ -12,17 +12,17 @@ namespace Free
     public partial class FreeSDL
     {
         // This is what the physicsworker does.
-        public void PhysicsDoWork(object sender, DoWorkEventArgs e)
+        public void PhysicsDoWork(IGameObject sender, DoWorkEventArgs e)
         {
-            List<IGameObject> ObjectList = (List<IGameObject>)e.Argument;
+            List<IGameObject> IGameObjectList = (List<IGameObject>)e.Argument;
 
-            foreach (IGameObject Obj in ObjectList)
+            foreach (IGameObject GameObject in IGameObjectList)
             {
-                HandlePhys(Obj); 
+                HandlePhys(GameObject); 
             }
         }
 
-        public void PhysicsDone(object sender, RunWorkerCompletedEventArgs e)
+        public void PhysicsDone(IGameObject sender, RunWorkerCompletedEventArgs e)
         {
             if (e.Cancelled)
             {

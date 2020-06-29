@@ -62,7 +62,7 @@ namespace Emerald.Utilities
 
         public string GetVersionString()
         {
-            return $"Emerald Game Engine version {Major}.{Minor}.{Build}.{Revision} (built by {BuildOwner} at {BuildDate.ToString()}";
+            return $"Emerald Game Engine version {Major}.{Minor}.{Build}.{Revision} (built by {BuildOwner} at {BuildDate.ToString()})";
         }
     }
 }

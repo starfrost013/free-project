@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 /// <summary>
 /// 
-/// Object API - Get Players (Objects\ObjectAPI\ObjectAPI.GetPlayers.cs)
+/// IGameObject API - Get Players (IGameObjects\IGameObjectAPI\IGameObjectAPI.GetPlayers.cs)
 /// 
 /// Created: 2020-06-13
 /// 
@@ -27,9 +27,9 @@ namespace Free
         {
             List<IGameObject> Players = new List<IGameObject>();
 
-            foreach (IGameObject LevelObject in LevelObjects)
+            foreach (IGameObject LevelIGameObject in LevelIGameObjects)
             {
-                if (LevelObject.OBJISPLAYER) Players.Add(LevelObject);
+                if (LevelIGameObject.GameObjectISPLAYER) Players.Add(LevelIGameObject);
             }
 
             return Players; 

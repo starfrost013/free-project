@@ -14,7 +14,7 @@ using System.Windows;
 /// 
 /// Modified: 2019-12-04
 /// 
-/// Purpose: Manages interactions between objects.
+/// Purpose: Manages interactions between IGameObjects.
 /// 
 /// </summary>
 
@@ -22,7 +22,7 @@ namespace Free
 {
     partial class FreeSDL
     {
-        // placeholder until object manager is done
+        // placeholder until IGameObject manager is done
         public void LoadInteractions()
         {
             // Load the interaction XML
@@ -37,7 +37,7 @@ namespace Free
                     XmlRootNode = XmlRootNode.NextSibling; // ignore all other nodes. TODO - check what it triggers when we run out of nodes, so we can catch the exception.
                 }
 
-                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the Objects node.
+                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the IGameObjects node.
 
                 foreach (XmlNode XmlNode in XmlNodes)
                 {
@@ -49,17 +49,17 @@ namespace Free
                         {
                             switch (XmlAttribute.Name) // switch the name
                             {
-                                case "Obj1":
-                                case "obj1":
-                                    interaction.OBJ1ID = Convert.ToInt32(XmlAttribute.Value);
+                                case "GameObject1":
+                                case "GameObject1":
+                                    interaction.GameObject1ID = Convert.ToInt32(XmlAttribute.Value);
                                     continue;
-                                case "Obj2":
-                                case "obj2":
-                                    interaction.OBJ2ID = Convert.ToInt32(XmlAttribute.Value);
+                                case "GameObject2":
+                                case "GameObject2":
+                                    interaction.GameObject2ID = Convert.ToInt32(XmlAttribute.Value);
                                     continue;
                                 case "Type":
                                 case "type":
-                                    interaction.OBJINTERACTIONTYPE = (InteractionType)Enum.Parse(typeof(InteractionType), XmlAttribute.Value);
+                                    interaction.GameObjectINTERACTIONTYPE = (InteractionType)Enum.Parse(typeof(InteractionType), XmlAttribute.Value);
                                     continue;
 
                             }

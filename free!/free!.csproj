@@ -125,6 +125,7 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.AddObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.DeleteObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.GetPlayers.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.IsColliding.cs" />
     <Compile Include="Objects\ObjManager.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
     <Compile Include="Physics\Physics.Init.cs" />

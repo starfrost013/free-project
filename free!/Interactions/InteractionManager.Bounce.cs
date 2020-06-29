@@ -8,11 +8,11 @@ namespace Free
 {
     partial class FreeSDL
     {
-        public void Interaction_Bounce(IGameObject obj)
+        public void Interaction_Bounce(IGameObject GameObject)
         {
             // Wow this is an ugly hack and we need to get rid of it.
-            obj.OBJY -= 10;
-            obj.OBJACCELERATIONY = -8.5;
+            GameObject.GameObjectY -= 10;
+            GameObject.GameObjectACCELERATIONY = -8.5;
             
             return;
         }

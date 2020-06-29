@@ -22,7 +22,7 @@ namespace Free
                     XmlRootNode = XmlRootNode.NextSibling; // ignore all other nodes. TODO - check what it triggers when we run out of nodes, so we can catch the exception.
                 }
 
-                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the Objects node.
+                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the IGameObjects node.
 
                 foreach (XmlNode XmlNode in XmlNodes)
                 {
@@ -39,13 +39,13 @@ namespace Free
                                 {
                                     switch (XmlAttribute.Name)
                                     {
-                                        case "Obj1":
-                                        case "obj1":
-                                            AI.Obj1Id = Convert.ToInt32(XmlAttribute.Value);
+                                        case "GameObject1":
+                                        case "GameObject1":
+                                            AI.GameObject1Id = Convert.ToInt32(XmlAttribute.Value);
                                             continue;
-                                        case "Obj2":
-                                        case "obj2":
-                                            AI.Obj2Id = Convert.ToInt32(XmlAttribute.Value);
+                                        case "GameObject2":
+                                        case "GameObject2":
+                                            AI.GameObject2Id = Convert.ToInt32(XmlAttribute.Value);
                                             continue;
                                         case "AIType":
                                         case "aitype":
@@ -59,11 +59,11 @@ namespace Free
                                             continue;
                                     }
                                 }
-                                foreach (IGameObject Obj in ObjectList)
+                                foreach (IGameObject GameObject in IGameObjectList)
                                 {
-                                    if (AI.Obj1Id == Obj.OBJID & IsSentientBeing(Obj))// assign the aitype
+                                    if (AI.GameObject1Id == GameObject.GameObjectID & IsSentientBeing(GameObject))// assign the aitype
                                     {
-                                        Obj.OBJAI = AI;
+                                        GameObject.GameObjectAI = AI;
                                     }
 
                                 }

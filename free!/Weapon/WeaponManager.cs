@@ -8,11 +8,11 @@ namespace Free
 {
     public partial class FreeSDL
     {
-        public void GiveWeapon(Obj obj, string WeaponName)
+        public void GiveWeapon(GameObject GameObject, string WeaponName)
         {
             if (WeaponName == "" || WeaponName == null) // Remove currently held weapon
             {
-                obj.OBJHELDWEAPON = null;
+                GameObject.GameObjectHELDWEAPON = null;
                 return;
             }
 
@@ -20,17 +20,17 @@ namespace Free
             {
                 if (weapon.WEAPONNAME == WeaponName)
                 {
-                    obj.OBJHELDWEAPON = weapon;
+                    GameObject.GameObjectHELDWEAPON = weapon;
                 }
             }
         }
 
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Window_MouseDown(IGameObject sender, MouseButtonEventArgs e)
         {
             if (Gamestate == GameState.EditMode)
             {
-                //editmode - for add-object picking
+                //editmode - for add-IGameObject picking
                 DbgMouseClickLevelX = e.GetPosition(Game).X; //easy scrolling lol
                 DbgMouseClickLevelY = e.GetPosition(Game).Y;
             }

@@ -1,21 +1,21 @@
-<ObjectLayout>
-  <Object id="0" posx="0" posy="246" />
-  <Object id="0" posx="450" posy="230" />
-  <Object id="1" posx="330" posy="-34.9999999999983" />
-  <Object id="0" posx="400" posy="300" />
-  <Object id="2" posx="0" posy="400" />
-  <Object id="4" posx="200" posy="195" />
-  <Object id="5" posx="210" posy="205" />
-  <Object id="6" posx="220" posy="215" />
-  <Object id="7" posx="230" posy="225" />
-  <Object id="8" posx="240" posy="235" />
-  <Object id="9" posx="0" posy="340" />
-  <Object id="10" posx="100" posy="200" />
-  <Object id="11" posx="450" posy="50" />
-  <Object id="11" posx="450" posy="100" />
-  <Object id="11" posx="450" posy="150" />
-  <Object id="11" posx="450" posy="200" />
-  <Object id="11" posx="450" posy="250" />
-  <Object id="11" posx="450" posy="300" />
-  <Object id="12" posx="350" posy="200" />
-</ObjectLayout>
+<IGameObjectLayout>
+  <IGameObject id="0" posx="0" posy="246" />
+  <IGameObject id="0" posx="450" posy="230" />
+  <IGameObject id="1" posx="330" posy="-34.9999999999983" />
+  <IGameObject id="0" posx="400" posy="300" />
+  <IGameObject id="2" posx="0" posy="400" />
+  <IGameObject id="4" posx="200" posy="195" />
+  <IGameObject id="5" posx="210" posy="205" />
+  <IGameObject id="6" posx="220" posy="215" />
+  <IGameObject id="7" posx="230" posy="225" />
+  <IGameObject id="8" posx="240" posy="235" />
+  <IGameObject id="9" posx="0" posy="340" />
+  <IGameObject id="10" posx="100" posy="200" />
+  <IGameObject id="11" posx="450" posy="50" />
+  <IGameObject id="11" posx="450" posy="100" />
+  <IGameObject id="11" posx="450" posy="150" />
+  <IGameObject id="11" posx="450" posy="200" />
+  <IGameObject id="11" posx="450" posy="250" />
+  <IGameObject id="11" posx="450" posy="300" />
+  <IGameObject id="12" posx="350" posy="200" />
+</IGameObjectLayout>

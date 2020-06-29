@@ -1,8 +1,8 @@
-<!-- Object Interactions -->
+<!-- IGameObject Interactions -->
 <Interactions>
-	<Interaction obj1="1" obj2="0" type="Remove"></Interaction>
-	<Interaction obj1="1" obj2="9" type="ChangeLevel"></Interaction>
-	<Interaction obj1="1" obj2="12" type="Bounce"></Interaction>
-	<Interaction obj1="1" obj2="24" type="BounceLeft"></Interaction>
-	<Interaction obj1="1" obj2="25" type="BounceRight"></Interaction>
+	<Interaction GameObject1="1" GameObject2="0" type="Remove"></Interaction>
+	<Interaction GameObject1="1" GameObject2="9" type="ChangeLevel"></Interaction>
+	<Interaction GameObject1="1" GameObject2="12" type="Bounce"></Interaction>
+	<Interaction GameObject1="1" GameObject2="24" type="BounceLeft"></Interaction>
+	<Interaction GameObject1="1" GameObject2="25" type="BounceRight"></Interaction>
 </Interactions>

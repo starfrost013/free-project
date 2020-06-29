@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    partial class FreeSDL // move to obj in the obj/player split?
+    partial class FreeSDL // move to GameObject in the GameObject/player split?
     {
-        public void Interaction_BounceLeft(IGameObject obj)
+        public void Interaction_BounceLeft(IGameObject GameObject)
         {
-            obj.OBJACCELERATION = -28.5;
-            obj.OBJSPEED = -Physics.MaxSpeed;
+            GameObject.GameObjectACCELERATION = -28.5;
+            GameObject.GameObjectSPEED = -Physics.MaxSpeed;
             return;
         }
     }

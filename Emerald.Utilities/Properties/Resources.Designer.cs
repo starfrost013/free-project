@@ -61,7 +61,7 @@ namespace Emerald.Utilities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 29/06/202022:19:22.88 
+        ///   Looks up a localized string similar to 29/06/2020 22:23:35.26 
         ///.
         /// </summary>
         internal static string CoreBuildDate {

@@ -71,8 +71,8 @@ namespace Free
                                     case "BGPath": // The path to the level's background.
                                         CurrentLevel.BGPATH = XLevelGrandchild.InnerText;
                                         continue;
-                                    case "ObjectLayoutPath": // The path to the object layout of the level.
-                                        CurrentLevel.LevelObjectsPATH = XLevelGrandchild.InnerText;
+                                    case "IGameObjectLayoutPath": // The path to the IGameObject layout of the level.
+                                        CurrentLevel.LevelIGameObjectsPATH = XLevelGrandchild.InnerText;
                                         continue;
                                     case "Music": // The path to the level's music.
                                         CurrentLevel.MUSICPATH = XLevelGrandchild.InnerText;

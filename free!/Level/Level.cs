@@ -27,8 +27,8 @@ namespace Free
         public string MUSICPATH { get; set; }
         public MediaPlayer MUSICPLAYER { get; set; }
         public string Name { get; set; }
-        public List<IGameObject> LevelObjects { get; set; } // 2do: load this in this class. (0.01X)
-        public string LevelObjectsPATH { get; set; }
+        public List<IGameObject> LevelIGameObjects { get; set; } // 2do: load this in this class. (0.01X)
+        public string LevelIGameObjectsPATH { get; set; }
         public double? PLRKILLY { get; set; } 
         public Point PlayerStartPosition { get; set; }
         public string TEXTPATH { get; set; }
@@ -36,7 +36,7 @@ namespace Free
         public List<WriteableBitmap> ImageCacheWPF { get; set; }
         public Level()
         {
-            this.LevelObjects = new List<IGameObject>();
+            this.LevelIGameObjects = new List<IGameObject>();
         }
     }
 }

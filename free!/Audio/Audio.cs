@@ -49,7 +49,7 @@ namespace Free
 
         }
 
-        public void LoopMusic(object sender, EventArgs e) // loops the music
+        public void LoopMusic(IGameObject sender, EventArgs e) // loops the music
         {
             MUSICPLAYER.Position = TimeSpan.Zero;
             MUSICPLAYER.Play();

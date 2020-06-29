@@ -38,7 +38,7 @@ namespace Free
                     XmlRootNode = XmlRootNode.NextSibling; // ignore all other nodes. TODO - check what it triggers when we run out of nodes, so we can catch the exception.
                 }
 
-                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the Objects node.
+                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the IGameObjects node.
 
                 foreach (XmlNode XmlNode in XmlNodes)
                 {

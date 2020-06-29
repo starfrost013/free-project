@@ -10,22 +10,22 @@ namespace Free
     public partial class FreeSDL
     {
         /// <summary>
-        /// Add an object. WILL BE MOVED TO LEVEL!!!!!!!!!!!! MAKE FreeSDL.GAMEOBJECT STATIC
+        /// Add an IGameObject. WILL BE MOVED TO LEVEL!!!!!!!!!!!! MAKE FreeSDL.GAMEIGameObject STATIC
         /// </summary>
-        /// <param name="ID">ID of the object to insert</param>
+        /// <param name="ID">ID of the IGameObject to insert</param>
         /// <param name="Position">Point (soon to be SDLPoint) for position. </param>
-        public void AddObject(int ID, Point Position)
+        public void AddIGameObject(int ID, Point Position)
         {
-            // Insert an object. Some may consider this bad. To that I say - too bad!
+            // Insert an IGameObject. Some may consider this bad. To that I say - too bad!
             // This will be improved once SDLX works
 
-            foreach (IGameObject GameObject in ObjectList)
+            foreach (IGameObject GameIGameObject in IGameObjectList)
             {
-                if (GameObject.OBJID == ID) 
+                if (GameIGameObject.GameObjectID == ID) 
                 {
-                    GameObject.OBJX = Position.X;
-                    GameObject.OBJY = Position.Y;
-                    currentlevel.LevelObjects.Add(GameObject); 
+                    GameIGameObject.GameObjectX = Position.X;
+                    GameIGameObject.GameObjectY = Position.Y;
+                    currentlevel.LevelIGameObjects.Add(GameIGameObject); 
                 }
             }
         }

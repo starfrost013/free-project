@@ -41,7 +41,7 @@ namespace Free
                     XmlRootNode = XmlRootNode.NextSibling; // ignore all other nodes. TODO - check what it triggers when we run out of nodes, so we can catch the exception.
                 }
 
-                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the Objects node.
+                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the IGameObjects node.
 
                 foreach (XmlNode XmlNode in XmlNodes)
                 {
@@ -90,12 +90,12 @@ namespace Free
             }
             catch (XmlException err) //TODO: Add the error class from the track maker.
             {
-                MessageBox.Show($"A critical error occurred while loading Objects.xml: \n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"A critical error occurred while loading IGameObjects.xml: \n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(6666);
             }
             catch (FormatException err)
             {
-                MessageBox.Show($"A critical error occurred while loading Objects.xml: \n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"A critical error occurred while loading IGameObjects.xml: \n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(6666);
             }
         }

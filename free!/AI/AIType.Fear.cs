@@ -8,14 +8,14 @@ namespace Free
 {
     partial class FreeSDL
     {
-        public void AI_Fear(IGameObject obj, IGameObject obj2)
+        public void AI_Fear(IGameObject GameObject, IGameObject GameObject2)
         {
-            if (obj.OBJX - obj2.OBJX < this.Width / 1.5 & obj.OBJX - obj.OBJX > -this.Width / 1.5 & obj.OBJY - obj2.OBJY < this.Height / 2 & obj.OBJY - obj2.OBJY > -this.Height / 2)
+            if (GameObject.GameObjectX - GameObject2.GameObjectX < this.Width / 1.5 & GameObject.GameObjectX - GameObject.GameObjectX > -this.Width / 1.5 & GameObject.GameObjectY - GameObject2.GameObjectY < this.Height / 2 & GameObject.GameObjectY - GameObject2.GameObjectY > -this.Height / 2)
             {
-                if (obj2.OBJSPEED > 0.1 & obj2.OBJMOVERIGHT | obj2.OBJSPEED < -0.1 & obj2.OBJMOVELEFT)
+                if (GameObject2.GameObjectSPEED > 0.1 & GameObject2.GameObjectMOVERIGHT | GameObject2.GameObjectSPEED < -0.1 & GameObject2.GameObjectMOVELEFT)
                 {
                     //TEMP
-                    obj.MoveRight(); //TEMPCODE. 
+                    GameObject.MoveRight(); //TEMPCODE. 
                 }
             }
         }

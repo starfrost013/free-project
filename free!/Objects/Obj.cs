@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 
 /// <summary>
 /// 
-/// Obj.cs
+/// GameObject.cs
 /// 
 /// Created: 2019-10-30, iirc
 /// 
@@ -25,120 +25,120 @@ using System.Windows.Shapes;
 /// 
 /// Version: 2.10
 ///
-/// Purpose: Holds the Object class and the Priority enum.
+/// Purpose: Holds the IGameObject class and the Priority enum.
 /// 
 /// </summary>
 
 namespace Free
 {
-    //Non-sentient Object.
+    //Non-sentient IGameObject.
 
-    public enum Priority { Invisible=0, Background1, Background2, Low, Medium, High} //tiles/objects use Medium priority by default.
+    public enum Priority { Invisible, Background1, Background2, Low, Medium, High} //tiles/IGameObjects use Medium priority by default.
 
-    public class Obj : IGameObject
+    public class GameObject : IGameObject
     {
-        public double OBJACCELERATION { get; set; } // Newton would be ashamed.
-        public double OBJACCELERATIONY { get; set; }
-        public int OBJANIMNUMBER { get; set; } // Animation number for nonconstant animations
-        public int OBJCONSTANTANIMNUMBER { get; set; } // Animation number
-        public List<Animation> OBJANIMATIONS { get; set; }
-        public bool? OBJCANCOLLIDE { get; set; }
-        public bool OBJCANMOVELEFT { get; set; }
-        public bool OBJCANMOVERIGHT { get; set; }
-        public bool OBJCANSNAP { get; set; }
+        public double GameObjectACCELERATION { get; set; } // Newton would be ashamed.
+        public double GameObjectACCELERATIONY { get; set; }
+        public int GameObjectANIMNUMBER { get; set; } // Animation number for nonconstant animations
+        public int GameObjectCONSTANTANIMNUMBER { get; set; } // Animation number
+        public List<Animation> GameObjectANIMATIONS { get; set; }
+        public bool? GameObjectCANCOLLIDE { get; set; }
+        public bool GameObjectCANMOVELEFT { get; set; }
+        public bool GameObjectCANMOVERIGHT { get; set; }
+        public bool GameObjectCANSNAP { get; set; }
         public bool CollidesLeft { get; set; }
         public bool CollidesRight { get; set; }
         public bool CollidesTop { get; set; }
         public bool CollidesBottom { get; set; }
-        public int OBJCOLLISIONS { get; set; } // if 0, fall.
+        public int GameObjectCOLLISIONS { get; set; } // if 0, fall.
         public int CollisionsLeft { get; set; }
         public int CollisionsRight { get; set; }
         public int CollisionsTop { get; set; }
         public int CollisionsBottom { get; set; }
-        public List<IGameObject> OBJCOLLIDEDOBJECTS { get; set; } //a bad idea? maybe. 
-        public double OBJDECELERATION { get; set; }
-        public double OBJDECELERATIONY { get; set; }
-        public double OBJFORCE { get; set; }
-        public bool OBJGRAV { get; set; }
-        public Weapon OBJHELDWEAPON { get; set; }
-        public List<Point> OBJHITBOX { get; set; }
-        public int OBJID { get; set; }
-        public WriteableBitmap OBJIMAGE { get; set; }
-        public string OBJIMAGEPATH { get; set; }
-        public int OBJINTERNALID { get; set; }
-        public bool OBJISJUMPING { get; set; }
+        public List<IGameObject> CollidedLevelObjects { get; set; } //a bad idea? maybe. 
+        public double GameObjectDECELERATION { get; set; }
+        public double GameObjectDECELERATIONY { get; set; }
+        public double GameObjectFORCE { get; set; }
+        public bool GameObjectGRAV { get; set; }
+        public Weapon GameObjectHELDWEAPON { get; set; }
+        public List<Point> GameObjectHITBOX { get; set; }
+        public int GameObjectID { get; set; }
+        public WriteableBitmap GameObjectIMAGE { get; set; }
+        public string GameObjectIMAGEPATH { get; set; }
+        public int GameObjectINTERNALID { get; set; }
+        public bool GameObjectISJUMPING { get; set; }
         public LastCtrl LastControl { get; set; }
-        public double OBJMASS { get; set; }
-        public bool OBJMOVELEFT { get; set; }
-        public bool OBJMOVERIGHT { get; set; }
-        public bool OBJMOVEUP { get; set; }
-        public bool OBJMOVEDOWN { get; set; }
-        public string OBJNAME { get; set; }
+        public double GameObjectMASS { get; set; }
+        public bool GameObjectMOVELEFT { get; set; }
+        public bool GameObjectMOVERIGHT { get; set; }
+        public bool GameObjectMOVEUP { get; set; }
+        public bool GameObjectMOVEDOWN { get; set; }
+        public string GameObjectNAME { get; set; }
         public bool SpaceHeld { get; set; }
-        public bool OBJPLAYER { get; set; }
-        public int OBJPLAYERDAMAGE { get; set; } // default -1;
-        public int OBJPLAYERHEALTH { get; set; }
-        public int OBJPLAYERLEVEL { get; set; }
-        public double OBJPLAYERLEVELDAMAGE { get; set; }
-        public int OBJPLAYERLIVES { get; set; }
-        public Priority OBJPRIORITY { get; set; }
-        public double OBJSPEED { get; set; }
-        public double OBJSPEEDY { get; set; }
-        public double OBJX { get; set; }
-        public double OBJY { get; set; }
+        public bool GameObjectPLAYER { get; set; }
+        public int GameObjectPLAYERDAMAGE { get; set; } // default -1;
+        public int GameObjectPLAYERHEALTH { get; set; }
+        public int GameObjectPLAYERLEVEL { get; set; }
+        public double GameObjectPLAYERLEVELDAMAGE { get; set; }
+        public int GameObjectPLAYERLIVES { get; set; }
+        public Priority GameObjectPRIORITY { get; set; }
+        public double GameObjectSPEED { get; set; }
+        public double GameObjectSPEEDY { get; set; }
+        public double GameObjectX { get; set; }
+        public double GameObjectY { get; set; }
         public List<ScriptReference> AssociatedScriptPaths { get; set; }
         public double JumpIntensity { get; set; } // Jumping intensity.
-        public virtual bool OBJISPLAYER { get; set; }// new for compatibility purposes
-        public virtual double OBJDAMAGE { get; set; }
-        public virtual double OBJHEALTH { get; set; }
-        public virtual double OBJLEVEL { get; set; }
-        public virtual double OBJLEVELDAMAGE { get; set; }
-        public virtual int OBJLIVES { get; set; }
-        public virtual AI OBJAI { get; set; }
+        public virtual bool GameObjectISPLAYER { get; set; }// new for compatibility purposes
+        public virtual double GameObjectDAMAGE { get; set; }
+        public virtual double GameObjectHEALTH { get; set; }
+        public virtual double GameObjectLEVEL { get; set; }
+        public virtual double GameObjectLEVELDAMAGE { get; set; }
+        public virtual int GameObjectLIVES { get; set; }
+        public virtual AI GameObjectAI { get; set; }
 
-        public Obj()
+        public GameObject()
         {
             AssociatedScriptPaths = new List<ScriptReference>();
-            OBJCOLLIDEDOBJECTS = new List<IGameObject>();
-            OBJHITBOX = new List<Point>();
-            OBJANIMATIONS = new List<Animation>();
+            CollidedLevelObjects = new List<IGameObject>();
+            GameObjectHITBOX = new List<Point>();
+            GameObjectANIMATIONS = new List<Animation>();
         }
 
         public void SetAcceleration(double x, double y) // sets the acceleration
         {
-            OBJACCELERATION = x;
-            OBJACCELERATIONY = y;
+            GameObjectACCELERATION = x;
+            GameObjectACCELERATIONY = y;
             return;
         }
 
         public void ChgAcceleration(double x, double y) // changes the acceleration
         {
-            OBJACCELERATION += x;
-            OBJACCELERATIONY += y;
+            GameObjectACCELERATION += x;
+            GameObjectACCELERATIONY += y;
         }
 
         public void SetDeceleration(double x, double y) // sets the deceleration
         {
-            OBJDECELERATION = x;
-            OBJDECELERATIONY = y;
+            GameObjectDECELERATION = x;
+            GameObjectDECELERATIONY = y;
             return;
         }
 
         public void ChgDeceleration(double x, double y) // changes the deceleration
         {
-            OBJDECELERATION += x;
-            OBJDECELERATIONY += y;
+            GameObjectDECELERATION += x;
+            GameObjectDECELERATIONY += y;
         }
 
         public void SetMass(double mass) //sets the mass
         {
-            OBJMASS = mass;
+            GameObjectMASS = mass;
             return;
         }
 
         public void ChgMass(double mass) //changes the mass
         {
-            OBJMASS += mass;
+            GameObjectMASS += mass;
             return;
         }
 

@@ -30,29 +30,29 @@ namespace Free
             Interactions.ItemsSource = FreeSDL.InteractionList;
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e) // adds a new interaction
+        private void AddButton_Click(IGameObject sender, RoutedEventArgs e) // adds a new interaction
         {
             try
             {
                 Interaction interaction = new Interaction();
-                interaction.OBJ1ID = Convert.ToInt32(CurrentInteractionObj1Box.Text);
-                interaction.OBJ2ID = Convert.ToInt32(CurrentInteractionObj2Box.Text);
-                interaction.OBJINTERACTIONTYPE = (InteractionType)Enum.Parse(typeof(InteractionType), CurrentInteractionTypeBox.Text);
+                interaction.GameObject1ID = Convert.ToInt32(CurrentInteractionGameObject1Box.Text);
+                interaction.GameObject2ID = Convert.ToInt32(CurrentInteractionGameObject2Box.Text);
+                interaction.GameObjectINTERACTIONTYPE = (InteractionType)Enum.Parse(typeof(InteractionType), CurrentInteractionTypeBox.Text);
                 FreeSDL.InteractionList.Add(interaction);
                 Interactions.Items.Refresh();
             }
             catch (FormatException)
             {
-                Error.Throw(new Exception("DEBUG: The iser attempted to add an interaction with an invalid object 1 or 2 ID. "), ErrorSeverity.Warning, "Attempted to delete a nonexistent interaction.", "avant-gardé engine ver 2.11.0/03", 18);
+                Error.Throw(new Exception("DEBUG: The iser attempted to add an interaction with an invalid IGameObject 1 or 2 ID. "), ErrorSeverity.Warning, "Attempted to delete a nonexistent interaction.", "avant-gardé engine ver 2.11.0/03", 18);
             }
         }
 
-        private void DoneButton_Click(object sender, RoutedEventArgs e)
+        private void DoneButton_Click(IGameObject sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteButton_Click(IGameObject sender, RoutedEventArgs e)
         {
             if (Interactions.SelectedIndex == -1)
             {
@@ -71,7 +71,7 @@ namespace Free
             }
         }
 
-        private void EditButton_Click(object sender, RoutedEventArgs e)
+        private void EditButton_Click(IGameObject sender, RoutedEventArgs e)
         {
             switch (EditMode) {
                 case false:
@@ -89,9 +89,9 @@ namespace Free
 
                         if (i == Interactions.SelectedIndex)
                         {
-                            CurrentInteractionObj1Box.Text = interaction.OBJ1ID.ToString();
-                            CurrentInteractionObj2Box.Text = interaction.OBJ2ID.ToString();
-                            CurrentInteractionTypeBox.SelectedItem = interaction.OBJINTERACTIONTYPE;
+                            CurrentInteractionGameObject1Box.Text = interaction.GameObject1ID.ToString();
+                            CurrentInteractionGameObject2Box.Text = interaction.GameObject2ID.ToString();
+                            CurrentInteractionTypeBox.SelectedItem = interaction.GameObjectINTERACTIONTYPE;
                         }
                     }
 
@@ -110,9 +110,9 @@ namespace Free
 
                         if (i == Interactions.SelectedIndex)
                         {
-                            interaction.OBJ1ID = Convert.ToInt32(CurrentInteractionObj1Box.Text);
-                            interaction.OBJ2ID = Convert.ToInt32(CurrentInteractionObj2Box.Text);
-                            interaction.OBJINTERACTIONTYPE = (InteractionType)Enum.Parse(typeof(InteractionType), CurrentInteractionTypeBox.Text);
+                            interaction.GameObject1ID = Convert.ToInt32(CurrentInteractionGameObject1Box.Text);
+                            interaction.GameObject2ID = Convert.ToInt32(CurrentInteractionGameObject2Box.Text);
+                            interaction.GameObjectINTERACTIONTYPE = (InteractionType)Enum.Parse(typeof(InteractionType), CurrentInteractionTypeBox.Text);
                             FreeSDL.InteractionList[i] = interaction;
                         }
                     }

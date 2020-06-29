@@ -8,10 +8,10 @@ namespace Free
 {
     partial class FreeSDL
     {
-        public IGameObject Interaction_Kill(IGameObject obj)
+        public IGameObject Interaction_Kill(IGameObject GameObject)
         {
-            obj.OBJPLAYERHEALTH = 0;
-            return obj;
+            GameObject.GameObjectPLAYERHEALTH = 0;
+            return GameObject;
         }
     }
 }

@@ -70,7 +70,7 @@ namespace Free
             }
         }
 
-        private void FileMenu_Load_Click(object sender, RoutedEventArgs e) // we want to load a level, just opens level select
+        private void FileMenu_Load_Click(IGameObject sender, RoutedEventArgs e) // we want to load a level, just opens level select
         {
             LevelSelect LevelSelect = new LevelSelect(this);
             LevelSelect.Owner = this;
@@ -78,19 +78,19 @@ namespace Free
         }
 
         
-        private void InteractionMenu_Add_Click(object sender, RoutedEventArgs e)
+        private void InteractionMenu_Add_Click(IGameObject sender, RoutedEventArgs e)
         {
             ManageInteractions ManageInteractions = new ManageInteractions(this);
             ManageInteractions.Owner = this;
             ManageInteractions.Show();
         }
 
-        private void FileMenu_Save_Click(object sender, RoutedEventArgs e)
+        private void FileMenu_Save_Click(IGameObject sender, RoutedEventArgs e)
         {
             SaveFileDialog SFD = new SaveFileDialog();
             SFD.DefaultExt = ".xml";
             SFD.Filter = "XML files|*.xml";
-            SFD.Title = "Save Object Layout";
+            SFD.Title = "Save IGameObject Layout";
             SFD.ShowDialog();
 
             if (SFD.FileName != null) //save
@@ -100,21 +100,21 @@ namespace Free
                     File.Delete(SFD.FileName);
                 }
                 XmlDocument Xdoc = new XmlDocument();
-                XmlNode XRootnode = Xdoc.CreateElement("ObjectLayout");
+                XmlNode XRootnode = Xdoc.CreateElement("IGameObjectLayout");
                 Xdoc.AppendChild(XRootnode); //create the root node.
 
-                foreach (Obj obj in currentlevel.LevelObjects)
+                foreach (GameObject GameObject in currentlevel.LevelIGameObjects)
                 {
-                    XmlNode XChild = Xdoc.CreateElement("Object"); // main
-                    XmlAttribute XChildObjId = Xdoc.CreateAttribute("id"); // object id
-                    XChildObjId.Value = obj.OBJID.ToString(); // convert to string
-                    XmlAttribute XChildObjPosX = Xdoc.CreateAttribute("posx"); // x pos
-                    XChildObjPosX.Value = obj.OBJX.ToString(); // convert to string
-                    XmlAttribute XChildObjPosY = Xdoc.CreateAttribute("posy"); // y pos
-                    XChildObjPosY.Value = obj.OBJY.ToString(); // convert to string
-                    XChild.Attributes.Append(XChildObjId);
-                    XChild.Attributes.Append(XChildObjPosX);
-                    XChild.Attributes.Append(XChildObjPosY);
+                    XmlNode XChild = Xdoc.CreateElement("IGameObject"); // main
+                    XmlAttribute XChildGameObjectId = Xdoc.CreateAttribute("id"); // IGameObject id
+                    XChildGameObjectId.Value = GameObject.GameObjectID.ToString(); // convert to string
+                    XmlAttribute XChildGameObjectPosX = Xdoc.CreateAttribute("posx"); // x pos
+                    XChildGameObjectPosX.Value = GameObject.GameObjectX.ToString(); // convert to string
+                    XmlAttribute XChildGameObjectPosY = Xdoc.CreateAttribute("posy"); // y pos
+                    XChildGameObjectPosY.Value = GameObject.GameObjectY.ToString(); // convert to string
+                    XChild.Attributes.Append(XChildGameObjectId);
+                    XChild.Attributes.Append(XChildGameObjectPosX);
+                    XChild.Attributes.Append(XChildGameObjectPosY);
                     XRootnode.AppendChild(XChild);
                 }
 
@@ -132,7 +132,7 @@ namespace Free
             return (Math.Round(raw / n)) * n;
         }
 
-        private void InteractionMenu_Save_Click(object sender, RoutedEventArgs e)
+        private void InteractionMenu_Save_Click(IGameObject sender, RoutedEventArgs e)
         {
             SaveFileDialog SFD = new SaveFileDialog();
             SFD.DefaultExt = ".xml";
@@ -155,14 +155,14 @@ namespace Free
                 foreach (Interaction interaction in InteractionList)
                 {
                     XmlNode XChild = Xdoc.CreateElement("Interaction"); // main
-                    XmlAttribute XChildObj1Id = Xdoc.CreateAttribute("obj1"); // object id
-                    XChildObj1Id.Value = interaction.OBJ1ID.ToString(); // convert to string
-                    XmlAttribute XChildObj2Id = Xdoc.CreateAttribute("obj2"); // x pos
-                    XChildObj2Id.Value = interaction.OBJ2ID.ToString(); // convert to string
+                    XmlAttribute XChildGameObject1Id = Xdoc.CreateAttribute("GameObject1"); // IGameObject id
+                    XChildGameObject1Id.Value = interaction.GameObject1ID.ToString(); // convert to string
+                    XmlAttribute XChildGameObject2Id = Xdoc.CreateAttribute("GameObject2"); // x pos
+                    XChildGameObject2Id.Value = interaction.GameObject2ID.ToString(); // convert to string
                     XmlAttribute XChildInteractionType = Xdoc.CreateAttribute("type"); // y pos
-                    XChildInteractionType.Value = interaction.OBJINTERACTIONTYPE.ToString(); // convert to string
-                    XChild.Attributes.Append(XChildObj1Id);
-                    XChild.Attributes.Append(XChildObj2Id);
+                    XChildInteractionType.Value = interaction.GameObjectINTERACTIONTYPE.ToString(); // convert to string
+                    XChild.Attributes.Append(XChildGameObject1Id);
+                    XChild.Attributes.Append(XChildGameObject2Id);
                     XChild.Attributes.Append(XChildInteractionType);
                     XRootnode.AppendChild(XChild);
                 }
@@ -177,11 +177,11 @@ namespace Free
         }
 
 
-        private void ObjMenu_ObjManager_Click(object sender, RoutedEventArgs e)
+        private void GameObjectMenu_GameObjectManager_Click(IGameObject sender, RoutedEventArgs e)
         {
-            ObjectManager ObjectManager = new ObjectManager(this);
-            ObjectManager.Owner = this;
-            ObjectManager.Show();
+            IGameObjectManager IGameObjectManager = new IGameObjectManager(this);
+            IGameObjectManager.Owner = this;
+            IGameObjectManager.Show();
         }
 
     }

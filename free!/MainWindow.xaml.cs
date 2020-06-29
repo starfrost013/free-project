@@ -41,8 +41,8 @@ namespace Free
         public System.Timers.Timer PhysicsTimer { get; set; }
         public System.Timers.Timer MainLoopTimer { get; set; }
         public List<Interaction> InteractionList { get; set; }
-        public List<IGameObject> ObjectList { get; set; } // might need to change this
-        public List<Animation> NonObjAnimList { get; set; }
+        public List<IGameObject> IGameObjectList { get; set; } // might need to change this
+        public List<Animation> NonGameObjectAnimList { get; set; }
         public List<AGTextBlock> TextList { get; set; }
         public List<Weapon> WeaponList { get; set; }
         public double DbgMouseClickLevelX { get; set; }
@@ -65,7 +65,7 @@ namespace Free
              
         }
         
-        public void GameTick(object sender, EventArgs e)
+        public void GameTick(IGameObject sender, EventArgs e)
         {
             try
             {
@@ -82,17 +82,17 @@ namespace Free
             }
         }
 
-        public void MainLoop(object sender, EventArgs e)
+        public void MainLoop(IGameObject sender, EventArgs e)
         {
-            foreach (IGameObject Object in currentlevel.LevelObjects)
+            foreach (IGameObject IGameObject in currentlevel.LevelIGameObjects)
             {
-                if (Object.OBJCANCOLLIDE != false) HandleCollision(Object);
-                HandleAnimations(Object); 
-                HandleAI(Object);
+                if (IGameObject.GameObjectCANCOLLIDE != false) HandleCollision(IGameObject);
+                HandleAnimations(IGameObject); 
+                HandleAI(IGameObject);
             }
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e) // handles stuff like controls? maybe?
+        private void Window_KeyDown(IGameObject sender, KeyEventArgs e) // handles stuff like controls? maybe?
         {
             switch (e.Key)
             {
@@ -126,12 +126,12 @@ namespace Free
         }
 
 
-        private void PhysicsTimerElapsed(object sender, EventArgs e)
+        private void PhysicsTimerElapsed(IGameObject sender, EventArgs e)
         {
             if (Gamestate == GameState.Game) RunPhysics();
             return; 
         }
-        private void Window_ContentRendered(object sender, EventArgs e)
+        private void Window_ContentRendered(IGameObject sender, EventArgs e)
         {
             GlobalTimer++;
             
@@ -165,12 +165,12 @@ namespace Free
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(IGameObject sender, RoutedEventArgs e)
         {
             Engine_BootNow(); 
         }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void Window_SizeChanged(IGameObject sender, SizeChangedEventArgs e)
         {
             Settings.Resolution = new Point(this.Width, this.Height);
         }

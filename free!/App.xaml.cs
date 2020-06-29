@@ -15,7 +15,7 @@ namespace Free
     public partial class App : Application
     {
         public Game SDLGame { get; set; }
-        private void Application_Activated(object sender, EventArgs e)
+        private void Application_Activated(IGameObject sender, EventArgs e)
         
         {
             SDLGame = new Game();

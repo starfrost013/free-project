@@ -13,7 +13,7 @@ using System.Windows.Threading;
 
 /// <summary>
 /// 
-/// /Objects/IGameObject.cs
+/// /IGameObjects/IGameObject.cs
 /// 
 /// Created: 2019-12-26
 /// 
@@ -21,7 +21,7 @@ using System.Windows.Threading;
 /// 
 /// Version: 1.00
 /// 
-/// Purpose: Allows multiple types of objects and object type-based logic by delineating an interface.
+/// Purpose: Allows multiple types of IGameObjects and IGameObject type-based logic by delineating an interface.
 /// 
 /// </summary>
 
@@ -29,61 +29,61 @@ namespace Free
 {
     public interface IGameObject
     {
-        double OBJACCELERATION { get; set; } // Newton would be ashamed.
-        double OBJACCELERATIONY { get; set; }
-        int OBJANIMNUMBER { get; set; } // Animation number for nonconstant animations
-        int OBJCONSTANTANIMNUMBER { get; set; } // Animation number
-        List<Animation> OBJANIMATIONS { get; set; }
-        bool? OBJCANCOLLIDE { get; set; }
-        bool OBJCANMOVELEFT { get; set; }
-        bool OBJCANMOVERIGHT { get; set; }
-        bool OBJCANSNAP { get; set; }
+        double GameObjectACCELERATION { get; set; } // Newton would be ashamed.
+        double GameObjectACCELERATIONY { get; set; }
+        int GameObjectANIMNUMBER { get; set; } // Animation number for nonconstant animations
+        int GameObjectCONSTANTANIMNUMBER { get; set; } // Animation number
+        List<Animation> GameObjectANIMATIONS { get; set; }
+        bool? GameObjectCANCOLLIDE { get; set; }
+        bool GameObjectCANMOVELEFT { get; set; }
+        bool GameObjectCANMOVERIGHT { get; set; }
+        bool GameObjectCANSNAP { get; set; }
         bool CollidesLeft { get; set; }
         bool CollidesRight { get; set; }
         bool CollidesTop { get; set; }
         bool CollidesBottom { get; set; }
-        int OBJCOLLISIONS { get; set; } // if 0, fall.
+        int GameObjectCOLLISIONS { get; set; } // if 0, fall.
         int CollisionsLeft { get; set; }
         int CollisionsRight { get; set; }
         int CollisionsTop { get; set; }
         int CollisionsBottom { get; set; }
-        List<IGameObject> OBJCOLLIDEDOBJECTS { get; set; } //a bad idea? maybe. 
-        double OBJDECELERATION { get; set; }
-        double OBJDECELERATIONY { get; set; }
-        double OBJFORCE { get; set; }
-        bool OBJGRAV { get; set; }
-        Weapon OBJHELDWEAPON { get; set; }
-        List<Point> OBJHITBOX { get; set; }
-        int OBJID { get; set; }
-        WriteableBitmap OBJIMAGE { get; set; }
-        string OBJIMAGEPATH { get; set; }
-        int OBJINTERNALID { get; set; }
-        bool OBJISJUMPING { get; set; }
-        double OBJMASS { get; set; }
-        bool OBJMOVELEFT { get; set; }
-        bool OBJMOVERIGHT { get; set; }
-        bool OBJMOVEUP { get; set; }
-        bool OBJMOVEDOWN { get; set; }
+        List<IGameObject> CollidedLevelObjects { get; set; } //a bad idea? maybe. 
+        double GameObjectDECELERATION { get; set; }
+        double GameObjectDECELERATIONY { get; set; }
+        double GameObjectFORCE { get; set; }
+        bool GameObjectGRAV { get; set; }
+        Weapon GameObjectHELDWEAPON { get; set; }
+        List<Point> GameObjectHITBOX { get; set; }
+        int GameObjectID { get; set; }
+        WriteableBitmap GameObjectIMAGE { get; set; }
+        string GameObjectIMAGEPATH { get; set; }
+        int GameObjectINTERNALID { get; set; }
+        bool GameObjectISJUMPING { get; set; }
+        double GameObjectMASS { get; set; }
+        bool GameObjectMOVELEFT { get; set; }
+        bool GameObjectMOVERIGHT { get; set; }
+        bool GameObjectMOVEUP { get; set; }
+        bool GameObjectMOVEDOWN { get; set; }
         LastCtrl LastControl { get; set; }
-        string OBJNAME { get; set; }
-        bool OBJPLAYER { get; set; }
-        int OBJPLAYERDAMAGE { get; set; } // default -1;
-        int OBJPLAYERHEALTH { get; set; }
-        int OBJPLAYERLEVEL { get; set; }
-        double OBJPLAYERLEVELDAMAGE { get; set; }
-        int OBJPLAYERLIVES { get; set; }
-        Priority OBJPRIORITY { get; set; }
-        double OBJSPEED { get; set; }
-        double OBJSPEEDY { get; set; }
-        double OBJX { get; set; }
-        double OBJY { get; set; }
-        bool OBJISPLAYER { get; set; }
-        double OBJDAMAGE { get; set; }
-        double OBJHEALTH { get; set; }
-        double OBJLEVEL { get; set; }
-        double OBJLEVELDAMAGE { get; set; }
-        int OBJLIVES { get; set; }
-        AI OBJAI { get; set; }
+        string GameObjectNAME { get; set; }
+        bool GameObjectPLAYER { get; set; }
+        int GameObjectPLAYERDAMAGE { get; set; } // default -1;
+        int GameObjectPLAYERHEALTH { get; set; }
+        int GameObjectPLAYERLEVEL { get; set; }
+        double GameObjectPLAYERLEVELDAMAGE { get; set; }
+        int GameObjectPLAYERLIVES { get; set; }
+        Priority GameObjectPRIORITY { get; set; }
+        double GameObjectSPEED { get; set; }
+        double GameObjectSPEEDY { get; set; }
+        double GameObjectX { get; set; }
+        double GameObjectY { get; set; }
+        bool GameObjectISPLAYER { get; set; }
+        double GameObjectDAMAGE { get; set; }
+        double GameObjectHEALTH { get; set; }
+        double GameObjectLEVEL { get; set; }
+        double GameObjectLEVELDAMAGE { get; set; }
+        int GameObjectLIVES { get; set; }
+        AI GameObjectAI { get; set; }
         List<ScriptReference> AssociatedScriptPaths { get; set; }
         double JumpIntensity { get; set; }
         bool SpaceHeld { get; set; }

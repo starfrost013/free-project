@@ -45,8 +45,8 @@ namespace Free
 
             // Load initial structures
             InteractionList = new List<Interaction>();
-            NonObjAnimList = new List<Animation>();
-            ObjectList = new List<IGameObject>();
+            NonGameObjectAnimList = new List<Animation>();
+            IGameObjectList = new List<IGameObject>();
             TextList = new List<AGTextBlock>();
             WeaponList = new List<Weapon>();
             ScriptingCore = new SimpleESX();
@@ -72,7 +72,7 @@ namespace Free
             LoadAI();
             LoadAnimations();
             LoadTextXml();
-            LoadObjects();
+            LoadIGameObjects();
             BootNow_InitMainGameThread();
             InitPhysics();
 
@@ -81,7 +81,7 @@ namespace Free
             GameVersion.GetGameVersion(); // maybe make this a static api
 
             //TEMP:
-            Title = $"free! (nightly build for {GameVersion.GetVersionString()}";
+            Title = $"free! ({GameVersion.GetVersionString()})";
 
             Levels = LevelPreloader.LoadLevels(); // Static-class based
 

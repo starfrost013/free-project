@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace Free
 {
-    public class InsertObjectCommand : ICommandExecutor
+    public class InsertIGameObjectCommand : ICommandExecutor
     {
         public FreeSDL MnWindow { get; set; }
         public string Name { get; set; }
@@ -16,7 +16,7 @@ namespace Free
         public bool ScriptRunOnce { get; set; }
         public ScriptReference SR { get; set; }
 
-        public object GetParameter(string ParameterName)
+        public IGameObject GetParameter(string ParameterName)
         {
             try
             {
@@ -82,23 +82,23 @@ namespace Free
 
         }
 
-        public InsertObjectCommand()
+        public InsertIGameObjectCommand()
         {
             MnWindow = (FreeSDL)Application.Current.MainWindow;
         }
 
         public void Verify()
         {
-            // Verify that we are actaully inserting an object. 
-            if (Parameters.Count != 3) ScriptError.Throw("InsertObject(ID, x, y): 3 parameters required", 10, 0, "Temp");
+            // Verify that we are actaully inserting an IGameObject. 
+            if (Parameters.Count != 3) ScriptError.Throw("InsertIGameObject(ID, x, y): 3 parameters required", 10, 0, "Temp");
         }
 
         public ScriptReturnValue Execute()
         {
-            //MnWindow.currentlevel.LevelObjects.Add()
-            MnWindow.AddObject((int)GetParameter("ID"), new Point((double)GetParameter("X"), (double)GetParameter("Y")));
+            //MnWindow.currentlevel.LevelIGameObjects.Add()
+            MnWindow.AddIGameObject((int)GetParameter("ID"), new Point((double)GetParameter("X"), (double)GetParameter("Y")));
 
-            return new ScriptReturnValue { ReturnCode = 0, ReturnInformation = "The operation completed successfully - an object has been added." };
+            return new ScriptReturnValue { ReturnCode = 0, ReturnInformation = "The operation completed successfully - an IGameObject has been added." };
         }
     }
 }

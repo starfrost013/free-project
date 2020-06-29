@@ -15,10 +15,10 @@ namespace Free
         {
             switch (Command)
             {
-                case "DeleteObject":
-                    return new DeleteObjectCommand();
-                case "InsertObject":
-                    return new InsertObjectCommand();
+                case "DeleteIGameObject":
+                    return new DeleteIGameObjectCommand();
+                case "InsertIGameObject":
+                    return new InsertIGameObjectCommand();
                 case "Test":
                 case "TestCommand":
                     return new TestCommand();

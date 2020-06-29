@@ -9,16 +9,16 @@ namespace Free
     public partial class Level
     {
         /// <summary>
-        /// Delete the object with internal ID internalID.
+        /// Delete the IGameObject with internal ID internalID.
         /// </summary>
-        /// <param name="InternalID">The Internal Object ID you wish to remove.</param>
-        public void DeleteObject(int InternalID)
+        /// <param name="InternalID">The Internal IGameObject ID you wish to remove.</param>
+        public void DeleteIGameObject(int InternalID)
         {
-            foreach (IGameObject GameObject in LevelObjects)
+            foreach (IGameObject GameIGameObject in LevelIGameObjects)
             {
-                if (GameObject.OBJINTERNALID == InternalID)
+                if (GameIGameObject.GameObjectINTERNALID == InternalID)
                 {
-                    LevelObjects.RemoveAt(InternalID);
+                    LevelIGameObjects.RemoveAt(InternalID);
                     return;
                 }
             }

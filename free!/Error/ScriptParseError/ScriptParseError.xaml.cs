@@ -33,7 +33,7 @@ namespace Free
             UpdateLayout(); 
         }
 
-        private void SEXScriptError_ExitButton_Click(object sender, RoutedEventArgs e)
+        private void SEXScriptError_ExitButton_Click(IGameObject sender, RoutedEventArgs e)
         {
             int ExitCode = ((Err.Id << 16) | (0xDEAD));
             Application.Current.Shutdown(ExitCode); /// Exit Code 0x(errID)DEAD = fatal script error

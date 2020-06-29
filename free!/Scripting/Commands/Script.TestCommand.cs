@@ -20,7 +20,7 @@ namespace Free
             Parameters = new List<SimpleESXParameter>();
         }
 
-        public object GetParameter(string ParameterName)
+        public IGameObject GetParameter(string ParameterName)
         {
             throw new NotImplementedException(); 
         }

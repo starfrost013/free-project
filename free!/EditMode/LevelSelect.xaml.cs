@@ -26,7 +26,7 @@ namespace Free
             FreeSDL = MnWindow; // oh oh
         }
 
-        private void StartGameButton_Click(object sender, RoutedEventArgs e)
+        private void StartGameButton_Click(IGameObject sender, RoutedEventArgs e)
         {
             try
             {
