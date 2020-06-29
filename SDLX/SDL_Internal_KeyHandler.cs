@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 /// 
 /// Created: 2020-06-24
 /// 
-/// Modified: 2020-06-24
+/// Modified: 2020-06-28
 /// 
-/// Version: 1.00
+/// Version: 1.01
 /// 
 /// Purpose: SDL key handling. (Temporary)
 /// </summary>

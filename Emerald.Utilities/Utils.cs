@@ -133,7 +133,8 @@ namespace Emerald.Utilities
 
                 return Version;
             }
-            // Error Condition: Attempted to convert an invalid portion of a string. 
+
+            // Error condition: Attempted to convert an invalid portion of a string. 
             catch (FormatException err)
             {
                 MessageBox.Show($"Error converting string to version - invalid version information\n\n{err}", "Emerald Game Engine Error 56", MessageBoxButton.OK, MessageBoxImage.Error);
