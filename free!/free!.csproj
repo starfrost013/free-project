@@ -219,6 +219,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="Content\libfreetype-6.dll" />
+    <Content Include="Content\SDL2_ttf.dll" />
     <Content Include="Content\zlib1.dll" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
