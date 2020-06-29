@@ -34,6 +34,7 @@ namespace Free
         int GameObjectANIMNUMBER { get; set; } // Animation number for nonconstant animations
         int GameObjectCONSTANTANIMNUMBER { get; set; } // Animation number
         List<Animation> GameObjectANIMATIONS { get; set; }
+        Animation AnimState { get; set; }
         bool? GameObjectCANCOLLIDE { get; set; }
         bool GameObjectCANMOVELEFT { get; set; }
         bool GameObjectCANMOVERIGHT { get; set; }
@@ -103,5 +104,6 @@ namespace Free
         void MoveRight();
         void Jump();
 
+        bool IsColliding();
     }
 }

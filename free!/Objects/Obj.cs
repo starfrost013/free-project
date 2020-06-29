@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Threading;
 using System.Windows.Shapes;
+using Emerald.Utilities.Wpf2Sdl;
 
 /// <summary>
 /// 
@@ -37,6 +38,7 @@ namespace Free
 
     public partial class GameObject : IGameObject
     {
+        public Animation AnimState { get; set; }
         public double GameObjectACCELERATION { get; set; } // Newton would be ashamed.
         public double GameObjectACCELERATIONY { get; set; }
         public int GameObjectANIMNUMBER { get; set; } // Animation number for nonconstant animations
@@ -46,15 +48,20 @@ namespace Free
         public bool GameObjectCANMOVELEFT { get; set; }
         public bool GameObjectCANMOVERIGHT { get; set; }
         public bool GameObjectCANSNAP { get; set; }
+
+        /* Deprecated */
         public bool CollidesLeft { get; set; }
         public bool CollidesRight { get; set; }
         public bool CollidesTop { get; set; }
         public bool CollidesBottom { get; set; }
+
+        /* End deprecated */
         public int GameObjectCOLLISIONS { get; set; } // if 0, fall.
         public int CollisionsLeft { get; set; }
         public int CollisionsRight { get; set; }
         public int CollisionsTop { get; set; }
         public int CollisionsBottom { get; set; }
+
         public List<IGameObject> CollidedLevelObjects { get; set; } //a bad idea? maybe. 
         public double GameObjectDECELERATION { get; set; }
         public double GameObjectDECELERATIONY { get; set; }
@@ -104,6 +111,7 @@ namespace Free
             GameObjectANIMATIONS = new List<Animation>();
         }
 
+        // Core ObjectAPI
         public void SetAcceleration(double x, double y) // sets the acceleration
         {
             GameObjectACCELERATION = x;
@@ -155,6 +163,17 @@ namespace Free
         public virtual void Jump()
         {
             return;
+        }
+
+        public void MoveObject(SDLPoint PointSDL)
+        {
+            GameObjectX = PointSDL.X;
+            GameObjectY = PointSDL.Y;
+        }
+
+        public void SetObjectPriority(Priority SDLPri)
+        {
+            GameObjectPRIORITY = SDLPri;
         }
     }
 }
