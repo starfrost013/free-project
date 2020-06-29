@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Threading.Tasks;
 using System.Threading;
+using Emerald.Utilities;
 
 /// <summary>
 /// 
@@ -54,6 +55,7 @@ namespace Free
         public Game SDLGame { get; set; }
         public SimpleESX ScriptingCore { get; set; }
         public Thread SDLThread { get; set; }
+        public EVersion GameVersion { get; set; }
 
         public FreeSDL()
         {
@@ -98,8 +100,7 @@ namespace Free
                     MessageBox.Show("free!\n[nightly]\n© 2019-2020 avant-gardé eyes", "About", MessageBoxButton.OK, MessageBoxImage.Information);
                     return; 
                 case Key.F8:
-                    FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
-                    MessageBox.Show($"avant-gardé engine\nVer. {FVI.FileVersion} (pre-release)\n© 2019-2020 avant-gardé eyes", "About Engine", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show($"avant-gardé engine\nVer. {GameVersion.GetVersionString()} (pre-release)\n© 2019-2020 avant-gardé eyes", "About Engine", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 case Key.F9:
                     if (Settings.DebugMode)

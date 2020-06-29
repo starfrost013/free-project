@@ -29,6 +29,7 @@ namespace Emerald.Utilities
         {
             GetVersion(); 
             GetBuildDate();
+            GetBuildOwner(); 
         }
 
         /// <summary>
@@ -36,7 +37,7 @@ namespace Emerald.Utilities
         /// </summary>
         private void GetVersion()
         {
-            // Entry assembly is 
+            // Entry assembly is always the game executable in this case
             Assembly NetAsm = Assembly.GetEntryAssembly();
             FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(NetAsm.Location);
 
@@ -57,6 +58,11 @@ namespace Emerald.Utilities
         private void GetBuildOwner()
         {
             BuildOwner = WindowsIdentity.GetCurrent().Name;
+        }
+
+        public string GetVersionString()
+        {
+            return $"Emerald Game Engine version {Major}.{Minor}.{Build}.{Revision} (built by {BuildOwner} at {BuildDate.ToString()}";
         }
     }
 }

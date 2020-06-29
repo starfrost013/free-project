@@ -56,17 +56,14 @@ namespace Free
             GameTickTimer.Elapsed += GameTick;
             GameTickTimer.Interval = 0.001; // We run AFAP as of 2020-05-26
 
-            //TEMP:
-            Title = "free! (nightly build for June 24th, 2020)";
+
 
             // Load everything that we can load at init
             LoadSettings();
 
             // Init SDL
 
-
             WinApp.SDLGame.Game_Init();
-
 
             ScriptingCore.LoadReflection(); 
             LoadControls();
@@ -78,6 +75,13 @@ namespace Free
             LoadObjects();
             BootNow_InitMainGameThread();
             InitPhysics();
+
+            // Get version
+            GameVersion = new EVersion();
+            GameVersion.GetGameVersion(); // maybe make this a static api
+
+            //TEMP:
+            Title = $"free! (nightly build for {GameVersion.GetVersionString()}";
 
             Levels = LevelPreloader.LoadLevels(); // Static-class based
 
