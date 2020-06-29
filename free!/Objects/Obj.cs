@@ -35,7 +35,7 @@ namespace Free
 
     public enum Priority { Invisible, Background1, Background2, Low, Medium, High} //tiles/IGameObjects use Medium priority by default.
 
-    public class GameObject : IGameObject
+    public partial class GameObject : IGameObject
     {
         public double GameObjectACCELERATION { get; set; } // Newton would be ashamed.
         public double GameObjectACCELERATIONY { get; set; }
