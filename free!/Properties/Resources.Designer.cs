@@ -59,5 +59,14 @@ namespace Free.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CoreBuildDate {
+            get {
+                return ResourceManager.GetString("CoreBuildDate", resourceCulture);
+            }
+        }
     }
 }

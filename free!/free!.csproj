@@ -222,6 +222,7 @@
     <Content Include="Content\libfreetype-6.dll" />
     <Content Include="Content\SDL2_ttf.dll" />
     <Content Include="Content\zlib1.dll" />
+    <Resource Include="Resources\CoreBuildDate.txt" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -508,5 +509,8 @@ md Content
 IF NOT EXIST Content\Game md Content\Game
 copy Game\Placeholder.png Content\Game\Placeholder.png
 </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>echo %25date%25 %25time%25 &gt; "$(ProjectDir)\Resources\CoreBuildDate.txt"</PreBuildEvent>
   </PropertyGroup>
 </Project>

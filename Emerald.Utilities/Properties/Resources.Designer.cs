@@ -61,16 +61,8 @@ namespace Emerald.Utilities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copyright © 2019-2020 Connor Hyde. All rights reserved..
-        /// </summary>
-        internal static string _COPYRIGHT {
-            get {
-                return ResourceManager.GetString("_COPYRIGHT", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to 29/06/202022:19:22.88 
+        ///.
         /// </summary>
         internal static string CoreBuildDate {
             get {
