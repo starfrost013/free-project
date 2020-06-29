@@ -31,7 +31,7 @@ namespace Free
 
         }
 
-        private void OKButton_Click(IGameObject sender, RoutedEventArgs e)
+        private void OKButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -49,13 +49,13 @@ namespace Free
 
         }
 
-        private void PickButton_Click(IGameObject sender, RoutedEventArgs e)
+        private void PickButton_Click(object sender, RoutedEventArgs e)
         {
             XPosBox.Text = Convert.ToString(MnWindow.DbgMouseClickLevelX);
             YPosBox.Text = Convert.ToString(MnWindow.DbgMouseClickLevelY);
         }
 
-        private void CloseButton_Click(IGameObject sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close(); // close the window
         }

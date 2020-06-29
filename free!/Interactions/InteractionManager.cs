@@ -49,13 +49,13 @@ namespace Free
                         {
                             switch (XmlAttribute.Name) // switch the name
                             {
-                                case "GameObject1":
-                                case "GameObject1":
-                                    interaction.GameObject1ID = Convert.ToInt32(XmlAttribute.Value);
+                                case "Obj1Id":
+                                case "obj1id":
+                                    interaction.ObjId1ID = Convert.ToInt32(XmlAttribute.Value);
                                     continue;
-                                case "GameObject2":
-                                case "GameObject2":
-                                    interaction.GameObject2ID = Convert.ToInt32(XmlAttribute.Value);
+                                case "Obj2Id":
+                                case "obj2Id":
+                                    interaction.ObjId2ID = Convert.ToInt32(XmlAttribute.Value);
                                     continue;
                                 case "Type":
                                 case "type":

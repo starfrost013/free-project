@@ -12,8 +12,8 @@
         <ListView x:Name="Interactions" HorizontalAlignment="Left" Height="283" Margin="10,92,0,0" VerticalAlignment="Top" Width="263">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn x:Name="Interactions_GameObject1" Header="GameObject 1 ID" Width="70" DisplayMemberBinding="{Binding GameObject1ID}"/>
-                    <GridViewColumn x:Name="Interactions_GameObject2" Header="GameObject 2 ID" Width="70" DisplayMemberBinding="{Binding GameObject2ID}"/>
+                    <GridViewColumn x:Name="Interactions_ObjId1" Header="GameObject 1 ID" Width="70" DisplayMemberBinding="{Binding ObjId1ID}"/>
+                    <GridViewColumn x:Name="Interactions_ObjId2" Header="GameObject 2 ID" Width="70" DisplayMemberBinding="{Binding ObjId2ID}"/>
                     <GridViewColumn x:Name="Interactions_Type" Header="Interaction Type" Width="95" DisplayMemberBinding="{Binding GameObjectINTERACTIONTYPE}"/>
                 </GridView>
             </ListView.View>
@@ -22,11 +22,11 @@
         <Button x:Name="EditButton" Content="Edit →" HorizontalAlignment="Left" Margin="356,214,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="EditButton_Click"/>
         <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="356,277,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="DeleteButton_Click"/>
         <TextBlock x:Name="CurrentInteraction" HorizontalAlignment="Left" Margin="493,73,0,0" TextWrapping="Wrap" Text="Selected Interaction:" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="CurrentInteractionGameObject1" HorizontalAlignment="Left" Margin="493,102,0,0" TextWrapping="Wrap" Text="GameObject 1 ID:" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock x:Name="CurrentInteractionGameObject2" HorizontalAlignment="Left" Margin="493,131,0,0" TextWrapping="Wrap" Text="GameObject 2 ID:" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="CurrentInteractionObjId1" HorizontalAlignment="Left" Margin="493,102,0,0" TextWrapping="Wrap" Text="GameObject 1 ID:" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="CurrentInteractionObjId2" HorizontalAlignment="Left" Margin="493,131,0,0" TextWrapping="Wrap" Text="GameObject 2 ID:" VerticalAlignment="Top" FontSize="18"/>
         <TextBlock x:Name="CurrentInteractionType" HorizontalAlignment="Left" Margin="493,160,0,0" TextWrapping="Wrap" Text="Type:" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="CurrentInteractionGameObject1Box" HorizontalAlignment="Left" Height="23" Margin="567,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146" FontStyle="Italic" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="CurrentInteractionGameObject2Box" HorizontalAlignment="Left" Height="23" Margin="567,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146" FontStyle="Italic" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="CurrentInteractionObjId1Box" HorizontalAlignment="Left" Height="23" Margin="567,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146" FontStyle="Italic" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="CurrentInteractionObjId2Box" HorizontalAlignment="Left" Height="23" Margin="567,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146" FontStyle="Italic" VerticalContentAlignment="Center"/>
         <ComboBox x:Name="CurrentInteractionTypeBox" HorizontalAlignment="Left" Margin="567,162,0,0" VerticalAlignment="Top" Width="146"/>
         <Button x:Name="DoneButton" Content="Done" HorizontalAlignment="Left" Margin="694,371,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="DoneButton_Click"/>
 

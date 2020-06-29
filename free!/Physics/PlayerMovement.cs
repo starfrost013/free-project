@@ -99,7 +99,7 @@ namespace Free
         }
 
 
-        private void Window_KeyUp(IGameObject sender, KeyEventArgs e)
+        private void Window_KeyUp(object sender, KeyEventArgs e)
         {
             if (currentlevel != null) // ADD ISLOADED!
             {

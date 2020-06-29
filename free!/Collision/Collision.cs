@@ -85,7 +85,7 @@ namespace Free
                             {
                                 Interaction interaction = InteractionList[j];
 
-                                if (GameObject.GameObjectID == interaction.GameObject1ID && GameObjectx.GameObjectID == interaction.GameObject2ID)
+                                if (GameObject.GameObjectID == interaction.ObjId1ID && GameObjectx.GameObjectID == interaction.ObjId2ID)
                                 {
                                     switch (interaction.GameObjectINTERACTIONTYPE)
                                     {
@@ -296,22 +296,22 @@ namespace Free
             }
         }
 
-        private List<Rect> Internal_GetIGameObjectBoundingBoxes(GameObject GameObject1, GameObject GameObject2)
+        private List<Rect> Internal_GetIGameObjectBoundingBoxes(GameObject ObjId1, GameObject ObjId2)
         {
             // fix bad code - GameObject.Size (point) 
             List<Rect> Rects = new List<Rect>();
-            Rects.Add(new Rect(new Point(GameObject1.GameObjectX, GameObject1.GameObjectY), new Point(GameObject1.GameObjectX + GameObject1.GameObjectIMAGE.PixelWidth, GameObject1.GameObjectY + GameObject1.GameObjectIMAGE.PixelHeight)));
-            Rects.Add(new Rect(new Point(GameObject2.GameObjectX, GameObject2.GameObjectY), new Point(GameObject2.GameObjectX + GameObject2.GameObjectIMAGE.PixelWidth, GameObject2.GameObjectY + GameObject2.GameObjectIMAGE.PixelHeight)));
+            Rects.Add(new Rect(new Point(ObjId1.GameObjectX, ObjId1.GameObjectY), new Point(ObjId1.GameObjectX + ObjId1.GameObjectIMAGE.PixelWidth, ObjId1.GameObjectY + ObjId1.GameObjectIMAGE.PixelHeight)));
+            Rects.Add(new Rect(new Point(ObjId2.GameObjectX, ObjId2.GameObjectY), new Point(ObjId2.GameObjectX + ObjId2.GameObjectIMAGE.PixelWidth, ObjId2.GameObjectY + ObjId2.GameObjectIMAGE.PixelHeight)));
 
             return Rects;
         }
 
         /// <summary>
-        /// Tests if the top of GameObject1's bounding box collides with 2.
+        /// Tests if the top of ObjId1's bounding box collides with 2.
         /// </summary>
-        public bool TestCollideTop(GameObject GameObject1, GameObject GameObject2)
+        public bool TestCollideTop(GameObject ObjId1, GameObject ObjId2)
         {
-            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(GameObject1, GameObject2);
+            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
 
             // Gonna work ons cripting
             double FX = Rects[1].TopLeft.Y + ((Rects[1].BottomRight.Y - Rects[1].TopLeft.Y) / 2);
@@ -326,9 +326,9 @@ namespace Free
             }
         }
 
-        public bool TestCollideBottom(GameObject GameObject1, GameObject GameObject2)
+        public bool TestCollideBottom(GameObject ObjId1, GameObject ObjId2)
         {
-            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(GameObject1, GameObject2);
+            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
 
             // Gonna work ons cripting
             double FX = Rects[1].TopLeft.Y + ((Rects[1].BottomRight.Y - Rects[1].TopLeft.Y) / 2);
@@ -343,9 +343,9 @@ namespace Free
             }
         }
 
-        public bool TestCollideLeft(GameObject GameObject1, GameObject GameObject2)
+        public bool TestCollideLeft(GameObject ObjId1, GameObject ObjId2)
         {
-            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(GameObject1, GameObject2);
+            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
 
             double Max = Rects[1].TopLeft.X + ((Rects[1].TopRight.Y - Rects[1].TopLeft.Y) / 2);
 
@@ -359,9 +359,9 @@ namespace Free
             }
         }
 
-        public bool TestCollideRight(GameObject GameObject1, GameObject GameObject2)
+        public bool TestCollideRight(GameObject ObjId1, GameObject ObjId2)
         {
-            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(GameObject1, GameObject2);
+            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
 
             double Max = Rects[1].TopLeft.X + ((Rects[1].TopRight.Y - Rects[1].TopLeft.Y) / 2);
 

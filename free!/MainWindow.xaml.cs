@@ -65,7 +65,7 @@ namespace Free
              
         }
         
-        public void GameTick(IGameObject sender, EventArgs e)
+        public void GameTick(object sender, EventArgs e)
         {
             try
             {
@@ -82,7 +82,7 @@ namespace Free
             }
         }
 
-        public void MainLoop(IGameObject sender, EventArgs e)
+        public void MainLoop(object sender, EventArgs e)
         {
             foreach (IGameObject IGameObject in currentlevel.LevelIGameObjects)
             {
@@ -92,7 +92,7 @@ namespace Free
             }
         }
 
-        private void Window_KeyDown(IGameObject sender, KeyEventArgs e) // handles stuff like controls? maybe?
+        private void Window_KeyDown(object sender, KeyEventArgs e) // handles stuff like controls? maybe?
         {
             switch (e.Key)
             {
@@ -126,12 +126,12 @@ namespace Free
         }
 
 
-        private void PhysicsTimerElapsed(IGameObject sender, EventArgs e)
+        private void PhysicsTimerElapsed(object sender, EventArgs e)
         {
             if (Gamestate == GameState.Game) RunPhysics();
             return; 
         }
-        private void Window_ContentRendered(IGameObject sender, EventArgs e)
+        private void Window_ContentRendered(object sender, EventArgs e)
         {
             GlobalTimer++;
             
@@ -165,14 +165,15 @@ namespace Free
             }
         }
 
-        private void Window_Loaded(IGameObject sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Engine_BootNow(); 
         }
 
-        private void Window_SizeChanged(IGameObject sender, SizeChangedEventArgs e)
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             Settings.Resolution = new Point(this.Width, this.Height);
         }
+
     }
 }

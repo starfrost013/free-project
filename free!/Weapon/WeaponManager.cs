@@ -26,7 +26,7 @@ namespace Free
         }
 
 
-        private void Window_MouseDown(IGameObject sender, MouseButtonEventArgs e)
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (Gamestate == GameState.EditMode)
             {

@@ -55,7 +55,7 @@ namespace Free
 
         }
 
-        private void AddButton_Click(IGameObject sender, RoutedEventArgs e)
+        private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -108,7 +108,7 @@ namespace Free
             }
         }
 
-        private void DeleteButton_Click(IGameObject sender, RoutedEventArgs e)
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             if (GameObjectNameListLvl.SelectedIndex == -1)
             {
@@ -122,19 +122,19 @@ namespace Free
         }
 
         // Restored old code. 
-        private void MoveButton_Click(IGameObject sender, RoutedEventArgs e)
+        private void MoveButton_Click(object sender, RoutedEventArgs e)
         {
             MoveGameObject MGameObject = new MoveGameObject(MnWindow, MnWindow.currentlevel.LevelIGameObjects[GameObjectNameListLvl.SelectedIndex]); // EWW EWW EWW
             MGameObject.Owner = this;
             MGameObject.Show();
         }
 
-        private void ExitButton_Click(IGameObject sender, RoutedEventArgs e)
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void PickButton_Click(IGameObject sender, RoutedEventArgs e)
+        private void PickButton_Click(object sender, RoutedEventArgs e)
         {
             XPosBox.Text = Convert.ToString(MnWindow.DbgMouseClickLevelX);
             YPosBox.Text = Convert.ToString(MnWindow.DbgMouseClickLevelY);

@@ -25,8 +25,8 @@ namespace Free
     {
         public double AIIntensity { get; set; } // TEST
         public AIType AIType { get; set; }
-        public int GameObject1Id { get; set; }
-        public int GameObject2Id { get; set; }
+        public int ObjId1Id { get; set; }
+        public int ObjId2Id { get; set; }
 
     } 
 
@@ -34,18 +34,18 @@ namespace Free
     {
         public void HandleAI(IGameObject GameObject)
         {
-            foreach (IGameObject GameObject2 in currentlevel.LevelIGameObjects)
+            foreach (IGameObject ObjId2 in currentlevel.LevelIGameObjects)
             {
                 //HandleAI
                 if (IsSentientBeing(GameObject) & GameObject.GameObjectAI != null)
                 {
-                    if (GameObject.GameObjectAI.GameObject2Id == GameObject2.GameObjectID)
+                    if (GameObject.GameObjectAI.ObjId2Id == ObjId2.GameObjectID)
                     {
                         switch (GameObject.GameObjectAI.AIType) //AIHandler files?
                         {
                             case AIType.Fear:
                                 //FIRST PASS.  
-                                AI_Fear(GameObject, GameObject2);
+                                AI_Fear(GameObject, ObjId2);
                                 continue;
                         }
                     }

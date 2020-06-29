@@ -3,5 +3,5 @@
 <!-- Modiied 2019-12-30 16:31 -->
 
 <AIDefinitions>
-	<AI GameObject1="23" GameObject2="1" type="Fear"/>
+	<AI ObjId1="23" ObjId2="1" type="Fear"/>
 </AIDefinitions>

@@ -39,13 +39,13 @@ namespace Free
                                 {
                                     switch (XmlAttribute.Name)
                                     {
-                                        case "GameObject1":
-                                        case "GameObject1":
-                                            AI.GameObject1Id = Convert.ToInt32(XmlAttribute.Value);
+                                        case "ObjId1":
+                                        case "objId1":
+                                            AI.ObjId1Id = Convert.ToInt32(XmlAttribute.Value);
                                             continue;
-                                        case "GameObject2":
-                                        case "GameObject2":
-                                            AI.GameObject2Id = Convert.ToInt32(XmlAttribute.Value);
+                                        case "ObjId2":
+                                        case "objId2":
+                                            AI.ObjId2Id = Convert.ToInt32(XmlAttribute.Value);
                                             continue;
                                         case "AIType":
                                         case "aitype":
@@ -61,7 +61,7 @@ namespace Free
                                 }
                                 foreach (IGameObject GameObject in IGameObjectList)
                                 {
-                                    if (AI.GameObject1Id == GameObject.GameObjectID & IsSentientBeing(GameObject))// assign the aitype
+                                    if (AI.ObjId1Id == GameObject.GameObjectID & IsSentientBeing(GameObject))// assign the aitype
                                     {
                                         GameObject.GameObjectAI = AI;
                                     }

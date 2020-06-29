@@ -70,7 +70,7 @@ namespace Free
             }
         }
 
-        private void FileMenu_Load_Click(IGameObject sender, RoutedEventArgs e) // we want to load a level, just opens level select
+        private void FileMenu_Load_Click(object sender, RoutedEventArgs e) // we want to load a level, just opens level select
         {
             LevelSelect LevelSelect = new LevelSelect(this);
             LevelSelect.Owner = this;
@@ -78,14 +78,14 @@ namespace Free
         }
 
         
-        private void InteractionMenu_Add_Click(IGameObject sender, RoutedEventArgs e)
+        private void InteractionMenu_Add_Click(object sender, RoutedEventArgs e)
         {
             ManageInteractions ManageInteractions = new ManageInteractions(this);
             ManageInteractions.Owner = this;
             ManageInteractions.Show();
         }
 
-        private void FileMenu_Save_Click(IGameObject sender, RoutedEventArgs e)
+        private void FileMenu_Save_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog SFD = new SaveFileDialog();
             SFD.DefaultExt = ".xml";
@@ -132,7 +132,7 @@ namespace Free
             return (Math.Round(raw / n)) * n;
         }
 
-        private void InteractionMenu_Save_Click(IGameObject sender, RoutedEventArgs e)
+        private void InteractionMenu_Save_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog SFD = new SaveFileDialog();
             SFD.DefaultExt = ".xml";
@@ -155,14 +155,14 @@ namespace Free
                 foreach (Interaction interaction in InteractionList)
                 {
                     XmlNode XChild = Xdoc.CreateElement("Interaction"); // main
-                    XmlAttribute XChildGameObject1Id = Xdoc.CreateAttribute("GameObject1"); // IGameObject id
-                    XChildGameObject1Id.Value = interaction.GameObject1ID.ToString(); // convert to string
-                    XmlAttribute XChildGameObject2Id = Xdoc.CreateAttribute("GameObject2"); // x pos
-                    XChildGameObject2Id.Value = interaction.GameObject2ID.ToString(); // convert to string
+                    XmlAttribute XChildObjId1Id = Xdoc.CreateAttribute("ObjId1"); // IGameObject id
+                    XChildObjId1Id.Value = interaction.ObjId1ID.ToString(); // convert to string
+                    XmlAttribute XChildObjId2Id = Xdoc.CreateAttribute("ObjId2"); // x pos
+                    XChildObjId2Id.Value = interaction.ObjId2ID.ToString(); // convert to string
                     XmlAttribute XChildInteractionType = Xdoc.CreateAttribute("type"); // y pos
                     XChildInteractionType.Value = interaction.GameObjectINTERACTIONTYPE.ToString(); // convert to string
-                    XChild.Attributes.Append(XChildGameObject1Id);
-                    XChild.Attributes.Append(XChildGameObject2Id);
+                    XChild.Attributes.Append(XChildObjId1Id);
+                    XChild.Attributes.Append(XChildObjId2Id);
                     XChild.Attributes.Append(XChildInteractionType);
                     XRootnode.AppendChild(XChild);
                 }
@@ -177,7 +177,7 @@ namespace Free
         }
 
 
-        private void GameObjectMenu_GameObjectManager_Click(IGameObject sender, RoutedEventArgs e)
+        private void GameObjectMenu_GameObjectManager_Click(object sender, RoutedEventArgs e)
         {
             IGameObjectManager IGameObjectManager = new IGameObjectManager(this);
             IGameObjectManager.Owner = this;
