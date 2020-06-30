@@ -55,9 +55,9 @@ namespace Free
                                 case "Name":
                                     GameObject.GameObjectNAME = XmlAttribute.Value;
                                     continue;
-                                case "GameObjectimage":
-                                case "GameObjectImage":
-                                case "IGameObjectImage":
+                                case "objimage":
+                                case "ObjImage":
+                                case "ObjectImage":
                                     GameObject.GameObjectIMAGEPATH = XmlAttribute.Value;
                                     continue;
                                 case "gravity":
@@ -136,6 +136,9 @@ namespace Free
                                     continue;
                             }
                         }
+                    
+                        // ADD ERROR CHECKING DUMBASS
+
                     // NEW 2020-06-08
                     // Parse AssociatedScripts
 
