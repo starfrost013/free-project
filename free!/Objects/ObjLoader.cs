@@ -26,10 +26,10 @@ namespace Free
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();
-                XmlDocument.Load("IGameObjects.xml");
+                XmlDocument.Load("Objects.xml");
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 
-                while (XmlRootNode.Name != "IGameObjects")
+                while (XmlRootNode.Name != "Objects")
                 {
                     XmlRootNode = XmlRootNode.NextSibling; // ignore all other nodes. TODO - check what it triggers when we run out of nodes, so we can catch the exception.
                 }

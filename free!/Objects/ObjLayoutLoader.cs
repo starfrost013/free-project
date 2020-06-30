@@ -44,7 +44,7 @@ namespace Free
                 XmlDocument.Load(this.LevelIGameObjectsPATH);
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 
-                while (XmlRootNode.Name != "IGameObjectLayout")
+                while (XmlRootNode.Name != "ObjectLayout")
                 {
                     XmlRootNode = XmlRootNode.NextSibling; // ignore all other nodes. TODO - check what it triggers when we run out of nodes, so we can catch the exception.
                 }
