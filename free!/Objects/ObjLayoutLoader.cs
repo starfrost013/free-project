@@ -41,6 +41,7 @@ namespace Free
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();
+                // debug this tmrw (2020-06-30)
                 XmlDocument.Load(this.LevelIGameObjectsPATH);
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 
