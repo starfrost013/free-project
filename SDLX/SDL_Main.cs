@@ -13,6 +13,10 @@ namespace SDLX
         public GameScene CurrentScene { get; set; }
         public SDL.SDL_Event EventHandler { get; set; } // naive?
         public bool RunningNow { get; set; }
+
+        /// <summary>
+        /// Sorta shit but works for now. Reimplement later.
+        /// </summary>
         public void SDL_Main()
         {
             SDL.SDL_Event _ = EventHandler;
@@ -42,6 +46,19 @@ namespace SDLX
                     }
                 }
 
+                // Draw the background. (TEMP)
+
+                SDL.SDL_Rect BgRenderRect = new SDL.SDL_Rect
+                {
+                    x = 0,
+                    y = 0,
+                    w = (int)CurrentScene.Resolution.X,
+                    h = (int)CurrentScene.Resolution.Y
+                };
+
+                SDL.SDL_Rect _2 = CurrentScene.Background.RenderRect;
+
+                SDL.SDL_RenderCopy(SDL_RenderPtr, CurrentScene.Background.Sprite, ref _2, ref BgRenderRect);
 
 
                 // Render each SDLTexture in the TextureCache. 
