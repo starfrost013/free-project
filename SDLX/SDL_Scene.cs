@@ -26,6 +26,7 @@ namespace SDLX
 {
     public partial class GameScene
     {
+        public IntPtr Background { get; set; } // We might need to fix this before it gets out of control...Shared classes?
         public List<SDLSprite> CachedTextures { get; set; }
         public GameCamera GameCamera { get; set; }
         public List<SDLSprite> SDLTextureCache { get; set; }
@@ -47,6 +48,11 @@ namespace SDLX
             {
                 Debug.WriteLine($"Error loading font: {SDL.SDL_GetError()}");
             }
+        }
+
+        public void LoadBackground(string BackgroundPath)
+        {
+            Background = SDL_image.IMG_LoadTexture(Game.SDL_RenderPtr, BackgroundPath); 
         }
 
         public bool LoadImage(string ImageLoad, SDLPoint Position, int SizeX, int SizeY)
