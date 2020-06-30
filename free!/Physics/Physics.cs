@@ -32,7 +32,7 @@ namespace Free
 {
     partial class FreeSDL
     {
-        public IGameObject HandlePhys(IGameObject GameObject)
+        public object HandlePhys(IGameObject GameObject)
         {
 
             GameObject.GameObjectACCELERATION /= Physics.Friction + 1;

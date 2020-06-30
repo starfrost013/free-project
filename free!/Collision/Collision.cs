@@ -13,11 +13,9 @@ using System.Windows.Shapes;
 /// 
 /// Created: 2019-11-20
 /// 
-/// Modified: 2020-05-27
+/// Modified: 2020-06-29
 /// 
-/// Free Version: 0.20+ (Engine version 2.20)
-/// 
-/// Version: 3.01
+/// Version: 3.10
 /// 
 /// Purpose: Handles collisions and manages interactions. Split off from Physics.cs 2019-11-20. 
 /// 

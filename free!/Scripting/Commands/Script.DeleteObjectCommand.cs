@@ -16,7 +16,7 @@ namespace Free
         public bool ScriptRunOnce { get; set; }
         public ScriptReference SR { get; set; }
 
-        public IGameObject GetParameter(string ParameterName)
+        public object GetParameter(string ParameterName)
         {
             try
             {
