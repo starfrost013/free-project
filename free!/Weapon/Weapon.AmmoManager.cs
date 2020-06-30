@@ -22,13 +22,13 @@ namespace Free
 {
     public partial class FreeSDL
     {
-        public void FireAmmo() // determines the correct obj to fire a bullet from
+        public void FireAmmo() // determines the correct GameObject to fire a bullet from
         {
-            foreach (Obj obj in currentlevel.LevelObjects)
+            foreach (GameObject GameObject in currentlevel.LevelIGameObjects)
             {
-                if (obj.OBJHELDWEAPON != null)
+                if (GameObject.GameObjectHELDWEAPON != null)
                 {
-                    obj.OBJHELDWEAPON.FireAmmo_Core(obj);
+                    GameObject.GameObjectHELDWEAPON.FireAmmo_Core(GameObject);
                     return;
                 }
             }
@@ -37,14 +37,14 @@ namespace Free
     }
     public partial class Weapon
     {
-        internal void FireAmmo_Core(Obj obj)
+        internal void FireAmmo_Core(GameObject GameObject)
         {
             Ammo ammo = new Ammo();
             ammo.X = this.WEAPONPOSITIONX + this.WEAPONIMAGE.Width;
             ammo.Y = this.WEAPONPOSITIONY + this.WEAPONIMAGE.Height / 2;
 
             // - SHITTY CODE - REPLACE WITH FACINGDIRECTION FOR PLAYERS WHEN WE ADD MORE ANIMATIONS - // 
-            if (obj.OBJSPEED < 0)
+            if (GameObject.GameObjectSPEED < 0)
             {
                 ammo.SPEEDX = -20;
             }

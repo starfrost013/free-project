@@ -32,11 +32,11 @@ namespace Free
 
                 if (currentlevel != null)
                 {
-                    foreach (Obj obj in currentlevel.LevelObjects)
+                    foreach (GameObject GameObject in currentlevel.LevelIGameObjects)
                     {
-                        if (obj.OBJHELDWEAPON != null)
+                        if (GameObject.GameObjectHELDWEAPON != null)
                         {
-                            obj.OBJHELDWEAPON.WEAPONAMMOLIST.Clear(); // Annihilate Ammo 
+                            GameObject.GameObjectHELDWEAPON.WEAPONAMMOLIST.Clear(); // Annihilate Ammo 
                         }
                     }
                 }
@@ -48,8 +48,8 @@ namespace Free
                 //currentlevel = LoadLevel(LevelId);
                 BootNow_SetCurrentLevel(LevelId);
 
-                currentlevel.LoadLevelObjects(ObjectList, currentlevel);
-                ScriptingCore.LoadAllLevelScripts(ObjectList); 
+                currentlevel.LoadLevelIGameObjects(IGameObjectList, currentlevel);
+                ScriptingCore.LoadAllLevelScripts(IGameObjectList); 
                 currentlevel.LoadLevelMusic();
 
                 Gamestate = GameState.Game; //yeah 
@@ -62,11 +62,11 @@ namespace Free
 
                 // TEMP CODE REMOVE WHEN HUD ADDED //
 
-                Obj tempgiveweaponobj = new Obj();
+                GameObject tempgiveweaponGameObject = new GameObject();
 
-                foreach (Obj tempiteration in currentlevel.LevelObjects)
+                foreach (GameObject tempiteration in currentlevel.LevelIGameObjects)
                 {
-                    if (tempiteration.OBJPLAYER)
+                    if (tempiteration.GameObjectPLAYER)
                     {
                         GiveWeapon(tempiteration, "Test Weapon");
                     }
@@ -111,7 +111,7 @@ namespace Free
             }
             catch (FileNotFoundException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent level, or error loading a level. This is most likely because a change level object attempted to trigger its interaction but the next level by ID doesn't exist yet.", "avant-gardé engine", 10);
+                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent level, or error loading a level. This is most likely because a change level IGameObject attempted to trigger its interaction but the next level by ID doesn't exist yet.", "avant-gardé engine", 10);
                 return;
             }
             

@@ -35,15 +35,15 @@ namespace Free
             try
             {
                 Interaction interaction = new Interaction();
-                interaction.OBJ1ID = Convert.ToInt32(CurrentInteractionObj1Box.Text);
-                interaction.OBJ2ID = Convert.ToInt32(CurrentInteractionObj2Box.Text);
-                interaction.OBJINTERACTIONTYPE = (InteractionType)Enum.Parse(typeof(InteractionType), CurrentInteractionTypeBox.Text);
+                interaction.ObjId1ID = Convert.ToInt32(CurrentInteractionObjId1Box.Text);
+                interaction.ObjId2ID = Convert.ToInt32(CurrentInteractionObjId2Box.Text);
+                interaction.GameObjectINTERACTIONTYPE = (InteractionType)Enum.Parse(typeof(InteractionType), CurrentInteractionTypeBox.Text);
                 FreeSDL.InteractionList.Add(interaction);
                 Interactions.Items.Refresh();
             }
             catch (FormatException)
             {
-                Error.Throw(new Exception("DEBUG: The iser attempted to add an interaction with an invalid object 1 or 2 ID. "), ErrorSeverity.Warning, "Attempted to delete a nonexistent interaction.", "avant-gardé engine ver 2.11.0/03", 18);
+                Error.Throw(new Exception("DEBUG: The iser attempted to add an interaction with an invalid IGameObject 1 or 2 ID. "), ErrorSeverity.Warning, "Attempted to delete a nonexistent interaction.", "avant-gardé engine ver 2.11.0/03", 18);
             }
         }
 
@@ -89,9 +89,9 @@ namespace Free
 
                         if (i == Interactions.SelectedIndex)
                         {
-                            CurrentInteractionObj1Box.Text = interaction.OBJ1ID.ToString();
-                            CurrentInteractionObj2Box.Text = interaction.OBJ2ID.ToString();
-                            CurrentInteractionTypeBox.SelectedItem = interaction.OBJINTERACTIONTYPE;
+                            CurrentInteractionObjId1Box.Text = interaction.ObjId1ID.ToString();
+                            CurrentInteractionObjId2Box.Text = interaction.ObjId2ID.ToString();
+                            CurrentInteractionTypeBox.SelectedItem = interaction.GameObjectINTERACTIONTYPE;
                         }
                     }
 
@@ -110,9 +110,9 @@ namespace Free
 
                         if (i == Interactions.SelectedIndex)
                         {
-                            interaction.OBJ1ID = Convert.ToInt32(CurrentInteractionObj1Box.Text);
-                            interaction.OBJ2ID = Convert.ToInt32(CurrentInteractionObj2Box.Text);
-                            interaction.OBJINTERACTIONTYPE = (InteractionType)Enum.Parse(typeof(InteractionType), CurrentInteractionTypeBox.Text);
+                            interaction.ObjId1ID = Convert.ToInt32(CurrentInteractionObjId1Box.Text);
+                            interaction.ObjId2ID = Convert.ToInt32(CurrentInteractionObjId2Box.Text);
+                            interaction.GameObjectINTERACTIONTYPE = (InteractionType)Enum.Parse(typeof(InteractionType), CurrentInteractionTypeBox.Text);
                             FreeSDL.InteractionList[i] = interaction;
                         }
                     }

@@ -32,42 +32,42 @@ namespace Free
 {
     partial class FreeSDL
     {
-        public IGameObject HandlePhys(IGameObject obj)
+        public object HandlePhys(IGameObject GameObject)
         {
 
-            obj.OBJACCELERATION /= Physics.Friction + 1;
+            GameObject.GameObjectACCELERATION /= Physics.Friction + 1;
 
-            if (IsSentientBeing(obj)) 
+            if (IsSentientBeing(GameObject)) 
             {
-                if (obj.OBJMOVELEFT)
+                if (GameObject.GameObjectMOVELEFT)
                 {
-                    obj.MoveLeft();
-                    obj.LastControl = LastCtrl.MoveLeft;
+                    GameObject.MoveLeft();
+                    GameObject.LastControl = LastCtrl.MoveLeft;
                 }
-                else if (obj.OBJMOVERIGHT)
+                else if (GameObject.GameObjectMOVERIGHT)
                 {
-                    obj.MoveRight();
-                    obj.LastControl = LastCtrl.MoveRight;
+                    GameObject.MoveRight();
+                    GameObject.LastControl = LastCtrl.MoveRight;
                 }
             }
 
-            if (obj.OBJGRAV && obj.OBJCOLLISIONS == 0)
+            if (GameObject.GameObjectGRAV && GameObject.GameObjectCOLLISIONS == 0)
             {
-                obj.ChgAcceleration(0, Physics.Gravity * obj.OBJMASS);
+                GameObject.ChgAcceleration(0, Physics.Gravity * GameObject.GameObjectMASS);
             }
-            else if (IsSentientBeing(obj) && obj.OBJISJUMPING) // jump physics
+            else if (IsSentientBeing(GameObject) && GameObject.GameObjectISJUMPING) // jump physics
             {
-                obj.ChgAcceleration(0, (Physics.Acceleration * obj.OBJMASS) / (3.1 - obj.JumpIntensity));
+                GameObject.ChgAcceleration(0, (Physics.Acceleration * GameObject.GameObjectMASS) / (3.1 - GameObject.JumpIntensity));
 
-                if (obj.SpaceHeld) obj.JumpIntensity += 0.0333;
+                if (GameObject.SpaceHeld) GameObject.JumpIntensity += 0.0333;
 
                 //TEMP
-                if (obj.JumpIntensity > Physics.MaxJumpIntensity) obj.JumpIntensity = 1.5;
+                if (GameObject.JumpIntensity > Physics.MaxJumpIntensity) GameObject.JumpIntensity = 1.5;
 
-                if (obj.OBJACCELERATIONY > 1) // if we're coming down from a jump, set the jumping to false
+                if (GameObject.GameObjectACCELERATIONY > 1) // if we're coming down from a jump, set the jumping to false
                 {
-                    obj.OBJISJUMPING = false;
-                    obj.JumpIntensity = 1;
+                    GameObject.GameObjectISJUMPING = false;
+                    GameObject.JumpIntensity = 1;
                 }
             }
 
@@ -75,72 +75,72 @@ namespace Free
 
            
 
-            if (obj.OBJGRAV)
+            if (GameObject.GameObjectGRAV)
             {
-                if (obj.OBJSPEED != 0)
+                if (GameObject.GameObjectSPEED != 0)
                 {
-                    obj.ChgDeceleration(Physics.Friction, 0);
+                    GameObject.ChgDeceleration(Physics.Friction, 0);
                 }
             }
 
-            if (obj.OBJDECELERATION > obj.OBJSPEED / Physics.SpeedConst)
+            if (GameObject.GameObjectDECELERATION > GameObject.GameObjectSPEED / Physics.SpeedConst)
             {
-                obj.OBJDECELERATION = obj.OBJSPEED / Physics.SpeedConst;
+                GameObject.GameObjectDECELERATION = GameObject.GameObjectSPEED / Physics.SpeedConst;
             }
             //this fixes a bug where your character would humorously veer off to the right if you jumped left.
-            else if (obj.OBJDECELERATION < -obj.OBJSPEED / -Physics.SpeedConst)
+            else if (GameObject.GameObjectDECELERATION < -GameObject.GameObjectSPEED / -Physics.SpeedConst)
             {
-                obj.OBJDECELERATION = -obj.OBJSPEED / -Physics.SpeedConst;
+                GameObject.GameObjectDECELERATION = -GameObject.GameObjectSPEED / -Physics.SpeedConst;
             }
 
-            if (obj.OBJSPEED > 0)
+            if (GameObject.GameObjectSPEED > 0)
             {
-                if (obj.OBJSPEED - obj.OBJDECELERATION < 0)
+                if (GameObject.GameObjectSPEED - GameObject.GameObjectDECELERATION < 0)
                 {
-                    obj.OBJSPEED = 0;
+                    GameObject.GameObjectSPEED = 0;
                 }
             }
-            else if (obj.OBJSPEED < 0)
+            else if (GameObject.GameObjectSPEED < 0)
             {
-                if (obj.OBJSPEED + obj.OBJDECELERATION > 0)
+                if (GameObject.GameObjectSPEED + GameObject.GameObjectDECELERATION > 0)
                 {
-                    obj.OBJSPEED = 0;
+                    GameObject.GameObjectSPEED = 0;
                 }
             }
 
-            obj.OBJSPEED += obj.OBJACCELERATION;
-            obj.OBJSPEEDY += obj.OBJACCELERATIONY;
-            obj.OBJSPEED -= obj.OBJDECELERATION;
-            obj.OBJSPEEDY -= obj.OBJDECELERATIONY;
+            GameObject.GameObjectSPEED += GameObject.GameObjectACCELERATION;
+            GameObject.GameObjectSPEEDY += GameObject.GameObjectACCELERATIONY;
+            GameObject.GameObjectSPEED -= GameObject.GameObjectDECELERATION;
+            GameObject.GameObjectSPEEDY -= GameObject.GameObjectDECELERATIONY;
 
             //speedcap
-            if (obj.OBJSPEED < -Physics.MaxSpeed)
+            if (GameObject.GameObjectSPEED < -Physics.MaxSpeed)
             {
-                obj.OBJSPEED = -Physics.MaxSpeed;
+                GameObject.GameObjectSPEED = -Physics.MaxSpeed;
             }
-            if (obj.OBJSPEED > Physics.MaxSpeed)
+            if (GameObject.GameObjectSPEED > Physics.MaxSpeed)
             {
-                obj.OBJSPEED = Physics.MaxSpeed;
-            }
-
-            if (obj.OBJSPEEDY < -Physics.MaxSpeed)
-            {
-                obj.OBJSPEEDY = -Physics.MaxSpeed;
-            }
-            if (obj.OBJSPEEDY > Physics.MaxSpeed)
-            {
-                obj.OBJSPEEDY = Physics.MaxSpeed;
+                GameObject.GameObjectSPEED = Physics.MaxSpeed;
             }
 
-
-            obj.OBJX += obj.OBJSPEED;
-            obj.OBJY += obj.OBJSPEEDY; // when plr is at bottom of level y pos = level bg height
-
-            if (obj.OBJHELDWEAPON != null && obj.OBJPLAYER) // Draws the ammo.
+            if (GameObject.GameObjectSPEEDY < -Physics.MaxSpeed)
             {
-                if (obj.OBJHELDWEAPON.WEAPONAMMOLIST.Count != 0) // if ammo is being drawn...
+                GameObject.GameObjectSPEEDY = -Physics.MaxSpeed;
+            }
+            if (GameObject.GameObjectSPEEDY > Physics.MaxSpeed)
+            {
+                GameObject.GameObjectSPEEDY = Physics.MaxSpeed;
+            }
+
+
+            GameObject.GameObjectX += GameObject.GameObjectSPEED;
+            GameObject.GameObjectY += GameObject.GameObjectSPEEDY; // when plr is at bottom of level y pos = level bg height
+
+            if (GameObject.GameObjectHELDWEAPON != null && GameObject.GameObjectPLAYER) // Draws the ammo.
+            {
+                if (GameObject.GameObjectHELDWEAPON.WEAPONAMMOLIST.Count != 0) // if ammo is being drawn...
                 {
-                    foreach (Ammo ammo in obj.OBJHELDWEAPON.WEAPONAMMOLIST) // iterate through all ammo.
+                    foreach (Ammo ammo in GameObject.GameObjectHELDWEAPON.WEAPONAMMOLIST) // iterate through all ammo.
                     {
                         ammo.X += ammo.SPEEDX; // move it!!
                         ammo.Y += ammo.SPEEDY;
@@ -148,7 +148,7 @@ namespace Free
                 }
             }
 
-            return obj; // yeah
+            return GameObject; // yeah
 
 
         }

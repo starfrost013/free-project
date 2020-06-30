@@ -9,64 +9,64 @@ namespace Free
 {
     public partial class FreeSDL
     {
-        public void HandleAnimations(IGameObject obj)
+        public void HandleAnimations(IGameObject GameObject)
         {
-            foreach (Animation animation in obj.OBJANIMATIONS)
+            foreach (Animation animation in GameObject.GameObjectANIMATIONS)
             {
                 if (animation.animationType == AnimationType.Constant)
                 {
-                    if (obj.OBJCONSTANTANIMNUMBER < animation.numMs.Count)
+                    if (GameObject.GameObjectCONSTANTANIMNUMBER < animation.numMs.Count)
                     {
-                        if (GlobalTimer % animation.numMs[obj.OBJCONSTANTANIMNUMBER] == 0)
+                        if (GlobalTimer % animation.numMs[GameObject.GameObjectCONSTANTANIMNUMBER] == 0)
                         {
-                            if (obj.OBJCONSTANTANIMNUMBER < animation.animImages.Count)
+                            if (GameObject.GameObjectCONSTANTANIMNUMBER < animation.animImages.Count)
                             {
-                                obj.OBJIMAGE = animation.animImages[obj.OBJCONSTANTANIMNUMBER];
-                                obj.OBJCONSTANTANIMNUMBER++;
+                                GameObject.GameObjectIMAGE = animation.animImages[GameObject.GameObjectCONSTANTANIMNUMBER];
+                                GameObject.GameObjectCONSTANTANIMNUMBER++;
                             }
                             else
                             {
-                                obj.OBJCONSTANTANIMNUMBER = 0;
+                                GameObject.GameObjectCONSTANTANIMNUMBER = 0;
                             }
                         }
                     }
                     else
                     {
-                        obj.OBJCONSTANTANIMNUMBER = 0;
+                        GameObject.GameObjectCONSTANTANIMNUMBER = 0;
                     }
                 }
             }
         }
 
-        public void PlayAnimation(Obj obj, AnimationType anim)
+        public void PlayAnimation(GameObject GameObject, AnimationType anim)
         {
-            foreach (Animation animation in obj.OBJANIMATIONS)
+            foreach (Animation animation in GameObject.GameObjectANIMATIONS)
             {
                 if (animation.animationType == anim)
                 {
-                    WriteableBitmap OriginalImage = new WriteableBitmap(obj.OBJIMAGE);
+                    WriteableBitmap OriginalImage = new WriteableBitmap(GameObject.GameObjectIMAGE);
 
-                    if (obj.OBJANIMNUMBER == 0)
+                    if (GameObject.GameObjectANIMNUMBER == 0)
                     {
-                        OriginalImage = obj.OBJIMAGE;
+                        OriginalImage = GameObject.GameObjectIMAGE;
                     }
-                    if (obj.OBJANIMNUMBER < animation.numMs.Count)
+                    if (GameObject.GameObjectANIMNUMBER < animation.numMs.Count)
                     {
-                        if (GlobalTimer % animation.numMs[obj.OBJANIMNUMBER] == 0)
+                        if (GlobalTimer % animation.numMs[GameObject.GameObjectANIMNUMBER] == 0)
                         {
-                            if (obj.OBJANIMNUMBER < animation.animImages.Count)
+                            if (GameObject.GameObjectANIMNUMBER < animation.animImages.Count)
                             {
-                                obj.OBJIMAGE = animation.animImages[obj.OBJANIMNUMBER];
+                                GameObject.GameObjectIMAGE = animation.animImages[GameObject.GameObjectANIMNUMBER];
                             }
                             else
                             {
-                                obj.OBJIMAGE = OriginalImage;
+                                GameObject.GameObjectIMAGE = OriginalImage;
                             }
                         }
                     }
                     else
                     {
-                        obj.OBJANIMNUMBER = 0;
+                        GameObject.GameObjectANIMNUMBER = 0;
                     }
                 }
             }
@@ -75,9 +75,9 @@ namespace Free
         //ADD SPECIFIC ANIMATION OVERLOAD
         public void PlayAmmoAnimation(Weapon weapon, Ammo ammotoanimate, AnimationType anim) //aaaa
         {
-            if (NonObjAnimList.Count > 0 & weapon.WEAPONAMMOLIST.Count > 0)
+            if (NonGameObjectAnimList.Count > 0 & weapon.WEAPONAMMOLIST.Count > 0)
             {
-                foreach (Animation animation in NonObjAnimList)
+                foreach (Animation animation in NonGameObjectAnimList)
                 {
                     if (animation.animationType == anim)
                     {
@@ -123,34 +123,34 @@ namespace Free
             }
         }
 
-        public void PlayAnimation(Obj obj, Animation anim)
+        public void PlayAnimation(GameObject GameObject, Animation anim)
         {
-            foreach (Animation animation in obj.OBJANIMATIONS)
+            foreach (Animation animation in GameObject.GameObjectANIMATIONS)
             {
                 if (animation == anim)
                 {
-                    WriteableBitmap OriginalImage = new WriteableBitmap(obj.OBJIMAGE);
-                    if (obj.OBJANIMNUMBER == 0)
+                    WriteableBitmap OriginalImage = new WriteableBitmap(GameObject.GameObjectIMAGE);
+                    if (GameObject.GameObjectANIMNUMBER == 0)
                     {
-                        OriginalImage = obj.OBJIMAGE;
+                        OriginalImage = GameObject.GameObjectIMAGE;
                     }
-                    if (obj.OBJANIMNUMBER < animation.numMs.Count)
+                    if (GameObject.GameObjectANIMNUMBER < animation.numMs.Count)
                     {
-                        if (GlobalTimer % animation.numMs[obj.OBJANIMNUMBER] == 0)
+                        if (GlobalTimer % animation.numMs[GameObject.GameObjectANIMNUMBER] == 0)
                         {
-                            if (obj.OBJANIMNUMBER < animation.animImages.Count)
+                            if (GameObject.GameObjectANIMNUMBER < animation.animImages.Count)
                             {
-                                obj.OBJIMAGE = animation.animImages[obj.OBJANIMNUMBER];
+                                GameObject.GameObjectIMAGE = animation.animImages[GameObject.GameObjectANIMNUMBER];
                             }
                             else
                             {
-                                obj.OBJIMAGE = OriginalImage;
+                                GameObject.GameObjectIMAGE = OriginalImage;
                             }
                         }
                     }
                     else
                     {
-                        obj.OBJANIMNUMBER = 0;
+                        GameObject.GameObjectANIMNUMBER = 0;
                     }
                 }
             }

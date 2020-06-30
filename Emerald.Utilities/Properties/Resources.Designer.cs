@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Free.Properties {
+namespace Emerald.Utilities.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Free.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Free.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Emerald.Utilities.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace Free.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 29/06/2020 22:23:37.33 
+        ///   Looks up a localized string similar to 29/06/2020 22:23:35.26 
         ///.
         /// </summary>
         internal static string CoreBuildDate {

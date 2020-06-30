@@ -25,27 +25,27 @@ namespace Free
     {
         public double AIIntensity { get; set; } // TEST
         public AIType AIType { get; set; }
-        public int Obj1Id { get; set; }
-        public int Obj2Id { get; set; }
+        public int ObjId1Id { get; set; }
+        public int ObjId2Id { get; set; }
 
     } 
 
     public partial class FreeSDL 
     {
-        public void HandleAI(IGameObject obj)
+        public void HandleAI(IGameObject GameObject)
         {
-            foreach (IGameObject obj2 in currentlevel.LevelObjects)
+            foreach (IGameObject ObjId2 in currentlevel.LevelIGameObjects)
             {
                 //HandleAI
-                if (IsSentientBeing(obj) & obj.OBJAI != null)
+                if (IsSentientBeing(GameObject) & GameObject.GameObjectAI != null)
                 {
-                    if (obj.OBJAI.Obj2Id == obj2.OBJID)
+                    if (GameObject.GameObjectAI.ObjId2Id == ObjId2.GameObjectID)
                     {
-                        switch (obj.OBJAI.AIType) //AIHandler files?
+                        switch (GameObject.GameObjectAI.AIType) //AIHandler files?
                         {
                             case AIType.Fear:
                                 //FIRST PASS.  
-                                AI_Fear(obj, obj2);
+                                AI_Fear(GameObject, ObjId2);
                                 continue;
                         }
                     }

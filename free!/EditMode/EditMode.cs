@@ -90,7 +90,7 @@ namespace Free
             SaveFileDialog SFD = new SaveFileDialog();
             SFD.DefaultExt = ".xml";
             SFD.Filter = "XML files|*.xml";
-            SFD.Title = "Save Object Layout";
+            SFD.Title = "Save IGameObject Layout";
             SFD.ShowDialog();
 
             if (SFD.FileName != null) //save
@@ -100,21 +100,21 @@ namespace Free
                     File.Delete(SFD.FileName);
                 }
                 XmlDocument Xdoc = new XmlDocument();
-                XmlNode XRootnode = Xdoc.CreateElement("ObjectLayout");
+                XmlNode XRootnode = Xdoc.CreateElement("IGameObjectLayout");
                 Xdoc.AppendChild(XRootnode); //create the root node.
 
-                foreach (Obj obj in currentlevel.LevelObjects)
+                foreach (GameObject GameObject in currentlevel.LevelIGameObjects)
                 {
-                    XmlNode XChild = Xdoc.CreateElement("Object"); // main
-                    XmlAttribute XChildObjId = Xdoc.CreateAttribute("id"); // object id
-                    XChildObjId.Value = obj.OBJID.ToString(); // convert to string
-                    XmlAttribute XChildObjPosX = Xdoc.CreateAttribute("posx"); // x pos
-                    XChildObjPosX.Value = obj.OBJX.ToString(); // convert to string
-                    XmlAttribute XChildObjPosY = Xdoc.CreateAttribute("posy"); // y pos
-                    XChildObjPosY.Value = obj.OBJY.ToString(); // convert to string
-                    XChild.Attributes.Append(XChildObjId);
-                    XChild.Attributes.Append(XChildObjPosX);
-                    XChild.Attributes.Append(XChildObjPosY);
+                    XmlNode XChild = Xdoc.CreateElement("IGameObject"); // main
+                    XmlAttribute XChildGameObjectId = Xdoc.CreateAttribute("id"); // IGameObject id
+                    XChildGameObjectId.Value = GameObject.GameObjectID.ToString(); // convert to string
+                    XmlAttribute XChildGameObjectPosX = Xdoc.CreateAttribute("posx"); // x pos
+                    XChildGameObjectPosX.Value = GameObject.GameObjectX.ToString(); // convert to string
+                    XmlAttribute XChildGameObjectPosY = Xdoc.CreateAttribute("posy"); // y pos
+                    XChildGameObjectPosY.Value = GameObject.GameObjectY.ToString(); // convert to string
+                    XChild.Attributes.Append(XChildGameObjectId);
+                    XChild.Attributes.Append(XChildGameObjectPosX);
+                    XChild.Attributes.Append(XChildGameObjectPosY);
                     XRootnode.AppendChild(XChild);
                 }
 
@@ -155,14 +155,14 @@ namespace Free
                 foreach (Interaction interaction in InteractionList)
                 {
                     XmlNode XChild = Xdoc.CreateElement("Interaction"); // main
-                    XmlAttribute XChildObj1Id = Xdoc.CreateAttribute("obj1"); // object id
-                    XChildObj1Id.Value = interaction.OBJ1ID.ToString(); // convert to string
-                    XmlAttribute XChildObj2Id = Xdoc.CreateAttribute("obj2"); // x pos
-                    XChildObj2Id.Value = interaction.OBJ2ID.ToString(); // convert to string
+                    XmlAttribute XChildObjId1Id = Xdoc.CreateAttribute("ObjId1"); // IGameObject id
+                    XChildObjId1Id.Value = interaction.ObjId1ID.ToString(); // convert to string
+                    XmlAttribute XChildObjId2Id = Xdoc.CreateAttribute("ObjId2"); // x pos
+                    XChildObjId2Id.Value = interaction.ObjId2ID.ToString(); // convert to string
                     XmlAttribute XChildInteractionType = Xdoc.CreateAttribute("type"); // y pos
-                    XChildInteractionType.Value = interaction.OBJINTERACTIONTYPE.ToString(); // convert to string
-                    XChild.Attributes.Append(XChildObj1Id);
-                    XChild.Attributes.Append(XChildObj2Id);
+                    XChildInteractionType.Value = interaction.GameObjectINTERACTIONTYPE.ToString(); // convert to string
+                    XChild.Attributes.Append(XChildObjId1Id);
+                    XChild.Attributes.Append(XChildObjId2Id);
                     XChild.Attributes.Append(XChildInteractionType);
                     XRootnode.AppendChild(XChild);
                 }
@@ -177,11 +177,11 @@ namespace Free
         }
 
 
-        private void ObjMenu_ObjManager_Click(object sender, RoutedEventArgs e)
+        private void GameObjectMenu_GameObjectManager_Click(object sender, RoutedEventArgs e)
         {
-            ObjectManager ObjectManager = new ObjectManager(this);
-            ObjectManager.Owner = this;
-            ObjectManager.Show();
+            IGameObjectManager IGameObjectManager = new IGameObjectManager(this);
+            IGameObjectManager.Owner = this;
+            IGameObjectManager.Show();
         }
 
     }

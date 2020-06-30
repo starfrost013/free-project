@@ -57,7 +57,7 @@ namespace Free
             * Script commands are parsde in the format CCCC pn1:p1 pn2:p2 pn3:p3 ...
             * where CCCC is the command name, pn1, pn2, pn3, etc are the parameter names, and p1, p2, p3, etc are the parameters for this command.
             * For example:
-            * Insert_Object TestObject1 x:650 y:400 
+            * Insert_IGameObject TestIObjId1 x:650 y:400 
             * 
             * Keywords might be added later.
             */

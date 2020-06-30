@@ -15,60 +15,60 @@ using System.Windows;
 /// 
 /// Version: 1.70
 /// 
-/// Purpose: Defines Sentient Beings, such as players and AI-enabled objects. Obj/Being split (ver. 0.20)
+/// Purpose: Defines Sentient Beings, such as players and AI-enabled IGameObjects. GameObject/Being split (ver. 0.20)
 /// 
 /// </summary>
 
 namespace Free
 {
-    public partial class SentientBeing : Obj
+    public partial class SentientBeing : GameObject
     {
-        public override bool OBJISPLAYER { get; set; } // new for compatibility purposes
-        public override double OBJDAMAGE { get; set; }
-        public override double OBJHEALTH { get; set;}
-        public override double OBJLEVEL { get; set; }
-        public override double OBJLEVELDAMAGE { get; set; }
-        public override int OBJLIVES { get; set; }
-        public override AI OBJAI { get; set; } // eww
-        public SentientBeing(IGameObject obj, bool ObjIsPlayer, double PlayerDamage, double BeingHealth, double BeingLevel, double BeingLevelDamage, int BeingLives, int currentIntId)
+        public override bool GameObjectISPLAYER { get; set; } // new for compatibility purposes
+        public override double GameObjectDAMAGE { get; set; }
+        public override double GameObjectHEALTH { get; set;}
+        public override double GameObjectLEVEL { get; set; }
+        public override double GameObjectLEVELDAMAGE { get; set; }
+        public override int GameObjectLIVES { get; set; }
+        public override AI GameObjectAI { get; set; } // eww
+        public SentientBeing(IGameObject GameObject, bool GameObjectIsPlayer, double PlayerDamage, double BeingHealth, double BeingLevel, double BeingLevelDamage, int BeingLives, int currentIntId)
         {
-            this.OBJANIMATIONS = obj.OBJANIMATIONS;
-            this.OBJINTERNALID = obj.OBJINTERNALID;
-            this.OBJID = obj.OBJID;
-            this.OBJIMAGE = obj.OBJIMAGE;
-            this.OBJIMAGEPATH = obj.OBJIMAGEPATH;
-            this.OBJNAME = obj.OBJNAME;
-            this.OBJGRAV = obj.OBJGRAV;
-            this.OBJACCELERATION = obj.OBJACCELERATION;
-            this.OBJFORCE = obj.OBJFORCE;
-            this.OBJPLAYERDAMAGE = obj.OBJPLAYERDAMAGE;
-            this.OBJHITBOX = obj.OBJHITBOX;
-            this.OBJMASS = obj.OBJMASS;
-            this.OBJPRIORITY = obj.OBJPRIORITY;
-            this.OBJCANCOLLIDE = obj.OBJCANCOLLIDE;
-            this.OBJCANSNAP = obj.OBJCANSNAP;
-            this.OBJCOLLIDEDOBJECTS = new List<IGameObject>(); 
-            this.OBJX = obj.OBJX;
-            this.OBJY = obj.OBJY;
-            this.OBJAI = obj.OBJAI;
-            this.OBJPLAYER = obj.OBJPLAYER;
-            this.OBJINTERNALID = currentIntId;
-            this.OBJISPLAYER = ObjIsPlayer;
-            this.OBJDAMAGE = PlayerDamage;
-            this.OBJHEALTH = BeingHealth;
-            this.OBJLEVEL = BeingLevel;
-            this.OBJDAMAGE = BeingLevelDamage;
-            this.OBJLIVES = BeingLives;
-            this.OBJCANMOVELEFT = true;
-            this.OBJCANMOVERIGHT = true;
+            this.GameObjectANIMATIONS = GameObject.GameObjectANIMATIONS;
+            this.GameObjectINTERNALID = GameObject.GameObjectINTERNALID;
+            this.GameObjectID = GameObject.GameObjectID;
+            this.GameObjectIMAGE = GameObject.GameObjectIMAGE;
+            this.GameObjectIMAGEPATH = GameObject.GameObjectIMAGEPATH;
+            this.GameObjectNAME = GameObject.GameObjectNAME;
+            this.GameObjectGRAV = GameObject.GameObjectGRAV;
+            this.GameObjectACCELERATION = GameObject.GameObjectACCELERATION;
+            this.GameObjectFORCE = GameObject.GameObjectFORCE;
+            this.GameObjectPLAYERDAMAGE = GameObject.GameObjectPLAYERDAMAGE;
+            this.GameObjectHITBOX = GameObject.GameObjectHITBOX;
+            this.GameObjectMASS = GameObject.GameObjectMASS;
+            this.GameObjectPRIORITY = GameObject.GameObjectPRIORITY;
+            this.GameObjectCANCOLLIDE = GameObject.GameObjectCANCOLLIDE;
+            this.GameObjectCANSNAP = GameObject.GameObjectCANSNAP;
+            this.CollidedLevelObjects = new List<IGameObject>(); 
+            this.GameObjectX = GameObject.GameObjectX;
+            this.GameObjectY = GameObject.GameObjectY;
+            this.GameObjectAI = GameObject.GameObjectAI;
+            this.GameObjectPLAYER = GameObject.GameObjectPLAYER;
+            this.GameObjectINTERNALID = currentIntId;
+            this.GameObjectISPLAYER = GameObjectIsPlayer;
+            this.GameObjectDAMAGE = PlayerDamage;
+            this.GameObjectHEALTH = BeingHealth;
+            this.GameObjectLEVEL = BeingLevel;
+            this.GameObjectDAMAGE = BeingLevelDamage;
+            this.GameObjectLIVES = BeingLives;
+            this.GameObjectCANMOVELEFT = true;
+            this.GameObjectCANMOVERIGHT = true;
         }
 
         public SentientBeing()
         {
             AssociatedScriptPaths = new List<ScriptReference>();
-            OBJCOLLIDEDOBJECTS = new List<IGameObject>();
-            OBJHITBOX = new List<Point>();
-            OBJANIMATIONS = new List<Animation>();
+            CollidedLevelObjects = new List<IGameObject>();
+            GameObjectHITBOX = new List<Point>();
+            GameObjectANIMATIONS = new List<Animation>();
         }
 
         public override void MoveLeft()
@@ -84,16 +84,16 @@ namespace Free
         public override void Jump()
         {
             this.ChgAcceleration(0, -Physics.JumpForce);
-            this.OBJISJUMPING = true;
+            this.GameObjectISJUMPING = true;
         }
         
     }
 
     public partial class FreeSDL
     {
-        public static bool IsSentientBeing(object obj)
+        public static bool IsSentientBeing(IGameObject GameObject)
         {
-            return obj is SentientBeing;
+            return GameObject is SentientBeing;
         }
     }
 }

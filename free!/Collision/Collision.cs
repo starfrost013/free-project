@@ -13,11 +13,9 @@ using System.Windows.Shapes;
 /// 
 /// Created: 2019-11-20
 /// 
-/// Modified: 2020-05-27
+/// Modified: 2020-06-29
 /// 
-/// Free Version: 0.20+ (Engine version 2.20)
-/// 
-/// Version: 3.01
+/// Version: 3.10
 /// 
 /// Purpose: Handles collisions and manages interactions. Split off from Physics.cs 2019-11-20. 
 /// 
@@ -28,95 +26,95 @@ namespace Free
 {
     partial class FreeSDL
     {
-        public void HandleCollision(IGameObject obj)
+        public void HandleCollision(IGameObject GameObject)
         {
-            Rect ObjPos = new Rect();
-            Rect ObjxPos = new Rect();
+            Rect GameObjectPos = new Rect();
+            Rect GameObjectxPos = new Rect();
 
             //player death (move this code!!!)
-            if (obj.OBJY > currentlevel.PLRKILLY && currentlevel.PLRKILLY != null && IsSentientBeing(obj))
+            if (GameObject.GameObjectY > currentlevel.PLRKILLY && currentlevel.PLRKILLY != null && IsSentientBeing(GameObject))
             {
                 //move trincid and other SentientBeings to their starting positions
-                obj.OBJX = currentlevel.PlayerStartPosition.X;
-                obj.OBJY = currentlevel.PlayerStartPosition.Y;
-                obj.OBJPLAYERLIVES -= 1;
+                GameObject.GameObjectX = currentlevel.PlayerStartPosition.X;
+                GameObject.GameObjectY = currentlevel.PlayerStartPosition.Y;
+                GameObject.GameObjectPLAYERLIVES -= 1;
             }
 
-            if (obj.OBJHITBOX.Count == 0)
+            if (GameObject.GameObjectHITBOX.Count == 0)
             {
-                ObjPos = new Rect(new Point(obj.OBJX, obj.OBJY), new Point(obj.OBJX + obj.OBJIMAGE.PixelWidth, obj.OBJY + obj.OBJIMAGE.PixelHeight)); // default hitbox - image size
+                GameObjectPos = new Rect(new Point(GameObject.GameObjectX, GameObject.GameObjectY), new Point(GameObject.GameObjectX + GameObject.GameObjectIMAGE.PixelWidth, GameObject.GameObjectY + GameObject.GameObjectIMAGE.PixelHeight)); // default hitbox - image size
             }
             else
             {
-                ObjPos = new Rect(new Point(obj.OBJX + obj.OBJHITBOX[0].X, obj.OBJY + obj.OBJHITBOX[0].Y), new Point(obj.OBJX + obj.OBJHITBOX[1].X, obj.OBJY + obj.OBJHITBOX[1].Y)); // get the hitbox
+                GameObjectPos = new Rect(new Point(GameObject.GameObjectX + GameObject.GameObjectHITBOX[0].X, GameObject.GameObjectY + GameObject.GameObjectHITBOX[0].Y), new Point(GameObject.GameObjectX + GameObject.GameObjectHITBOX[1].X, GameObject.GameObjectY + GameObject.GameObjectHITBOX[1].Y)); // get the hitbox
             }
             //TODO: CONVERT TO
-            for (int i = 0; i < currentlevel.LevelObjects.Count; i++)
+            for (int i = 0; i < currentlevel.LevelIGameObjects.Count; i++)
             {
-                IGameObject objx = currentlevel.LevelObjects[i];
+                IGameObject GameObjectx = currentlevel.LevelIGameObjects[i];
 
-                if (obj.OBJINTERNALID != objx.OBJINTERNALID)
+                if (GameObject.GameObjectINTERNALID != GameObjectx.GameObjectINTERNALID)
                 {
-                    if (objx.OBJHITBOX.Count == 0)
+                    if (GameObjectx.GameObjectHITBOX.Count == 0)
                     {
-                        ObjxPos = new Rect(new Point(objx.OBJX, objx.OBJY), new Point(objx.OBJX + objx.OBJIMAGE.PixelWidth, objx.OBJY + objx.OBJIMAGE.PixelHeight));
+                        GameObjectxPos = new Rect(new Point(GameObjectx.GameObjectX, GameObjectx.GameObjectY), new Point(GameObjectx.GameObjectX + GameObjectx.GameObjectIMAGE.PixelWidth, GameObjectx.GameObjectY + GameObjectx.GameObjectIMAGE.PixelHeight));
                     }
                     else
                     {
-                        ObjxPos = new Rect(new Point(objx.OBJX + objx.OBJHITBOX[0].X, objx.OBJY + objx.OBJHITBOX[0].Y), new Point(objx.OBJX + objx.OBJHITBOX[1].X, objx.OBJY + objx.OBJHITBOX[1].Y));
+                        GameObjectxPos = new Rect(new Point(GameObjectx.GameObjectX + GameObjectx.GameObjectHITBOX[0].X, GameObjectx.GameObjectY + GameObjectx.GameObjectHITBOX[0].Y), new Point(GameObjectx.GameObjectX + GameObjectx.GameObjectHITBOX[1].X, GameObjectx.GameObjectY + GameObjectx.GameObjectHITBOX[1].Y));
                     }
 
                     // What the fuck was I on?
 
-                    if (obj.OBJGRAV && obj.OBJCOLLISIONS > 0 & !obj.OBJISJUMPING) // bld 932: don't accidentally assign objgrav to false!
+                    if (GameObject.GameObjectGRAV && GameObject.GameObjectCOLLISIONS > 0 & !GameObject.GameObjectISJUMPING) // bld 932: don't accidentally assign GameObjectgrav to false!
                     {
-                        obj.OBJSPEEDY = 0;
-                        obj.OBJACCELERATIONY = 0;
-                        obj.OBJDECELERATIONY = 0;
+                        GameObject.GameObjectSPEEDY = 0;
+                        GameObject.GameObjectACCELERATIONY = 0;
+                        GameObject.GameObjectDECELERATIONY = 0;
                     }
 
-                    if (!obj.OBJCOLLIDEDOBJECTS.Contains(objx))
+                    if (!GameObject.CollidedLevelObjects.Contains(GameObjectx))
                     {
-                        if (ObjPos.IntersectsWith(ObjxPos))
+                        if (GameObjectPos.IntersectsWith(GameObjectxPos))
                         {
-                            obj.OBJCOLLISIONS++;
-                            obj.OBJCOLLIDEDOBJECTS.Add(objx);
+                            GameObject.GameObjectCOLLISIONS++;
+                            GameObject.CollidedLevelObjects.Add(GameObjectx);
                             for (int j = 0; j < InteractionList.Count; j++) // interactions
                             {
                                 Interaction interaction = InteractionList[j];
 
-                                if (obj.OBJID == interaction.OBJ1ID && objx.OBJID == interaction.OBJ2ID)
+                                if (GameObject.GameObjectID == interaction.ObjId1ID && GameObjectx.GameObjectID == interaction.ObjId2ID)
                                 {
-                                    switch (interaction.OBJINTERACTIONTYPE)
+                                    switch (interaction.GameObjectINTERACTIONTYPE)
                                     {
                                         case InteractionType.Bounce:
-                                            Interaction_Bounce(obj);
-                                            obj.OBJCOLLISIONS--;
-                                            obj.OBJCOLLIDEDOBJECTS.Remove(objx);
+                                            Interaction_Bounce(GameObject);
+                                            GameObject.GameObjectCOLLISIONS--;
+                                            GameObject.CollidedLevelObjects.Remove(GameObjectx);
                                             continue;
                                         case InteractionType.BounceLeft:
-                                            Interaction_BounceLeft(obj);
-                                            obj.OBJCOLLISIONS--;
-                                            obj.OBJCOLLIDEDOBJECTS.Remove(objx);
+                                            Interaction_BounceLeft(GameObject);
+                                            GameObject.GameObjectCOLLISIONS--;
+                                            GameObject.CollidedLevelObjects.Remove(GameObjectx);
                                             continue;
                                         case InteractionType.BounceRight:
-                                            Interaction_BounceRight(obj);
-                                            obj.OBJCOLLISIONS--;
-                                            obj.OBJCOLLIDEDOBJECTS.Remove(objx);
+                                            Interaction_BounceRight(GameObject);
+                                            GameObject.GameObjectCOLLISIONS--;
+                                            GameObject.CollidedLevelObjects.Remove(GameObjectx);
                                             continue;
                                         case InteractionType.ChangeLevel:
                                             Interaction_ChangeLevel();
                                             continue;
                                         case InteractionType.Hurt:
-                                            Interaction_Hurt(objx, obj.OBJPLAYERDAMAGE);
+                                            Interaction_Hurt(GameObjectx, GameObject.GameObjectPLAYERDAMAGE);
                                             continue;
                                         case InteractionType.Kill:
-                                            obj = Interaction_Kill(objx);
+                                            GameObject = Interaction_Kill(GameObjectx);
                                             continue;
                                         case InteractionType.Remove:
                                             // temp
-                                            Interaction_Remove(objx, interaction);
-                                            obj.OBJACCELERATIONY += 0.4; //REMOVE HACK
+                                            Interaction_Remove(GameObjectx, interaction);
+                                            GameObject.GameObjectACCELERATIONY += 0.4; //REMOVE HACK
                                             continue;
                                     }
                                 }
@@ -125,24 +123,24 @@ namespace Free
                     }
                     else
                     {
-                        if (objx.OBJHITBOX.Count == 0)
+                        if (GameObjectx.GameObjectHITBOX.Count == 0)
                         {                            
-                            if (obj.OBJY - objx.OBJY > 1 & obj.OBJY - objx.OBJY < objx.OBJIMAGE.PixelHeight & IsSentientBeing(obj))
+                            if (GameObject.GameObjectY - GameObjectx.GameObjectY > 1 & GameObject.GameObjectY - GameObjectx.GameObjectY < GameObjectx.GameObjectIMAGE.PixelHeight & IsSentientBeing(GameObject))
                             {
-                                switch (objx.OBJCANSNAP)
+                                switch (GameObjectx.GameObjectCANSNAP)
                                 {
                                     case true:
-                                        obj.OBJY -= obj.OBJY - objx.OBJY;
+                                        GameObject.GameObjectY -= GameObject.GameObjectY - GameObjectx.GameObjectY;
                                         break;
                                     case false:
-                                        obj.OBJY += 10;
-                                        obj.OBJCOLLISIONS--;
-                                        obj.OBJCOLLIDEDOBJECTS.Remove(objx);
+                                        GameObject.GameObjectY += 10;
+                                        GameObject.GameObjectCOLLISIONS--;
+                                        GameObject.CollidedLevelObjects.Remove(GameObjectx);
                                         //oops (bld 925)
 
-                                        if (obj.OBJGRAV)
+                                        if (GameObject.GameObjectGRAV)
                                         {
-                                           obj.OBJACCELERATIONY = -obj.OBJACCELERATIONY * 3;
+                                           GameObject.GameObjectACCELERATIONY = -GameObject.GameObjectACCELERATIONY * 3;
                                         }
 
                                         return;
@@ -152,21 +150,21 @@ namespace Free
                         }
                         else
                         {
-                            if (obj.OBJY - objx.OBJY > 1 & obj.OBJY - objx.OBJY < objx.OBJY + objx.OBJHITBOX[1].Y & IsSentientBeing(obj))
+                            if (GameObject.GameObjectY - GameObjectx.GameObjectY > 1 & GameObject.GameObjectY - GameObjectx.GameObjectY < GameObjectx.GameObjectY + GameObjectx.GameObjectHITBOX[1].Y & IsSentientBeing(GameObject))
                             {
-                                switch (objx.OBJCANSNAP)
+                                switch (GameObjectx.GameObjectCANSNAP)
                                 {
                                     case true:
-                                        obj.OBJY -= objx.OBJHITBOX[1].Y; //chg to amount in object.
+                                        GameObject.GameObjectY -= GameObjectx.GameObjectHITBOX[1].Y; //chg to amount in IGameObject.
                                         break;
                                     case false:
-                                        obj.OBJY += objx.OBJIMAGE.PixelHeight - objx.OBJHITBOX[1].Y;
-                                        obj.OBJCOLLISIONS--;
-                                        obj.OBJCOLLIDEDOBJECTS.Remove(objx);
+                                        GameObject.GameObjectY += GameObjectx.GameObjectIMAGE.PixelHeight - GameObjectx.GameObjectHITBOX[1].Y;
+                                        GameObject.GameObjectCOLLISIONS--;
+                                        GameObject.CollidedLevelObjects.Remove(GameObjectx);
 
-                                        if (obj.OBJGRAV)
+                                        if (GameObject.GameObjectGRAV)
                                         {
-                                            obj.OBJACCELERATIONY = -obj.OBJACCELERATIONY * 2;
+                                            GameObject.GameObjectACCELERATIONY = -GameObject.GameObjectACCELERATIONY * 2;
                                         }
 
                                         return;
@@ -175,94 +173,94 @@ namespace Free
                         }
 
 
-                        if (obj.OBJHITBOX.Count == 0)
+                        if (GameObject.GameObjectHITBOX.Count == 0)
                         {
-                            if (obj.OBJX - objx.OBJX < 0 & obj.OBJX - objx.OBJX > -obj.OBJIMAGE.PixelWidth & obj.OBJY - objx.OBJY < 0 & obj.OBJY - objx.OBJY > -obj.OBJIMAGE.PixelHeight / 1.6 & IsSentientBeing(obj))
+                            if (GameObject.GameObjectX - GameObjectx.GameObjectX < 0 & GameObject.GameObjectX - GameObjectx.GameObjectX > -GameObject.GameObjectIMAGE.PixelWidth & GameObject.GameObjectY - GameObjectx.GameObjectY < 0 & GameObject.GameObjectY - GameObjectx.GameObjectY > -GameObject.GameObjectIMAGE.PixelHeight / 1.6 & IsSentientBeing(GameObject))
                             {
-                                if (obj.OBJSPEED > 0)
+                                if (GameObject.GameObjectSPEED > 0)
                                 {
-                                    obj.OBJSPEED = -obj.OBJSPEED;
+                                    GameObject.GameObjectSPEED = -GameObject.GameObjectSPEED;
 
-                                    if (obj.OBJSPEEDY < 0)
+                                    if (GameObject.GameObjectSPEEDY < 0)
                                     {
-                                        obj.OBJSPEEDY = -obj.OBJSPEEDY;
+                                        GameObject.GameObjectSPEEDY = -GameObject.GameObjectSPEEDY;
                                     }
 
-                                    obj.OBJACCELERATION = 0;
-                                    obj.OBJCOLLISIONS--;
-                                    obj.OBJCOLLIDEDOBJECTS.Remove(objx);
-                                    //obj.OBJCANMOVERIGHT = false;
+                                    GameObject.GameObjectACCELERATION = 0;
+                                    GameObject.GameObjectCOLLISIONS--;
+                                    GameObject.CollidedLevelObjects.Remove(GameObjectx);
+                                    //GameObject.GameObjectCANMOVERIGHT = false;
                                 }
                             }
-                            else if (obj.OBJX - objx.OBJX > obj.OBJIMAGE.PixelWidth & obj.OBJX - objx.OBJX < obj.OBJIMAGE.PixelWidth * 2 & obj.OBJY > 0 & obj.OBJY - objx.OBJY < obj.OBJIMAGE.PixelHeight / 1.6 & IsSentientBeing(obj))
+                            else if (GameObject.GameObjectX - GameObjectx.GameObjectX > GameObject.GameObjectIMAGE.PixelWidth & GameObject.GameObjectX - GameObjectx.GameObjectX < GameObject.GameObjectIMAGE.PixelWidth * 2 & GameObject.GameObjectY > 0 & GameObject.GameObjectY - GameObjectx.GameObjectY < GameObject.GameObjectIMAGE.PixelHeight / 1.6 & IsSentientBeing(GameObject))
                             {
-                                if (obj.OBJSPEED < 0)
+                                if (GameObject.GameObjectSPEED < 0)
                                 {
-                                    obj.OBJSPEED = -obj.OBJSPEED;
+                                    GameObject.GameObjectSPEED = -GameObject.GameObjectSPEED;
 
-                                    if (obj.OBJSPEEDY < 0)
+                                    if (GameObject.GameObjectSPEEDY < 0)
                                     {
-                                        obj.OBJSPEEDY = -obj.OBJSPEEDY;
+                                        GameObject.GameObjectSPEEDY = -GameObject.GameObjectSPEEDY;
                                     }
 
-                                    obj.OBJACCELERATION = 0;
-                                    obj.OBJCOLLISIONS--;
-                                    obj.OBJCOLLIDEDOBJECTS.Remove(objx);
-                                    //obj.OBJCANMOVERIGHT = false;
+                                    GameObject.GameObjectACCELERATION = 0;
+                                    GameObject.GameObjectCOLLISIONS--;
+                                    GameObject.CollidedLevelObjects.Remove(GameObjectx);
+                                    //GameObject.GameObjectCANMOVERIGHT = false;
                                 }
                             }
                         }
                         else
                         {
-                            if (obj.OBJX - objx.OBJX < obj.OBJHITBOX[0].X & obj.OBJX - objx.OBJX > -obj.OBJHITBOX[1].X & obj.OBJY - objx.OBJY < obj.OBJHITBOX[0].Y & obj.OBJY - objx.OBJY > -obj.OBJHITBOX[1].Y/1.6 & IsSentientBeing(obj))
+                            if (GameObject.GameObjectX - GameObjectx.GameObjectX < GameObject.GameObjectHITBOX[0].X & GameObject.GameObjectX - GameObjectx.GameObjectX > -GameObject.GameObjectHITBOX[1].X & GameObject.GameObjectY - GameObjectx.GameObjectY < GameObject.GameObjectHITBOX[0].Y & GameObject.GameObjectY - GameObjectx.GameObjectY > -GameObject.GameObjectHITBOX[1].Y/1.6 & IsSentientBeing(GameObject))
                             {
-                                if (obj.OBJSPEED > 0)
+                                if (GameObject.GameObjectSPEED > 0)
                                 {
-                                    obj.OBJSPEED = -obj.OBJSPEED;
-                                    obj.OBJACCELERATION = 0;
-                                    obj.OBJCOLLISIONS--;
-                                    obj.OBJCOLLIDEDOBJECTS.Remove(objx);
-                                    //obj.OBJCANMOVERIGHT = false;
+                                    GameObject.GameObjectSPEED = -GameObject.GameObjectSPEED;
+                                    GameObject.GameObjectACCELERATION = 0;
+                                    GameObject.GameObjectCOLLISIONS--;
+                                    GameObject.CollidedLevelObjects.Remove(GameObjectx);
+                                    //GameObject.GameObjectCANMOVERIGHT = false;
                                 }
 
                             }
-                            else if (obj.OBJX - objx.OBJX > obj.OBJHITBOX[1].X & obj.OBJX - objx.OBJX < obj.OBJHITBOX[1].X * 2 & obj.OBJY > obj.OBJHITBOX[0].Y & obj.OBJY - objx.OBJY < obj.OBJHITBOX[1].Y * 1.6 & IsSentientBeing(obj))
+                            else if (GameObject.GameObjectX - GameObjectx.GameObjectX > GameObject.GameObjectHITBOX[1].X & GameObject.GameObjectX - GameObjectx.GameObjectX < GameObject.GameObjectHITBOX[1].X * 2 & GameObject.GameObjectY > GameObject.GameObjectHITBOX[0].Y & GameObject.GameObjectY - GameObjectx.GameObjectY < GameObject.GameObjectHITBOX[1].Y * 1.6 & IsSentientBeing(GameObject))
                             {
-                                if (obj.OBJSPEED < 0)
+                                if (GameObject.GameObjectSPEED < 0)
                                 {
-                                    obj.OBJSPEED = -obj.OBJSPEED;
-                                    obj.OBJACCELERATION = 0;
-                                    obj.OBJCOLLISIONS--;
-                                    obj.OBJCOLLIDEDOBJECTS.Remove(objx);
+                                    GameObject.GameObjectSPEED = -GameObject.GameObjectSPEED;
+                                    GameObject.GameObjectACCELERATION = 0;
+                                    GameObject.GameObjectCOLLISIONS--;
+                                    GameObject.CollidedLevelObjects.Remove(GameObjectx);
                                 }
                             }
                         }
                     }
 
                     //AMMO Annihilation.
-                    if (obj.OBJHELDWEAPON != null)
+                    if (GameObject.GameObjectHELDWEAPON != null)
                     {
                         // yeah
-                        if (obj.OBJHELDWEAPON.WEAPONAMMOLIST.Count > 0)
+                        if (GameObject.GameObjectHELDWEAPON.WEAPONAMMOLIST.Count > 0)
                         {
-                            for (int j = 0; j < obj.OBJHELDWEAPON.WEAPONAMMOLIST.Count; j++)
+                            for (int j = 0; j < GameObject.GameObjectHELDWEAPON.WEAPONAMMOLIST.Count; j++)
                             {
-                                Ammo ammo = obj.OBJHELDWEAPON.WEAPONAMMOLIST[j];
+                                Ammo ammo = GameObject.GameObjectHELDWEAPON.WEAPONAMMOLIST[j];
 
                                 // Get a lock for the ammo. 
                                 lock (ammo)
                                 {
-                                    Rect rect = new Rect(new Point(ammo.X, ammo.Y), new Point(ammo.X + obj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelWidth, ammo.Y + obj.OBJHELDWEAPON.WEAPONIMAGEAMMO.PixelHeight));
+                                    Rect rect = new Rect(new Point(ammo.X, ammo.Y), new Point(ammo.X + GameObject.GameObjectHELDWEAPON.WEAPONIMAGEAMMO.PixelWidth, ammo.Y + GameObject.GameObjectHELDWEAPON.WEAPONIMAGEAMMO.PixelHeight));
 
-                                    if (rect.IntersectsWith(ObjxPos))
+                                    if (rect.IntersectsWith(GameObjectxPos))
                                     {
                                         //annihilate.
-                                        PlayAmmoAnimation(obj.OBJHELDWEAPON, ammo, AnimationType.Hit);
+                                        PlayAmmoAnimation(GameObject.GameObjectHELDWEAPON, ammo, AnimationType.Hit);
 
-                                        if (IsSentientBeing(obj)) //damage the player
+                                        if (IsSentientBeing(GameObject)) //damage the player
                                         {
                                             //still considering having a level system.
-                                            obj.OBJHEALTH -= 10; //TESTING PURPOSES ONLY.
+                                            GameObject.GameObjectHEALTH -= 10; //TESTING PURPOSES ONLY.
                                         }
 
                                         ammo.SPEEDX = 0;
@@ -274,44 +272,44 @@ namespace Free
                 }
             }
 
-            for (int i = 0; i < obj.OBJCOLLIDEDOBJECTS.Count; i++) // collided objects 
+            for (int i = 0; i < GameObject.CollidedLevelObjects.Count; i++) // collided IGameObjects 
             {
-                IGameObject objx = obj.OBJCOLLIDEDOBJECTS[i];
-                if (obj.OBJINTERNALID != objx.OBJINTERNALID)
+                IGameObject GameObjectx = GameObject.CollidedLevelObjects[i];
+                if (GameObject.GameObjectINTERNALID != GameObjectx.GameObjectINTERNALID)
                 {
-                    if (objx.OBJHITBOX.Count == 0)
+                    if (GameObjectx.GameObjectHITBOX.Count == 0)
                     {
-                        ObjxPos = new Rect(new Point(objx.OBJX, objx.OBJY), new Point(objx.OBJX + objx.OBJIMAGE.PixelWidth, objx.OBJY + objx.OBJIMAGE.PixelHeight));
+                        GameObjectxPos = new Rect(new Point(GameObjectx.GameObjectX, GameObjectx.GameObjectY), new Point(GameObjectx.GameObjectX + GameObjectx.GameObjectIMAGE.PixelWidth, GameObjectx.GameObjectY + GameObjectx.GameObjectIMAGE.PixelHeight));
                     }
                     else
                     {
-                        ObjxPos = new Rect(new Point(objx.OBJX + objx.OBJHITBOX[0].X, objx.OBJY + objx.OBJHITBOX[0].Y), new Point(objx.OBJX + objx.OBJHITBOX[1].X, objx.OBJY + objx.OBJHITBOX[1].Y)); // base this on the hitbox if its not null
+                        GameObjectxPos = new Rect(new Point(GameObjectx.GameObjectX + GameObjectx.GameObjectHITBOX[0].X, GameObjectx.GameObjectY + GameObjectx.GameObjectHITBOX[0].Y), new Point(GameObjectx.GameObjectX + GameObjectx.GameObjectHITBOX[1].X, GameObjectx.GameObjectY + GameObjectx.GameObjectHITBOX[1].Y)); // base this on the hitbox if its not null
                     }
-                    if (!ObjPos.IntersectsWith(ObjxPos))
+                    if (!GameObjectPos.IntersectsWith(GameObjectxPos))
                     {
-                        obj.OBJCOLLISIONS--;
-                        obj.OBJCOLLIDEDOBJECTS.Remove(objx); // remove the object
+                        GameObject.GameObjectCOLLISIONS--;
+                        GameObject.CollidedLevelObjects.Remove(GameObjectx); // remove the IGameObject
                     }
                 }
             }
         }
 
-        private List<Rect> Internal_GetObjectBoundingBoxes(Obj Obj1, Obj Obj2)
+        private List<Rect> Internal_GetIGameObjectBoundingBoxes(GameObject ObjId1, GameObject ObjId2)
         {
-            // fix bad code - obj.Size (point) 
+            // fix bad code - GameObject.Size (point) 
             List<Rect> Rects = new List<Rect>();
-            Rects.Add(new Rect(new Point(Obj1.OBJX, Obj1.OBJY), new Point(Obj1.OBJX + Obj1.OBJIMAGE.PixelWidth, Obj1.OBJY + Obj1.OBJIMAGE.PixelHeight)));
-            Rects.Add(new Rect(new Point(Obj2.OBJX, Obj2.OBJY), new Point(Obj2.OBJX + Obj2.OBJIMAGE.PixelWidth, Obj2.OBJY + Obj2.OBJIMAGE.PixelHeight)));
+            Rects.Add(new Rect(new Point(ObjId1.GameObjectX, ObjId1.GameObjectY), new Point(ObjId1.GameObjectX + ObjId1.GameObjectIMAGE.PixelWidth, ObjId1.GameObjectY + ObjId1.GameObjectIMAGE.PixelHeight)));
+            Rects.Add(new Rect(new Point(ObjId2.GameObjectX, ObjId2.GameObjectY), new Point(ObjId2.GameObjectX + ObjId2.GameObjectIMAGE.PixelWidth, ObjId2.GameObjectY + ObjId2.GameObjectIMAGE.PixelHeight)));
 
             return Rects;
         }
 
         /// <summary>
-        /// Tests if the top of obj1's bounding box collides with 2.
+        /// Tests if the top of ObjId1's bounding box collides with 2.
         /// </summary>
-        public bool TestCollideTop(Obj Obj1, Obj Obj2)
+        public bool TestCollideTop(GameObject ObjId1, GameObject ObjId2)
         {
-            List<Rect> Rects = Internal_GetObjectBoundingBoxes(Obj1, Obj2);
+            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
 
             // Gonna work ons cripting
             double FX = Rects[1].TopLeft.Y + ((Rects[1].BottomRight.Y - Rects[1].TopLeft.Y) / 2);
@@ -326,9 +324,9 @@ namespace Free
             }
         }
 
-        public bool TestCollideBottom(Obj Obj1, Obj Obj2)
+        public bool TestCollideBottom(GameObject ObjId1, GameObject ObjId2)
         {
-            List<Rect> Rects = Internal_GetObjectBoundingBoxes(Obj1, Obj2);
+            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
 
             // Gonna work ons cripting
             double FX = Rects[1].TopLeft.Y + ((Rects[1].BottomRight.Y - Rects[1].TopLeft.Y) / 2);
@@ -343,9 +341,9 @@ namespace Free
             }
         }
 
-        public bool TestCollideLeft(Obj Obj1, Obj Obj2)
+        public bool TestCollideLeft(GameObject ObjId1, GameObject ObjId2)
         {
-            List<Rect> Rects = Internal_GetObjectBoundingBoxes(Obj1, Obj2);
+            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
 
             double Max = Rects[1].TopLeft.X + ((Rects[1].TopRight.Y - Rects[1].TopLeft.Y) / 2);
 
@@ -359,9 +357,9 @@ namespace Free
             }
         }
 
-        public bool TestCollideRight(Obj Obj1, Obj Obj2)
+        public bool TestCollideRight(GameObject ObjId1, GameObject ObjId2)
         {
-            List<Rect> Rects = Internal_GetObjectBoundingBoxes(Obj1, Obj2);
+            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
 
             double Max = Rects[1].TopLeft.X + ((Rects[1].TopRight.Y - Rects[1].TopLeft.Y) / 2);
 

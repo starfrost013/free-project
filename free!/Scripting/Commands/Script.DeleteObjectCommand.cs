@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace Free
 {
-    public class DeleteObjectCommand : ICommandExecutor
+    public class DeleteIGameObjectCommand : ICommandExecutor
     {
         public FreeSDL MnWindow { get; set; }
         public string Name { get; set; }
@@ -82,23 +82,23 @@ namespace Free
 
         }
 
-        public DeleteObjectCommand()
+        public DeleteIGameObjectCommand()
         {
             MnWindow = (FreeSDL)Application.Current.MainWindow;
         }
 
         public void Verify()
         {
-            // Verify that we are actaully inserting an object. 
-            if (Parameters.Count != 1) ScriptError.Throw("DeleteObject(ID): 1 parameter required", 10, 0, "Temp");
+            // Verify that we are actaully inserting an IGameObject. 
+            if (Parameters.Count != 1) ScriptError.Throw("DeleteIGameObject(ID): 1 parameter required", 10, 0, "Temp");
         }
 
         public ScriptReturnValue Execute()
         {
-            //MnWindow.currentlevel.LevelObjects.Add()
-            MnWindow.currentlevel.DeleteObject((int)GetParameter("ID")); 
+            //MnWindow.currentlevel.LevelIGameObjects.Add()
+            MnWindow.currentlevel.DeleteIGameObject((int)GetParameter("ID")); 
 
-            return new ScriptReturnValue { ReturnCode = 0, ReturnInformation = "The operation completed successfully - an object has been added." };
+            return new ScriptReturnValue { ReturnCode = 0, ReturnInformation = "The operation completed successfully - an IGameObject has been added." };
         }
     }
 }

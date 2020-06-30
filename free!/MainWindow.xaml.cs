@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Threading.Tasks;
 using System.Threading;
+using Emerald.Utilities;
 
 /// <summary>
 /// 
@@ -40,8 +41,8 @@ namespace Free
         public System.Timers.Timer PhysicsTimer { get; set; }
         public System.Timers.Timer MainLoopTimer { get; set; }
         public List<Interaction> InteractionList { get; set; }
-        public List<IGameObject> ObjectList { get; set; } // might need to change this
-        public List<Animation> NonObjAnimList { get; set; }
+        public List<IGameObject> IGameObjectList { get; set; } // might need to change this
+        public List<Animation> NonGameObjectAnimList { get; set; }
         public List<AGTextBlock> TextList { get; set; }
         public List<Weapon> WeaponList { get; set; }
         public double DbgMouseClickLevelX { get; set; }
@@ -54,6 +55,7 @@ namespace Free
         public Game SDLGame { get; set; }
         public SimpleESX ScriptingCore { get; set; }
         public Thread SDLThread { get; set; }
+        public EVersion GameVersion { get; set; }
 
         public FreeSDL()
         {
@@ -82,11 +84,11 @@ namespace Free
 
         public void MainLoop(object sender, EventArgs e)
         {
-            foreach (IGameObject Object in currentlevel.LevelObjects)
+            foreach (IGameObject IGameObject in currentlevel.LevelIGameObjects)
             {
-                if (Object.OBJCANCOLLIDE != false) HandleCollision(Object);
-                HandleAnimations(Object); 
-                HandleAI(Object);
+                if (IGameObject.GameObjectCANCOLLIDE != false) HandleCollision(IGameObject);
+                HandleAnimations(IGameObject); 
+                HandleAI(IGameObject);
             }
         }
 
@@ -98,8 +100,7 @@ namespace Free
                     MessageBox.Show("free!\n[nightly]\n© 2019-2020 avant-gardé eyes", "About", MessageBoxButton.OK, MessageBoxImage.Information);
                     return; 
                 case Key.F8:
-                    FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
-                    MessageBox.Show($"avant-gardé engine\nVer. {FVI.FileVersion} (pre-release)\n© 2019-2020 avant-gardé eyes", "About Engine", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show($"avant-gardé engine\nVer. {GameVersion.GetVersionString()} (pre-release)\n© 2019-2020 avant-gardé eyes", "About Engine", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 case Key.F9:
                     if (Settings.DebugMode)
@@ -173,5 +174,6 @@ namespace Free
         {
             Settings.Resolution = new Point(this.Width, this.Height);
         }
+
     }
 }

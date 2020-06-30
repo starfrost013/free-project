@@ -19,7 +19,7 @@ using System.Windows.Shapes;
 
 /// <summary>
 /// 
-/// Objects/ObjLayoutLoader.cs
+/// IGameObjects/GameObjectLayoutLoader.cs
 /// 
 /// Created: 2020-06-23
 /// 
@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 /// 
 /// Version: 1.60
 /// 
-/// Purpose: Handles object loading for SDL-based free!. 
+/// Purpose: Handles IGameObject loading for SDL-based free!. 
 /// 
 /// </summary>
 
@@ -36,12 +36,13 @@ namespace Free
 {
     partial class Level
     {
-        public bool LoadLevelObjects(List<IGameObject> listOfObjects, Level currentlevel) // loads an object layout.
+        public bool LoadLevelIGameObjects(List<IGameObject> listOfIGameObjects, Level currentlevel) // loads an IGameObject layout.
         {
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();
-                XmlDocument.Load(this.LevelObjectsPATH);
+                // debug this tmrw (2020-06-30)
+                XmlDocument.Load(this.LevelIGameObjectsPATH);
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 
                 while (XmlRootNode.Name != "ObjectLayout")
@@ -49,7 +50,7 @@ namespace Free
                     XmlRootNode = XmlRootNode.NextSibling; // ignore all other nodes. TODO - check what it triggers when we run out of nodes, so we can catch the exception.
                 }
 
-                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the Objects node.
+                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the IGameObjects node.
                 int currentIntId = 0;
                 
                 // WORKAROUND for weird bug (RETARDED CODE FIX 2020-06-23 21:43)
@@ -59,43 +60,43 @@ namespace Free
                     if (XmlNode.Name != "#comment")
                     {
                         XmlAttributeCollection XmlAttributes = XmlNode.Attributes; // get the attribute out of each node. 
-                        IGameObject Objx = new Obj(); 
+                        IGameObject GameObjectx = new GameObject(); 
 
-                        foreach (Obj Object in listOfObjects) // yikes. 
+                        foreach (GameObject IGameObject in listOfIGameObjects) // yikes. 
                         {
                             // 2020-05-26: This code is literally horrific. Jesus fucking christ.
-                            if (Object.OBJID == Convert.ToInt32(XmlNode.Attributes[0].Value))
+                            if (IGameObject.GameObjectID == Convert.ToInt32(XmlNode.Attributes[0].Value))
                             {
-                                if (!FreeSDL.IsSentientBeing(Object))
+                                if (!FreeSDL.IsSentientBeing(IGameObject))
                                 {
-                                    Objx.OBJANIMATIONS = Object.OBJANIMATIONS;
-                                    Objx.OBJCOLLIDEDOBJECTS = new List<IGameObject>(); // yeah.
-                                    Objx.OBJINTERNALID = currentIntId;
-                                    Objx.OBJID = Object.OBJID;
-                                    Objx.OBJIMAGE = Object.OBJIMAGE;
-                                    Objx.OBJIMAGEPATH = Object.OBJIMAGEPATH;
-                                    Objx.OBJNAME = Object.OBJNAME;
-                                    Objx.OBJGRAV = Object.OBJGRAV;
-                                    Objx.OBJACCELERATION = Object.OBJACCELERATION;
-                                    Objx.OBJPLAYER = Object.OBJPLAYER;
-                                    Objx.OBJPLAYERDAMAGE = Object.OBJPLAYERDAMAGE;
-                                    Objx.OBJPLAYERHEALTH = Object.OBJPLAYERHEALTH;
-                                    Objx.OBJPLAYERLEVEL = Object.OBJPLAYERLEVEL;
-                                    Objx.OBJPLAYERLIVES = Object.OBJPLAYERLIVES;
-                                    Objx.OBJFORCE = Object.OBJFORCE;
-                                    Objx.OBJHITBOX = Object.OBJHITBOX;
-                                    Objx.OBJMASS = Object.OBJMASS;
-                                    Objx.OBJPRIORITY = Object.OBJPRIORITY;
-                                    Objx.OBJCANCOLLIDE = Object.OBJCANCOLLIDE;
-                                    Objx.OBJCANSNAP = Object.OBJCANSNAP;
-                                    Objx.OBJAI = Object.OBJAI;
-                                    Objx.OBJCANMOVELEFT = true;
-                                    Objx.OBJCANMOVERIGHT = true;
-                                    Objx.OBJCONSTANTANIMNUMBER = 0;
+                                    GameObjectx.GameObjectANIMATIONS = IGameObject.GameObjectANIMATIONS;
+                                    GameObjectx.CollidedLevelObjects = new List<IGameObject>(); // yeah.
+                                    GameObjectx.GameObjectINTERNALID = currentIntId;
+                                    GameObjectx.GameObjectID = IGameObject.GameObjectID;
+                                    GameObjectx.GameObjectIMAGE = IGameObject.GameObjectIMAGE;
+                                    GameObjectx.GameObjectIMAGEPATH = IGameObject.GameObjectIMAGEPATH;
+                                    GameObjectx.GameObjectNAME = IGameObject.GameObjectNAME;
+                                    GameObjectx.GameObjectGRAV = IGameObject.GameObjectGRAV;
+                                    GameObjectx.GameObjectACCELERATION = IGameObject.GameObjectACCELERATION;
+                                    GameObjectx.GameObjectPLAYER = IGameObject.GameObjectPLAYER;
+                                    GameObjectx.GameObjectPLAYERDAMAGE = IGameObject.GameObjectPLAYERDAMAGE;
+                                    GameObjectx.GameObjectPLAYERHEALTH = IGameObject.GameObjectPLAYERHEALTH;
+                                    GameObjectx.GameObjectPLAYERLEVEL = IGameObject.GameObjectPLAYERLEVEL;
+                                    GameObjectx.GameObjectPLAYERLIVES = IGameObject.GameObjectPLAYERLIVES;
+                                    GameObjectx.GameObjectFORCE = IGameObject.GameObjectFORCE;
+                                    GameObjectx.GameObjectHITBOX = IGameObject.GameObjectHITBOX;
+                                    GameObjectx.GameObjectMASS = IGameObject.GameObjectMASS;
+                                    GameObjectx.GameObjectPRIORITY = IGameObject.GameObjectPRIORITY;
+                                    GameObjectx.GameObjectCANCOLLIDE = IGameObject.GameObjectCANCOLLIDE;
+                                    GameObjectx.GameObjectCANSNAP = IGameObject.GameObjectCANSNAP;
+                                    GameObjectx.GameObjectAI = IGameObject.GameObjectAI;
+                                    GameObjectx.GameObjectCANMOVELEFT = true;
+                                    GameObjectx.GameObjectCANMOVERIGHT = true;
+                                    GameObjectx.GameObjectCONSTANTANIMNUMBER = 0;
                                 }
                                 else
                                 {
-                                    Objx = new SentientBeing(Object, Object.OBJPLAYER, Object.OBJPLAYERDAMAGE, Object.OBJPLAYERHEALTH, Object.OBJPLAYERLEVEL, Object.OBJPLAYERLEVELDAMAGE, Object.OBJPLAYERLIVES, currentIntId);
+                                    GameObjectx = new SentientBeing(IGameObject, IGameObject.GameObjectPLAYER, IGameObject.GameObjectPLAYERDAMAGE, IGameObject.GameObjectPLAYERHEALTH, IGameObject.GameObjectPLAYERLEVEL, IGameObject.GameObjectPLAYERLEVELDAMAGE, IGameObject.GameObjectPLAYERLIVES, currentIntId);
                                 }
                                 // This is real shit code, like yandere simulator shit, and it is, in fact, an ugly hack. Damn reference types...
 
@@ -107,43 +108,43 @@ namespace Free
                             {
                                 case "PosX":
                                 case "posx":
-                                    Objx.OBJX = Convert.ToDouble(XmlAttribute.Value);
+                                    GameObjectx.GameObjectX = Convert.ToDouble(XmlAttribute.Value);
                                     continue;
                                 case "PosY":
                                 case "posy":
-                                    Objx.OBJY = Convert.ToDouble(XmlAttribute.Value);
+                                    GameObjectx.GameObjectY = Convert.ToDouble(XmlAttribute.Value);
                                     continue;
                             }
                         }
 
-                        if (Objx.OBJPLAYER)
+                        if (GameObjectx.GameObjectPLAYER)
                         {
                             if (currentlevel.PlayerStartPosition.X == 0 || currentlevel.PlayerStartPosition.Y == 0) // default
                             {
-                                currentlevel.PlayerStartPosition = new Point(Objx.OBJX, Objx.OBJY);
+                                currentlevel.PlayerStartPosition = new Point(GameObjectx.GameObjectX, GameObjectx.GameObjectY);
                             }
                             else
                             {
-                                Objx.OBJX = currentlevel.PlayerStartPosition.X;
-                                Objx.OBJY = currentlevel.PlayerStartPosition.Y;
+                                GameObjectx.GameObjectX = currentlevel.PlayerStartPosition.X;
+                                GameObjectx.GameObjectY = currentlevel.PlayerStartPosition.Y;
                             }
                         }
 
-                        if (Objx.OBJANIMATIONS.Count == 0)
+                        if (GameObjectx.GameObjectANIMATIONS.Count == 0)
                         {
-                            if (Objx.OBJIMAGE.CanFreeze) Objx.OBJIMAGE.Freeze();
+                            if (GameObjectx.GameObjectIMAGE.CanFreeze) GameObjectx.GameObjectIMAGE.Freeze();
                         }
 
                         // Send to SDL for rendering.
                         App AppSDL = (App)Application.Current;
 
                         // Here we temporarily use WPF.variables. THIS IS EXTREMELY TEMPORARY CODE WE WILL HAVE OUR OWN SDLLOAD METHOD OK
-                        if (!AppSDL.SDLGame.CurrentScene.LoadImage(@Objx.OBJIMAGEPATH, new SDLPoint(Objx.OBJX, Objx.OBJY), Objx.OBJIMAGE.PixelWidth, Objx.OBJIMAGE.PixelHeight))
+                        if (!AppSDL.SDLGame.CurrentScene.LoadImage(@GameObjectx.GameObjectIMAGEPATH, new SDLPoint(GameObjectx.GameObjectX, GameObjectx.GameObjectY), GameObjectx.GameObjectIMAGE.PixelWidth, GameObjectx.GameObjectIMAGE.PixelHeight))
                         {
                             Error.Throw(null, ErrorSeverity.FatalError, "Fatal error loading image", "avant-garde engine", 93); 
                         }
 
-                        currentlevel.LevelObjects.Add(Objx);
+                        currentlevel.LevelIGameObjects.Add(GameObjectx);
 
                         currentIntId++;
                     }
@@ -152,17 +153,17 @@ namespace Free
             }
             catch (XmlException err)
             {
-                MessageBox.Show($"A critical error occurred while loading {this.LevelObjectsPATH}:\n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"A critical error occurred while loading {this.LevelIGameObjectsPATH}:\n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(0x6666DEAD);
             }
             catch (FormatException err)
             {
-                MessageBox.Show($"A critical error occurred while loading {this.LevelObjectsPATH}:\n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"A critical error occurred while loading {this.LevelIGameObjectsPATH}:\n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(0x6667DEAD);
             }
             catch (FileNotFoundException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent object layout, or error loading an object layout. This is most likely because the Goal object attempted to trigger its interaction but the next level by ID doesn't have an object layout or it failed to load.", "avant-gardé engine", 8);
+                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent IGameObject layout, or error loading an IGameObject layout. This is most likely because the Goal IGameObject attempted to trigger its interaction but the next level by ID doesn't have an IGameObject layout or it failed to load.", "avant-gardé engine", 8);
                 Environment.Exit(0x6668DEAD);
             }
 

@@ -15,13 +15,13 @@ using System.Windows.Shapes;
 namespace Free
 {
     /// <summary>
-    /// Interaction logic for EditMode.ObjectManagerV2.xaml
+    /// Interaction logic for EditMode.IGameObjectManagerV2.xaml
     /// </summary>
 
-    public partial class ObjectManager : Window
+    public partial class IGameObjectManager : Window
     {
         public FreeSDL MnWindow { get; set; }
-        public ObjectManager(FreeSDL FreeSDL)
+        public IGameObjectManager(FreeSDL FreeSDL)
         {
             InitializeComponent();
             MnWindow = FreeSDL;
@@ -32,25 +32,25 @@ namespace Free
 
         public void Refresh()
         {
-            if (ObjNameList.Items.Count > 0) // prevent it from getting filled multiple times
+            if (GameObjectNameList.Items.Count > 0) // prevent it from getting filled multiple times
             {
-                ObjNameList.Items.Clear();
+                GameObjectNameList.Items.Clear();
             }
 
-            foreach (Obj obj in MnWindow.ObjectList)
+            foreach (GameObject GameObject in MnWindow.IGameObjectList)
             {
-                // add the objects
-                ObjNameList.Items.Add($"{obj.OBJNAME}");
+                // add the IGameObjects
+                GameObjectNameList.Items.Add($"{GameObject.GameObjectNAME}");
             }
 
-            if (ObjNameListLvl.Items.Count > 0)
+            if (GameObjectNameListLvl.Items.Count > 0)
             {
-                ObjNameListLvl.Items.Clear();
+                GameObjectNameListLvl.Items.Clear();
             }
 
-            foreach (Obj obj in MnWindow.currentlevel.LevelObjects)
+            foreach (GameObject GameObject in MnWindow.currentlevel.LevelIGameObjects)
             {
-                ObjNameListLvl.Items.Add($"{obj.OBJNAME} (X: {obj.OBJX} Y: {obj.OBJY})");
+                GameObjectNameListLvl.Items.Add($"{GameObject.GameObjectNAME} (X: {GameObject.GameObjectX} Y: {GameObject.GameObjectY})");
             }
 
         }
@@ -59,43 +59,43 @@ namespace Free
         {
             try
             {
-                if (ObjNameList.SelectedIndex == -1)
+                if (GameObjectNameList.SelectedIndex == -1)
                 {
                     // the user did not select anything
-                    Error.Throw(new Exception("DEBUG: The user did not select an object to add when using edit mode."), ErrorSeverity.Warning, "Please select an object to add.", "avant-gardé engine ver 2.11", 14);
+                    Error.Throw(new Exception("DEBUG: The user did not select an IGameObject to add when using edit mode."), ErrorSeverity.Warning, "Please select an IGameObject to add.", "avant-gardé engine ver 2.11", 14);
                 }
 
-                // EWW!! WHY DOES THIS CODE EXIST! IT IS VERY UGLY AND RETARDED! USE THE OBJ FOR GOD SAKE!
-                foreach (IGameObject obj in MnWindow.ObjectList)
+                // EWW!! WHY DOES THIS CODE EXIST! IT IS VERY UGLY AND RETARDED! USE THE GameObject FOR GOD SAKE!
+                foreach (IGameObject GameObject in MnWindow.IGameObjectList)
                 {
-                    if (obj.OBJID == ObjNameList.SelectedIndex)
+                    if (GameObject.GameObjectID == GameObjectNameList.SelectedIndex)
                     {
-                        Obj objx = new Obj();
-                        objx.OBJANIMATIONS = obj.OBJANIMATIONS;
-                        objx.OBJINTERNALID = MnWindow.currentlevel.LevelObjects.Count;
-                        objx.OBJID = obj.OBJID;
-                        objx.OBJIMAGE = obj.OBJIMAGE;
-                        objx.OBJIMAGEPATH = obj.OBJIMAGEPATH;
-                        objx.OBJNAME = obj.OBJNAME;
-                        objx.OBJGRAV = obj.OBJGRAV;
-                        objx.OBJACCELERATION = obj.OBJACCELERATION;
-                        objx.OBJFORCE = obj.OBJFORCE;
-                        objx.OBJPLAYER = obj.OBJPLAYER;
-                        objx.OBJPLAYERDAMAGE = obj.OBJPLAYERDAMAGE;
-                        objx.OBJCANCOLLIDE = obj.OBJCANCOLLIDE;
-                        objx.OBJHITBOX = obj.OBJHITBOX;
-                        objx.OBJMASS = obj.OBJMASS;
-                        objx.OBJPRIORITY = obj.OBJPRIORITY;
-                        objx.OBJCANSNAP = obj.OBJCANSNAP;
-                        objx.OBJAI = obj.OBJAI;
-                        objx.OBJCOLLIDEDOBJECTS = new List<IGameObject>(); // yeah.
-                        objx.OBJX = FreeSDL.RoundNearest(Convert.ToDouble(XPosBox.Text), objx.OBJIMAGE.PixelWidth / 2);
-                        objx.OBJY = FreeSDL.RoundNearest(Convert.ToDouble(YPosBox.Text), objx.OBJIMAGE.PixelHeight / 2);
-                        XPosBox.Text = objx.OBJX.ToString();
-                        YPosBox.Text = objx.OBJY.ToString();
-                        objx.OBJX = Convert.ToDouble(XPosBox.Text);
-                        objx.OBJY = Convert.ToDouble(YPosBox.Text);
-                        MnWindow.currentlevel.LevelObjects.Add(objx);
+                        GameObject GameObjectx = new GameObject();
+                        GameObjectx.GameObjectANIMATIONS = GameObject.GameObjectANIMATIONS;
+                        GameObjectx.GameObjectINTERNALID = MnWindow.currentlevel.LevelIGameObjects.Count;
+                        GameObjectx.GameObjectID = GameObject.GameObjectID;
+                        GameObjectx.GameObjectIMAGE = GameObject.GameObjectIMAGE;
+                        GameObjectx.GameObjectIMAGEPATH = GameObject.GameObjectIMAGEPATH;
+                        GameObjectx.GameObjectNAME = GameObject.GameObjectNAME;
+                        GameObjectx.GameObjectGRAV = GameObject.GameObjectGRAV;
+                        GameObjectx.GameObjectACCELERATION = GameObject.GameObjectACCELERATION;
+                        GameObjectx.GameObjectFORCE = GameObject.GameObjectFORCE;
+                        GameObjectx.GameObjectPLAYER = GameObject.GameObjectPLAYER;
+                        GameObjectx.GameObjectPLAYERDAMAGE = GameObject.GameObjectPLAYERDAMAGE;
+                        GameObjectx.GameObjectCANCOLLIDE = GameObject.GameObjectCANCOLLIDE;
+                        GameObjectx.GameObjectHITBOX = GameObject.GameObjectHITBOX;
+                        GameObjectx.GameObjectMASS = GameObject.GameObjectMASS;
+                        GameObjectx.GameObjectPRIORITY = GameObject.GameObjectPRIORITY;
+                        GameObjectx.GameObjectCANSNAP = GameObject.GameObjectCANSNAP;
+                        GameObjectx.GameObjectAI = GameObject.GameObjectAI;
+                        GameObjectx.CollidedLevelObjects = new List<IGameObject>(); // yeah.
+                        GameObjectx.GameObjectX = FreeSDL.RoundNearest(Convert.ToDouble(XPosBox.Text), GameObjectx.GameObjectIMAGE.PixelWidth / 2);
+                        GameObjectx.GameObjectY = FreeSDL.RoundNearest(Convert.ToDouble(YPosBox.Text), GameObjectx.GameObjectIMAGE.PixelHeight / 2);
+                        XPosBox.Text = GameObjectx.GameObjectX.ToString();
+                        YPosBox.Text = GameObjectx.GameObjectY.ToString();
+                        GameObjectx.GameObjectX = Convert.ToDouble(XPosBox.Text);
+                        GameObjectx.GameObjectY = Convert.ToDouble(YPosBox.Text);
+                        MnWindow.currentlevel.LevelIGameObjects.Add(GameObjectx);
                     }
                 }
                 Refresh(); // lol lazy code
@@ -103,20 +103,20 @@ namespace Free
             }
             catch (FormatException)
             {
-                Error.Throw(new Exception("DEBUG: The user entered invalid input for the X/Y pos of the object to add when using edit mode."), ErrorSeverity.Warning, "Please enter valid X/Y input.", "avant-gardé engine ver 2.11", 15);
+                Error.Throw(new Exception("DEBUG: The user entered invalid input for the X/Y pos of the IGameObject to add when using edit mode."), ErrorSeverity.Warning, "Please enter valid X/Y input.", "avant-gardé engine ver 2.11", 15);
                 return;
             }
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ObjNameListLvl.SelectedIndex == -1)
+            if (GameObjectNameListLvl.SelectedIndex == -1)
             {
                 // the user did not select anything
-                Error.Throw(new Exception("DEBUG: The user did not select an object to remove when using edit mode."), ErrorSeverity.Warning, "Please select an object to remove.", "avant-gardé engine ver 2.11", 16);
+                Error.Throw(new Exception("DEBUG: The user did not select an IGameObject to remove when using edit mode."), ErrorSeverity.Warning, "Please select an IGameObject to remove.", "avant-gardé engine ver 2.11", 16);
             }
 
-            MnWindow.currentlevel.LevelObjects.RemoveAt(ObjNameListLvl.SelectedIndex);
+            MnWindow.currentlevel.LevelIGameObjects.RemoveAt(GameObjectNameListLvl.SelectedIndex);
             Refresh();
             //this.Close(); V0.14.1036.0 remove
         }
@@ -124,9 +124,9 @@ namespace Free
         // Restored old code. 
         private void MoveButton_Click(object sender, RoutedEventArgs e)
         {
-            MoveObj MObj = new MoveObj(MnWindow, MnWindow.currentlevel.LevelObjects[ObjNameListLvl.SelectedIndex]); // EWW EWW EWW
-            MObj.Owner = this;
-            MObj.Show();
+            MoveGameObject MGameObject = new MoveGameObject(MnWindow, MnWindow.currentlevel.LevelIGameObjects[GameObjectNameListLvl.SelectedIndex]); // EWW EWW EWW
+            MGameObject.Owner = this;
+            MGameObject.Show();
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

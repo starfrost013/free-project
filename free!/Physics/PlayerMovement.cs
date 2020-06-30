@@ -38,30 +38,30 @@ namespace Free
         /// <param name="e"></param>
         public void PlayerMovement(KeyEventArgs e) // pass.
         {
-            for (int i = 0; i < currentlevel.LevelObjects.Count; i++)
+            for (int i = 0; i < currentlevel.LevelIGameObjects.Count; i++)
             {
-                IGameObject obj = currentlevel.LevelObjects[i];
+                IGameObject GameObject = currentlevel.LevelIGameObjects[i];
 
-                if (obj.OBJISPLAYER) 
+                if (GameObject.GameObjectISPLAYER) 
                 {   
                     if (Gamestate == GameState.Game) // if the game isn't paused.
                     {
                         if (e.Key == Controls.MoveLeft)
                         {
-                            if (obj.OBJCANMOVELEFT)
+                            if (GameObject.GameObjectCANMOVELEFT)
                             {
-                                obj.OBJMOVELEFT = true;
-                                obj.LastControl = LastCtrl.MoveLeft;
+                                GameObject.GameObjectMOVELEFT = true;
+                                GameObject.LastControl = LastCtrl.MoveLeft;
                                 DrawScene(); 
                                 //DrawScene_Threaded(); 
                             }
                         }
                         else if (e.Key == Controls.MoveRight)
                         {
-                            if (obj.OBJCANMOVERIGHT)
+                            if (GameObject.GameObjectCANMOVERIGHT)
                             {
-                                obj.OBJMOVERIGHT = true;
-                                obj.LastControl = LastCtrl.MoveRight;
+                                GameObject.GameObjectMOVERIGHT = true;
+                                GameObject.LastControl = LastCtrl.MoveRight;
                                 DrawScene();
                                 //DrawScene_Threaded(); 
                             }
@@ -70,11 +70,11 @@ namespace Free
                         else if (e.Key == Controls.Jump)
                         {
 
-                            obj.SpaceHeld = true; 
+                            GameObject.SpaceHeld = true; 
 
-                            if (obj.OBJCOLLISIONS > 0 && !e.IsRepeat)
+                            if (GameObject.GameObjectCOLLISIONS > 0 && !e.IsRepeat)
                             {
-                                obj.Jump();
+                                GameObject.Jump();
                                 
                             }
 
@@ -103,15 +103,15 @@ namespace Free
         {
             if (currentlevel != null) // ADD ISLOADED!
             {
-                foreach (Obj Object in currentlevel.LevelObjects)
+                foreach (GameObject IGameObject in currentlevel.LevelIGameObjects)
                 {
                     // LastCtrl is kept here for physcheck
-                    if (Object.OBJPLAYER)
+                    if (IGameObject.GameObjectPLAYER)
                     {
                         // overhaul this later
-                        Object.OBJMOVELEFT = false;
-                        Object.OBJMOVERIGHT = false;
-                        Object.SpaceHeld = false;
+                        IGameObject.GameObjectMOVELEFT = false;
+                        IGameObject.GameObjectMOVERIGHT = false;
+                        IGameObject.SpaceHeld = false;
                         return;
                     }
                 }

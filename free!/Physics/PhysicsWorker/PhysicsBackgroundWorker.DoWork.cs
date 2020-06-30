@@ -14,11 +14,11 @@ namespace Free
         // This is what the physicsworker does.
         public void PhysicsDoWork(object sender, DoWorkEventArgs e)
         {
-            List<IGameObject> ObjectList = (List<IGameObject>)e.Argument;
+            List<IGameObject> IGameObjectList = (List<IGameObject>)e.Argument;
 
-            foreach (IGameObject Obj in ObjectList)
+            foreach (IGameObject GameObject in IGameObjectList)
             {
-                HandlePhys(Obj); 
+                HandlePhys(GameObject); 
             }
         }
 

@@ -17,7 +17,7 @@ using System.Windows;
 /// 
 /// Free Version: 0.20+
 /// 
-/// Purpose: Handles changing level when hitting object.
+/// Purpose: Handles changing level when hitting IGameObject.
 /// 
 /// </summary>
 

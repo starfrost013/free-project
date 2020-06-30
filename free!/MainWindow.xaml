@@ -24,12 +24,12 @@
                 <MenuItem x:Name="FileMenu_Load" Header="Load Level" Click="FileMenu_Load_Click"></MenuItem>
                 <MenuItem x:Name="FileMenu_Save" Header="Save Level" Click="FileMenu_Save_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="ObjMenu" Header="Object">
-                <!--<MenuItem x:Name="ObjMenu_Add" Header="[DEPRECATED] Add Object" Click="ObjMenu_Add_Click"></MenuItem>
-                <MenuItem x:Name="ObjMenu_Move" Header="[DEPRECATED] Move Object" Click="ObjMenu_Move_Click"></MenuItem>
-                <MenuItem x:Name="ObjMenu_Delete" Header="[DEPRECATED] Delete Object" Click="ObjMenu_Delete_Click"></MenuItem>
+            <MenuItem x:Name="GameObjectMenu" Header="Edit">
+                <!--<MenuItem x:Name="GameObjectMenu_Add" Header="[DEPRECATED] Add IGameObject" Click="GameObjectMenu_Add_Click"></MenuItem>
+                <MenuItem x:Name="GameObjectMenu_Move" Header="[DEPRECATED] Move IGameObject" Click="GameObjectMenu_Move_Click"></MenuItem>
+                <MenuItem x:Name="GameObjectMenu_Delete" Header="[DEPRECATED] Delete IGameObject" Click="GameObjectMenu_Delete_Click"></MenuItem>
                 <Separator/>-->
-                <MenuItem x:Name="ObjMenu_ObjManager" Header="Object Manager V2.0" Click="ObjMenu_ObjManager_Click"></MenuItem>
+                <MenuItem x:Name="GameObjectMenu_GameObjectManager" Header="Level Object Manager V2.0" Click="GameObjectMenu_GameObjectManager_Click"></MenuItem>
             </MenuItem>
             <MenuItem x:Name="InteractionMenu" Header="Interaction">
                 <MenuItem x:Name="InteractionMenu_Add" Header="Manage Interactions..." Click="InteractionMenu_Add_Click"></MenuItem>

@@ -16,9 +16,9 @@ using System.Windows.Media.Imaging;
 /// 
 /// Version: 1.10
 /// 
-/// Free Version: bringup-2.21.1361.46+ [v1.00 → v1.10 2020/06/13: Freeze objects for optimisation purposes]
+/// Free Version: bringup-2.21.1361.46+ [v1.00 → v1.10 2020/06/13: Freeze IGameObjects for optimisation purposes]
 ///  
-/// Purpose: Loads the animation list for every object in the game.
+/// Purpose: Loads the animation list for every IGameObject in the game.
 /// 
 /// </summary>
 namespace Free
@@ -38,11 +38,11 @@ namespace Free
                     XmlRootNode = XmlRootNode.NextSibling; // ignore all other nodes. TODO - check what it triggers when we run out of nodes, so we can catch the exception.
                 }
 
-                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the Objects node.
+                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the IGameObjects node.
 
                 foreach (XmlNode XmlNode in XmlNodes)
                 {
-                    int? objId = null;
+                    int? GameObjectId = null;
                     Animation Animation = new Animation();
                     Animation.animImages = new List<WriteableBitmap>();
                     Animation.numMs = new List<int>();
@@ -53,8 +53,8 @@ namespace Free
                     {
                         switch (XmlAttribute.Name)
                         {
-                            case "objid":
-                                objId = Convert.ToInt32(XmlAttribute.Value);
+                            case "GameObjectid":
+                                GameObjectId = Convert.ToInt32(XmlAttribute.Value);
                                 continue;
                             case "type":
                                 Animation.animationType = (AnimationType)Enum.Parse(typeof(AnimationType), XmlAttribute.Value);
@@ -64,7 +64,7 @@ namespace Free
 
                     if (!XmlNode.HasChildNodes)
                     {
-                        Error.Throw(new Exception($"Attempted to load nonexistent animation for object ID {objId} and type {Animation.animationType}"), ErrorSeverity.FatalError, "Cannot load an empty animation.", "avant-gardé engine", 14);
+                        Error.Throw(new Exception($"Attempted to load nonexistent animation for IGameObject ID {GameObjectId} and type {Animation.animationType}"), ErrorSeverity.FatalError, "Cannot load an empty animation.", "avant-gardé engine", 14);
                     }
 
                     XmlNodeList XmlNode_C = XmlNode.ChildNodes;
@@ -97,21 +97,21 @@ namespace Free
                     }
 
 
-                    foreach (IGameObject obj in ObjectList) //add the anim to the object
+                    foreach (IGameObject GameObject in IGameObjectList) //add the anim to the IGameObject
                     {
-                        if (obj.OBJID == objId && obj.OBJID != -1) // -1 = "no object"
+                        if (GameObject.GameObjectID == GameObjectId && GameObject.GameObjectID != -1) // -1 = "no IGameObject"
                         {
-                            obj.OBJANIMATIONS.Add(Animation);
+                            GameObject.GameObjectANIMATIONS.Add(Animation);
                         }
                     }
 
-                    //Freeze the object to increase performance if we do not have animations.
+                    //Freeze the IGameObject to increase performance if we do not have animations.
 
                     //added
 
-                    if (objId == -1)
+                    if (GameObjectId == -1)
                     {
-                        NonObjAnimList.Add(Animation); // add
+                        NonGameObjectAnimList.Add(Animation); // add
                     }
                 }
             }

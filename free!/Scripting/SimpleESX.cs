@@ -8,8 +8,8 @@ using System.Windows;
 
 namespace Free
 {
-    // Trigger objects?
-    public enum EventClass { OnLoad, OnDestroy, OnChangeLevel, OnPlayerSpawn, OnBeingDead, OnGameOver, OnSkillObtained, OnSkillLost, OnLevelChange, OnHurt, OnAIChange, OnAICreate, OnAIDie, OnSpecificObjectSpawn, OnSpecificObject, Routine, EveryFrame, OnAnimationPlayed, OnAnimationPlayed_SpecificFrame, OnObjectInteraction, OnSoundPlayed, OnMusicPlayed, OnVFXSpawn, OnVFXParticleNum, OnVFXDespawn, OnPlayerReachCertainPosition, OnCollide, OnGameClose }
+    // Trigger IGameObjects?
+    public enum EventClass { OnLoad, OnDestroy, OnChangeLevel, OnPlayerSpawn, OnBeingDead, OnGameOver, OnSkillObtained, OnSkillLost, OnLevelChange, OnHurt, OnAIChange, OnAICreate, OnAIDie, OnSpecificIGameObjectSpawn, OnSpecificIGameObject, Routine, EveryFrame, OnAnimationPlayed, OnAnimationPlayed_SpecificFrame, OnIGameObjectInteraction, OnSoundPlayed, OnMusicPlayed, OnVFXSpawn, OnVFXParticleNum, OnVFXDespawn, OnPlayerReachCertainPosition, OnCollide, OnGameClose }
     public class SimpleESX
     {
         internal List<SimpleESXScript> LoadedScripts { get; set; }
@@ -157,15 +157,15 @@ namespace Free
             }
         }
 
-        public void LoadAllLevelScripts(List<IGameObject> LevelObjects)
+        public void LoadAllLevelScripts(List<IGameObject> LevelIGameObjects)
         {
-            foreach (IGameObject LevelObject in LevelObjects)
+            foreach (IGameObject LevelIGameObject in LevelIGameObjects)
             {
                 // Check that there's stuff to load
-                if (LevelObject.AssociatedScriptPaths == null) continue;
-                if (LevelObject.AssociatedScriptPaths.Count == 0) continue; 
+                if (LevelIGameObject.AssociatedScriptPaths == null) continue;
+                if (LevelIGameObject.AssociatedScriptPaths.Count == 0) continue; 
 
-                foreach (ScriptReference SR in LevelObject.AssociatedScriptPaths)
+                foreach (ScriptReference SR in LevelIGameObject.AssociatedScriptPaths)
                 {
                     SimpleESXScript SESX = LoadScript(SR.Path);
                     SESX.SetScriptClass(SR.RunOnParameters[0]); // Thank you have a nice day

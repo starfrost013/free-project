@@ -10,23 +10,23 @@
     <Name>InsertObject</Name>
     <!-- Command classes are deprecated -->
     <Class>OnLoad</Class>
-    <Description>Inserts the object with global object ID objId at position X,Y.</Description>
+    <Description>Inserts the IGameObject with global IGameObject ID GameObjectId at position X,Y.</Description>
     <ParameterSchema>
 
       <Parameter>
-        <Description>The global object ID of the game object to insert.</Description>
+        <Description>The global IGameObject ID of the game IGameObject to insert.</Description>
         <Name>ID</Name>
         <ParameterType>Int</ParameterType>
       </Parameter>
 
       <Parameter>
-        <Description>The initial X position of the object when it is inserted.</Description>
+        <Description>The initial X position of the IGameObject when it is inserted.</Description>
         <Name>X</Name>
         <ParameterType>Double</ParameterType>
       </Parameter>
 
       <Parameter>
-        <Description>The initial Y position of the object when it is inserted.</Description>
+        <Description>The initial Y position of the IGameObject when it is inserted.</Description>
         <Name>Y</Name>
         <ParameterType>Double</ParameterType>
       </Parameter>
@@ -38,11 +38,11 @@
     <Name>DeleteObject</Name>
     <!-- Command classes are deprecated -->
     <Class>OnLoad</Class> 
-    <Description>Deletes the object with global object ID id.</Description>
+    <Description>Deletes the IGameObject with global IGameObject ID id.</Description>
     <ParameterSchema>
 
       <Parameter>
-        <Description>The global object ID of the object to delete.</Description>
+        <Description>The global IGameObject ID of the IGameObject to delete.</Description>
         <Name>ID</Name>
         <ParameterType>Int</ParameterType>
       </Parameter>

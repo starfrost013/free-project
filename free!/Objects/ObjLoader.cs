@@ -20,8 +20,8 @@ namespace Free
 {
     partial class FreeSDL
     {
-        // implement in Object class? (0.06)
-        public void LoadObjects()
+        // implement in IGameObject class? (0.06)
+        public void LoadIGameObjects()
         {
             try
             {
@@ -34,13 +34,13 @@ namespace Free
                     XmlRootNode = XmlRootNode.NextSibling; // ignore all other nodes. TODO - check what it triggers when we run out of nodes, so we can catch the exception.
                 }
 
-                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the Objects node.
+                XmlNodeList XmlNodes = XmlRootNode.ChildNodes; // get the children of the IGameObjects node.
 
                 foreach (XmlNode XmlNode in XmlNodes)
                 {
-                    IGameObject obj = new Obj();
+                    IGameObject GameObject = new GameObject();
                     // initial values
-                    //obj.OBJGRAV = false;
+                    //GameObject.GameObjectGRAV = false;
                     XmlAttributeCollection XmlAttributes = XmlNode.Attributes; // get the attributes (we dont need to care what the node is called, we just need the right information)
 
                         foreach (XmlAttribute XmlAttribute in XmlAttributes)
@@ -49,41 +49,41 @@ namespace Free
                             {
                                 case "id":
                                 case "Id":
-                                    obj.OBJID = Convert.ToInt32(XmlAttribute.Value); // yeah.
+                                    GameObject.GameObjectID = Convert.ToInt32(XmlAttribute.Value); // yeah.
                                     continue;
                                 case "name":
                                 case "Name":
-                                    obj.OBJNAME = XmlAttribute.Value;
+                                    GameObject.GameObjectNAME = XmlAttribute.Value;
                                     continue;
                                 case "objimage":
                                 case "ObjImage":
                                 case "ObjectImage":
-                                    obj.OBJIMAGEPATH = XmlAttribute.Value;
+                                    GameObject.GameObjectIMAGEPATH = XmlAttribute.Value;
                                     continue;
                                 case "gravity":
                                 case "Gravity":
-                                    obj.OBJGRAV = Convert.ToBoolean(XmlAttribute.Value);
+                                    GameObject.GameObjectGRAV = Convert.ToBoolean(XmlAttribute.Value);
                                     continue;
                                 case "playerdamage":
                                 case "PlayerDamage":
-                                    obj.OBJPLAYERDAMAGE = Convert.ToInt32(XmlAttribute.Value);
+                                    GameObject.GameObjectPLAYERDAMAGE = Convert.ToInt32(XmlAttribute.Value);
                                     continue;
                                 case "isplayer":
                                 case "IsPlayer":
-                                    obj.OBJPLAYER = Convert.ToBoolean(XmlAttribute.Value);
+                                    GameObject.GameObjectPLAYER = Convert.ToBoolean(XmlAttribute.Value);
                                     continue;
                                 case "hitbox":
                                 case "Hitbox":
                                     string XmlValue = XmlAttribute.Value.Trim();
                                     XmlValue = XmlValue.Replace(" ", "");
                                     string[] hitboxpre = XmlValue.Split(',');
-                                    obj.OBJHITBOX = new List<Point>();
-                                    obj.OBJHITBOX.Add(new Point(Convert.ToDouble(hitboxpre[0]), Convert.ToDouble(hitboxpre[1]))); // convert.
-                                    obj.OBJHITBOX.Add(new Point(Convert.ToDouble(hitboxpre[2]), Convert.ToDouble(hitboxpre[3])));
+                                    GameObject.GameObjectHITBOX = new List<Point>();
+                                    GameObject.GameObjectHITBOX.Add(new Point(Convert.ToDouble(hitboxpre[0]), Convert.ToDouble(hitboxpre[1]))); // convert.
+                                    GameObject.GameObjectHITBOX.Add(new Point(Convert.ToDouble(hitboxpre[2]), Convert.ToDouble(hitboxpre[3])));
                                     continue;
-                                case "mass": // the mass of the object
+                                case "mass": // the mass of the IGameObject
                                 case "Mass":
-                                    obj.OBJMASS = Convert.ToDouble(XmlAttribute.Value);
+                                    GameObject.GameObjectMASS = Convert.ToDouble(XmlAttribute.Value);
                                     continue;
                                 case "priority": //todo: optimize
                                 case "Priority":
@@ -92,50 +92,53 @@ namespace Free
                                         case "invisible":
                                         case "Invisible":
                                         case "InVisible":
-                                            obj.OBJPRIORITY = Priority.Invisible;
+                                            GameObject.GameObjectPRIORITY = Priority.Invisible;
                                             continue; 
                                         case "Background1":
                                         case "background1":
                                         case "BG1:":
                                         case "bg1":
-                                            obj.OBJPRIORITY = Priority.Background1;
+                                            GameObject.GameObjectPRIORITY = Priority.Background1;
                                             continue;
                                         case "Background2":
                                         case "background2":
                                         case "BG2:":
                                         case "bg2":
-                                            obj.OBJPRIORITY = Priority.Background2;
+                                            GameObject.GameObjectPRIORITY = Priority.Background2;
                                             continue;
                                         case "Low":
                                         case "low":
-                                            obj.OBJPRIORITY = Priority.Low;
+                                            GameObject.GameObjectPRIORITY = Priority.Low;
                                             continue;
                                         case "Medium":
                                         case "medium":
-                                            obj.OBJPRIORITY = Priority.Medium;
+                                            GameObject.GameObjectPRIORITY = Priority.Medium;
                                             continue;
                                         case "high":
                                         case "High":
-                                            obj.OBJPRIORITY = Priority.High;
+                                            GameObject.GameObjectPRIORITY = Priority.High;
                                             continue;
                                     }
 
                                     continue;
                                 case "cansnap":
                                 case "CanSnap":
-                                    obj.OBJCANSNAP = Convert.ToBoolean(XmlAttribute.Value);
+                                    GameObject.GameObjectCANSNAP = Convert.ToBoolean(XmlAttribute.Value);
                                     continue;
                                 case "collision":
                                 case "Collision":
                                 case "CanCollide":
-                                    obj.OBJCANCOLLIDE = Convert.ToBoolean(XmlAttribute.Value);
+                                    GameObject.GameObjectCANCOLLIDE = Convert.ToBoolean(XmlAttribute.Value);
                                     continue;
                                 case "issentient":
                                 case "IsSentient":
-                                    obj = new SentientBeing(obj, obj.OBJPLAYER, obj.OBJPLAYERDAMAGE, obj.OBJPLAYERHEALTH, obj.OBJPLAYERLEVEL, obj.OBJPLAYERDAMAGE, obj.OBJPLAYERLIVES, obj.OBJINTERNALID); // convert to sentientbeing
+                                    GameObject = new SentientBeing(GameObject, GameObject.GameObjectPLAYER, GameObject.GameObjectPLAYERDAMAGE, GameObject.GameObjectPLAYERHEALTH, GameObject.GameObjectPLAYERLEVEL, GameObject.GameObjectPLAYERDAMAGE, GameObject.GameObjectPLAYERLIVES, GameObject.GameObjectINTERNALID); // convert to sentientbeing
                                     continue;
                             }
                         }
+                    
+                        // ADD ERROR CHECKING DUMBASS
+
                     // NEW 2020-06-08
                     // Parse AssociatedScripts
 
@@ -225,7 +228,7 @@ namespace Free
                                     }
                                 }
 
-                                obj.AssociatedScriptPaths.Add(SR);
+                                GameObject.AssociatedScriptPaths.Add(SR);
                                 continue; 
                         }
                     }
@@ -233,55 +236,55 @@ namespace Free
 
                     //set default values if null
 
-                    obj.JumpIntensity = 1;
+                    GameObject.JumpIntensity = 1;
 
-                    if (obj.OBJMASS == 0.0)
+                    if (GameObject.GameObjectMASS == 0.0)
                     {
-                        obj.OBJMASS = 1;
+                        GameObject.GameObjectMASS = 1;
                     }
                     
-                    if (obj.OBJPLAYERDAMAGE == 0)
+                    if (GameObject.GameObjectPLAYERDAMAGE == 0)
                     {
-                        obj.OBJPLAYERDAMAGE = -1;
+                        GameObject.GameObjectPLAYERDAMAGE = -1;
                     }
 
-                    if (obj.OBJPRIORITY == Priority.Invisible)
+                    if (GameObject.GameObjectPRIORITY == Priority.Invisible)
                     {
-                        obj.OBJPRIORITY = Priority.Medium;
+                        GameObject.GameObjectPRIORITY = Priority.Medium;
                     }
 
-                    if (obj.OBJCANCOLLIDE == null)
+                    if (GameObject.GameObjectCANCOLLIDE == null)
                     {
-                        obj.OBJCANCOLLIDE = true;
+                        GameObject.GameObjectCANCOLLIDE = true;
                     }
 
-                    if (obj.OBJPLAYERHEALTH == 0 && obj.OBJPLAYER)
+                    if (GameObject.GameObjectPLAYERHEALTH == 0 && GameObject.GameObjectPLAYER)
                     {
-                        obj.OBJPLAYERHEALTH = 100;//TEST value.
+                        GameObject.GameObjectPLAYERHEALTH = 100;//TEST value.
                     }
 
-                    obj.OBJIMAGE = new WriteableBitmap(BitmapFactory.FromStream(new FileStream(obj.OBJIMAGEPATH, FileMode.Open)));
+                    GameObject.GameObjectIMAGE = new WriteableBitmap(BitmapFactory.FromStream(new FileStream(GameObject.GameObjectIMAGEPATH, FileMode.Open)));
                     
-                    obj.OBJANIMATIONS = new List<Animation>();
-                    ObjectList.Add(obj);
+                    GameObject.GameObjectANIMATIONS = new List<Animation>();
+                    IGameObjectList.Add(GameObject);
 
                 }
             }
             catch (XmlException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, $"Objects.xml is corrupted or malformed: \n\n{err}", "avant-gardé engine", 87);
+                Error.Throw(err, ErrorSeverity.FatalError, $"IGameObjects.xml is corrupted or malformed: \n\n{err}", "avant-gardé engine", 87);
             }
             catch (FormatException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, $"A critical error occurred while loading Objects.xml: \n\n{err}", "avant-gardé engine", 79);
+                Error.Throw(err, ErrorSeverity.FatalError, $"A critical error occurred while loading IGameObjects.xml: \n\n{err}", "avant-gardé engine", 79);
             }
             catch (ArgumentException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, $"A critical error occurred while loading Objects.xml: Error converting to enum (most likely RunOn)\n\n{err}", "avant-gardé engine", 91);
+                Error.Throw(err, ErrorSeverity.FatalError, $"A critical error occurred while loading IGameObjects.xml: Error converting to enum (most likely RunOn)\n\n{err}", "avant-gardé engine", 91);
             }
             catch (FileNotFoundException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent object, or error loading an object. This is most likely because the object doesn't exist yet.", "avant-gardé engine", 9);
+                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent IGameObject, or error loading an IGameObject. This is most likely because the IGameObject doesn't exist yet.", "avant-gardé engine", 9);
                 return;
             }
         }

@@ -26,7 +26,7 @@ Length - 3:00?
 
 Level 3 - Ajax City (preliminary)
 
-You reach the city you were looking for. You delightfully smash your way through some buildings after swivelling through the suburban areas. Breakable objects are my favourite.
+You reach the city you were looking for. You delightfully smash your way through some buildings after swivelling through the suburban areas. Breakable IGameObjects are my favourite.
 
 Length: Long (5:00 - 6:00?)
 

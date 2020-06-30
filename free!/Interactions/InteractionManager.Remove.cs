@@ -8,11 +8,11 @@ namespace Free
 {
     public partial class FreeSDL
     {
-        public void Interaction_Remove(IGameObject obj, Interaction interaction)
+        public void Interaction_Remove(IGameObject GameObject, Interaction interaction)
         {
-            obj.OBJCOLLISIONS--;
-            obj.OBJCOLLIDEDOBJECTS.Remove(obj);
-            DeleteObj(obj, interaction.OBJ2ID);
+            GameObject.GameObjectCOLLISIONS--;
+            GameObject.CollidedLevelObjects.Remove(GameObject);
+            DeleteGameObject(GameObject, interaction.ObjId2ID);
             return;
         }
     }

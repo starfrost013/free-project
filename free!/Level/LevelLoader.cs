@@ -92,7 +92,7 @@ namespace Free
             }
             catch (FileNotFoundException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent level. This is most likely because a change level object attempted to trigger its interaction but the next level by ID doesn't exist (yet).", "avant-gardé engine", 7);
+                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent level. This is most likely because a change level IGameObject attempted to trigger its interaction but the next level by ID doesn't exist (yet).", "avant-gardé engine", 7);
                 return;
             }
             catch (PathTooLongException err)
