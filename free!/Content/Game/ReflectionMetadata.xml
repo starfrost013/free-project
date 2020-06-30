@@ -7,7 +7,7 @@
   </Command>
 
   <Command>
-    <Name>InsertIGameObject</Name>
+    <Name>InsertObject</Name>
     <!-- Command classes are deprecated -->
     <Class>OnLoad</Class>
     <Description>Inserts the IGameObject with global IGameObject ID GameObjectId at position X,Y.</Description>
@@ -35,7 +35,7 @@
   </Command>
 
   <Command>
-    <Name>DeleteIGameObject</Name>
+    <Name>DeleteObject</Name>
     <!-- Command classes are deprecated -->
     <Class>OnLoad</Class> 
     <Description>Deletes the IGameObject with global IGameObject ID id.</Description>
