@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SDL_API_GetRect.cs" />
     <Compile Include="SDL_API_SetBgColour.cs" />
     <Compile Include="SDL_Cache.cs" />
     <Compile Include="SDL_Camera.cs" />
