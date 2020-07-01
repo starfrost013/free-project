@@ -36,7 +36,7 @@ namespace Free
 {
     partial class Level
     {
-        public bool LoadLevelIGameObjects(List<IGameObject> listOfIGameObjects, Level currentlevel) // loads an IGameObject layout.
+        public bool LoadLevelObjects(List<IGameObject> listOfIGameObjects, Level currentlevel) // loads an IGameObject layout.
         {
             try
             {

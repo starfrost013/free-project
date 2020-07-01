@@ -48,7 +48,7 @@ namespace Free
                 //currentlevel = LoadLevel(LevelId);
                 BootNow_SetCurrentLevel(LevelId);
 
-                currentlevel.LoadLevelIGameObjects(IGameObjectList, currentlevel);
+                currentlevel.LoadLevelObjects(IGameObjectList, currentlevel);
                 ScriptingCore.LoadAllLevelScripts(IGameObjectList); 
                 currentlevel.LoadLevelMusic();
 
