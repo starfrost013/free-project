@@ -48,13 +48,8 @@ namespace SDLX
 
                 // Draw the background. (TEMP)
 
-                SDL.SDL_Rect BgRenderRect = new SDL.SDL_Rect
-                {
-                    x = 0,
-                    y = 0,
-                    w = (int)CurrentScene.Resolution.X,
-                    h = (int)CurrentScene.Resolution.Y
-                };
+                SDL.SDL_Rect BgRenderRect = SDL_GetRect(new SDLPoint(0, 0), CurrentScene.Resolution); 
+
 
                 SDL.SDL_Rect _2 = CurrentScene.Background.RenderRect;
 
@@ -71,7 +66,7 @@ namespace SDLX
                         && SDLSprite.Position.Y >= (CurrentScene.GameCamera.CameraPosition.Y - SDLSprite.Size.Y)
                         && SDLSprite.Position.Y <= (CurrentScene.GameCamera.CameraPosition.Y + (CurrentScene.Resolution.Y + SDLSprite.Size.Y)))
                     {
-                        SDL.SDL_Rect SpriteDestRect = new SDL.SDL_Rect();
+                        SDL.SDL_Rect SpriteDestRect = SDL_GetRect(new SDLPoint(SDLSprite.Position.X - CurrentScene.GameCamera.CameraPosition.X, SDLSprite.Position.Y - CurrentScene.GameCamera.CameraPosition.Y), new SDLPoint(SDLSprite.RenderRect.w, SDLSprite.RenderRect.h));
 
                         SDL.SDL_Rect SpriteRenderRect = SDLSprite.RenderRect;
 
@@ -93,24 +88,9 @@ namespace SDLX
                     // Render the text surface to a texture.
                     IntPtr Texture = SDL.SDL_CreateTextureFromSurface(SDL_RenderPtr, Surface);
 
-                    SDL.SDL_Rect SrcRect = new SDL.SDL_Rect()
-                    {
-                        x = 0,
-                        y = 0,
-                        h = 20,
-                        w = 300
+                    SDL.SDL_Rect SrcRect = SDL_GetRect(new SDLPoint(0, 0), new SDLPoint(20, 300));
 
-                    };
-
-                    SDL.SDL_Rect DestRect = new SDL.SDL_Rect()
-                    {
-                        x = 0,
-                        y = 0,
-                        h = 20,
-                        w = 300
-
-                    };
-
+                    SDL.SDL_Rect DestRect = SrcRect;
 
                     SDL.SDL_RenderCopy(SDL_RenderPtr, Texture, ref SrcRect, ref DestRect);
 
