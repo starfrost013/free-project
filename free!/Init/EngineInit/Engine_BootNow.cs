@@ -41,7 +41,9 @@ namespace Free
 
             Gamestate = GameState.Init;
 
+            //temp
             App WinApp = (App)Application.Current;
+            SDLGame = WinApp.SDLGame;
 
             // Load initial structures
             InteractionList = new List<Interaction>();
@@ -63,7 +65,7 @@ namespace Free
 
             // Init SDL
 
-            WinApp.SDLGame.Game_Init();
+            SDLGame.Game_Init();
 
             ScriptingCore.LoadReflection(); 
             LoadControls();

@@ -26,6 +26,7 @@ namespace SDLX
 {
     public partial class GameScene
     {
+        public SDLSprite Background { get; set; } // We might need to fix this before it gets out of control...Shared classes?
         public List<SDLSprite> CachedTextures { get; set; }
         public GameCamera GameCamera { get; set; }
         public List<SDLSprite> SDLTextureCache { get; set; }
@@ -35,8 +36,10 @@ namespace SDLX
         public GameScene()
         {
             GameCamera = new GameCamera();
+            Background = new SDLSprite();
             Resolution = new SDLPoint(850, 400);
             SDLTextureCache = new List<SDLSprite>();
+
         }
 
         public void PreLoadScene()
@@ -47,6 +50,34 @@ namespace SDLX
             {
                 Debug.WriteLine($"Error loading font: {SDL.SDL_GetError()}");
             }
+        }
+
+        public void LoadScene(string BackgroundPath, string LevelInfoPathELCF)
+        {
+            LoadBackground(BackgroundPath);
+        }
+
+        /// <summary>
+        /// Loads the background. Will be replaced by a single call to LoadScene. 
+        /// </summary>
+        /// <param name="BackgroundPath"></param>
+        public void LoadBackground(string BackgroundPath)
+        {
+
+            Background.Sprite = SDL_image.IMG_LoadTexture(Game.SDL_RenderPtr, BackgroundPath);
+           
+            Background.RenderRect = new SDL.SDL_Rect
+            {
+                x = 0,
+                y = 0,
+                // TEMPORARY we will have configurable background sizes
+                w = (int)Resolution.X,
+                h = (int)Resolution.Y
+            };
+
+            // More temp stuff
+
+            Background.Size = Resolution;
         }
 
         public bool LoadImage(string ImageLoad, SDLPoint Position, int SizeX, int SizeY)
