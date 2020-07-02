@@ -64,7 +64,6 @@ namespace SDLX
         public void LoadBackground(string BackgroundPath)
         {
 
-
             Background.Sprite = SDL_image.IMG_LoadTexture(Game.SDL_RenderPtr, BackgroundPath);
            
             Background.RenderRect = new SDL.SDL_Rect
