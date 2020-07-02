@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Emerald.COM2
 {
     /// <summary>
-    /// Holds COM file catalogs for V2.
+    /// Holds COM file catalogs for V2.x
     /// </summary>
     public class COMCatalog2
     {
@@ -44,8 +44,10 @@ namespace Emerald.COM2
         /*
          * 0x00 = CompressML
          * 0x01 = basic run-length encoding
+         * 0x02 = none
          */
         public byte CompressionType { get; set; }
+        public string CRC32 { get; set; } // CRC32 of this file
         public static string CatalogEntryEnd = "CE";
     }
 }
