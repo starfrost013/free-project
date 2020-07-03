@@ -48,12 +48,7 @@ namespace SDLX
 
                 // Draw the background. (TEMP)
 
-                SDL.SDL_Rect BgRenderRect = SDL_GetRect(new SDLPoint(0, 0), CurrentScene.Resolution); 
-
-
-                SDL.SDL_Rect _2 = CurrentScene.Background.RenderRect;
-
-                SDL.SDL_RenderCopy(SDL_RenderPtr, CurrentScene.Background.Sprite, ref _2, ref BgRenderRect);
+                SDL_DrawBackground();
 
 
                 // Render each SDLTexture in the TextureCache. 
@@ -82,20 +77,8 @@ namespace SDLX
 
                     // TEMPORARY CODE START DO NOT USE AFTER FREEUI
 
-                    // Render the text to a surface.
-                    IntPtr Surface = SDL_ttf.TTF_RenderText_Solid(CurrentScene.TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS, $"Camera Position: {CurrentScene.GameCamera.CameraPosition.X}, {CurrentScene.GameCamera.CameraPosition.Y}", new SDL.SDL_Color { a = 255, r = 255, g = 255, b = 255 });
 
-                    // Render the text surface to a texture.
-                    IntPtr Texture = SDL.SDL_CreateTextureFromSurface(SDL_RenderPtr, Surface);
-
-                    SDL.SDL_Rect SrcRect = SDL_GetRect(new SDLPoint(0, 0), new SDLPoint(20, 300));
-
-                    SDL.SDL_Rect DestRect = SrcRect;
-
-                    SDL.SDL_RenderCopy(SDL_RenderPtr, Texture, ref SrcRect, ref DestRect);
-
-                    SDL.SDL_DestroyTexture(Texture);
-                    SDL.SDL_FreeSurface(Surface); 
+                    SDL_DrawText();
 
                     // TEMPORARY CODE END DO NOT USE AFTER FREEUI
 
@@ -107,6 +90,34 @@ namespace SDLX
 
             Game_Shutdown();
 
+        }
+
+        public void SDL_DrawBackground()
+        {
+            SDL.SDL_Rect BgRenderRect = SDL_GetRect(new SDLPoint(0, 0), CurrentScene.Resolution);
+
+
+            SDL.SDL_Rect _2 = CurrentScene.Background.RenderRect;
+
+            SDL.SDL_RenderCopy(SDL_RenderPtr, CurrentScene.Background.Sprite, ref _2, ref BgRenderRect);
+        }
+
+        public void SDL_DrawText()
+        {
+            // Render the text to a surface.
+            IntPtr Surface = SDL_ttf.TTF_RenderText_Solid(CurrentScene.TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS, $"Camera Position: {CurrentScene.GameCamera.CameraPosition.X}, {CurrentScene.GameCamera.CameraPosition.Y}", new SDL.SDL_Color { a = 255, r = 255, g = 255, b = 255 });
+
+            // Render the text surface to a texture.
+            IntPtr Texture = SDL.SDL_CreateTextureFromSurface(SDL_RenderPtr, Surface);
+
+            SDL.SDL_Rect SrcRect = SDL_GetRect(new SDLPoint(0, 0), new SDLPoint(300, 20));
+
+            SDL.SDL_Rect DestRect = SrcRect;
+
+            SDL.SDL_RenderCopy(SDL_RenderPtr, Texture, ref SrcRect, ref DestRect);
+
+            SDL.SDL_DestroyTexture(Texture);
+            SDL.SDL_FreeSurface(Surface);
         }
     }
 }
