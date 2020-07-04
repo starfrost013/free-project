@@ -70,7 +70,7 @@ namespace Emerald.COM2.Writer
 
         }
 
-        public void Decompress(string COMFileName, COMCatalog2 COMCat2, COMNodeCatalog2 NodeCatalog2)
+        public void Decompress(string COMFileName, COMCatalog2 COMCat2, COMNodeCatalog2 NodeCatalog2) // Doesn't really decompress
         {
 
         }

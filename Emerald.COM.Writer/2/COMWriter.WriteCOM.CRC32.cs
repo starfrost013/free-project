@@ -15,11 +15,14 @@ namespace Emerald.COM2.Writer
         {
             try
             {
+
+                List<byte> _ = File.ReadAllBytes(ComXPath).ToList<string>();
+
                 using (BinaryWriter BW = new BinaryWriter(new FileStream(ComXPath, FileMode.Open)))
                 {
                     BW.Seek(31, SeekOrigin.Begin);
 
-                    BW.Write(GetCrc32(File.ReadAllBytes(ComXPath).ToList<byte>())); // LAZINESS DETECTED
+                    BW.Write(GetCrc32(_); // LAZINESS DETECTED
 
                     return true; 
                 }
