@@ -76,6 +76,7 @@
     <Compile Include="2\COMWriter.WriteCOM.Header.cs" />
     <Compile Include="2\COMWriter.WriteCOM.NodeCatalog2.cs" />
     <Compile Include="2\COMWriter.WriteCOM2.cs" />
+    <Compile Include="2\COMWriter.GetCRC32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="1.6\COMWriter.WriteCOM.cs" />
   </ItemGroup>

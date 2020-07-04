@@ -16,5 +16,6 @@ namespace Emerald.COM2
         public static byte MinorVersion = 5; // Minor COM format version
         public static byte CatalogSize = 36; // Size of the catalog - 36*n bytes, where n is the total number of files
         public static string Timestamp = DateTime.UtcNow.ToString(); // the timestamp that the COM file was last modified.
+        public static uint CRC32; // File integrity checking
     }
 }

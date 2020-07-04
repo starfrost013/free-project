@@ -90,7 +90,8 @@ namespace Emerald.COM2.Writer
                         if (COMParents.NodeXml == XCore)
                         {
                             // check that we actually do have the parent 
-                            COMNode2.NodeParentID = COMParents.NodeID; 
+                            COMNode2.NodeParentID = COMParents.NodeID;
+                            break;
                         }
                     }
 

@@ -40,7 +40,7 @@ namespace Emerald.COM2.Writer
 
                             if (ComNode.NodeInnerText == ComNode2.NodeInnerText)
                             {
-                                // set this to a very particular string - the reader will pick this up
+                                // optimisation
                                 ComNode.NodeID = ComNode2.NodeID;
 
                                 //ComNode.NodeInnerText = $"|{ComNode2.NodeID}";

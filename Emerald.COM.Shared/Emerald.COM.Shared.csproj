@@ -73,6 +73,7 @@
     <Compile Include="2\COMNode.cs" />
     <Compile Include="2\COMNodeCatalog.cs" />
     <Compile Include="2\CompressionFormats\ICompressionFormat.cs" />
+    <Compile Include="2\COMAttributeCatalog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
