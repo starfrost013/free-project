@@ -22,7 +22,7 @@ namespace Emerald.COM2.Writer
                 {
                     BW.Seek(31, SeekOrigin.Begin);
 
-                    BW.Write(GetCrc32(_); // LAZINESS DETECTED
+                    BW.Write(GetCrc32(_)); // LAZINESS DETECTED
 
                     return true; 
                 }
