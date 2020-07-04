@@ -16,7 +16,7 @@ namespace Emerald.COM2.Writer
             try
             {
 
-                List<byte> _ = File.ReadAllBytes(ComXPath).ToList<string>();
+                List<byte> _ = File.ReadAllBytes(ComXPath).ToList<byte>();
 
                 using (BinaryWriter BW = new BinaryWriter(new FileStream(ComXPath, FileMode.Open)))
                 {
