@@ -11,12 +11,25 @@ namespace Emerald.COM2.Writer
     public partial class COMWriter2
     {
 
-        public bool ReadCom2FromGroupOfFiles(string ComFilePath, List<string> Files)
+        public bool WriteCom2FromGroupOfFiles(string ComFilePath, List<string> Files)
         {
             COMCatalog2 Cat2 = ComBuildCatalog2(Files);
             
             // Write the com2.
             return WriteCOM2(ComFilePath, Cat2); 
+
+        }
+
+        public bool WriteCom2FromDirectory(string ComFilePath, string DirectoryPath)
+        {
+            string[] Files = Directory.GetFiles(DirectoryPath);
+
+            List<string> Files_Converted = new List<string>();
+            Files_Converted = Files.ToList<string>();
+
+            COMCatalog2 Cat2 = ComBuildCatalog2(Files_Converted); 
+
+            return WriteCOM2(ComFilePath, Cat2);
 
         }
 

@@ -34,7 +34,7 @@ namespace Emerald.COM2.Writer
 
                     foreach (COMNode2 ComNode in COMNodeCatalog2.Nodes)
                     {
-                       
+    
                         // Increment the endpoint. This is so we actually know where to put the files.
                         COMNodeCatalog2.Endpoint += 2;
 

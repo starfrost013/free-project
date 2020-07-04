@@ -31,6 +31,8 @@ namespace Emerald.COM2.Writer
 
                         // Write the inner text. Remove spaces here.
 
+                        int NID = -1; // we need this for further optimisations
+
                         foreach (COMNode2 ComNode2 in NodeCatalog2.Nodes)
                         {
                             // no point doing this optimisation if it's less than five bytes - 4 bytes = no difference, <4 bytes = wasted space
@@ -40,14 +42,25 @@ namespace Emerald.COM2.Writer
                             {
                                 // set this to a very particular string - the reader will pick this up
                                 ComNode.NodeID = ComNode2.NodeID;
-                                ComNode.NodeInnerText = $"|{ComNode2.NodeID}";
+
+                                //ComNode.NodeInnerText = $"|{ComNode2.NodeID}";
+                                NID = ComNode2.NodeID;
                                 break;
                             }
                         }
 
                         // Write the node ID and text
                         BW.Write(ComNode.NodeID);
-                        BW.Write(ComNode.NodeInnerText);
+
+                        if (NID == -1)
+                        {
+                            BW.Write(ComNode.NodeInnerText);
+                        }
+                        else
+                        {
+                            BW.Write(0xB0); // 0xB0 signifies optimised node. Yes we will read 160 bytes. No I don't care. 
+                            BW.Write(NID);
+                        }
 
                     }
                 }

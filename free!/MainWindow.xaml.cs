@@ -1,4 +1,6 @@
-﻿using SDLX;
+﻿using Emerald.COM2;
+using Emerald.COM2.Writer;
+using SDLX;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -60,6 +62,11 @@ namespace Free
         public FreeSDL()
         {
             // Yay
+
+            // Just temporary things for some stuff
+            COMWriter2 CW2 = new COMWriter2();
+            CW2.WriteCom2FromGroupOfFiles("ComX-v2.5.ComX", new List<string> { "Levels.xml " }); //ComX-platform v2.5
+
             InitializeComponent();
 
              

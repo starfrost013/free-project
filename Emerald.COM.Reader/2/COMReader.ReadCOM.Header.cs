@@ -49,7 +49,7 @@ namespace Emerald.COM2.Reader
 
                     if (MajorVersion != COMHeader2.MajorVersion || MinorVersion != COMHeader2.MinorVersion)
                     {
-                        MessageBox.Show($"Error - COM file corrupt - Incorrect version - expected {COMHeader2.MajorVersion}.{COMHeader2.MinorVersion}, got {MajorVersion}.{MinorVersion}!", "Version Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Cannot load this COM file. It does not use the correct version of the ComX format. Expected {COMHeader2.MajorVersion}.{COMHeader2.MinorVersion}, got {MajorVersion}.{MinorVersion}!", "Version Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
 
