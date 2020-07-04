@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Emerald.COM2.Writer
 {
@@ -49,13 +50,21 @@ namespace Emerald.COM2.Writer
                     /// * We used to write placeholder bytes for the header here,
                     /// * but we don't do this anymore as COM2 has a non-fixed header size
                     
-                    BW.Write(0x00);
+                    BW.Write(0x00); // Padding
+
+                    BW.Write(0x00000000); // CRC32 placeholder. 
 
                     return true;
                 }
             }
-            catch (IOException)
+            catch (FileNotFoundException err)
             {
+                MessageBox.Show($"Attempted to write header to file that does not exist!.\n\n{err}");
+                return false;
+            }
+            catch (IOException err)
+            {
+                MessageBox.Show($"Fatal I/O error occurred writing header.\n\n{err}");
                 return false;
             }
         }

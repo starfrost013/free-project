@@ -35,7 +35,7 @@ namespace Emerald.COM2.Writer
 
                     // seek - go to the end of the header
 
-                    BW.BaseStream.Seek(31, SeekOrigin.Begin);
+                    BW.BaseStream.Seek(39, SeekOrigin.Begin);
 
                     BW.Write(COMCatalog2.CatalogBegin);
                     RemainingBytes -= 2; // decrement by (length of string) + 1

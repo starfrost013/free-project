@@ -90,6 +90,14 @@ namespace Emerald.COM2.Writer
 
             }
 
+            if (!WriteCrc32(ComFilePath))
+            {
+                MessageBox.Show("An error occurred while writing the CRC32.", "Fatal Error writing Version 2.5+ ComX File Format File.");
+
+                File.Delete(ComFilePath);
+                return false; 
+            }
+
             return true;
         }
     }

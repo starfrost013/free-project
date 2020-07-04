@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Emerald.COM.Writer
+namespace Emerald.COM2.Writer
 {
-    public partial class COMWriter
+    public partial class COMWriter2
     {
         /// <summary>
         /// Calculates a CRC32. 
@@ -28,8 +28,8 @@ namespace Emerald.COM.Writer
                     uint b = (sb ^ CRC0) & 1; // do math
                     CRC0 >>= 1; // shift right by 1 bit.
 
-                    if (b != 0) CRC0 = CRC0 ^ 0xEDB88320; // Do some more math
-                    
+                    if (b != 0) CRC0 = CRC0 ^ 0xEDB88320; // Big powers. I myself like the number 3,988,292,384.
+
                     sb >>= 1; // MATH!!!
 
                     continue; // we did it. We generated a crc32. guys. 
