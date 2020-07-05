@@ -126,7 +126,8 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.DeleteObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.GetPlayers.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.IsColliding.cs" />
-    <Compile Include="Objects\ObjManager.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.SetGameObjectPriority.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectPosition.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
     <Compile Include="Physics\Physics.Init.cs" />
     <Compile Include="Physics\PhysicsWorker\PhysicsBackgroundWorker.DoWork.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Scripting\Commands\CommandFactory.cs" />
     <Compile Include="Scripting\Commands\Script.DeleteObjectCommand.cs" />
     <Compile Include="Scripting\Commands\Script.InsertObjectCommand.cs" />
+    <Compile Include="Scripting\Commands\Script.SetObjectPositionCommand.cs" />
     <Compile Include="Scripting\Commands\ScriptUtilities.cs" />
     <Compile Include="Scripting\Commands\Script.TestCommand.cs" />
     <Compile Include="Scripting\ICommandExecutor.cs" />
@@ -485,6 +487,18 @@
     <Resource Include="Content\Weapons\TestWeapon_Ammo_Explode_04.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Emerald.COM.Reader\Emerald.COM.Reader.csproj">
+      <Project>{a6a93016-6a95-4ae9-bb7f-9968c3f18816}</Project>
+      <Name>Emerald.COM.Reader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Emerald.COM.Shared\Emerald.COM.Shared.csproj">
+      <Project>{36876cbe-7b54-470c-b42d-d9ba830bb9a0}</Project>
+      <Name>Emerald.COM.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Emerald.COM.Writer\Emerald.COM.Writer.csproj">
+      <Project>{b53c20fd-afb6-44f8-934c-2ccfbe4f6f95}</Project>
+      <Name>Emerald.COM.Writer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Emerald.Utilities\PresentationCompatibility.csproj">
       <Project>{a677eee2-1fbc-4abe-8072-39fe09cd18b6}</Project>
       <Name>PresentationCompatibility</Name>

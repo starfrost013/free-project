@@ -22,7 +22,7 @@ namespace Free
 
         public object GetParameter(string ParameterName)
         {
-            throw new NotImplementedException(); 
+            throw new NotImplementedException();
         }
 
         public void GetParameters(List<SimpleESXParameter> Params)
@@ -53,10 +53,11 @@ namespace Free
 
         public void Verify()
         {
-            if (Parameters.Count != 0)
+            if (Parameters.Count != 3)
             {
-                ScriptError.Throw("TestCommand: Must have no parameters!!", 5, 0, "Temp");
+                ScriptError.Throw("SetObjectPosition must have 3 parameters!", 12, 0, "Temp");
             }
+
         }
 
         public ScriptReturnValue Execute()

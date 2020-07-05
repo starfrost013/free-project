@@ -18,6 +18,17 @@ namespace SDLX
         public SDLPoint Position { get; set; }
         public string Name { get; set; }
         public SDLPoint Size { get; set; }
+
+        public void SetPosition(SDLPoint Pos)
+        {
+            Position = Pos;
+        }
+
+        public void SetSize(SDLPoint Siz)
+        {
+            Size = Siz;
+        }
+
     }
 
 }
