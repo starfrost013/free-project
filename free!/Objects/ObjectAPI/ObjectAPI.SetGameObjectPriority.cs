@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Free.Objects.ObjectAPI
+namespace Free
 {
     // TEMP in freesdl.
     public partial class FreeSDL
