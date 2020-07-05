@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,8 @@ namespace Free
             {
                 TextList.Add(textBlock);
             }
+
+            Debug.WriteLine("The Text Manager is deprecated."); 
 
             return textBlock;
         }

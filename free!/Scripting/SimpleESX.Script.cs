@@ -147,7 +147,7 @@ namespace Free
                 SEXCommand.CommandExecutor.Verify();
                 
                 // Execute the command.
-                ScriptReturnValue SRV = SEXCommand.CommandExecutor.Execute(); // ADD COMMAND RETURN VALUES...
+                ScriptReturnValue SRV = SEXCommand.CommandExecutor.Execute(); 
 
                 // An error occurred - nonzero return value
                 if (SRV.ReturnCode != 0)

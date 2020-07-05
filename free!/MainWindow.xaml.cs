@@ -65,7 +65,7 @@ namespace Free
 
             // Just temporary things for some stuff
             COMWriter2 CW2 = new COMWriter2();
-            CW2.WriteCom2FromGroupOfFiles("ComX-v2.5.ComX", new List<string> { "Levels.xml " }); //ComX-platform v2.5
+            CW2.WriteCom2FromGroupOfFiles("ComX-v2.5.ComX", new List<string> { "ComXTest.xml " }); //ComX-platform v2.5
 
             InitializeComponent();
 

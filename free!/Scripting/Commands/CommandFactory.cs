@@ -19,6 +19,7 @@ namespace Free
                     return new DeleteIGameObjectCommand();
                 case "InsertObject":
                     return new InsertIGameObjectCommand();
+                case "SetObjectPosition":
                 case "Test":
                 case "TestCommand":
                     return new TestCommand();

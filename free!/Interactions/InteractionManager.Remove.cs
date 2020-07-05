@@ -12,7 +12,7 @@ namespace Free
         {
             GameObject.GameObjectCOLLISIONS--;
             GameObject.CollidedLevelObjects.Remove(GameObject);
-            DeleteGameObject(GameObject, interaction.ObjId2ID);
+            currentlevel.DeleteIGameObject(interaction.ObjId2ID);
             return;
         }
     }

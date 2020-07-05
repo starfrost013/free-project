@@ -126,7 +126,8 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.DeleteObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.GetPlayers.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.IsColliding.cs" />
-    <Compile Include="Objects\ObjManager.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.SetGameObjectPriority.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectPosition.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
     <Compile Include="Physics\Physics.Init.cs" />
     <Compile Include="Physics\PhysicsWorker\PhysicsBackgroundWorker.DoWork.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Scripting\Commands\CommandFactory.cs" />
     <Compile Include="Scripting\Commands\Script.DeleteObjectCommand.cs" />
     <Compile Include="Scripting\Commands\Script.InsertObjectCommand.cs" />
+    <Compile Include="Scripting\Commands\Script.SetObjectPositionCommand.cs" />
     <Compile Include="Scripting\Commands\ScriptUtilities.cs" />
     <Compile Include="Scripting\Commands\Script.TestCommand.cs" />
     <Compile Include="Scripting\ICommandExecutor.cs" />
