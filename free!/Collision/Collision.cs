@@ -294,10 +294,12 @@ namespace Free
             }
         }
 
-        private List<Rect> Internal_GetIGameObjectBoundingBoxes(GameObject ObjId1, GameObject ObjId2)
+        private List<Rect> Internal_GetIGameObjectBoundingBoxes(IGameObject ObjId1, IGameObject ObjId2)
         {
             // fix bad code - GameObject.Size (point) 
             List<Rect> Rects = new List<Rect>();
+
+            // CHANGE TO SDLPOINT
             Rects.Add(new Rect(new Point(ObjId1.GameObjectX, ObjId1.GameObjectY), new Point(ObjId1.GameObjectX + ObjId1.GameObjectIMAGE.PixelWidth, ObjId1.GameObjectY + ObjId1.GameObjectIMAGE.PixelHeight)));
             Rects.Add(new Rect(new Point(ObjId2.GameObjectX, ObjId2.GameObjectY), new Point(ObjId2.GameObjectX + ObjId2.GameObjectIMAGE.PixelWidth, ObjId2.GameObjectY + ObjId2.GameObjectIMAGE.PixelHeight)));
 
@@ -307,7 +309,7 @@ namespace Free
         /// <summary>
         /// Tests if the top of ObjId1's bounding box collides with 2.
         /// </summary>
-        public bool TestCollideTop(GameObject ObjId1, GameObject ObjId2)
+        public bool TestCollideTop(IGameObject ObjId1, IGameObject ObjId2)
         {
             List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
 
@@ -324,7 +326,7 @@ namespace Free
             }
         }
 
-        public bool TestCollideBottom(GameObject ObjId1, GameObject ObjId2)
+        public bool TestCollideBottom(IGameObject ObjId1, IGameObject ObjId2)
         {
             List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
 
@@ -341,7 +343,7 @@ namespace Free
             }
         }
 
-        public bool TestCollideLeft(GameObject ObjId1, GameObject ObjId2)
+        public bool TestCollideLeft(IGameObject ObjId1, IGameObject ObjId2)
         {
             List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
 
@@ -357,7 +359,7 @@ namespace Free
             }
         }
 
-        public bool TestCollideRight(GameObject ObjId1, GameObject ObjId2)
+        public bool TestCollideRight(IGameObject ObjId1, IGameObject ObjId2)
         {
             List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
 

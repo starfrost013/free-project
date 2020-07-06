@@ -103,7 +103,10 @@ namespace Free
         void MoveLeft();
         void MoveRight();
         void Jump();
-
         bool IsColliding();
+        bool IsCollidingLeft();
+        bool IsCollidingRight();
+        bool IsCollidingTop();
+        bool IsCollidingBottom();
     }
 }

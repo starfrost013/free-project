@@ -53,9 +53,9 @@ namespace Free
 
         public void Verify()
         {
-            if (Parameters.Count != 3)
+            if (Parameters.Count != 0)
             {
-                ScriptError.Throw("SetObjectPosition must have 3 parameters!", 12, 0, "Temp");
+                ScriptError.Throw("TestCommand must have no parameters!", 12, 0, "Temp");
             }
 
         }

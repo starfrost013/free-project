@@ -10,7 +10,7 @@ namespace Free
     {
         public void Interaction_Bounce(IGameObject GameObject)
         {
-            // Wow this is an ugly hack and we need to get rid of it.
+            // Wow this is an ugly hack and we need to get rid of it. it's also broken
             GameObject.GameObjectY -= 10;
             GameObject.GameObjectACCELERATIONY = -8.5;
             

@@ -48,7 +48,7 @@ namespace Free
                     {
                         if (e.Key == Controls.MoveLeft)
                         {
-                            if (GameObject.GameObjectCANMOVELEFT)
+                            if (GameObject.GameObjectCANMOVELEFT && !GameObject.IsCollidingLeft())
                             {
                                 GameObject.GameObjectMOVELEFT = true;
                                 GameObject.LastControl = LastCtrl.MoveLeft;
@@ -58,7 +58,7 @@ namespace Free
                         }
                         else if (e.Key == Controls.MoveRight)
                         {
-                            if (GameObject.GameObjectCANMOVERIGHT)
+                            if (GameObject.GameObjectCANMOVERIGHT && !GameObject.IsCollidingRight())
                             {
                                 GameObject.GameObjectMOVERIGHT = true;
                                 GameObject.LastControl = LastCtrl.MoveRight;

@@ -9,13 +9,13 @@ namespace Free
     // TEMP in freesdl.
     public partial class FreeSDL
     {
-        public GameObject SetGameObjectPriority(GameObject GameObjectToModify, Priority priority)
+        public GameObject SetGameObjectPriority(GameObject GameObjectToModify, Priority Priority)
         {
             foreach (GameObject GameObject in currentlevel.LevelIGameObjects)
             {
                 if (GameObject == GameObjectToModify)
                 {
-                    GameObject.GameObjectPRIORITY = priority;
+                    GameObject.GameObjectPRIORITY = Priority;
                     return GameObjectToModify; //should return null.
                 }
             }

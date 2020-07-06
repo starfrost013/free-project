@@ -95,6 +95,7 @@
     <Compile Include="Audio\Audio.cs" />
     <Compile Include="Audio\Audio.SFX.cs" />
     <Compile Include="Collision\Collision.cs" />
+    <Compile Include="Collision\CollisionV2.cs" />
     <Compile Include="EditMode\EditMode.cs" />
     <Compile Include="EditMode\EditMode.ManageInteractions.xaml.cs">
       <DependentUpon>EditMode.ManageInteractions.xaml</DependentUpon>
