@@ -102,7 +102,7 @@ namespace Free
         public virtual double GameObjectLEVELDAMAGE { get; set; }
         public virtual int GameObjectLIVES { get; set; }
         public virtual AI GameObjectAI { get; set; }
-
+        public SDLPoint Size { get; set; }
         public GameObject()
         {
             AssociatedScriptPaths = new List<ScriptReference>();
