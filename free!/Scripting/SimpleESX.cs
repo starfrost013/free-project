@@ -10,7 +10,7 @@ namespace Free
 {
     // Trigger IGameObjects?
     public enum EventClass { OnLoad, OnDestroy, OnChangeLevel, OnPlayerSpawn, OnBeingDead, OnGameOver, OnSkillObtained, OnSkillLost, OnLevelChange, OnHurt, OnAIChange, OnAICreate, OnAIDie, OnSpecificIGameObjectSpawn, OnSpecificIGameObject, Routine, EveryFrame, OnAnimationPlayed, OnAnimationPlayed_SpecificFrame, OnIGameObjectInteraction, OnSoundPlayed, OnMusicPlayed, OnVFXSpawn, OnVFXParticleNum, OnVFXDespawn, OnPlayerReachCertainPosition, OnCollide, OnGameClose }
-    public class SimpleESX
+    public partial class SimpleESX
     {
         internal List<SimpleESXScript> LoadedScripts { get; set; }
 
