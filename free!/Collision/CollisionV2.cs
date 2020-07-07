@@ -53,6 +53,9 @@ namespace Free
                 }
             }
 
+            // check if we aren't colliding anymore
+
+        
             if (!GameObject.IsColliding())
             {
                 return;

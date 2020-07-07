@@ -294,7 +294,7 @@ namespace Free
             }
         }
 
-        private List<Rect> Internal_GetIGameObjectBoundingBoxes(IGameObject ObjId1, IGameObject ObjId2)
+        private List<Rect> Internal_GetObjectBoundingBoxes(IGameObject ObjId1, IGameObject ObjId2)
         {
             // fix bad code - GameObject.Size (point) 
             List<Rect> Rects = new List<Rect>();
@@ -311,7 +311,7 @@ namespace Free
         /// </summary>
         public bool TestCollideTop(IGameObject ObjId1, IGameObject ObjId2)
         {
-            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
+            List<Rect> Rects = Internal_GetObjectBoundingBoxes(ObjId1, ObjId2);
 
             // Gonna work ons cripting
             double FX = Rects[1].TopLeft.Y + ((Rects[1].BottomRight.Y - Rects[1].TopLeft.Y) / 2);
@@ -328,7 +328,7 @@ namespace Free
 
         public bool TestCollideBottom(IGameObject ObjId1, IGameObject ObjId2)
         {
-            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
+            List<Rect> Rects = Internal_GetObjectBoundingBoxes(ObjId1, ObjId2);
 
             // Gonna work ons cripting
             double FX = Rects[1].TopLeft.Y + ((Rects[1].BottomRight.Y - Rects[1].TopLeft.Y) / 2);
@@ -345,7 +345,7 @@ namespace Free
 
         public bool TestCollideLeft(IGameObject ObjId1, IGameObject ObjId2)
         {
-            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
+            List<Rect> Rects = Internal_GetObjectBoundingBoxes(ObjId1, ObjId2);
 
             double Max = Rects[1].TopLeft.X + ((Rects[1].TopRight.Y - Rects[1].TopLeft.Y) / 2);
 
@@ -361,7 +361,7 @@ namespace Free
 
         public bool TestCollideRight(IGameObject ObjId1, IGameObject ObjId2)
         {
-            List<Rect> Rects = Internal_GetIGameObjectBoundingBoxes(ObjId1, ObjId2);
+            List<Rect> Rects = Internal_GetObjectBoundingBoxes(ObjId1, ObjId2);
 
             double Max = Rects[1].TopLeft.X + ((Rects[1].TopRight.Y - Rects[1].TopLeft.Y) / 2);
 

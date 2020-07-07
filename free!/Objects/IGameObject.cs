@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emerald.Utilities.Wpf2Sdl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -88,6 +89,7 @@ namespace Free
         List<ScriptReference> AssociatedScriptPaths { get; set; }
         double JumpIntensity { get; set; }
         bool SpaceHeld { get; set; }
+        SDLPoint Size { get; set; }
         void SetAcceleration(double x, double y); // sets the acceleration
 
         void ChgAcceleration(double x, double y); // changes the acceleration
