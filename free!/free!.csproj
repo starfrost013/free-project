@@ -124,10 +124,10 @@
     <Compile Include="Level\LevelPreloader.cs" />
     <Compile Include="Objects\IGameObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.AddObject.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.ChangeLevel.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.DeleteObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.GetPlayers.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.IsColliding.cs" />
-    <Compile Include="Objects\ObjectAPI\ObjectAPI.RunScript.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectHealth.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectLevel.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectPriority.cs" />
@@ -135,7 +135,7 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectSize.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
     <Compile Include="Physics\Physics.Init.cs" />
-    <Compile Include="Physics\Physics2.cs" />
+    <Compile Include="Physics\PhysicsV2.cs" />
     <Compile Include="Physics\PhysicsWorker\PhysicsBackgroundWorker.DoWork.cs" />
     <Compile Include="Render\Render.cs" />
     <Compile Include="Render\ThreadedRender.cs" />

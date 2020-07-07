@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    public partial class SimpleESX
+    public partial class FreeSDL
     {
-        public void ExecuteScriptNoLoad()
+        public void ObjapiChangeLevel(int ID)
         {
-
+            BootNow_SetCurrentLevel(ID);
         }
     }
 }

@@ -12,9 +12,9 @@ using System.Windows;
 /// 
 /// Created: 2020-06-16
 /// 
-/// Modified: 2020-06-16
+/// Modified: 2020-07-08
 /// 
-/// Version: 1.00
+/// Version: 1.10 (2020-07-08: Added Point-to-SDLPoint conversion and vice versa. This is temporary untiL SDL is in.)
 /// 
 /// Purpose: WPF compatibility services for SDL-based free! engine applications [enginecore-2.20.1379.56 v1.00]. Acts precisely like the WPF Point class to all other applications, just with a different name - also being a class
 /// rather than a struct. It also only implements functionality used by free! at this time. 
@@ -80,6 +80,11 @@ namespace Emerald.Utilities.Wpf2Sdl
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public SDLPoint FromPoint(Point Point)
+        {
+            return new SDLPoint(Point.X, Point.Y);
         }
     }
 }
