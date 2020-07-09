@@ -16,8 +16,7 @@ namespace Free
             {
                 if (GameObject.GameObjectINTERNALID == GameObjectId)
                 {
-                    GameObject.GameObjectX = x;
-                    GameObject.GameObjectY = y;
+                    GameObject.Position = new SDLPoint(x, y); 
                     return true;
                 }
             }

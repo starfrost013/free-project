@@ -95,6 +95,7 @@ namespace Free
         public double GameObjectY { get; set; }
         public List<ScriptReference> AssociatedScriptPaths { get; set; }
         public double JumpIntensity { get; set; } // Jumping intensity.
+        public SDLPoint Position { get; set; }
         public virtual bool GameObjectISPLAYER { get; set; }// new for compatibility purposes
         public virtual double GameObjectDAMAGE { get; set; }
         public virtual double GameObjectHEALTH { get; set; }

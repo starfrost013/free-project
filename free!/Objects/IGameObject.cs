@@ -89,6 +89,7 @@ namespace Free
         List<ScriptReference> AssociatedScriptPaths { get; set; }
         double JumpIntensity { get; set; }
         bool SpaceHeld { get; set; }
+        SDLPoint Position { get; set; }
         SDLPoint Size { get; set; }
         void SetAcceleration(double x, double y); // sets the acceleration
 
