@@ -105,7 +105,7 @@ namespace SDLX
         public void SDL_DrawText()
         {
             // Render the text to a surface.
-            IntPtr Surface = SDL_ttf.TTF_RenderText_Solid(CurrentScene.TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS, $"Camera Position: {CurrentScene.GameCamera.CameraPosition.X}, {CurrentScene.GameCamera.CameraPosition.Y}", new SDL.SDL_Color { a = 255, r = 255, g = 255, b = 255 });
+            IntPtr Surface = SDL_ttf.TTF_RenderText_Solid(CurrentScene.TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS, $"Camera Position: {CurrentScene.GameCamera.CameraPosition.X}, {CurrentScene.GameCamera.CameraPosition.Y}", new SDL.SDL_Color { a = 255, r = 0, g = 0, b = 0 });
 
             // Render the text surface to a texture.
             IntPtr Texture = SDL.SDL_CreateTextureFromSurface(SDL_RenderPtr, Surface);
