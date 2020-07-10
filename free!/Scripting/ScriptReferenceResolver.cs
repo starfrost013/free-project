@@ -52,10 +52,10 @@ namespace Free
                         // Get the object to check
                         IGameObject SRROPIDC1 = MnWindow.currentlevel.GetObjectWithLevelObjid((int)SRROPID1.Value[0]);
                         IGameObject SRROPIDC2 = MnWindow.currentlevel.GetObjectWithLevelObjid((int)SRROPID1.Value[1]);
-                        if (SRROPIDC1.IsColliding())
-                        {
-                            if (SRROPIDC1.IsCollidingWith(SRROPIDC2)) return true;
-                        }
+
+                        // If colliding return true
+
+                        if (SRROPIDC1.IsCollidingWith(SRROPIDC2)) return true;
                     }
                     else
                     {
