@@ -111,5 +111,6 @@ namespace Free
         bool IsCollidingRight();
         bool IsCollidingTop();
         bool IsCollidingBottom();
+        bool IsCollidingWith(IGameObject Obj2);
     }
 }

@@ -29,7 +29,7 @@ namespace Free
 
                     if (EvtClass.ReferenceRunOn.Count > 1)
                     {
-                        ScriptError.Throw("Error: Only one RunOn is allowed for OnPlayerReachCertainPosition event-handler scripts", 9, 0, "ScriptXML Bug"); 
+                        ScriptError.Throw("Error: Only one RunOn parameter is allowed for OnPlayerReachCertainPosition event-handler scripts", 9, 0, "ScriptXML Bug"); 
                     }
 
                    
@@ -42,11 +42,40 @@ namespace Free
                     {
                         return false;
                     }
+                case EventClass.OnCollide:
+
+                    ScriptReferenceRunOnParameter SRROPID1 = GetRunOnParamWithName(EvtClass, "Obj1ID");
+                    ScriptReferenceRunOnParameter SRROPID2 = GetRunOnParamWithName(EvtClass, "Obj2ID");
+
+                    if (SRROPID1 != null && SRROPID2 != null)
+                    {
+                        // Get the object to check
+                        IGameObject SRROPIDC1 = MnWindow.currentlevel.GetObjectWithLevelObjid((int)SRROPID1.Value[0]);
+                        IGameObject SRROPIDC2 = MnWindow.currentlevel.GetObjectWithLevelObjid((int)SRROPID1.Value[1]);
+                        if (SRROPIDC1.IsColliding())
+                        {
+                            if (SRROPIDC1.IsCollidingWith(SRROPIDC2)) return true;
+                        }
+                    }
+                    else
+                    {
+                        ScriptError.Throw("Obj1ID or OBJ2ID condition not defined!", 14, 0, "ReflectionMetadata runtime parse error");
+                    }
+
+                    return false;
             }
 
             return false; 
         } 
 
-        
+        private static ScriptReferenceRunOnParameter GetRunOnParamWithName(ScriptReferenceRunOn EvtClass, string Name)
+        {
+            foreach (ScriptReferenceRunOnParameter SRRO in EvtClass.ReferenceRunOn)
+            {
+                if (SRRO.Name == Name) return SRRO;
+            }
+
+            return null;
+        }
     }
 }

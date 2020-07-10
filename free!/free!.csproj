@@ -126,8 +126,10 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.AddObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.ChangeLevel.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.DeleteObject.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.GetObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.GetPlayers.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.IsColliding.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.IsCollidingWith.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectHealth.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectLevel.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectPriority.cs" />
