@@ -135,6 +135,7 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectPriority.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectPosition.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectSize.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.SetPhysicsState.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
     <Compile Include="Physics\Physics.Init.cs" />
     <Compile Include="Physics\PhysicsV2.cs" />
