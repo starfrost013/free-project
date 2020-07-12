@@ -16,7 +16,7 @@ namespace Free
     public static class NativeMethods
     {
         [DllImport("kernel32.dll",SetLastError = true)]
-        public static extern bool AttachConsole(uint dwProcessId);
+        public static extern bool AllocConsole(); // allocconsole probably works better
 
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern IntPtr GetConsoleWindow();

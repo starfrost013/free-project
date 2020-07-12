@@ -30,7 +30,7 @@ namespace Free
         {
             // temporary
 
-            NativeMethods.AttachConsole(NativeMethods.Win32__AttachConsole_Default_PID);
+            NativeMethods.AllocConsole();
 
 #if DEBUG
             IntPtr _ = NativeMethods.GetConsoleWindow();
