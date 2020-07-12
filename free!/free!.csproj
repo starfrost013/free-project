@@ -530,12 +530,12 @@ copy $(ProjectDir)\Content\SDL2.dll SDL2.dll
 
 echo Copying content files...We will be moving all files to \Content\ in the near future...
 echo.
-xcopy /D /MOVE $(ProjectDir)\Content .
-del /S /Q $(ProjectDir)\Content\*.*
-rd /S /Q $(ProjectDir)\Content\
+xcopy /D /MOVE $(ProjectDir)\Content $(TargetDir)
+del /S /Q ${TargetDir)\Content\*.*
+rd /S /Q $(TargetDir)\Content\
 md Content
 IF NOT EXIST Content\Game md Content\Game
-copy $(ProjectDir)\Game\Placeholder.png $(ProjectDir)\Content\Game\Placeholder.png
+copy $(ProjectDir)\Game\Placeholder.png $(TargetDir)\Content\Game\Placeholder.png
 
 "$(ProjectDir)\free!.exe"
 </PostBuildEvent>
