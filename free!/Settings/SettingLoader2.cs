@@ -17,7 +17,7 @@ namespace Free
         {
             try
             {
-                LogDebug_C("BootNow!", "Now loading settings...");
+                //LogDebug_C("BootNow!", "Now loading settings...");
 
                 Settings.DebugMode = GameSettings.GetBool("DebugMode");
 
