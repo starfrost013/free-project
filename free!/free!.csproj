@@ -526,16 +526,16 @@
     <PostBuildEvent>REM Robocopy doesn't use exit code 0 for success, so Visual Studio and MSBUILD crap out.
 
 echo Copying SDL2...
-copy Content\SDL2.dll SDL2.dll
+copy $(ProjectDir)\Content\SDL2.dll SDL2.dll
 
 echo Copying content files...We will be moving all files to \Content\ in the near future...
 echo.
-xcopy /D /MOVE .\Content .
-del /S /Q .\Content\*.*
-rd /S /Q .\Content\
+xcopy /D /MOVE $(ProjectDir)\Content .
+del /S /Q $(ProjectDir)\Content\*.*
+rd /S /Q $(ProjectDir)\Content\
 md Content
 IF NOT EXIST Content\Game md Content\Game
-copy Game\Placeholder.png Content\Game\Placeholder.png
+copy $(ProjectDir)\Game\Placeholder.png $(ProjectDir)\Content\Game\Placeholder.png
 
 start "$(ProjectDir)\free!.exe"
 </PostBuildEvent>
