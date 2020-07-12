@@ -1,0 +1,5 @@
+<Interactions>
+  <Interaction obj1="1" obj2="0" type="Remove" />
+  <Interaction obj1="1" obj2="9" type="ChangeLevel" />
+  <Interaction obj1="1" obj2="12" type="Bounce" />
+</Interactions>
