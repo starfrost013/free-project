@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emerald.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,19 +17,23 @@ namespace Free
         {
             try
             {
+                LogDebug_C("BootNow!", "Now loading settings...");
+
                 Settings.DebugMode = GameSettings.GetBool("DebugMode");
 
                 Settings.DemoMode = GameSettings.GetBool("DemoMode");
 
                 if (Settings.DemoMode) Settings.DemoModeMaxLevel = GameSettings.GetInt("DemoModeMaxLevel");
 
-                Settings.Resolution = GameSettings.GetPoint("Resolution");
+                Settings.Resolution = GameSettings.GetPoint_V2("Resolution");
 
                 Settings.TitleScreenPath = GameSettings.GetString("TitleScreenPath");
 
-                Settings.UseSDLX = GameSettings.GetBool("UseSDLX");
-
                 Settings.WindowType = (WindowType)Enum.Parse(typeof(WindowType), GameSettings.GetString("WindowType"));
+
+                // Load FeatureControl
+
+                Settings.FeatureControl_DumpConsoleMessagesToW32Console_WindowsOnly = GameSettings.GetBool("FC_Dump2Console");
             }
             catch (ArgumentException err)
             {

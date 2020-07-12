@@ -118,10 +118,14 @@ namespace Free
                         CurParameter.Value = SexLineComponentParameters[1];
 
                         CurCommand.UserParameters.Add(CurParameter);
-                        
+
+                        FreeSDL.LogDebug_C("SimpleESX Command Parser", $"Successfully parsed valid SESX command parameter {CurParameter.Name}");
+
                     }
 
                     SEXCommands.Add(CurCommand);
+
+                    FreeSDL.LogDebug_C("SimpleESX Command Parser", $"Successfully parsed valid SESX command {CurCommand.CommandName}");
                 }
             }
 

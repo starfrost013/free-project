@@ -28,6 +28,13 @@ namespace Free
         {
             //todo: loadxmlandverify?
 
+            // Hack but this will die soon
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            Console.WriteLine("[WARNING] Text XML is deprecated. No logging will be provided for this system.");
+
+            Console.ForegroundColor = ConsoleColor.Gray;
+
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();

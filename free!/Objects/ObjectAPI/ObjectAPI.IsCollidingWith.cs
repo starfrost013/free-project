@@ -10,7 +10,7 @@ namespace Free
     {
         public bool IsCollidingWith(IGameObject Obj2)
         {
-            return (CollidedLevelObjects.Contains(Obj2);
+            return (CollidedLevelObjects.Contains(Obj2));
         }
     }
 }

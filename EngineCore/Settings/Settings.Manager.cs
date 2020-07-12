@@ -1,4 +1,5 @@
-﻿using Emerald.Utilities; 
+﻿using Emerald.Utilities;
+using Emerald.Utilities.Wpf2Sdl;
 using System;
 using System.Collections.Generic;
 using System.IO; 
@@ -7,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Windows;
-using System.Windows.Media; 
+using System.Windows.Media;
 
-namespace Free
+namespace Emerald.Core
 {
     /// <summary>
     /// Emerald Game Engine Settings © 2020 avant-gardé eyes.
@@ -224,6 +225,28 @@ namespace Free
             }
 
             Point XY = XElement.InnerText.SplitXY();
+
+            return XY;
+        }
+        
+            /// <summary>
+        /// Obtains a point setting.
+        /// </summary>
+        /// <param name="SettingsElement">The element name to grab.</param>
+        /// <returns></returns>
+        public static SDLPoint GetPoint_V2(string SettingsElement)
+        {
+            XmlNode XRoot = LoadSettingsXml();
+            XmlNode XElement = GetNode(XRoot, SettingsElement);
+
+            // throw an error if xelement is null
+            if (XElement == null)
+            {
+                MessageBox.Show($"Temp error. Attempted to load invalid setting point! Error 18!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                Application.Current.Shutdown(18);
+            }
+
+            SDLPoint XY = XElement.InnerText.SplitXYV2();
 
             return XY;
         }

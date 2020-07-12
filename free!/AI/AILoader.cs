@@ -59,14 +59,18 @@ namespace Free
                                             continue;
                                     }
                                 }
+
                                 foreach (IGameObject GameObject in IGameObjectList)
                                 {
-                                    if (AI.ObjId1Id == GameObject.GameObjectID & IsSentientBeing(GameObject))// assign the aitype
+                                    if (AI.ObjId1Id == GameObject.GameObjectID && IsSentientBeing(GameObject))// assign the aitype
                                     {
                                         GameObject.GameObjectAI = AI;
                                     }
 
                                 }
+
+                                LogDebug_C("AI Loader", $"Loaded AI relationship between {AI.ObjId1Id} and {AI.ObjId2Id} of type {AI.AIType} with intensity {AI.AIIntensity}");
+
                                 continue;
                         }
                     }

@@ -1,5 +1,7 @@
-﻿using Emerald.COM2;
+﻿using Emerald.Core;
+using Emerald.COM2;
 using Emerald.COM2.Writer;
+using Emerald.Utilities.Wpf2Sdl;
 using SDLX;
 using System;
 using System.Collections.Generic;
@@ -58,6 +60,7 @@ namespace Free
         public SimpleESX ScriptingCore { get; set; }
         public Thread SDLThread { get; set; }
         public EVersion GameVersion { get; set; }
+        
 
         public FreeSDL()
         {
@@ -148,14 +151,7 @@ namespace Free
                 case GameState.EditMode:
                     // Temporary
 
-                    if (Settings.UseSDLX)
-                    {
-                        DrawScene_Threaded();
-                    }
-                    else
-                    {
-                        DrawScene();
-                    }
+                    DrawScene();
 
                     return;
                 case GameState.Menu:
@@ -179,7 +175,7 @@ namespace Free
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            Settings.Resolution = new Point(this.Width, this.Height);
+            Settings.Resolution = new SDLPoint(e.NewSize.Width, e.NewSize.Height); 
         }
 
     }

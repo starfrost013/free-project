@@ -1,4 +1,5 @@
-﻿using Emerald.Utilities; 
+﻿using Emerald.Core;
+using Emerald.Utilities; 
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,16 +28,18 @@ namespace Free
         public void Engine_BootNow() 
         {
             // Set gamestate
-            Utils.LogDebug("BootNow!", $"BootNow! © 2020 avant-gardé eyes | Engine Now Initialising (version {Utils.GetVersion()})...");
+            NativeMethods.AttachConsole(NativeMethods.Win32__AttachConsole_Default_PID); 
+
+            LogDebug_C("BootNow!", $"BootNow! © 2020 avant-gardé eyes | Engine Now Initialising (version {Utils.GetVersion()})...");
             
             // Log if we're using SDL
-            if (Settings.UseSDLX)
+            if (Settings.FeatureControl_DisableWPF)
             {
-                Utils.LogDebug("BootNow!", "Using SDL2 renderer");
+                LogDebug_C("BootNow!", "Using SDL2 renderer");
             }
             else
             {
-                Utils.LogDebug("BootNow!", "Using WPF renderer");
+                LogDebug_C("BootNow!", "Using WPF renderer");
             }
 
             Gamestate = GameState.Init;
@@ -65,26 +68,49 @@ namespace Free
 
             // Init SDL
 
+            LogDebug_C("SDL2 Renderer", "Now Initialising..."); 
             SDLGame.Game_Init();
 
-            ScriptingCore.LoadReflection(); 
+            LogDebug_C("BootNow!", "Now initialising SimpleESX...");
+            ScriptingCore.LoadReflection();
+            LogDebug_C("BootNow!", "Now initialising controls...");
             LoadControls();
+            LogDebug_C("BootNow!", "Now initialising interactions (deprecated)...");
             LoadInteractions(); // Will be replaced with the scripting engine
+            LogDebug_C("BootNow!", "Now initialising weapons...");
             LoadWeapons();
+            LogDebug_C("BootNow!", "Now initialising AI...");
             LoadAI();
+            LogDebug_C("BootNow!", "Now initialising animations...");
             LoadAnimations();
+            LogDebug_C("BootNow!", "Now initialising text XML (deprecated)...");
             LoadTextXml();
+            LogDebug_C("BootNow!", "Now initialising master GameObject list...");
             LoadIGameObjects();
+            LogDebug_C("BootNow!", "Now initialising main game thread...");
             BootNow_InitMainGameThread();
+
+            if (Settings.FeatureControl_UsePhysicsV2)
+            {
+                LogDebug_C("BootNow!", "Now initialising physics engine version 1.0...");
+            }
+            else
+            {
+                LogDebug_C("BootNow!", "Now initalising physics engine version 2.0...");
+            }
+
             InitPhysics();
 
             // Get version
             GameVersion = new EVersion();
+
+            LogDebug_C("BootNow!", "Acquiring game version...");
             GameVersion.GetGameVersion(); // maybe make this a static api
 
             //TEMP:
             Title = $"free! ({GameVersion.GetVersionString()})";
 
+            LogDebug_C("BootNow!", "Loading levels...");
             Levels = LevelPreloader.LoadLevels(); // Static-class based
 
             Gamestate = GameState.Menu; 

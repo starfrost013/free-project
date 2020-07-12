@@ -49,41 +49,66 @@ namespace Free
                             {
                                 case "id":
                                 case "Id":
+                                    LogDebug_C("Object Loader", $"ID = {GameObject.GameObjectID}");
+
                                     GameObject.GameObjectID = Convert.ToInt32(XmlAttribute.Value); // yeah.
                                     continue;
                                 case "name":
                                 case "Name":
                                     GameObject.GameObjectNAME = XmlAttribute.Value;
+                                    LogDebug_C("Object Loader", $"Name = {GameObject.GameObjectID}");
                                     continue;
+
                                 case "objimage":
                                 case "ObjImage":
                                 case "ObjectImage":
+
                                     GameObject.GameObjectIMAGEPATH = XmlAttribute.Value;
+
+                                    LogDebug_C("Object Loader", $"ImagePath = {GameObject.GameObjectID}");
                                     continue;
+
                                 case "gravity":
                                 case "Gravity":
+
+                                    LogDebug_C("Object Loader", $"Gravity = {GameObject.GameObjectGRAV}");
+
                                     GameObject.GameObjectGRAV = Convert.ToBoolean(XmlAttribute.Value);
+
                                     continue;
                                 case "playerdamage":
                                 case "PlayerDamage":
+
+                                    LogDebug_C("Object Loader", $"Player Damage = {GameObject.GameObjectPLAYERDAMAGE}");
+
                                     GameObject.GameObjectPLAYERDAMAGE = Convert.ToInt32(XmlAttribute.Value);
+
                                     continue;
                                 case "isplayer":
                                 case "IsPlayer":
                                     GameObject.GameObjectPLAYER = Convert.ToBoolean(XmlAttribute.Value);
-                                    continue;
+
+                                    LogDebug_C("Object Loader", $"Is Player = {GameObject.GameObjectPLAYER}");
+
+                                continue;
                                 case "hitbox":
                                 case "Hitbox":
                                     string XmlValue = XmlAttribute.Value.Trim();
                                     XmlValue = XmlValue.Replace(" ", "");
                                     string[] hitboxpre = XmlValue.Split(',');
                                     GameObject.GameObjectHITBOX = new List<Point>();
+                                    LogDebug_C("Object Loader", "Hitbox loading...");
                                     GameObject.GameObjectHITBOX.Add(new Point(Convert.ToDouble(hitboxpre[0]), Convert.ToDouble(hitboxpre[1]))); // convert.
                                     GameObject.GameObjectHITBOX.Add(new Point(Convert.ToDouble(hitboxpre[2]), Convert.ToDouble(hitboxpre[3])));
+                                    LogDebug_C("Object Loader", "Hitbox loaded!");
                                     continue;
                                 case "mass": // the mass of the IGameObject
                                 case "Mass":
+
                                     GameObject.GameObjectMASS = Convert.ToDouble(XmlAttribute.Value);
+
+                                    LogDebug_C("Object Loader", $"Mass = {GameObject.GameObjectMASS}");
+
                                     continue;
                                 case "priority": //todo: optimize
                                 case "Priority":
@@ -124,14 +149,19 @@ namespace Free
                                 case "cansnap":
                                 case "CanSnap":
                                     GameObject.GameObjectCANSNAP = Convert.ToBoolean(XmlAttribute.Value);
+
+                                    LogDebug_C("Object Loader", $"Can Snap = {GameObject.GameObjectCANSNAP}");
                                     continue;
                                 case "collision":
                                 case "Collision":
                                 case "CanCollide":
                                     GameObject.GameObjectCANCOLLIDE = Convert.ToBoolean(XmlAttribute.Value);
+
+                                    LogDebug_C("Object Loader", $"Can Collide = {GameObject.GameObjectCANCOLLIDE}");
                                     continue;
                                 case "issentient":
                                 case "IsSentient":
+                                    LogDebug_C("Object Loader", "Converting to SentientBeing...");
                                     GameObject = new SentientBeing(GameObject, GameObject.GameObjectPLAYER, GameObject.GameObjectPLAYERDAMAGE, GameObject.GameObjectPLAYERHEALTH, GameObject.GameObjectPLAYERLEVEL, GameObject.GameObjectPLAYERDAMAGE, GameObject.GameObjectPLAYERLIVES, GameObject.GameObjectINTERNALID); // convert to sentientbeing
                                     continue;
                             }
@@ -140,7 +170,7 @@ namespace Free
                         // ADD ERROR CHECKING DUMBASS
 
                     // NEW 2020-06-08
-                    // Parse AssociatedScripts
+                    // Parse AssociatedScripts (no logging as it's not in its final place)
 
                     XmlNodeList XGrandchildNodes = XmlNode.ChildNodes;
 

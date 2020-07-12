@@ -53,9 +53,11 @@ namespace Free
                     {
                         switch (XmlAttribute.Name)
                         {
+                            case "GameObjectID":
                             case "GameObjectid":
                                 GameObjectId = Convert.ToInt32(XmlAttribute.Value);
                                 continue;
+                            case "Type":
                             case "type":
                                 Animation.animationType = (AnimationType)Enum.Parse(typeof(AnimationType), XmlAttribute.Value);
                                 continue;
@@ -82,13 +84,17 @@ namespace Free
                                     case "image":  // load the image
                                         WriteableBitmap AnimFrame = new WriteableBitmap(BitmapFactory.FromStream(new FileStream(XmlNode_CcAttribute.Value, FileMode.Open)));
 
+                                        LogDebug_C("Animation Loader", $"Successfully loaded animation frame at path {XmlNode_CcAttribute.Value} with type {Animation.animationType} for object {GameObjectId}");
                                         Animation.animImages.Add(AnimFrame);
                                         continue;
+                                    case "DispMS":
                                     case "Dispms":
                                     case "DisplayMs":
                                     case "DisplayMilliseconds":
                                     case "dispms":
-                                        Animation.numMs.Add(Convert.ToInt32(XmlNode_CcAttribute.Value));
+                                        int _ = Convert.ToInt32(XmlNode_CcAttribute.Value);
+                                        Animation.numMs.Add(_);
+                                        LogDebug_C("Animation Loader", $"Length = {_}");
                                         continue;
                                 }
                             }
@@ -105,12 +111,11 @@ namespace Free
                         }
                     }
 
-                    //Freeze the IGameObject to increase performance if we do not have animations.
-
                     //added
 
                     if (GameObjectId == -1)
                     {
+                        LogDebug_C("Animation Loader", "Last loaded animation has no associated object."); 
                         NonGameObjectAnimList.Add(Animation); // add
                     }
                 }

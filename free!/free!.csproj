@@ -96,6 +96,7 @@
     <Compile Include="Audio\Audio.SFX.cs" />
     <Compile Include="Collision\Collision.cs" />
     <Compile Include="Collision\CollisionV2.cs" />
+    <Compile Include="Debug\DebugLogger.cs" />
     <Compile Include="EditMode\EditMode.cs" />
     <Compile Include="EditMode\EditMode.ManageInteractions.xaml.cs">
       <DependentUpon>EditMode.ManageInteractions.xaml</DependentUpon>
@@ -138,6 +139,7 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetPhysicsState.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
     <Compile Include="Physics\Physics.Init.cs" />
+    <Compile Include="Physics\PhysicsState.cs" />
     <Compile Include="Physics\PhysicsV2.cs" />
     <Compile Include="Physics\PhysicsWorker\PhysicsBackgroundWorker.DoWork.cs" />
     <Compile Include="Render\Render.cs" />
@@ -157,8 +159,6 @@
     <Compile Include="Scripting\SimpleESX.Parameter.cs" />
     <Compile Include="Scripting\SimpleESX.Script.cs" />
     <Compile Include="Settings\SettingLoader2.cs" />
-    <Compile Include="Settings\Settings.cs" />
-    <Compile Include="Settings\Settings.Manager.cs" />
     <Compile Include="Text\AGTextBlock.cs" />
     <Compile Include="Text\TextLayoutLoader.cs" />
     <Compile Include="Text\TextLoader.cs" />
@@ -511,6 +511,10 @@
     <ProjectReference Include="..\Emerald.Utilities\PresentationCompatibility.csproj">
       <Project>{a677eee2-1fbc-4abe-8072-39fe09cd18b6}</Project>
       <Name>PresentationCompatibility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EngineCore\EngineCore.csproj">
+      <Project>{e90fd1a8-c4c9-4130-9a09-ceffaad1fcc5}</Project>
+      <Name>EngineCore</Name>
     </ProjectReference>
     <ProjectReference Include="..\SDLX\SDLX.csproj">
       <Project>{2bece7a3-3bb0-4213-a097-2698058767b4}</Project>

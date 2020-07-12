@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emerald.Core; 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,15 @@ namespace Free
         {
             App AppCurrent = (App)Application.Current;
 
+#if DEBUG
+            FreeSDL.LogDebug_C("ERROR", $"\n\nAn error has occurred with severity {severity}, ID {id}. Error information: {text}\n\n");
+            
+            if (err != null)
+            {
+                FreeSDL.LogDebug_C("ERROR", $"Detailed exception information is available.");
+                FreeSDL.LogDebug_C("ERROR", $"{err.Message}");
+            }
+#endif
             switch (severity)
             {
                 case ErrorSeverity.Warning: // Warning

@@ -65,7 +65,11 @@ namespace Free
                             }
                         }
                     }
+
+                    LogDebug_C("LoadInteractions()", $"Loaded interaction between {interaction.ObjId1ID} and {interaction.ObjId2ID} with type {interaction.GameObjectINTERACTIONTYPE}. Interactions are deprecated and replaced by SimpleESX on-hit scripts.");
+
                     InteractionList.Add(interaction);
+
                 }
 
             }

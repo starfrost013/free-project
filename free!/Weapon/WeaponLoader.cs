@@ -64,7 +64,7 @@ namespace Free
                                 case "criticalhitchance":
                                 case "criticalchance":
                                 case "critchance": // critical hit chance
-                                    Weapon.WEAPONCRITICALHITCHANCE = Convert.ToDouble(XmlAttribute.Value);
+                                    Weapon.WEAPONCRITICALHITCHANCE = Convert.ToDouble(XmlAttribute.Value); // weaponcriticalhitchancevariance?
                                     continue;
                                 case "CriticalHitMultiplier":
                                 case "criticalhitmultiplier":
@@ -124,6 +124,20 @@ namespace Free
                                     continue;
                             }
                         }
+
+                        LogDebug_C("Weapon Loader", $"Loaded weapon with name {Weapon.WEAPONNAME}." +
+                            $"Stats:\n\n" +
+                            $"Accuracy: {Weapon.WEAPONACCURACY}\n" +
+                            $"Default Ammo: {Weapon.WEAPONAMMO}\n" +
+                            $"Critical Hit Chance: {Weapon.WEAPONCRITICALHITCHANCE}\n" +
+                            $"Critical Hit Average Damage Multiplier: {Weapon.WEAPONCRITICALHITDAMAGEMULTIPLIER}\n" +
+                            $"Critical Hit Average Damage Random Variance: {Weapon.WEAPONCRITICALHITDAMAGEUNCERTAINTY}\n." +
+                            $"Non-Critical Hit Average Damage: {Weapon.WEAPONDAMAGE}\n" +
+                            $"Non-Critical Hit Average Damage Random Variance: {Weapon.WEAPONDAMAGEUNCERTAINTY}\n" +
+                            $"Fire Rate: {Weapon.WEAPONFIRERATE} (need more of these)");
+
+                            
+
                         WeaponList.Add(Weapon);
                     }
                 }

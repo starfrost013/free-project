@@ -8,7 +8,7 @@ namespace Free
 {
     public partial class FreeSDL
     {
-        public void ObjapiChangeLevel(int ID)
+        public void ObjApiChangeLevel(int ID)
         {
             BootNow_SetCurrentLevel(ID);
         }

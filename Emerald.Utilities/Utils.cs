@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emerald.Utilities.Wpf2Sdl;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -31,16 +32,19 @@ namespace Emerald.Utilities
         }
 
         /// <summary>
-        /// Logs to the .NET output and the Emerald.log file.
+        /// Logs to the Win32-allocated console and/or the .NET output and the Emerald.log file.
         /// </summary>
         /// <param name="Component">The component of Emerald that is producing the log file.</param>
         /// <param name="Text">The text to log.</param>
         public static void LogDebug(string Component, string Text)
         {
-            Debug.WriteLine($"[Emerald {Component} @ {DateTime.Now}]: {Text}");
+
+            Console.WriteLine($"[Emerald {Component} @ {DateTime.Now}]: {Text}"); // console will be allocated for this process by EngineCore
             LogFile(Component, Text);
 
         }
+
+        
 
         public static Point SplitXY(this String SplitString)
         {
@@ -63,6 +67,27 @@ namespace Emerald.Utilities
             {
                 MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Error 20", MessageBoxButton.OK, MessageBoxImage.Error);
                 return new Point { X = -1, Y = -1 };
+            }
+        }
+
+        public static SDLPoint SplitXYV2(this String SplitString)
+        {
+            try
+            {
+                string[] Split = SplitString.Split(',');
+
+                if (Split.Length != 2) MessageBox.Show("Error converting string to position - must be 2 positions supplied", "Error 19", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                // return -1, -1 if failed. 
+
+                SDLPoint XY = new SDLPoint(Convert.ToDouble(Split[0]), Convert.ToDouble(Split[1]));
+
+                return XY;
+            }
+            catch (FormatException err)
+            {
+                MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Error 20", MessageBoxButton.OK, MessageBoxImage.Error);
+                return new SDLPoint(-1, -1);
             }
         }
 

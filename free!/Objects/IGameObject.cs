@@ -91,6 +91,7 @@ namespace Free
         bool SpaceHeld { get; set; }
         SDLPoint Position { get; set; }
         SDLPoint Size { get; set; }
+        PhysicsState PhysState { get; set; }
         void SetAcceleration(double x, double y); // sets the acceleration
 
         void ChgAcceleration(double x, double y); // changes the acceleration
