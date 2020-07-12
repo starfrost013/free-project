@@ -1,0 +1,84 @@
+﻿<ReflectionMetadata>
+  <Command>
+    <Name>TestCommand</Name>
+    <Class>OnLoad</Class>
+    <Description>A test command.</Description>
+    <ParameterSchema/>
+  </Command>
+
+  <Command>
+    <Name>InsertObject</Name>
+    <!-- Command classes are deprecated -->
+    <Class>OnLoad</Class>
+    <Description>Inserts the IGameObject with global IGameObject ID GameObjectId at position X,Y.</Description>
+    <ParameterSchema>
+
+      <Parameter>
+        <Description>The global object ID of the level object to insert.</Description>
+        <Name>ID</Name>
+        <ParameterType>Int</ParameterType>
+      </Parameter>
+
+      <Parameter>
+        <Description>The initial X position of the level object when it is inserted.</Description>
+        <Name>X</Name>
+        <ParameterType>Double</ParameterType>
+      </Parameter>
+
+      <Parameter>
+        <Description>The initial Y position of the level object when it is inserted.</Description>
+        <Name>Y</Name>
+        <ParameterType>Double</ParameterType>
+      </Parameter>
+    </ParameterSchema>
+
+  </Command>
+
+  <Command>
+    
+    <Name>DeleteObject</Name>
+    <!-- Command classes are deprecated -->
+    <Class>OnLoad</Class> 
+    <Description>Deletes the IGameObject with global IGameObject ID id.</Description>
+    <ParameterSchema>
+
+      <Parameter>
+        <Description>The global IGameObject ID of the IGameObject to delete.</Description>
+        <Name>ID</Name>
+        <ParameterType>Int</ParameterType>
+      </Parameter>
+    
+    </ParameterSchema>
+  
+  </Command>
+
+  <Command>
+    <Name>SetObjectPosition</Name>
+    <!-- Command classes are deprecated -->
+    <Class>OnLoad</Class>
+    <Description>Sets the position of the object with internal object ID ID to X,Y.</Description>
+    <ParameterSchema>
+
+      <Parameter>
+        <Description>The global object ID of the level object to modify the position of.</Description>
+        <Name>ID</Name>
+        <ParameterType>Int</ParameterType>
+      </Parameter>
+
+      <Parameter>
+        <Description>The new X position of the object.</Description>
+        <Name>X</Name>
+        <ParameterType>Double</ParameterType>
+      </Parameter>
+
+      <Parameter>
+        <Description>The new Y position of the object.</Description>
+        <Name>Y</Name>
+        <ParameterType>Double</ParameterType>
+      </Parameter>
+    </ParameterSchema>
+
+  </Command>
+
+
+</ReflectionMetadata>

@@ -1,0 +1,27 @@
+﻿<ObjectLayout>
+	<!-- Free! Test Level Object Layout -->
+	<!-- File created 2019-10-31 01:38 -->
+	<!-- File modified 2019-12-21 16:04 -->
+	<!-- The game searches through the list of objects for the object with this id, then puts the object at posx and posy. © 2019-2020 avant-gardé eyes. -->
+	<Object id="0" posx="0" posy="0"></Object>
+	<Object id="0" posx="450" posy="30"></Object>
+	<Object id="0" posx="450" posy="130"></Object>
+	<Object id="0" posx="450" posy="230"></Object>
+	<Object id="1" posx="330" posy="165"></Object>
+	<Object id="0" posx="400" posy="300"></Object>
+	<Object id="2" posx="0" posy="400"></Object>
+	<Object id="4" posx="200" posy="195"></Object>
+	<Object id="5" posx="210" posy="205"></Object>
+	<Object id="6" posx="220" posy="215"></Object>
+	<Object id="7" posx="230" posy="225"></Object>
+	<Object id="8" posx="240" posy="235"></Object>
+	<Object id="9" posx="0" posy="340"></Object>
+	<Object id="10" posx="100" posy="200"></Object>
+	<Object id="11" posx="450" posy="50"></Object>
+	<Object id="11" posx="450" posy="100"></Object>
+	<Object id="11" posx="450" posy="150"></Object>
+	<Object id="11" posx="450" posy="200"></Object>
+	<Object id="11" posx="450" posy="250"></Object>	
+	<Object id="11" posx="450" posy="300"></Object>
+	<Object id="12" posx="350" posy="200"></Object>
+</ObjectLayout>
