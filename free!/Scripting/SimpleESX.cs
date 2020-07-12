@@ -143,7 +143,9 @@ namespace Free
                             SEXCommand.GetExecutor();
                             ReflectionMetadata.Add(SEXCommand);
 
+#if DEBUG
                             FreeSDL.LogDebug_C("Emerald SimpleESX Reflection Metadata Loader", $"Successfully loaded SimpleESXCommand with name {SEXCommand.CommandName} and class {SEXCommand.CommandExecutor}");
+#endif
                             continue; 
                     }
                 }

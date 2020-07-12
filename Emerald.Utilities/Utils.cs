@@ -38,9 +38,11 @@ namespace Emerald.Utilities
         /// <param name="Text">The text to log.</param>
         public static void LogDebug(string Component, string Text)
         {
-
+#if DEBUG
             Console.WriteLine($"[Emerald {Component} @ {DateTime.Now}]: {Text}"); // console will be allocated for this process by EngineCore
+#endif
             LogFile(Component, Text);
+
 
         }
 

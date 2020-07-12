@@ -57,6 +57,9 @@ namespace Free
 
                             XmlNodeList XLevelGrandchildren = XLevelChild.ChildNodes;
 
+#if DEBUG
+                            FreeSDL.LogDebug_C("Level Loader V2.0", "Currently loading level...");
+#endif
                             foreach (XmlNode XLevelGrandchild in XLevelGrandchildren)
                             {
                                 switch (XLevelGrandchild.Name)
@@ -64,36 +67,47 @@ namespace Free
                                     // Level properties.
                                     case "ID": // A numeric ID used to identify the level. 
                                         CurrentLevel.ID = Convert.ToInt32(XLevelGrandchild.InnerText);
+                                        FreeSDL.LogDebug_C("Level Loader V2.0", $"ID = {CurrentLevel.ID}");
                                         continue;
                                     case "Name": // The name used to identify the level.
                                         CurrentLevel.Name = XLevelGrandchild.InnerText;
+                                        FreeSDL.LogDebug_C("Level Loader V2.0", $"Name = {CurrentLevel.Name}\n");
                                         continue;
                                     case "BGPath": // The path to the level's background.
                                         CurrentLevel.BGPATH = XLevelGrandchild.InnerText;
+                                        FreeSDL.LogDebug_C("Level Loader V2.0", $"Background path = {CurrentLevel.BGPATH}\n");
                                         continue;
                                     case "ObjectLayoutPath": // The path to the IGameObject layout of the level.
                                         CurrentLevel.LevelIGameObjectsPATH = XLevelGrandchild.InnerText;
+                                        FreeSDL.LogDebug_C("Level Loader V2.0", $"Object layout path = {CurrentLevel.LevelIGameObjectsPATH}\n");
                                         continue;
                                     case "Music": // The path to the level's music.
                                         CurrentLevel.MUSICPATH = XLevelGrandchild.InnerText;
+                                        FreeSDL.LogDebug_C("Level Loader V2.0", $"Music is playing on this level. Path = {CurrentLevel.MUSICPATH}\n");
                                         continue;
                                     case "Size": // The size of the level.
                                         CurrentLevel.Size = XLevelGrandchild.InnerText.SplitXY();
+                                        FreeSDL.LogDebug_C("Level Loader V2.0", $"Size = {CurrentLevel.Size.X},{CurrentLevel.Size.Y}\n");
                                         continue;
                                     case "PlayerStartPos": // The start position of the level.
                                         CurrentLevel.PlayerStartPosition = XLevelGrandchild.InnerText.SplitXY();
+                                        FreeSDL.LogDebug_C("Level Loader V2.0", $"Player start position = {CurrentLevel.PlayerStartPosition.X},{CurrentLevel.PlayerStartPosition.Y}\n");
                                         continue;
                                     case "KillPlaneY": // The Y position of the level's kill plane.
                                         CurrentLevel.PLRKILLY = Convert.ToDouble(XLevelGrandchild.InnerText);
+                                        FreeSDL.LogDebug_C("Level Loader V2.0", $"Kill plane height = {CurrentLevel.PLRKILLY}\n");
                                         continue;
                                     case "TextLayout": // The layout of this levels' text.
                                         CurrentLevel.TEXTPATH = XLevelGrandchild.InnerText;
+                                        FreeSDL.LogDebug_C("Level Loader V2.0", $"Text layout (deprecated) path = {CurrentLevel.TEXTPATH}\n");
                                         continue;
                                     case "BackgroundSize": // The background size of this level.
                                         CurrentLevel.BackgroundSize = XLevelGrandchild.InnerText.SplitXY();
+                                        FreeSDL.LogDebug_C("Level Loader V2.0", $"Background size = {CurrentLevel.BackgroundSize.X},{CurrentLevel.BackgroundSize.Y}\n");
                                         continue;
                                 }
                             }
+
                             LevelList.Add(CurrentLevel);
                             continue;
                     }

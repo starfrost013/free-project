@@ -52,6 +52,7 @@ namespace Free
                         {
                             switch (XmlAttribute.Name)
                             {
+                                case "Name":
                                 case "name":
                                     KeyConverter KeyConverter = new KeyConverter();
                                     switch (XmlAttribute.Value) // get the value

@@ -3,6 +3,7 @@ using Emerald.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading; 
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ using System.Windows;
 /// 
 /// Created: 2020-06-07
 /// 
-/// Modified: 2020-06-07
+/// Modified: 2020-07-12
 /// 
 /// Purpose: Initiailises the engine. 
 ///
@@ -27,9 +28,22 @@ namespace Free
     {
         public void Engine_BootNow() 
         {
-            // Set gamestate
-            NativeMethods.AttachConsole(NativeMethods.Win32__AttachConsole_Default_PID); 
+            // temporary
 
+            NativeMethods.AttachConsole(NativeMethods.Win32__AttachConsole_Default_PID);
+
+#if DEBUG
+            IntPtr _ = NativeMethods.GetConsoleWindow();
+
+            if (_ == IntPtr.Zero)
+            {
+                Error.Throw(null, ErrorSeverity.FatalError, $"Win32 error occurred while initialising debug console {Marshal.GetLastWin32Error()}");
+            }
+            else
+            {
+                NativeMethods.ShowWindow(_, 1); 
+            }
+#endif
             LogDebug_C("BootNow!", $"BootNow! © 2020 avant-gardé eyes | Engine Now Initialising (version {Utils.GetVersion()})...");
             
             // Log if we're using SDL
@@ -42,6 +56,7 @@ namespace Free
                 LogDebug_C("BootNow!", "Using WPF renderer");
             }
 
+            // Set gamestate
             Gamestate = GameState.Init;
 
             //temp
@@ -61,9 +76,8 @@ namespace Free
             GameTickTimer.Elapsed += GameTick;
             GameTickTimer.Interval = 0.001; // We run AFAP as of 2020-05-26
 
-
-
             // Load everything that we can load at init
+            LogDebug_C("BootNow!", "Loading settings...");
             LoadSettings();
 
             // Init SDL
@@ -92,11 +106,11 @@ namespace Free
 
             if (Settings.FeatureControl_UsePhysicsV2)
             {
-                LogDebug_C("BootNow!", "Now initialising physics engine version 1.0...");
+                LogDebug_C("BootNow!", "Now initialising physics engine, version 1.0...");
             }
             else
             {
-                LogDebug_C("BootNow!", "Now initalising physics engine version 2.0...");
+                LogDebug_C("BootNow!", "Now initalising physics engine, version 2.0...");
             }
 
             InitPhysics();
@@ -104,7 +118,7 @@ namespace Free
             // Get version
             GameVersion = new EVersion();
 
-            LogDebug_C("BootNow!", "Acquiring game version...");
+            LogDebug_C("BootNow!", "Acquiring detailed versioning information...");
             GameVersion.GetGameVersion(); // maybe make this a static api
 
             //TEMP:
@@ -113,8 +127,9 @@ namespace Free
             LogDebug_C("BootNow!", "Loading levels...");
             Levels = LevelPreloader.LoadLevels(); // Static-class based
 
-            Gamestate = GameState.Menu; 
+            Gamestate = GameState.Menu;
 
+            LogDebug_C("BootNow!", "Fullscreen mode = on");
             if (Settings.WindowType == WindowType.FullScreen) SetFullscreen(); // SET IT
         }
     }

@@ -125,6 +125,7 @@ namespace Free
                             }
                         }
 
+#if DEBUG
                         LogDebug_C("Weapon Loader", $"Loaded weapon with name {Weapon.WEAPONNAME}." +
                             $"Stats:\n\n" +
                             $"Accuracy: {Weapon.WEAPONACCURACY}\n" +
@@ -135,9 +136,7 @@ namespace Free
                             $"Non-Critical Hit Average Damage: {Weapon.WEAPONDAMAGE}\n" +
                             $"Non-Critical Hit Average Damage Random Variance: {Weapon.WEAPONDAMAGEUNCERTAINTY}\n" +
                             $"Fire Rate: {Weapon.WEAPONFIRERATE} (need more of these)");
-
-                            
-
+#endif                            
                         WeaponList.Add(Weapon);
                     }
                 }
