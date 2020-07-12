@@ -1,9 +1,0 @@
-<!-- free! Text Definition File 
-Created: 2019-12-07 12:13
-Modified: 2019-12-07 12:16
-
-© 2019-2020 avant-gardé eyes.
--->
-<Text>
-	<Text name="TestText00" text="Text Loaded from XML" colour="0,0,0,255" bgcolour="0,0,0,0" style="Italic" size="30" font="Trebuchet MS"></Text>
-</Text>

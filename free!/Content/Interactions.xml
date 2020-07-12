@@ -1,8 +1,0 @@
-<!-- IGameObject Interactions -->
-<Interactions>
-	<Interaction ObjId1="1" ObjId2="0" type="Remove"></Interaction>
-	<Interaction ObjId1="1" ObjId2="9" type="ChangeLevel"></Interaction>
-	<Interaction ObjId1="1" ObjId2="12" type="Bounce"></Interaction>
-	<Interaction ObjId1="1" ObjId2="24" type="BounceLeft"></Interaction>
-	<Interaction ObjId1="1" ObjId2="25" type="BounceRight"></Interaction>
-</Interactions>

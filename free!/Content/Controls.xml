@@ -1,7 +1,0 @@
-<Controls>
-	<Control name="Fire" key="MOUSE1"></Control> <!-- This will have special handling -->
-	<Control name="MoveLeft" key="A"></Control> <!-- Moving left -->
-	<Control name="MoveRight" key="D"></Control> <!-- Moving right -->
-	<Control name="Jump" key="Space"></Control> <!-- Jumping -->
-	<Control name="Pause" key="Escape"></Control> <!-- Pausing the game -->
-</Controls>

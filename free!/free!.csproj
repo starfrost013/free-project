@@ -537,7 +537,7 @@ md Content
 IF NOT EXIST Content\Game md Content\Game
 copy $(ProjectDir)\Game\Placeholder.png $(ProjectDir)\Content\Game\Placeholder.png
 
-start "$(ProjectDir)\free!.exe"
+"$(ProjectDir)\free!.exe"
 </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
