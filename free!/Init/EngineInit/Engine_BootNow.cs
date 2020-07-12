@@ -41,7 +41,7 @@ namespace Free
             }
             else
             {
-                NativeMethods.ShowWindow(_, 1); 
+                NativeMethods.ShowWindow(_, (int)NativeMethods.Win32__ShowWindow_Mode.SW_SHOWNORMAL); 
             }
 #endif
             LogDebug_C("BootNow!", $"BootNow! © 2020 avant-gardé eyes | Engine Now Initialising (version {Utils.GetVersion()})...");

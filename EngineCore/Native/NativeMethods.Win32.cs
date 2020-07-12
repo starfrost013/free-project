@@ -21,11 +21,13 @@ namespace Free
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern IntPtr GetConsoleWindow();
 
-        [DllImport("kernel32.dll", SetLastError = true)]
+        [DllImport("user32.dll", SetLastError = true)]
         public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
         public static uint Win32__AttachConsole_Default_PID = 0x0ffffffff; // .NET 
 
         public const uint Win32__Error_Success = 0;
         public const uint Win32__Error_AccessDenied = 5;
+        
+        public enum Win32__ShowWindow_Mode { SW_HIDE, SW_SHOWNORMAL, SW_SHOWMINIMIZED, SW_SHOWMAXIMIZED, SW_SHOWNOACTIVATE, SW_SHOW, SW_MINIMIZE, SW_SHOWMINNOACTIVE, SW_SHOWNA, SW_RESTORE } /
     }
 }
