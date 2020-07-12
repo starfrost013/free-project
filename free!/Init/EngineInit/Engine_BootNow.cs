@@ -28,24 +28,7 @@ namespace Free
     {
         public void Engine_BootNow() 
         {
-            // temporary
 
-            NativeMethods.AllocConsole();
-
-#if DEBUG
-            IntPtr _ = NativeMethods.GetConsoleWindow();
-
-            if (_ == IntPtr.Zero)
-            {
-                Error.Throw(null, ErrorSeverity.FatalError, $"Win32 error occurred while initialising debug console {Marshal.GetLastWin32Error()}");
-            }
-            else
-            {
-                NativeMethods.ShowWindow(_, (int)NativeMethods.Win32__ShowWindow_Mode.SW_SHOWNORMAL); 
-            }
-
-            Console.OpenStandardOutput();
-#endif
             LogDebug_C("BootNow!", $"BootNow! © 2020 avant-gardé eyes | Engine Now Initialising (version {Utils.GetVersion()})...");
             
             // Log if we're using SDL
