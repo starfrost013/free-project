@@ -50,12 +50,29 @@ namespace Free
 
                                     if (Gamestate == GameState.Game & CurGameObject.GameObjectGRAV)
                                     {
-                                        HandlePhys(CurGameObject);
+                                        if (!Settings.FeatureControl_UsePhysicsV2)
+                                        {
+                                            HandlePhys(CurGameObject);
+                                        }
+                                        else
+                                        {
+                                            RunPhysicsV2(CurGameObject); 
+                                        }
+                                        
 
                                         // Just a test. Onto the physics thread this goes
                                         if (CurGameObject.GameObjectCANCOLLIDE != false)
                                         { // only handle collisions if cancollide is true or null
-                                            HandleCollision(CurGameObject);
+
+                                            if (!Settings.FeatureControl_UseCollisionV2)
+                                            {
+                                                HandleCollision(CurGameObject);
+                                            }
+                                            else
+                                            {
+                                                HandleCollisionV2(CurGameObject);
+                                            }
+                                            
                                         }
                                     }
 
@@ -70,7 +87,7 @@ namespace Free
                             }
                         }
 
-                        if (currentPriority == Priority.High)
+                        if (currentPriority == Priority.High && !Settings.FeatureControl_DisableGTDebug)
                         {
                             if (TextList.Count > 0)
                             {
@@ -107,6 +124,7 @@ namespace Free
                                 }
                             }
                         }
+
                         currentPriority++; // increment the IGameObject priority we are currently drawing. this allows us to put IGameObjects in front of each other etc (currently 5 layers)
                     }
                 }

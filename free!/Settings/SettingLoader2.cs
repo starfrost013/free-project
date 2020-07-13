@@ -34,6 +34,12 @@ namespace Free
                 // Load FeatureControl
 
                 Settings.FeatureControl_DumpConsoleMessagesToW32Console_WindowsOnly = GameSettings.GetBool("FC_Dump2Console");
+
+                Settings.FeatureControl_DisableGTDebug = GameSettings.GetBool("FC_DisableGTDebug");
+
+                Settings.FeatureControl_UseCollisionV2 = GameSettings.GetBool("FC_UseCollisionV2");
+
+                Settings.FeatureControl_UsePhysicsV2 = GameSettings.GetBool("FC_UsePhysicsV2");
             }
             catch (ArgumentException err)
             {

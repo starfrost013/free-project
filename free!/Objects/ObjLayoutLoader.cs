@@ -117,8 +117,9 @@ namespace Free
                             }
                         }
 
+#if DEBUG
                         FreeSDL.LogDebug_C("On demand level loader", $"Placed object with global ID {GameObjectx.GameObjectID} and internal ID {GameObjectx.GameObjectINTERNALID} @ {GameObjectx.GameObjectX},{GameObjectx.GameObjectY}");
-
+#endif
                         if (GameObjectx.GameObjectPLAYER)
                         {
                             if (currentlevel.PlayerStartPosition.X == 0 || currentlevel.PlayerStartPosition.Y == 0) // default
