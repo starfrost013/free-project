@@ -178,5 +178,9 @@ namespace Free
             Settings.Resolution = new SDLPoint(e.NewSize.Width, e.NewSize.Height); 
         }
 
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            BootNow_ShutdownEngine(); 
+        }
     }
 }

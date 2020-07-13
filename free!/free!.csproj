@@ -113,6 +113,7 @@
     </Compile>
     <Compile Include="Init\EngineInit\Engine_BootNow.cs" />
     <Compile Include="Init\EngineInit\Engine_BootNow_InitMainGameThread.cs" />
+    <Compile Include="Init\EngineInit\Engine_BootNow_ShutdownEngine.cs" />
     <Compile Include="Interactions\Interaction.cs" />
     <Compile Include="Interactions\InteractionManager.Bounce.cs" />
     <Compile Include="Interactions\InteractionManager.BounceRight.cs" />

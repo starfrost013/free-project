@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Free"
         mc:Ignorable="d"
-        Title="free!" Height="458" Width="815" KeyUp="Window_KeyUp" KeyDown="Window_KeyDown" ContentRendered="Window_ContentRendered" PreviewMouseDown="Window_MouseDown" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged">
+        Title="free!" Height="458" Width="815" KeyUp="Window_KeyUp" KeyDown="Window_KeyDown" ContentRendered="Window_ContentRendered" PreviewMouseDown="Window_MouseDown" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" Closed="Window_Closed">
     <Grid>
         <ScrollViewer x:Name="Scrollbar" Canvas.Top="384" Height="419" Width="800" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
             <Viewbox>

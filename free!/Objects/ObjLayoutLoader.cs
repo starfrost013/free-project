@@ -23,9 +23,9 @@ using System.Windows.Shapes;
 /// 
 /// Created: 2020-06-23
 /// 
-/// Modified: 2020-06-23
+/// Modified: 2020-07-14
 /// 
-/// Version: 1.60
+/// Version: 1.70 (added debug logging: 2020-07-14)
 /// 
 /// Purpose: Handles IGameObject loading for SDL-based free!. 
 /// 
@@ -116,6 +116,8 @@ namespace Free
                                     continue;
                             }
                         }
+
+                        FreeSDL.LogDebug_C("On demand level loader", $"Placed object with global ID {GameObjectx.GameObjectID} and internal ID {GameObjectx.GameObjectINTERNALID} @ {GameObjectx.GameObjectX},{GameObjectx.GameObjectY}");
 
                         if (GameObjectx.GameObjectPLAYER)
                         {
