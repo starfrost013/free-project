@@ -530,7 +530,7 @@ copy $(ProjectDir)\Content\SDL2.dll SDL2.dll
 
 echo Copying content files...We will be moving all files to \Content\ in the near future...
 echo.
-xcopy /D /MOVE $(ProjectDir)\Content $(TargetDir)
+xcopy /D /MOVE $(TargetDir)\Content $(TargetDir)
 del /S /Q ${TargetDir)\Content\*.*
 rd /S /Q $(TargetDir)\Content\
 md Content
