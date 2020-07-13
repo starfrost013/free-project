@@ -239,14 +239,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Content\Game\GameOver.pdn" />
-    <None Include="Content\Game\lessurgent.pdn" />
-    <None Include="Content\Game\LoadingTemplate.pdn" />
+    <Content Include="Content\Game\GameOver.pdn" />
+    <Content Include="Content\Game\lessurgent.pdn" />
+    <Content Include="Content\Game\LoadingTemplate.pdn" />
     <None Include="Content\Game\Scripts\PlayerCore.esx" />
-    <None Include="Content\Game\Title.pdn" />
-    <None Include="Content\Game\TitleV2.pdn" />
-    <None Include="Content\Game\urgent.pdn" />
-    <None Include="Content\Game\urgent2.pdn" />
+    <Content Include="Content\Game\Title.pdn" />
+    <Content Include="Content\Game\TitleV2.pdn" />
+    <Content Include="Content\Game\urgent.pdn" />
+    <Content Include="Content\Game\urgent2.pdn" />
     <None Include="Content\HUD\HUDTimeConcept.pdn" />
     <None Include="Content\HUD\Level.pdn" />
     <Content Include="Content\Game\ReflectionMetadata.xml">
@@ -308,10 +308,18 @@
     <Content Include="Content\Controls.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Game\GameOver.png" />
-    <Content Include="Content\Game\Placeholder.png" />
-    <Content Include="Content\Game\Title.png" />
-    <Content Include="Content\Game\TitleV2.png" />
+    <Content Include="Content\Game\GameOver.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Game\Placeholder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Game\Title.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Game\TitleV2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\HUD\Level.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -526,18 +534,16 @@
     <PostBuildEvent>REM Robocopy doesn't use exit code 0 for success, so Visual Studio and MSBUILD crap out.
 
 echo Copying SDL2...
-copy $(ProjectDir)\Content\SDL2.dll SDL2.dll
+copy $(ProjectDir)Content\SDL2.dll SDL2.dll
 
 echo Copying content files...We will be moving all files to \Content\ in the near future...
 echo.
-xcopy /D /MOVE $(TargetDir)\Content $(TargetDir)
-del /S /Q ${TargetDir)\Content\*.*
-rd /S /Q $(TargetDir)\Content\
-md Content
-IF NOT EXIST Content\Game md Content\Game
-copy $(ProjectDir)\Game\Placeholder.png $(TargetDir)\Content\Game\Placeholder.png
 
-"$(ProjectDir)\free!.exe"
+xcopy /D /S /MOVE $(TargetDir)Content\*.* $(TargetDir)
+
+IF NOT EXIST $(TargetDir)Content\Game md $(TargetDir)Content\Game
+
+"$(TargetDir)\free!.exe"
 </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
