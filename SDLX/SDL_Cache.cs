@@ -7,39 +7,38 @@ using System.Threading.Tasks;
 
 namespace SDLX
 {
-    public partial class GameScene
+    public partial class SDL_Cache
     {
-        /// <summary>
-        /// Somewhat better.
-        /// </summary>
-        /// <param name="SpriteSDL"></param>
-        public void CacheImage(SDLSprite SpriteSDL)
+        public List<SDL_CachedItem> CachedItems { get; set; }
+
+        public SDL_CachedItem GetCachedItemWithId(int ID)
         {
-            // Temporary variable
-            int Hits = 0;
-
-            foreach (SDLSprite SDLSpr in SDLTextureCache)
+            if (ID > CachedItems.Count - 1)
             {
-                if (SpriteSDL.Name == SDLSpr.Name)
-                {
-                    Hits += 1; 
-                }
+                return null;
             }
-
-            if (Hits == 0) CachedTextures.Add(SpriteSDL); 
+            else
+            {
+                return CachedItems[ID];
+            }
         }
+    }
 
-        public SDLSprite SelectCachedTexture(SDLSprite SpriteSDL)
+    public partial class SDL_CachedItem
+    {
+        public int ID { get; set; }
+        public IntPtr Spr { get; set; }
+
+        public void Load(string Path)
         {
-            foreach (SDLSprite Spr in CachedTextures)
-            {
-                if (Spr.Name == SpriteSDL.Name)
-                {
-                    return Spr;
-                }
-            }
 
-            return null;
         }
+    }
+
+    public partial class SDL_AnimatedCachedItem
+    {
+        public List<IntPtr> SprFrm { get; set; }
+        public int ID { get; set; }
+        public int CurrentFrame { get; set; }
     }
 }

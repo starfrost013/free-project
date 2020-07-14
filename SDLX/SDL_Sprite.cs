@@ -14,6 +14,7 @@ namespace SDLX
     public class SDLSprite
     {
         public IntPtr Sprite { get; set; }
+        public int CachedSpriteRenderId { get; set; }
         public SDL.SDL_Rect RenderRect { get; set; }
         public SDLPoint Position { get; set; }
         public string Name { get; set; }
