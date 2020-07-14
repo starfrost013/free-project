@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SDL2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -29,9 +30,18 @@ namespace SDLX
         public int ID { get; set; }
         public IntPtr Spr { get; set; }
 
-        public void Load(string Path)
+        public bool Load(string Path)
         {
+            Spr = SDL_image.IMG_Load(Path);
 
+            if (Spr == IntPtr.Zero)
+            {
+                return false;
+            }
+            else
+            {
+                return true; 
+            }
         }
     }
 
@@ -40,5 +50,25 @@ namespace SDLX
         public List<IntPtr> SprFrm { get; set; }
         public int ID { get; set; }
         public int CurrentFrame { get; set; }
+
+        public SDL_AnimatedCachedItem()
+        {
+            SprFrm = new List<IntPtr>();
+        }
+
+        public bool LoadSingleFrame(string Path)
+        {
+            IntPtr NewSprFrm = SDL_image.IMG_Load(Path);
+
+            if (NewSprFrm == IntPtr.Zero)
+            {
+                return false;
+            }
+            else
+            {
+                SprFrm.Add(NewSprFrm)l
+                return true;
+            }
+        }
     }
 }
