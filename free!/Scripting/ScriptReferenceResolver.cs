@@ -34,7 +34,7 @@ namespace Free
 
                    
                     // TEMP (multiplayer later)
-                    if (Players[0].GameObjectX > (double)EvtClass.ReferenceRunOn[0].Value[0] && Players[0].GameObjectY > (double)EvtClass.ReferenceRunOn[0].Value[1])
+                    if (Players[0].Position.X > (double)EvtClass.ReferenceRunOn[0].Value[0] && Players[0].Position.Y > (double)EvtClass.ReferenceRunOn[0].Value[1])
                     {
                         return true;
                     }

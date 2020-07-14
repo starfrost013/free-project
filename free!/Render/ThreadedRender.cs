@@ -49,14 +49,14 @@ namespace Free
                         {
                             IGameObject CurGameObject = currentlevel.LevelIGameObjects[i];
 
-                            if (CurGameObject.GameObjectX - Scrollbar.HorizontalOffset > 0 - CurGameObject.GameObjectIMAGE.PixelWidth && CurGameObject.GameObjectX - Scrollbar.HorizontalOffset < this.Width + CurGameObject.GameObjectIMAGE.PixelWidth && CurGameObject.GameObjectY - Scrollbar.VerticalOffset > 0 - CurGameObject.GameObjectIMAGE.PixelHeight && CurGameObject.GameObjectY - Scrollbar.VerticalOffset < this.Height + CurGameObject.GameObjectIMAGE.PixelHeight || IsSentientBeing(CurGameObject))
+                            if (CurGameObject.Position.X - Scrollbar.HorizontalOffset > 0 - CurGameObject.GameObjectIMAGE.PixelWidth && CurGameObject.Position.X - Scrollbar.HorizontalOffset < this.Width + CurGameObject.GameObjectIMAGE.PixelWidth && CurGameObject.Position.Y - Scrollbar.VerticalOffset > 0 - CurGameObject.GameObjectIMAGE.PixelHeight && CurGameObject.Position.Y - Scrollbar.VerticalOffset < this.Height + CurGameObject.GameObjectIMAGE.PixelHeight || IsSentientBeing(CurGameObject))
                             { // optimization (bld 1037-41) 
                                 if (CurGameObject.GameObjectPRIORITY == currentPriority)
                                 {
                                     if (CurGameObject.GameObjectPLAYER && Gamestate == GameState.Game)
                                     {
-                                        Scrollbar.ScrollToHorizontalOffset(CurGameObject.GameObjectX - this.Width / 6); // level scrolling
-                                        Scrollbar.ScrollToVerticalOffset(CurGameObject.GameObjectY - this.Width / 6); // vertical level scrolling
+                                        Scrollbar.ScrollToHorizontalOffset(CurGameObject.Position.X - this.Width / 6); // level scrolling
+                                        Scrollbar.ScrollToVerticalOffset(CurGameObject.Position.Y - this.Width / 6); // vertical level scrolling
                                     }
 
                                     Rectangle rectangle = new Rectangle();
@@ -64,8 +64,8 @@ namespace Free
                                     rectangle.Width = CurGameObject.GameObjectIMAGE.Width;
                                     rectangle.StrokeThickness = 0;
                                    
-                                    Canvas.SetLeft(rectangle, CurGameObject.GameObjectX);
-                                    Canvas.SetTop(rectangle, CurGameObject.GameObjectY);
+                                    Canvas.SetLeft(rectangle, CurGameObject.Position.X);
+                                    Canvas.SetTop(rectangle, CurGameObject.Position.Y);
                                     rectangle.Fill = new ImageBrush(CurGameObject.GameObjectIMAGE);
                                     Game.Children.Add(rectangle);
 
@@ -131,8 +131,8 @@ namespace Free
                 WeaponRectangle.Width = CurGameObject.GameObjectHELDWEAPON.WEAPONIMAGE.Width;
                 WeaponRectangle.StrokeThickness = 0;
 
-                CurGameObject.GameObjectHELDWEAPON.WEAPONPOSITIONX = CurGameObject.GameObjectX + CurGameObject.GameObjectIMAGE.PixelWidth / 1.33;
-                CurGameObject.GameObjectHELDWEAPON.WEAPONPOSITIONY = CurGameObject.GameObjectY + CurGameObject.GameObjectIMAGE.PixelHeight / 2;
+                CurGameObject.GameObjectHELDWEAPON.WEAPONPOSITIONX = CurGameObject.Position.X + CurGameObject.GameObjectIMAGE.PixelWidth / 1.33;
+                CurGameObject.GameObjectHELDWEAPON.WEAPONPOSITIONY = CurGameObject.Position.Y + CurGameObject.GameObjectIMAGE.PixelHeight / 2;
 
                 Canvas.SetLeft(WeaponRectangle, CurGameObject.GameObjectHELDWEAPON.WEAPONPOSITIONX);
                 Canvas.SetTop(WeaponRectangle, CurGameObject.GameObjectHELDWEAPON.WEAPONPOSITIONY);

@@ -60,7 +60,7 @@ namespace Free
                     if (XmlNode.Name != "#comment")
                     {
                         XmlAttributeCollection XmlAttributes = XmlNode.Attributes; // get the attribute out of each node. 
-                        IGameObject GameObjectx = new GameObject(); 
+                        IGameObject Position.X = new GameObject(); 
 
                         foreach (GameObject IGameObject in listOfIGameObjects) // yikes. 
                         {
@@ -69,34 +69,34 @@ namespace Free
                             {
                                 if (!FreeSDL.IsSentientBeing(IGameObject))
                                 {
-                                    GameObjectx.GameObjectANIMATIONS = IGameObject.GameObjectANIMATIONS;
-                                    GameObjectx.CollidedLevelObjects = new List<IGameObject>(); // yeah.
-                                    GameObjectx.GameObjectINTERNALID = currentIntId;
-                                    GameObjectx.GameObjectID = IGameObject.GameObjectID;
-                                    GameObjectx.GameObjectIMAGE = IGameObject.GameObjectIMAGE;
-                                    GameObjectx.GameObjectIMAGEPATH = IGameObject.GameObjectIMAGEPATH;
-                                    GameObjectx.GameObjectNAME = IGameObject.GameObjectNAME;
-                                    GameObjectx.GameObjectGRAV = IGameObject.GameObjectGRAV;
-                                    GameObjectx.GameObjectACCELERATION = IGameObject.GameObjectACCELERATION;
-                                    GameObjectx.GameObjectPLAYER = IGameObject.GameObjectPLAYER;
-                                    GameObjectx.GameObjectPLAYERDAMAGE = IGameObject.GameObjectPLAYERDAMAGE;
-                                    GameObjectx.GameObjectPLAYERHEALTH = IGameObject.GameObjectPLAYERHEALTH;
-                                    GameObjectx.GameObjectPLAYERLEVEL = IGameObject.GameObjectPLAYERLEVEL;
-                                    GameObjectx.GameObjectPLAYERLIVES = IGameObject.GameObjectPLAYERLIVES;
-                                    GameObjectx.GameObjectFORCE = IGameObject.GameObjectFORCE;
-                                    GameObjectx.GameObjectHITBOX = IGameObject.GameObjectHITBOX;
-                                    GameObjectx.GameObjectMASS = IGameObject.GameObjectMASS;
-                                    GameObjectx.GameObjectPRIORITY = IGameObject.GameObjectPRIORITY;
-                                    GameObjectx.GameObjectCANCOLLIDE = IGameObject.GameObjectCANCOLLIDE;
-                                    GameObjectx.GameObjectCANSNAP = IGameObject.GameObjectCANSNAP;
-                                    GameObjectx.GameObjectAI = IGameObject.GameObjectAI;
-                                    GameObjectx.GameObjectCANMOVELEFT = true;
-                                    GameObjectx.GameObjectCANMOVERIGHT = true;
-                                    GameObjectx.GameObjectCONSTANTANIMNUMBER = 0;
+                                    Position.X.GameObjectANIMATIONS = IGameObject.GameObjectANIMATIONS;
+                                    Position.X.CollidedLevelObjects = new List<IGameObject>(); // yeah.
+                                    Position.X.GameObjectINTERNALID = currentIntId;
+                                    Position.X.GameObjectID = IGameObject.GameObjectID;
+                                    Position.X.GameObjectIMAGE = IGameObject.GameObjectIMAGE;
+                                    Position.X.GameObjectIMAGEPATH = IGameObject.GameObjectIMAGEPATH;
+                                    Position.X.GameObjectNAME = IGameObject.GameObjectNAME;
+                                    Position.X.GameObjectGRAV = IGameObject.GameObjectGRAV;
+                                    Position.X.GameObjectACCELERATION = IGameObject.GameObjectACCELERATION;
+                                    Position.X.GameObjectPLAYER = IGameObject.GameObjectPLAYER;
+                                    Position.X.GameObjectPLAYERDAMAGE = IGameObject.GameObjectPLAYERDAMAGE;
+                                    Position.X.GameObjectPLAYERHEALTH = IGameObject.GameObjectPLAYERHEALTH;
+                                    Position.X.GameObjectPLAYERLEVEL = IGameObject.GameObjectPLAYERLEVEL;
+                                    Position.X.GameObjectPLAYERLIVES = IGameObject.GameObjectPLAYERLIVES;
+                                    Position.X.GameObjectFORCE = IGameObject.GameObjectFORCE;
+                                    Position.X.GameObjectHITBOX = IGameObject.GameObjectHITBOX;
+                                    Position.X.GameObjectMASS = IGameObject.GameObjectMASS;
+                                    Position.X.GameObjectPRIORITY = IGameObject.GameObjectPRIORITY;
+                                    Position.X.GameObjectCANCOLLIDE = IGameObject.GameObjectCANCOLLIDE;
+                                    Position.X.GameObjectCANSNAP = IGameObject.GameObjectCANSNAP;
+                                    Position.X.GameObjectAI = IGameObject.GameObjectAI;
+                                    Position.X.GameObjectCANMOVELEFT = true;
+                                    Position.X.GameObjectCANMOVERIGHT = true;
+                                    Position.X.GameObjectCONSTANTANIMNUMBER = 0;
                                 }
                                 else
                                 {
-                                    GameObjectx = new SentientBeing(IGameObject, IGameObject.GameObjectPLAYER, IGameObject.GameObjectPLAYERDAMAGE, IGameObject.GameObjectPLAYERHEALTH, IGameObject.GameObjectPLAYERLEVEL, IGameObject.GameObjectPLAYERLEVELDAMAGE, IGameObject.GameObjectPLAYERLIVES, currentIntId);
+                                    Position.X = new SentientBeing(IGameObject, IGameObject.GameObjectPLAYER, IGameObject.GameObjectPLAYERDAMAGE, IGameObject.GameObjectPLAYERHEALTH, IGameObject.GameObjectPLAYERLEVEL, IGameObject.GameObjectPLAYERLEVELDAMAGE, IGameObject.GameObjectPLAYERLIVES, currentIntId);
                                 }
                                 // This is real shit code, like yandere simulator shit, and it is, in fact, an ugly hack. Damn reference types...
 
@@ -108,46 +108,46 @@ namespace Free
                             {
                                 case "PosX":
                                 case "posx":
-                                    GameObjectx.GameObjectX = Convert.ToDouble(XmlAttribute.Value);
+                                    Position.X.Position.X = Convert.ToDouble(XmlAttribute.Value);
                                     continue;
                                 case "PosY":
                                 case "posy":
-                                    GameObjectx.GameObjectY = Convert.ToDouble(XmlAttribute.Value);
+                                    Position.X.Position.Y = Convert.ToDouble(XmlAttribute.Value);
                                     continue;
                             }
                         }
 
 #if DEBUG
-                        FreeSDL.LogDebug_C("On demand level loader", $"Placed object with global ID {GameObjectx.GameObjectID} and internal ID {GameObjectx.GameObjectINTERNALID} @ {GameObjectx.GameObjectX},{GameObjectx.GameObjectY}");
+                        FreeSDL.LogDebug_C("On demand level loader", $"Placed object with global ID {Position.X.GameObjectID} and internal ID {Position.X.GameObjectINTERNALID} @ {Position.X.Position.X},{Position.X.Position.Y}");
 #endif
-                        if (GameObjectx.GameObjectPLAYER)
+                        if (Position.X.GameObjectPLAYER)
                         {
                             if (currentlevel.PlayerStartPosition.X == 0 || currentlevel.PlayerStartPosition.Y == 0) // default
                             {
-                                currentlevel.PlayerStartPosition = new Point(GameObjectx.GameObjectX, GameObjectx.GameObjectY);
+                                currentlevel.PlayerStartPosition = new Point(Position.X.Position.X, Position.X.Position.Y);
                             }
                             else
                             {
-                                GameObjectx.GameObjectX = currentlevel.PlayerStartPosition.X;
-                                GameObjectx.GameObjectY = currentlevel.PlayerStartPosition.Y;
+                                Position.X.Position.X = currentlevel.PlayerStartPosition.X;
+                                Position.X.Position.Y = currentlevel.PlayerStartPosition.Y;
                             }
                         }
 
-                        if (GameObjectx.GameObjectANIMATIONS.Count == 0)
+                        if (Position.X.GameObjectANIMATIONS.Count == 0)
                         {
-                            if (GameObjectx.GameObjectIMAGE.CanFreeze) GameObjectx.GameObjectIMAGE.Freeze();
+                            if (Position.X.GameObjectIMAGE.CanFreeze) Position.X.GameObjectIMAGE.Freeze();
                         }
 
                         // Send to SDL for rendering.
                         App AppSDL = (App)Application.Current;
 
                         // Here we temporarily use WPF.variables. THIS IS EXTREMELY TEMPORARY CODE WE WILL HAVE OUR OWN SDLLOAD METHOD OK
-                        if (!AppSDL.SDLGame.CurrentScene.LoadImage(@GameObjectx.GameObjectIMAGEPATH, new SDLPoint(GameObjectx.GameObjectX, GameObjectx.GameObjectY), GameObjectx.GameObjectIMAGE.PixelWidth, GameObjectx.GameObjectIMAGE.PixelHeight))
+                        if (!AppSDL.SDLGame.CurrentScene.LoadImage(@Position.X.GameObjectIMAGEPATH, new SDLPoint(Position.X.Position.X, Position.X.Position.Y), Position.X.GameObjectIMAGE.PixelWidth, Position.X.GameObjectIMAGE.PixelHeight))
                         {
                             Error.Throw(null, ErrorSeverity.FatalError, "Fatal error loading image", "avant-garde engine", 93); 
                         }
 
-                        currentlevel.LevelIGameObjects.Add(GameObjectx);
+                        currentlevel.LevelIGameObjects.Add(Position.X);
 
                         currentIntId++;
                     }

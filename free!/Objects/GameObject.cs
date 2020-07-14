@@ -91,8 +91,8 @@ namespace Free
         public Priority GameObjectPRIORITY { get; set; }
         public double GameObjectSPEED { get; set; }
         public double GameObjectSPEEDY { get; set; }
-        public double GameObjectX { get; set; }
-        public double GameObjectY { get; set; }
+        //public double Position.X { get; set; }
+        //public double Position.Y { get; set; }
         public List<ScriptReference> AssociatedScriptPaths { get; set; }
         public double JumpIntensity { get; set; } // Jumping intensity.
         public SDLPoint Position { get; set; }
@@ -111,6 +111,8 @@ namespace Free
             CollidedLevelObjects = new List<IGameObject>();
             GameObjectHITBOX = new List<Point>();
             GameObjectANIMATIONS = new List<Animation>();
+            Position = new SDLPoint(); // default is 0,0
+            Size = new SDLPoint();
         }
 
         // Core ObjectAPI
@@ -169,8 +171,8 @@ namespace Free
 
         public void MoveObject(SDLPoint PointSDL)
         {
-            GameObjectX = PointSDL.X;
-            GameObjectY = PointSDL.Y;
+            Position.X = PointSDL.X;
+            Position.Y = PointSDL.Y;
         }
 
         public void SetObjectPriority(Priority SDLPri)

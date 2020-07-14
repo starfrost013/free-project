@@ -133,8 +133,8 @@ namespace Free
             }
 
 
-            GameObject.GameObjectX += GameObject.GameObjectSPEED;
-            GameObject.GameObjectY += GameObject.GameObjectSPEEDY; // when plr is at bottom of level y pos = level bg height
+            GameObject.Position.X += GameObject.GameObjectSPEED;
+            GameObject.Position.Y += GameObject.GameObjectSPEEDY; // when plr is at bottom of level y pos = level bg height
 
             if (GameObject.GameObjectHELDWEAPON != null && GameObject.GameObjectPLAYER) // Draws the ammo.
             {

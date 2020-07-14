@@ -28,7 +28,7 @@ namespace Emerald.Utilities.Wpf2Sdl
         public double X { get; set; }
         public double Y { get; set; }
 
-        public SDLPoint(double X, double Y)
+        public SDLPoint(double X = 0, double Y = 0)
         {
             this.X = X;
             this.Y = Y;

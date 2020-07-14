@@ -77,8 +77,8 @@ namespace Free
         Priority GameObjectPRIORITY { get; set; }
         double GameObjectSPEED { get; set; }
         double GameObjectSPEEDY { get; set; }
-        double GameObjectX { get; set; }
-        double GameObjectY { get; set; }
+        double Position.X { get; set; }
+        double Position.Y { get; set; }
         bool GameObjectISPLAYER { get; set; }
         double GameObjectDAMAGE { get; set; }
         double GameObjectHEALTH { get; set; }

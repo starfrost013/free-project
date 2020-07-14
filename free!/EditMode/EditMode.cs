@@ -109,9 +109,9 @@ namespace Free
                     XmlAttribute XChildGameObjectId = Xdoc.CreateAttribute("id"); // IGameObject id
                     XChildGameObjectId.Value = GameObject.GameObjectID.ToString(); // convert to string
                     XmlAttribute XChildGameObjectPosX = Xdoc.CreateAttribute("posx"); // x pos
-                    XChildGameObjectPosX.Value = GameObject.GameObjectX.ToString(); // convert to string
+                    XChildGameObjectPosX.Value = GameObject.Position.X.ToString(); // convert to string
                     XmlAttribute XChildGameObjectPosY = Xdoc.CreateAttribute("posy"); // y pos
-                    XChildGameObjectPosY.Value = GameObject.GameObjectY.ToString(); // convert to string
+                    XChildGameObjectPosY.Value = GameObject.Position.Y.ToString(); // convert to string
                     XChild.Attributes.Append(XChildGameObjectId);
                     XChild.Attributes.Append(XChildGameObjectPosX);
                     XChild.Attributes.Append(XChildGameObjectPosY);

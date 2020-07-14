@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emerald.Utilities.Wpf2Sdl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Free
         /// </summary>
         /// <param name="ID">ID of the IGameObject to insert</param>
         /// <param name="Position">Point (soon to be SDLPoint) for position. </param>
-        public void AddIGameObject(int ID, Point Position)
+        public void AddIGameObject(int ID, SDLPoint Position)
         {
             // Insert an IGameObject. Some may consider this bad. To that I say - too bad!
             // This will be improved once SDLX works
@@ -23,8 +24,8 @@ namespace Free
             {
                 if (GameIGameObject.GameObjectID == ID) 
                 {
-                    GameIGameObject.GameObjectX = Position.X;
-                    GameIGameObject.GameObjectY = Position.Y;
+                    GameIGameObject.Position.X = Position.X;
+                    GameIGameObject.Position.Y = Position.Y;
                     currentlevel.LevelIGameObjects.Add(GameIGameObject); 
                 }
             }

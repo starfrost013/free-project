@@ -213,7 +213,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Objects\Obj.cs" />
+    <Compile Include="Objects\GameObject.cs" />
     <Compile Include="Objects\ObjLayoutLoader.cs" />
     <Compile Include="Objects\ObjLoader.cs" />
     <Compile Include="Physics\PhysicsConstants.cs" />

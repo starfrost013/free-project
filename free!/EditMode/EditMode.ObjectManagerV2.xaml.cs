@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emerald.Utilities.Wpf2Sdl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,7 +51,7 @@ namespace Free
 
             foreach (GameObject GameObject in MnWindow.currentlevel.LevelIGameObjects)
             {
-                GameObjectNameListLvl.Items.Add($"{GameObject.GameObjectNAME} (X: {GameObject.GameObjectX} Y: {GameObject.GameObjectY})");
+                GameObjectNameListLvl.Items.Add($"{GameObject.GameObjectNAME} (X: {GameObject.Position.X} Y: {GameObject.Position.Y})");
             }
 
         }
@@ -70,32 +71,10 @@ namespace Free
                 {
                     if (GameObject.GameObjectID == GameObjectNameList.SelectedIndex)
                     {
-                        GameObject GameObjectx = new GameObject();
-                        GameObjectx.GameObjectANIMATIONS = GameObject.GameObjectANIMATIONS;
-                        GameObjectx.GameObjectINTERNALID = MnWindow.currentlevel.LevelIGameObjects.Count;
-                        GameObjectx.GameObjectID = GameObject.GameObjectID;
-                        GameObjectx.GameObjectIMAGE = GameObject.GameObjectIMAGE;
-                        GameObjectx.GameObjectIMAGEPATH = GameObject.GameObjectIMAGEPATH;
-                        GameObjectx.GameObjectNAME = GameObject.GameObjectNAME;
-                        GameObjectx.GameObjectGRAV = GameObject.GameObjectGRAV;
-                        GameObjectx.GameObjectACCELERATION = GameObject.GameObjectACCELERATION;
-                        GameObjectx.GameObjectFORCE = GameObject.GameObjectFORCE;
-                        GameObjectx.GameObjectPLAYER = GameObject.GameObjectPLAYER;
-                        GameObjectx.GameObjectPLAYERDAMAGE = GameObject.GameObjectPLAYERDAMAGE;
-                        GameObjectx.GameObjectCANCOLLIDE = GameObject.GameObjectCANCOLLIDE;
-                        GameObjectx.GameObjectHITBOX = GameObject.GameObjectHITBOX;
-                        GameObjectx.GameObjectMASS = GameObject.GameObjectMASS;
-                        GameObjectx.GameObjectPRIORITY = GameObject.GameObjectPRIORITY;
-                        GameObjectx.GameObjectCANSNAP = GameObject.GameObjectCANSNAP;
-                        GameObjectx.GameObjectAI = GameObject.GameObjectAI;
-                        GameObjectx.CollidedLevelObjects = new List<IGameObject>(); // yeah.
-                        GameObjectx.GameObjectX = FreeSDL.RoundNearest(Convert.ToDouble(XPosBox.Text), GameObjectx.GameObjectIMAGE.PixelWidth / 2);
-                        GameObjectx.GameObjectY = FreeSDL.RoundNearest(Convert.ToDouble(YPosBox.Text), GameObjectx.GameObjectIMAGE.PixelHeight / 2);
-                        XPosBox.Text = GameObjectx.GameObjectX.ToString();
-                        YPosBox.Text = GameObjectx.GameObjectY.ToString();
-                        GameObjectx.GameObjectX = Convert.ToDouble(XPosBox.Text);
-                        GameObjectx.GameObjectY = Convert.ToDouble(YPosBox.Text);
-                        MnWindow.currentlevel.LevelIGameObjects.Add(GameObjectx);
+                        double RoundedX = FreeSDL.RoundNearest(Convert.ToDouble(XPosBox.Text), GameObject.GameObjectIMAGE.PixelWidth / 2);
+                        double RoundedY = FreeSDL.RoundNearest(Convert.ToDouble(YPosBox.Text), GameObject.GameObjectIMAGE.PixelHeight / 2);
+
+                        MnWindow.AddIGameObject(GameObject.GameObjectID, new SDLPoint(RoundedX, RoundedY));
                     }
                 }
                 Refresh(); // lol lazy code

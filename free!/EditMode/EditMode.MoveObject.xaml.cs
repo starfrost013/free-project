@@ -26,7 +26,7 @@ namespace Free
             InitializeComponent();
             MnWindow = FreeSDL;
             IGameObjectToEdit = GameObjectToEdit;
-            GameObjectSelect.Text = $"Moving IGameObject: {IGameObjectToEdit.GameObjectNAME} @ X: {IGameObjectToEdit.GameObjectX} Y: {IGameObjectToEdit.GameObjectY}";
+            GameObjectSelect.Text = $"Moving IGameObject: {IGameObjectToEdit.GameObjectNAME} @ X: {IGameObjectToEdit.Position.X} Y: {IGameObjectToEdit.Position.Y}";
             //clear if its already full
 
         }
@@ -35,10 +35,10 @@ namespace Free
         {
             try
             {
-                IGameObjectToEdit.GameObjectX = Convert.ToDouble(XPosBox.Text);
-                IGameObjectToEdit.GameObjectY = Convert.ToDouble(YPosBox.Text);
+                IGameObjectToEdit.Position.X = Convert.ToDouble(XPosBox.Text);
+                IGameObjectToEdit.Position.Y = Convert.ToDouble(YPosBox.Text);
                 MnWindow.currentlevel.LevelIGameObjects[IGameObjectToEdit.GameObjectINTERNALID] = IGameObjectToEdit;
-                GameObjectSelect.Text = $"Moving IGameObject: {IGameObjectToEdit.GameObjectNAME} @ X: {IGameObjectToEdit.GameObjectX} Y: {IGameObjectToEdit.GameObjectY}";
+                GameObjectSelect.Text = $"Moving IGameObject: {IGameObjectToEdit.GameObjectNAME} @ X: {IGameObjectToEdit.Position.X} Y: {IGameObjectToEdit.Position.Y}";
                 //this.Close(); V0.14.1035.0 remove
             }
             catch (FormatException)
