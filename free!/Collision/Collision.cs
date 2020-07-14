@@ -61,7 +61,7 @@ namespace Free
                     }
                     else
                     {
-                        GameObject2Pos = new Rect(new Point(GameObject2.Position.X + GameObject2.GameObjectHITBOX[0].X, GameObject2.Position.Y + GameObject2.GameObjectHITBOX[0].Y), new Point(Position.X.Position.X + GameObject2.GameObjectHITBOX[1].X, GameObject2.Position.Y + GameObject2.GameObjectHITBOX[1].Y));
+                        GameObject2Pos = new Rect(new Point(GameObject2.Position.X + GameObject2.GameObjectHITBOX[0].X, GameObject2.Position.Y + GameObject2.GameObjectHITBOX[0].Y), new Point(GameObject2.Position.X + GameObject2.GameObjectHITBOX[1].X, GameObject2.Position.Y + GameObject2.GameObjectHITBOX[1].Y));
                     }
 
                     // What the fuck was I on?
@@ -160,7 +160,7 @@ namespace Free
                                     case false:
                                         GameObject.Position.Y += GameObject2.GameObjectIMAGE.PixelHeight - GameObject2.GameObjectHITBOX[1].Y;
                                         GameObject.GameObjectCOLLISIONS--;
-                                        GameObject.CollidedLevelObjects.Remove(GameObject2.);
+                                        GameObject.CollidedLevelObjects.Remove(GameObject2);
 
                                         if (GameObject.GameObjectGRAV)
                                         {
@@ -234,7 +234,11 @@ namespace Free
                                 }
 
                             }
-                            else if (GameObject.Position.X - GameObject2.Position.X > GameObject.GameObjectHITBOX[1].X & GameObject.Position.X - GameObject2.Position.X < GameObject.GameObjectHITBOX[1].X * 2 && GameObject.Position.Y > GameObject.GameObjectHITBOX[0].Y & GameObject.Position.Y - Position.X.Position.Y < GameObject.GameObjectHITBOX[1].Y * 1.6 & IsSentientBeing(GameObject))
+                            else if (GameObject.Position.X - GameObject2.Position.X > GameObject.GameObjectHITBOX[1].X 
+                                && GameObject.Position.X - GameObject2.Position.X < GameObject.GameObjectHITBOX[1].X * 2 
+                                && GameObject.Position.Y > GameObject.GameObjectHITBOX[0].Y 
+                                && GameObject.Position.Y - GameObject2.Position.Y < GameObject.GameObjectHITBOX[1].Y * 1.6 
+                                && IsSentientBeing(GameObject))
                             {
                                 if (GameObject.GameObjectSPEED < 0)
                                 {
@@ -295,10 +299,10 @@ namespace Free
                     {
                         GameObject2Pos = new Rect(new Point(GameObject2.Position.X + GameObject2.GameObjectHITBOX[0].X, GameObject2.Position.Y + GameObject2.GameObjectHITBOX[0].Y), new Point(GameObject2.Position.X + GameObject2.GameObjectHITBOX[1].X, GameObject2.Position.Y + GameObject2.GameObjectHITBOX[1].Y)); // base this on the hitbox if its not null
                     }
-                    if (!GameObjectPos.IntersectsWith(GameObject2Pos.XPos))
+                    if (!GameObjectPos.IntersectsWith(GameObject2Pos))
                     {
                         GameObject.GameObjectCOLLISIONS--;
-                        GameObject.CollidedLevelObjects.Remove(Position.X); // remove the IGameObject
+                        GameObject.CollidedLevelObjects.Remove(GameObject2); // remove the IGameObject
                     }
                 }
             }
