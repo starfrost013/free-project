@@ -66,7 +66,7 @@ namespace SDLX
             }
             else
             {
-                SprFrm.Add(NewSprFrm)l
+                SprFrm.Add(NewSprFrm);
                 return true;
             }
         }
