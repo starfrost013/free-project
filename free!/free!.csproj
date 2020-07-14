@@ -129,6 +129,7 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.ChangeLevel.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.DeleteObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.GetObject.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.GetGlobalObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.GetPlayers.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.IsColliding.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.IsCollidingWith.cs" />

@@ -109,56 +109,64 @@ namespace Free
                             }
                             */
 
-                            foreach (XmlAttribute XmlAttribute in XmlAttributes)
+                            
+                        }
+
+                        int id = -1;
+                        SDLPoint Position = new SDLPoint(-69, -420); 
+                        foreach (XmlAttribute XmlAttribute in XmlAttributes)
+                        {
+                            switch (XmlAttribute.Name)
                             {
-                                switch (XmlAttribute.Name)
-                                {
-                                    case "PosX":
-                                    case "posx":
-                                        IGameObject.Position.X = Convert.ToDouble(XmlAttribute.Value);
-                                        continue;
-                                    case "PosY":
-                                    case "posy":
-                                        IGameObject.Position.Y = Convert.ToDouble(XmlAttribute.Value);
-                                        continue;
-                                }
+                                case "ID":
+                                case "objid":
+                                    id = Convert.ToInt32(XmlAttribute.Value);
+                                    continue;
+                                case "PosX":
+                                case "posx":
+                                    Position.X = Convert.ToDouble(XmlAttribute.Value);
+                                    continue;
+                                case "PosY":
+                                case "posy":
+                                    Position.Y = Convert.ToDouble(XmlAttribute.Value);
+                                    continue;
                             }
+                        }
 
 #if DEBUG
-                            FreeSDL.LogDebug_C("On demand level loader", $"Placed object with global ID {IGameObject.GameObjectID} and internal ID {IGameObject.GameObjectINTERNALID} @ {IGameObject.Position.X},{IGameObject.Position.Y}");
+                        FreeSDL.LogDebug_C("On demand level loader", $"Placed object with global ID {id} and internal ID {currentIntId} @ {Position.X},{Position.Y}");
 #endif
-                            if (IGameObject.GameObjectPLAYER)
+                        /*
+                        if (IGameObject.GameObjectPLAYER)
+                        {
+                            if (currentlevel.PlayerStartPosition.X == 0 || currentlevel.PlayerStartPosition.Y == 0) // default
                             {
-                                if (currentlevel.PlayerStartPosition.X == 0 || currentlevel.PlayerStartPosition.Y == 0) // default
-                                {
-                                    currentlevel.PlayerStartPosition = new Point(IGameObject.Position.X, IGameObject.Position.Y);
-                                }
-                                else
-                                {
-                                    IGameObject.Position.X = currentlevel.PlayerStartPosition.X;
-                                    IGameObject.Position.Y = currentlevel.PlayerStartPosition.Y;
-                                }
+                                currentlevel.PlayerStartPosition = new Point(IGameObject.Position.X, IGameObject.Position.Y);
                             }
-
-                            if (IGameObject.GameObjectANIMATIONS.Count == 0)
+                            else
                             {
-                                if (IGameObject.GameObjectIMAGE.CanFreeze) IGameObject.GameObjectIMAGE.Freeze();
+                                IGameObject.Position.X = currentlevel.PlayerStartPosition.X;
+                                IGameObject.Position.Y = currentlevel.PlayerStartPosition.Y;
                             }
-
-                            // Send to SDL for rendering.
-                            App AppSDL = (App)Application.Current;
-
-                            // Here we temporarily use WPF.variables. THIS IS EXTREMELY TEMPORARY CODE WE WILL HAVE OUR OWN SDLLOAD METHOD OK
-                            if (!AppSDL.SDLGame.CurrentScene.LoadImage(IGameObject.GameObjectIMAGEPATH, new SDLPoint(IGameObject.Position.X, IGameObject.Position.Y), IGameObject.GameObjectIMAGE.PixelWidth, IGameObject.GameObjectIMAGE.PixelHeight))
-                            {
-                                Error.Throw(null, ErrorSeverity.FatalError, "Fatal error loading image", "avant-garde engine", 93);
-                            }
-
-                            currentlevel.LevelIGameObjects.Add(IGameObject);
                         }
-                        
 
+                        if (IGameObject.GameObjectANIMATIONS.Count == 0)
+                        {
+                            if (IGameObject.GameObjectIMAGE.CanFreeze) IGameObject.GameObjectIMAGE.Freeze();
+                        }
 
+                        // Send to SDL for rendering.
+                        App AppSDL = (App)Application.Current;
+
+                        // Here we temporarily use WPF.variables. THIS IS EXTREMELY TEMPORARY CODE WE WILL HAVE OUR OWN SDLLOAD METHOD OK
+                        if (!AppSDL.SDLGame.CurrentScene.LoadImage(IGameObject.GameObjectIMAGEPATH, new SDLPoint(IGameObject.Position.X, IGameObject.Position.Y), IGameObject.GameObjectIMAGE.PixelWidth, IGameObject.GameObjectIMAGE.PixelHeight))
+                        {
+                            Error.Throw(null, ErrorSeverity.FatalError, "Fatal error loading image", "avant-garde engine", 93);
+                        }
+
+                        currentlevel.LevelIGameObjects.Add(IGameObject);
+                        */
+                        MnWindow.AddIGameObject(id, Position); 
 
                         currentIntId++;
                     }
