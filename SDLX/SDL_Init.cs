@@ -126,7 +126,7 @@ namespace SDLX
         private bool Game_InitScene()
         {
             CurrentScene = new GameScene();
-
+            TextureCache = new SDL_Cache(); 
 
             return true; 
         }

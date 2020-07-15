@@ -13,6 +13,7 @@ namespace SDLX
         public GameScene CurrentScene { get; set; }
         public SDL.SDL_Event EventHandler { get; set; } // naive?
         public bool RunningNow { get; set; }
+        public SDL_Cache TextureCache { get; set; }
 
         /// <summary>
         /// Sorta shit but works for now. Reimplement later.
@@ -95,8 +96,6 @@ namespace SDLX
         public void SDL_DrawBackground()
         {
             SDL.SDL_Rect BgRenderRect = SDL_GetRect(new SDLPoint(0, 0), CurrentScene.Resolution);
-
-
             SDL.SDL_Rect _2 = CurrentScene.Background.RenderRect;
 
             SDL.SDL_RenderCopy(SDL_RenderPtr, CurrentScene.Background.Sprite, ref _2, ref BgRenderRect);
@@ -118,6 +117,14 @@ namespace SDLX
 
             SDL.SDL_DestroyTexture(Texture);
             SDL.SDL_FreeSurface(Surface);
+        }
+
+        /// <summary>
+        /// I wonder what this does.
+        /// </summary>
+        public void SDL_LoadAndCacheTexture(string Path)
+        {
+            TextureCache.LoadCachedItem(Path); 
         }
     }
 }

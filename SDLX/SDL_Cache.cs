@@ -23,6 +23,21 @@ namespace SDLX
                 return CachedItems[ID];
             }
         }
+
+        public SDL_CachedItem LoadCachedItem(string Path)
+        {
+            SDL_CachedItem SCI = new SDL_CachedItem();
+            
+            if (!SCI.Load(Path))
+            {
+                return null;
+            }
+            else
+            {
+                CachedItems.Add(SCI); 
+                return SCI;
+            }
+        }
     }
 
     public partial class SDL_CachedItem
