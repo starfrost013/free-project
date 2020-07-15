@@ -34,6 +34,7 @@ namespace SDLX
             }
             else
             {
+                SCI.ID = CachedItems.Count - 1;
                 CachedItems.Add(SCI); 
                 return SCI;
             }
