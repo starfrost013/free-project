@@ -78,7 +78,7 @@ namespace Free
                     LvBackNew.SetValue(RenderOptions.BitmapScalingModeProperty, BitmapScalingMode.NearestNeighbor);
                 }
 
-                SDLGame.CurrentScene.LoadBackground(level.BGPATH);
+                SDLGame.CurrentScene.SDL_LoadLevel(level.BGPATH);
 
 
                 currentlevel = level;

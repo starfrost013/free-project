@@ -10,13 +10,13 @@ namespace SDLX
     {
         public IntPtr GetObjSpriteWithCacheId(int CacheId)
         {
-            if (CacheId > TextureCache.CachedItems.Count - 1)
+            if (CacheId > CurrentScene.TextureCache.CachedItems.Count - 1)
             {
                 return IntPtr.Zero; 
             }
             else
             {
-                return TextureCache.CachedItems[CacheId].Spr;
+                return CurrentScene.TextureCache.CachedItems[CacheId].Spr;
             }
         }
     }

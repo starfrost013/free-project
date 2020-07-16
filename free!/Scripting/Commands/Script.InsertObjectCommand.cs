@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emerald.Utilities.Wpf2Sdl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -96,7 +97,7 @@ namespace Free
         public ScriptReturnValue Execute()
         {
             //MnWindow.currentlevel.LevelIGameObjects.Add()
-            MnWindow.AddIGameObject((int)GetParameter("ID"), new Point((double)GetParameter("X"), (double)GetParameter("Y")));
+            MnWindow.AddIGameObject((int)GetParameter("ID"), new SDLPoint((double)GetParameter("X"), (double)GetParameter("Y")));
 
             return new ScriptReturnValue { ReturnCode = 0, ReturnInformation = "The operation completed successfully - an IGameObject has been added." };
         }

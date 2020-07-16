@@ -123,7 +123,7 @@ namespace SDLX
         /// </summary>
         public void SDL_LoadAndCacheTexture(string Path)
         {
-            TextureCache.LoadCachedItem(Path); 
+            CurrentScene.TextureCache.LoadCachedItem(Path); 
         }
     }
 }
