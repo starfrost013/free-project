@@ -27,19 +27,24 @@ namespace SDLX
     public partial class GameScene
     {
         public SDLSprite Background { get; set; } // We might need to fix this before it gets out of control...Shared classes?
-        public List<SDLSprite> CachedTextures { get; set; }
+        public List<SDLSprite> LevelSprites { get; set; }
         public GameCamera GameCamera { get; set; }
-        public List<SDLSprite> SDLTextureCache { get; set; }
         public SDLPoint Resolution { get; set; }
         public IntPtr TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS { get; set; } // Pre-FreeUI font
+        public SDL_Cache TextureCache { get; set; }
 
         public GameScene()
         {
             GameCamera = new GameCamera();
             Background = new SDLSprite();
             Resolution = new SDLPoint(850, 400);
-            SDLTextureCache = new List<SDLSprite>();
+            TextureCache = new SDL_Cache(); 
 
+        }
+
+        public void SDL_LoadLevel(string BackgroundPath)
+        {
+            LoadScene(BackgroundPath);
         }
 
         public void PreLoadScene()
@@ -52,7 +57,7 @@ namespace SDLX
             }
         }
 
-        public void LoadScene(string BackgroundPath, string LevelInfoPathELCF)
+        private void LoadScene(string BackgroundPath)
         {
             LoadBackground(BackgroundPath);
         }
@@ -61,7 +66,7 @@ namespace SDLX
         /// Loads the background. Will be replaced by a single call to LoadScene. 
         /// </summary>
         /// <param name="BackgroundPath"></param>
-        public void LoadBackground(string BackgroundPath)
+        private void LoadBackground(string BackgroundPath)
         {
 
             Background.Sprite = SDL_image.IMG_LoadTexture(Game.SDL_RenderPtr, BackgroundPath);
@@ -126,9 +131,6 @@ namespace SDLX
 
                 SDLSprite.Size = new SDLPoint(SizeX, SizeY);
 
-                // Add it to the texture cache
-
-                SDLTextureCache.Add(SDLSprite);
                 return true;
             }
         }

@@ -13,7 +13,7 @@ namespace SDLX
         public GameScene CurrentScene { get; set; }
         public SDL.SDL_Event EventHandler { get; set; } // naive?
         public bool RunningNow { get; set; }
-        public SDL_Cache TextureCache { get; set; }
+
 
         /// <summary>
         /// Sorta shit but works for now. Reimplement later.
@@ -53,9 +53,8 @@ namespace SDLX
 
 
                 // Render each SDLTexture in the TextureCache. 
-                // Pending major refactoring we just draw everything at 0,0 for now.
 
-                foreach (SDLSprite SDLSprite in CurrentScene.SDLTextureCache)
+                foreach (SDLSprite SDLSprite in CurrentScene.LevelSprites)
                 {
                     if (SDLSprite.Position.X >= (CurrentScene.GameCamera.CameraPosition.X - SDLSprite.Size.X)
                         && SDLSprite.Position.X <= (CurrentScene.GameCamera.CameraPosition.X + (CurrentScene.Resolution.X + SDLSprite.Size.X))
