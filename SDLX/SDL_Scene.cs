@@ -38,8 +38,8 @@ namespace SDLX
             GameCamera = new GameCamera();
             Background = new SDLSprite();
             Resolution = new SDLPoint(850, 400);
-            TextureCache = new SDL_Cache(); 
-
+            TextureCache = new SDL_Cache();
+            LevelSprites = new List<SDLSprite>();
         }
 
         public void SDL_LoadLevel(string BackgroundPath)
@@ -131,7 +131,7 @@ namespace SDLX
                 SDLSprite.Position = Position;
 
                 SDLSprite.Size = new SDLPoint(SizeX, SizeY);
-
+                LevelSprites.Add(SDLSprite);
                 return true;
             }
         }

@@ -139,6 +139,7 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectPosition.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectSize.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetPhysicsState.cs" />
+    <Compile Include="Objects\ObjectAPI\ObjectAPI.SetPlayerAcceleration.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
     <Compile Include="Physics\Physics.Init.cs" />
     <Compile Include="Physics\PhysicsState.cs" />
@@ -544,8 +545,6 @@ echo.
 xcopy /D /S /MOVE $(TargetDir)Content\*.* $(TargetDir)
 
 IF NOT EXIST $(TargetDir)Content\Game md $(TargetDir)Content\Game
-
-"$(TargetDir)\free!.exe"
 </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>

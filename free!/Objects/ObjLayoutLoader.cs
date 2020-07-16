@@ -63,14 +63,13 @@ namespace Free
                     if (XmlNode.Name != "#comment")
                     {
                         XmlAttributeCollection XmlAttributes = XmlNode.Attributes; // get the attribute out of each node. 
-                        IGameObject GameObject2 = new GameObject(); 
+                        IGameObject GameObject2 = new GameObject();
 
+                        /*
+                         *  // 2020-05-26: This code is literally horrific. Jesus fucking christ.
+                         *  // 2020-07-14: Get rid of this code once and for all. Still kinda bad but oh well lol
                         foreach (GameObject IGameObject in listOfIGameObjects) // yikes. 
                         {
-                            // 2020-05-26: This code is literally horrific. Jesus fucking christ.
-                            // 2020-07-14: Get rid of this code once and for all. Still kinda bad but 
-
-                            /*
                             if (IGameObject.GameObjectID == Convert.ToInt32(XmlNode.Attributes[0].Value))
                             {
                                 if (!FreeSDL.IsSentientBeing(IGameObject))
@@ -107,10 +106,8 @@ namespace Free
                                 // This is real shit code, like yandere simulator shit, and it is, in fact, an ugly hack. Damn reference types...
 
                             }
-                            */
-
-                            
                         }
+                    */
 
                         int id = -1;
                         SDLPoint Position = new SDLPoint(-69, -420); 
@@ -133,6 +130,10 @@ namespace Free
                             }
                         }
 
+                        if (Position.X == -69 && Position.Y == -420)
+                        {
+                            Error.Throw(null, ErrorSeverity.FatalError, "Position not defined.", "Emerald Engine 3.0 (Error 97)", 97);
+                        }
 #if DEBUG
                         FreeSDL.LogDebug_C("On demand level loader", $"Placed object with global ID {id} and internal ID {currentIntId} @ {Position.X},{Position.Y}");
 #endif
@@ -166,7 +167,11 @@ namespace Free
 
                         currentlevel.LevelIGameObjects.Add(IGameObject);
                         */
-                        MnWindow.AddIGameObject(id, Position); 
+
+                        // Load (WPF)
+                        MnWindow.AddIGameObject(id, Position);
+                        // Load (SDL) (TEMP 64x64)
+                        MnWindow.SDLGame.CurrentScene.LoadImage(id, Position, 64, 64);
 
                         currentIntId++;
                     }
@@ -175,18 +180,16 @@ namespace Free
             }
             catch (XmlException err)
             {
-                MessageBox.Show($"A critical error occurred while loading {this.LevelIGameObjectsPATH}:\n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
-                Environment.Exit(0x6666DEAD);
+                Error.Throw(null, ErrorSeverity.FatalError, $"A critical error occurred while loading {this.LevelIGameObjectsPATH}:\n\n:{err}", "Emerald Engine (E98)", 98);
             }
             catch (FormatException err)
             {
-                MessageBox.Show($"A critical error occurred while loading {this.LevelIGameObjectsPATH}:\n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
-                Environment.Exit(0x6667DEAD);
+                Error.Throw(null, ErrorSeverity.FatalError, $"A critical error occurred while loading { this.LevelIGameObjectsPATH} (Critical level data file malformed!):\n\n{err}", "Emerald Engine (E99)", 99);
             }
             catch (FileNotFoundException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent IGameObject layout, or error loading an IGameObject layout. This is most likely because the Goal IGameObject attempted to trigger its interaction but the next level by ID doesn't have an IGameObject layout or it failed to load.", "avant-gardé engine", 8);
-                Environment.Exit(0x6668DEAD);
+                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent IGameObject layout, or error loading an level object layout because a critical level data file was not found. This is most likely because the a level-changing object attempted to trigger its interaction or run its OnHit SimpleESX script," +
+                    " but the next level by ID doesn't have an IGameObject layout or it failed to load.", "Emerald Engine (E8)", 8);
             }
 
 
