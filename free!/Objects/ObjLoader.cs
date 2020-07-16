@@ -297,6 +297,9 @@ namespace Free
                     GameObject.GameObjectIMAGE = new WriteableBitmap(BitmapFactory.FromStream(new FileStream(GameObject.GameObjectIMAGEPATH, FileMode.Open)));
                     
                     GameObject.GameObjectANIMATIONS = new List<Animation>();
+
+                    SDLGame.SDL_LoadAndCacheTexture(GameObject.GameObjectIMAGEPATH);
+
                     IGameObjectList.Add(GameObject);
 
                 }

@@ -85,10 +85,11 @@ namespace SDLX
             Background.Size = Resolution;
         }
 
-        public bool LoadImage(string ImageLoad, SDLPoint Position, int SizeX, int SizeY)
+        // 2020-07-16 (v1462.106): now use sdl caching
+        public bool LoadImage(int ObjectId, SDLPoint Position, int SizeX, int SizeY)
         {
             // Load the image using SDLImage
-            IntPtr ImagePtr = SDL_image.IMG_LoadTexture(Game.SDL_RenderPtr, ImageLoad);
+            IntPtr ImagePtr = GetObjSpriteWithCacheId(ObjectId);
             
             if (ImagePtr == new IntPtr(0))
             {
