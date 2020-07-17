@@ -1,4 +1,5 @@
-﻿using SDL2;
+﻿using Emerald.Utilities;
+using SDL2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,23 +13,11 @@ namespace SDLX
     {
         public List<SDL_CachedItem> CachedItems { get; set; }
 
-        public SDL_CachedItem GetCachedItemWithId(int ID)
-        {
-            if (ID > CachedItems.Count - 1)
-            {
-                return null;
-            }
-            else
-            {
-                return CachedItems[ID];
-            }
-        }
-
-        public SDL_CachedItem LoadCachedItem(string Path)
+        public SDL_CachedItem LoadCachedItem(IntPtr UnmanagedRenderer, string Path)
         {
             SDL_CachedItem SCI = new SDL_CachedItem();
             
-            if (!SCI.Load(Path))
+            if (!SCI.Load(UnmanagedRenderer, Path))
             {
                 return null;
             }
@@ -51,9 +40,9 @@ namespace SDLX
         /// </summary>
         /// <param name="Path">The path to the cached item to load</param>
         /// <returns></returns>
-        public bool Load(string Path)
+        public bool Load(IntPtr UnmanagedRenderer, string Path)
         {
-            Spr = SDL_image.IMG_Load(Path);
+            Spr = SDL_image.IMG_LoadTexture(UnmanagedRenderer, Utils.ConvertToSingleSlash(Path));
 
             if (Spr == IntPtr.Zero)
             {
@@ -78,9 +67,9 @@ namespace SDLX
             SprFrm = new List<IntPtr>();
         }
 
-        public bool LoadSingleFrame(string Path)
+        public bool LoadSingleFrame(IntPtr UnmanagedRenderer, string Path)
         {
-            IntPtr NewSprFrm = SDL_image.IMG_Load(Path);
+            IntPtr NewSprFrm = SDL_image.IMG_LoadTexture(UnmanagedRenderer, Path);
 
             if (NewSprFrm == IntPtr.Zero)
             {

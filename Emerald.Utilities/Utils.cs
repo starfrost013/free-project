@@ -287,5 +287,14 @@ namespace Emerald.Utilities
             FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.GetCallingAssembly().Location);
             return FVI.ProductVersion;
         }
+
+        /// <summary>
+        /// This may be required for SDL. Trying this.
+        /// </summary>
+        /// <returns></returns>
+        public static string ConvertToSingleSlash(string Str) // make extension method?
+        {
+            return Str.Replace(@"\\", @"\");
+        }
     }
 }

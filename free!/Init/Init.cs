@@ -100,14 +100,10 @@ namespace Free
                     }
                 }
 
-
-                // Script Init - This will be moved to Engine_PreInit()
-                SimpleESX Sesx = new SimpleESX();
-                Sesx.LoadReflection();
                 SimpleESXScript SEXScript = new SimpleESXScript();
-                Sesx.LoadScript("Test.esx");
-                Sesx.ExecuteCurrentScript(); // Execute the current script.
-                // End Temp Script Init
+                ScriptingCore.LoadScript("Test.esx");
+                ScriptingCore.ExecuteCurrentScript(); // Execute the current script.
+
 
             }
             catch (FileNotFoundException err)
