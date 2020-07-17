@@ -2,6 +2,8 @@
 using SDL2;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -121,9 +123,9 @@ namespace SDLX
         /// <summary>
         /// I wonder what this does.
         /// </summary>
-        public void SDL_LoadAndCacheTexture(string Path)
+        public void SDL_LoadAndCacheTexture(string RPath)
         {
-            CurrentScene.TextureCache.LoadCachedItem(Path); 
+            CurrentScene.TextureCache.LoadCachedItem($@"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\{RPath}"); 
         }
     }
 }

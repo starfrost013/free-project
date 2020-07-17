@@ -44,11 +44,9 @@ namespace Free
                 SDLGame = new Game();
             }
 
-            if (!Settings.FeatureControl_DisableWPF)
-            {
-                FreeSDL MnWindow = new FreeSDL();
-                MnWindow.Show();
-            }
+            FreeSDL MnWindow = new FreeSDL();
+            MnWindow.Show();
+
         }
     }
 }
