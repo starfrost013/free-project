@@ -42,7 +42,7 @@ namespace SDLX
         /// <returns></returns>
         public bool Load(IntPtr UnmanagedRenderer, string Path)
         {
-            Spr = SDL_image.IMG_LoadTexture(UnmanagedRenderer, Utils.ConvertToSingleSlash(Path));
+            Spr = SDL_image.IMG_LoadTexture(Game.SDL_RenderPtr, Path);
 
             if (Spr == IntPtr.Zero)
             {
