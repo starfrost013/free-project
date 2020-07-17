@@ -46,6 +46,11 @@ namespace SDLX
         public int ID { get; set; }
         public IntPtr Spr { get; set; }
 
+        /// <summary>
+        /// Loads a cached item
+        /// </summary>
+        /// <param name="Path">The path to the cached item to load</param>
+        /// <returns></returns>
         public bool Load(string Path)
         {
             Spr = SDL_image.IMG_Load(Path);

@@ -298,9 +298,12 @@ namespace Free
                     
                     GameObject.GameObjectANIMATIONS = new List<Animation>();
 
-                    SDLGame.SDL_LoadAndCacheTexture(GameObject.GameObjectIMAGEPATH);
 
+                    LogDebug_C("Emerald Level Loader (WPF)", $"Loaded object with ID {GameObject.GameObjectIMAGEPATH}");
                     IGameObjectList.Add(GameObject);
+
+                    LogDebug_C("Emerald Level Loader (SDL)", $"Caching object with ID {GameObject.GameObjectIMAGEPATH}");
+                    SDLGame.SDL_LoadAndCacheTexture(GameObject.GameObjectIMAGEPATH);
 
                 }
             }

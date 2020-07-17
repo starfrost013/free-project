@@ -39,6 +39,7 @@ namespace SDLX
             Background = new SDLSprite();
             Resolution = new SDLPoint(850, 400);
             TextureCache = new SDL_Cache();
+            TextureCache.CachedItems = new List<SDL_CachedItem>();
             LevelSprites = new List<SDLSprite>();
         }
 
