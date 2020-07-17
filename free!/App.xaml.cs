@@ -1,4 +1,5 @@
-﻿using SDLX;
+﻿using Emerald.Core;
+using SDLX;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -40,9 +41,11 @@ namespace Free
 
             SDLGame = new Game();
 
-
-            FreeSDL MnWindow = new FreeSDL();
-            MnWindow.Show();
+            if (!Settings.FeatureControl_DisableWPF)
+            {
+                FreeSDL MnWindow = new FreeSDL();
+                MnWindow.Show();
+            }
         }
     }
 }

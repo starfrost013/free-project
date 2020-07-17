@@ -57,6 +57,7 @@ namespace SDLX
 
             if (Spr == IntPtr.Zero)
             {
+                System.Diagnostics.Debug.WriteLine(SDL.SDL_GetError()); // TEMP
                 return false;
             }
             else

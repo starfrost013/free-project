@@ -3,6 +3,8 @@
   <DemoMode>false</DemoMode>
   <FC_Dump2Console>true</FC_Dump2Console>
   <FC_DisableGTDebug>false</FC_DisableGTDebug>
+  <FC_DisableSDL>false</FC_DisableSDL>
+  <FC_DisableWPF>true</FC_DisableWPF>
   <FC_UseCollisionV2>true</FC_UseCollisionV2>
   <FC_UsePhysicsV2>true</FC_UsePhysicsV2>
   <!-- DEPRECATED -->
