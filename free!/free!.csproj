@@ -542,7 +542,7 @@ copy $(ProjectDir)Content\SDL2.dll SDL2.dll
 echo Copying content files...We will be moving all files to \Content\ in the near future...
 echo.
 
-xcopy /D /S /MOVE $(TargetDir)Content\*.* $(TargetDir)
+xcopy /D /S /Y /MOVE $(TargetDir)Content\*.* $(TargetDir)
 
 IF NOT EXIST $(TargetDir)Content\Game md $(TargetDir)Content\Game
 </PostBuildEvent>
