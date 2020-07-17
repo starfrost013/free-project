@@ -39,7 +39,10 @@ namespace Free
             Console.OpenStandardOutput();
 #endif
 
-            SDLGame = new Game();
+            if (!Settings.FeatureControl_DisableSDL_PublicDemosOnly)
+            {
+                SDLGame = new Game();
+            }
 
             if (!Settings.FeatureControl_DisableWPF)
             {
