@@ -91,7 +91,24 @@ namespace Emerald.COM2.Writer
                         {
                             // check that we actually do have the parent 
                             COMNode2.NodeParentID = COMParents.NodeID;
+                            // this does optimise actually
                             break;
+                        }
+                    }
+
+                    // Build the list of attributes.
+
+                    if (XChild.Attributes.Count != 0)
+                    {
+                        foreach (XmlAttribute CAttr in XChild.Attributes)
+                        {
+                            COMAttribute2 CA2 = new COMAttribute2();
+                            // Maximum 256 attributes per node.
+                            CA2.LocalId = Convert.ToByte(COMNode2.Attributes.Count);
+                            CA2.Name = CAttr.Name;
+                            CA2.Content = CAttr.Value;
+                            COMNode2.Attributes.Add(CA2); 
+
                         }
                     }
 
@@ -102,6 +119,7 @@ namespace Emerald.COM2.Writer
                 // Create a second foreach loop to do this
                 foreach (XmlNode XChild in XCore.ChildNodes)
                 {
+                    // Iterate through the children of this node. 
                     IterateNodes(Com2_Catalog, XChild);
                 }
                 

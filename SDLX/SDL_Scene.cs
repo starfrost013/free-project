@@ -108,7 +108,7 @@ namespace SDLX
 
             if (SDL.SDL_QueryTexture(ImagePtr, out Tex, out TexAccess, out SizeX, out SizeY) < 0)
             {
-                Debug.WriteLine($"SDL failed loading an image. {SDL.SDL_GetError()} ");
+                Debug.WriteLine($"An error occurred while caching this image... {SDL.SDL_GetError()} ");
 
                 // Don't return false for now. Not sure what's causing the "Invalid texture." errors.
                 //return false;

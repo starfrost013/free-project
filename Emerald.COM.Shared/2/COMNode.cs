@@ -9,7 +9,7 @@ namespace Emerald.COM2
 {
     public class COMNode2
     {
-        public List<COMAttribute2> Attributes { get; set; } // The attributes for this node.
+        public List<COMAttribute2> Attributes { get; set; } // The attributes for this node. These are written after the node. 
         public short NodeID { get; set; } // The ID of the attribute.
         public string NodeInnerText { get; set; } // The inner text of the node
         public string NodeName { get; set; } // The name attribute.
