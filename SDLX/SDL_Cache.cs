@@ -42,15 +42,18 @@ namespace SDLX
         /// <returns></returns>
         public bool Load(IntPtr UnmanagedRenderer, string Path)
         {
-            Spr = SDL_image.IMG_LoadTexture(Game.SDL_RenderPtr, Path);
 
-            if (Spr == IntPtr.Zero)
+            // figure out what the hell is going on here
+            IntPtr _ = SDL_image.IMG_LoadTexture(Game.SDL_RenderPtr, Path);
+
+            if (_ == IntPtr.Zero)
             {
                 System.Diagnostics.Debug.WriteLine(SDL.SDL_GetError()); // TEMP
                 return false;
             }
             else
             {
+                Spr = _;
                 return true; 
             }
         }
