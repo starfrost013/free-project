@@ -168,10 +168,12 @@ namespace Free
                         currentlevel.LevelIGameObjects.Add(IGameObject);
                         */
 
-                        // Load (WPF)
-                        MnWindow.AddIGameObject(id, Position);
                         // Load (SDL) (TEMP 64x64)
                         MnWindow.SDLGame.CurrentScene.LoadImage(id, Position, 64, 64);
+
+                        // Load (WPF)
+                        MnWindow.AddIGameObject(id, Position);
+
 
                         currentIntId++;
                     }

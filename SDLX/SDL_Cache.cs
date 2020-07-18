@@ -13,11 +13,11 @@ namespace SDLX
     {
         public List<SDL_CachedItem> CachedItems { get; set; }
 
-        public SDL_CachedItem LoadCachedItem(IntPtr UnmanagedRenderer, string Path)
+        public SDL_CachedItem LoadCachedItem(string Path)
         {
             SDL_CachedItem SCI = new SDL_CachedItem();
             
-            if (!SCI.Load(UnmanagedRenderer, Path))
+            if (!SCI.Load(Path))
             {
                 return null;
             }
@@ -40,7 +40,7 @@ namespace SDLX
         /// </summary>
         /// <param name="Path">The path to the cached item to load</param>
         /// <returns></returns>
-        public bool Load(IntPtr UnmanagedRenderer, string Path)
+        public bool Load(string Path)
         {
 
             // figure out what the hell is going on here

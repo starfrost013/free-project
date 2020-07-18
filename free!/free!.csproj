@@ -235,6 +235,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Content Include="Content\libfreetype-6.dll" />
+    <Content Include="Content\SDL2_image.dll" />
     <Content Include="Content\SDL2_ttf.dll" />
     <Content Include="Content\zlib1.dll" />
     <Resource Include="Resources\CoreBuildDate.txt" />
@@ -285,7 +286,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\SDL2.dll" />
-    <Content Include="Content\SDL2_image.dll" />
     <Content Include="Content\Test.esx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -294,17 +294,15 @@ namespace Free
                         GameObject.GameObjectPLAYERHEALTH = 100;//TEST value.
                     }
 
+                    LogDebug_C("Emerald Level Loader (SDL)", $"Caching object with ID {GameObject.GameObjectIMAGEPATH}");
+                    SDLGame.SDL_LoadAndCacheTexture(GameObject.GameObjectIMAGEPATH);
+
                     GameObject.GameObjectIMAGE = new WriteableBitmap(BitmapFactory.FromStream(new FileStream(GameObject.GameObjectIMAGEPATH, FileMode.Open)));
                     
                     GameObject.GameObjectANIMATIONS = new List<Animation>();
 
-
                     LogDebug_C("Emerald Level Loader (WPF)", $"Loaded object with ID {GameObject.GameObjectIMAGEPATH}");
                     IGameObjectList.Add(GameObject);
-
-                    LogDebug_C("Emerald Level Loader (SDL)", $"Caching object with ID {GameObject.GameObjectIMAGEPATH}");
-                    SDLGame.SDL_LoadAndCacheTexture(GameObject.GameObjectIMAGEPATH);
-
                 }
             }
             catch (XmlException err)

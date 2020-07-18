@@ -125,7 +125,7 @@ namespace SDLX
         /// </summary>
         public void SDL_LoadAndCacheTexture(string RPath)
         {
-            CurrentScene.TextureCache.LoadCachedItem(SDL_RenderPtr, $@"{RPath}"); 
+            CurrentScene.TextureCache.LoadCachedItem($"{RPath}"); 
         }
     }
 }
