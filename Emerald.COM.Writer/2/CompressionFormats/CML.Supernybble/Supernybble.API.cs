@@ -7,15 +7,13 @@ using System.Threading.Tasks;
 
 namespace Emerald.COM2.Writer
 {
-    public class Supernybble
+    public partial class COMWriter2
     {
-        public BitArray NybbleData { get; set; }
-
-        public List<BitArray> GetSupernybble(string Input) // returns a bit array
+        public List<Supernybble> GetSupernybbleFromString(string Input) // returns a bit array
         {
             // Supernybbles only support alphanumeric characters...
 
-            List<BitArray> LBA = new List<BitArray>();
+            List<Supernybble> LBA = new List<Supernybble>();
 
             foreach (byte StrByte in Input)
             {
@@ -25,7 +23,7 @@ namespace Emerald.COM2.Writer
                 }
                 else
                 {
-                    if ((StrByte > 0x38 && StrByte < 0x41) || 
+                    if ((StrByte > 0x38 && StrByte < 0x41) ||
                         (StrByte > 0x5A && StrByte < 0x61)) // these are non-alphanumeric characters
                     {
                         return null;
@@ -46,15 +44,18 @@ namespace Emerald.COM2.Writer
                         }
 
                         // sanity check probably not required because we filtered out everything else
-                        LBA.Add(EightToSixBits(Convert.ToByte(StrByte - SubtractBy)));
+                        Supernybble SN = new Supernybble();
+                        SN.NybbleData = EightToSixBits(Convert.ToByte(StrByte - SubtractBy));
                     }
                 }
             }
+
+            return LBA;
         }
-        
+
         private BitArray EightToSixBits(byte Eight)
         {
-            BitArray BA = new BitArray(new byte[] { Eight } );
+            BitArray BA = new BitArray(new byte[] { Eight });
             BA.Length = 6; // remove bits #7 and #8 to 0 as they are not used
             return BA;
         }
