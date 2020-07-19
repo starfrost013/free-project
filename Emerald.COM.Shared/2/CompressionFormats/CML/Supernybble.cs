@@ -15,8 +15,7 @@ namespace Emerald.COM2
 
         public Supernybble()
         {
-            NybbleData = new BitArray();
-            NybbleData.Length = 8; // this is changed to 6 later.
+            NybbleData = new BitArray(8);
         }
     }
 }

@@ -37,12 +37,15 @@ namespace Emerald.COM2.Writer
                             // subtract 0x30
                             SubtractBy = 0x30;
                         }
-                        else // if it's alpha...
+                        else if (StrByte > 0x40 && StrByte < 0x5B) // if it's alpha... (3a-3f not used)
                         {
                             // subtract 0x51
-                            SubtractBy = 0x51; // squish into six bits
+                            SubtractBy = 0x31; // squish into six bits
                         }
-
+                        else
+                        {
+                            SubtractBy = 0x37; 
+                        }
                         // sanity check probably not required because we filtered out everything else
                         Supernybble SN = new Supernybble();
                         SN.NybbleData = SupernybbleEightToSixBits(Convert.ToByte(StrByte - SubtractBy));
