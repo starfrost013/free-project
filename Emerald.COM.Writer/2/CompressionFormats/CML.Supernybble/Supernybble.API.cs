@@ -61,6 +61,8 @@ namespace Emerald.COM2.Writer
             {
                 Result.Add(SupernybbleToByte(SNx.NybbleData));
             }
+
+            return Result; 
         }
 
         public byte SupernybbleToByte(BitArray NybbleData)
