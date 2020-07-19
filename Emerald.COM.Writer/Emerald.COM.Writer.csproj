@@ -69,6 +69,7 @@
     <Compile Include="1.6\COMWriter.WriteCOM.Header.cs" />
     <Compile Include="1.6\COMWriter.WriteCOM.PublicFacingMethods.cs" />
     <Compile Include="1.6\COMWriter.WriteCOM.XML.cs" />
+    <Compile Include="2\CompressionFormats\CML.Supernybble\Supernybble.cs" />
     <Compile Include="2\CompressionFormats\CompressML.cs" />
     <Compile Include="2\COMWriter.BuildCatalog2.cs" />
     <Compile Include="2\COMWriter.BuildNodeCatalog2.cs" />
