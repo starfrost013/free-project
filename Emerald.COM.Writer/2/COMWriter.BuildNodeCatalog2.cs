@@ -105,7 +105,14 @@ namespace Emerald.COM2.Writer
                             COMAttribute2 CA2 = new COMAttribute2();
                             // Maximum 256 attributes per node.
                             CA2.LocalId = Convert.ToByte(COMNode2.Attributes.Count);
-                            CA2.Name = CAttr.Name;
+
+                            switch (CAttr.Name)
+                            {
+                                case "Name":
+                                    
+                                    continue; 
+                            }
+                            
                             CA2.Content = CAttr.Value;
                             COMNode2.Attributes.Add(CA2); 
 

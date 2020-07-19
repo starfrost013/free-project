@@ -26,7 +26,6 @@ namespace Emerald.COM2.Writer
 
                     foreach (COMNode2 ComNode in NodeCatalog2.Nodes)
                     {
-
                         if (ComNode.NodeInnerText.Length == 0) continue;
 
                         // Write the inner text. Remove spaces here.
@@ -70,9 +69,9 @@ namespace Emerald.COM2.Writer
 
         }
 
-        public void Decompress(string COMFileName, COMCatalog2 COMCat2, COMNodeCatalog2 NodeCatalog2) // Doesn't really decompress
+        public void Decompress(string COMFileName, COMCatalog2 COMCat2, COMNodeCatalog2 NodeCatalog2) // Doesn't really do anything because this is the CML API
         {
-
+            throw new NotImplementedException();
         }
     }
 }

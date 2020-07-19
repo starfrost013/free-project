@@ -9,7 +9,7 @@ namespace Emerald.COM2.Writer
 {
     public partial class COMWriter2
     {
-        public List<Supernybble> GetSupernybbleFromString(string Input) // returns a bit array
+        public List<Supernybble> SupernybbleFromString(string Input) // returns a bit array
         {
             // Supernybbles only support alphanumeric characters...
 
@@ -45,7 +45,7 @@ namespace Emerald.COM2.Writer
 
                         // sanity check probably not required because we filtered out everything else
                         Supernybble SN = new Supernybble();
-                        SN.NybbleData = EightToSixBits(Convert.ToByte(StrByte - SubtractBy));
+                        SN.NybbleData = SupernybbleEightToSixBits(Convert.ToByte(StrByte - SubtractBy));
                     }
                 }
             }
@@ -53,7 +53,22 @@ namespace Emerald.COM2.Writer
             return LBA;
         }
 
-        private BitArray EightToSixBits(byte Eight)
+        public List<byte> SupernybbleToList(List<Supernybble> SN)
+        {
+            List<byte> Result = new List<byte>();
+
+            foreach (Supernybble SNx in SN)
+            {
+                Result.Add(SupernybbleToByte(SNx.NybbleData));
+            }
+        }
+
+        public byte SupernybbleToByte(BitArray NybbleData)
+        {
+            return Convert.ToByte(NybbleData); 
+        }
+
+        private BitArray SupernybbleEightToSixBits(byte Eight)
         {
             BitArray BA = new BitArray(new byte[] { Eight });
             BA.Length = 6; // remove bits #7 and #8 to 0 as they are not used
