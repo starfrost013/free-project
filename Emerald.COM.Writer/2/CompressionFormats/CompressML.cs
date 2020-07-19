@@ -46,6 +46,23 @@ namespace Emerald.COM2.Writer
                                 NID = ComNode2.NodeID;
                                 break;
                             }
+
+                            // write the attribute information
+                            foreach (COMAttribute2 CA2 in ComNode2.Attributes)
+                            {
+                                // byte (max 256)
+                                BW.Write(CA2.LocalId);
+                                
+                                // Write the CompressML Supernybble compressed (not optional yet) attribute name.
+                                foreach (byte CByte in CA2.Name)
+                                {
+                                    BW.Write(CByte);
+                                }
+
+                                // Write the attribute content.
+                                BW.Write(CA2.Content);
+
+                            }
                         }
 
                         // Write the node ID and text

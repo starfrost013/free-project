@@ -106,14 +106,12 @@ namespace Emerald.COM2.Writer
                             // Maximum 256 attributes per node.
                             CA2.LocalId = Convert.ToByte(COMNode2.Attributes.Count);
 
-                            switch (CAttr.Name)
-                            {
-                                case "Name":
-                                    
-                                    continue; 
-                            }
+                            // Convert to supernybble and then store that as the name (a list of bytes)
+                            List<Supernybble> SupernybbleList = SupernybbleFromString(CAttr.Name);
+                            CA2.Name = SupernybbleToList(SupernybbleList);
                             
-                            CA2.Content = CAttr.Value;
+                            CA2.Content = CAttr.Value; 
+                            
                             COMNode2.Attributes.Add(CA2); 
 
                         }
@@ -129,8 +127,6 @@ namespace Emerald.COM2.Writer
                     // Iterate through the children of this node. 
                     IterateNodes(Com2_Catalog, XChild);
                 }
-                
-
             }
 
             return Com2_Catalog;
