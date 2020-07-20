@@ -169,8 +169,13 @@ namespace Free
                         currentlevel.LevelIGameObjects.Add(IGameObject);
                         */
 
-                        // Load (SDL) (TEMP 64x64)
-                        MnWindow.SDLGame.CurrentScene.LoadImage(id, Position, 64, 64);
+                        // 2020-07-21 00:59 make this a bit better
+
+                        // Get current object
+                        IGameObject IGO = MnWindow.GetGlobalObject(id);
+
+                        // Load (SDL) (TEMP 64x64) 
+                        MnWindow.SDLGame.CurrentScene.LoadImage(id, Position, 64, 64, MnWindow.currentlevel.LevelIGameObjects.Count - 1);
 
                         // Load (WPF)
                         MnWindow.AddIGameObject(id, Position);

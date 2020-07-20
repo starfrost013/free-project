@@ -24,6 +24,7 @@ namespace Free
             {
                 if (GameIGameObject.GameObjectID == ID) 
                 {
+                    GameIGameObject.GameObjectINTERNALID = GameIGameObject.Count - 1; 
                     GameIGameObject.Position.X = Position.X;
                     GameIGameObject.Position.Y = Position.Y;
                     currentlevel.LevelIGameObjects.Add(GameIGameObject); 
