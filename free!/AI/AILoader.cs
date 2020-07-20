@@ -69,7 +69,7 @@ namespace Free
 
                                 }
 
-                                LogDebug_C("AI Loader", $"Loaded AI relationship between {AI.ObjId1Id} and {AI.ObjId2Id} of type {AI.AIType} with intensity {AI.AIIntensity}");
+                                SDLDebug.LogDebug_C("AI Loader", $"Loaded AI relationship between {AI.ObjId1Id} and {AI.ObjId2Id} of type {AI.AIType} with intensity {AI.AIIntensity}");
 
                                 continue;
                         }

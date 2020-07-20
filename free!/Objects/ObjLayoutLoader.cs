@@ -136,7 +136,7 @@ namespace Free
                             Error.Throw(null, ErrorSeverity.FatalError, "Position not defined.", "Emerald Engine 3.0 (Error 97)", 97);
                         }
 #if DEBUG
-                        FreeSDL.LogDebug_C("On demand level loader", $"Placed object with global ID {id} and internal ID {currentIntId} @ {Position.X},{Position.Y}");
+                        SDLDebug.SDLDebug.LogDebug_C("On demand level loader", $"Placed object with global ID {id} and internal ID {currentIntId} @ {Position.X},{Position.Y}");
 #endif
                         /*
                         if (IGameObject.GameObjectPLAYER)

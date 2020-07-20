@@ -126,7 +126,7 @@ namespace Free
                         }
 
 #if DEBUG
-                        LogDebug_C("Weapon Loader", $"Loaded weapon with name {Weapon.WEAPONNAME}." +
+                        SDLDebug.LogDebug_C("Weapon Loader", $"Loaded weapon with name {Weapon.WEAPONNAME}." +
                             $"Stats:\n\n" +
                             $"Accuracy: {Weapon.WEAPONACCURACY}\n" +
                             $"Default Ammo: {Weapon.WEAPONAMMO}\n" +

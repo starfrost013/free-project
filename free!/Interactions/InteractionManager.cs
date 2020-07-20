@@ -66,7 +66,7 @@ namespace Free
                         }
                     }
 #if DEBUG
-                    LogDebug_C("LoadInteractions()", $"Loaded interaction between {interaction.ObjId1ID} and {interaction.ObjId2ID} with type {interaction.GameObjectINTERACTIONTYPE}. Interactions are deprecated and replaced by SimpleESX on-hit scripts.");
+                    SDLDebug.LogDebug_C("LoadInteractions()", $"Loaded interaction between {interaction.ObjId1ID} and {interaction.ObjId2ID} with type {interaction.GameObjectINTERACTIONTYPE}. Interactions are deprecated and replaced by SimpleESX on-hit scripts.");
 #endif
                     InteractionList.Add(interaction);
 

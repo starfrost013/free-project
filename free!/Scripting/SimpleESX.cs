@@ -30,7 +30,7 @@ namespace Free
 
         public void LoadReflection()
         {
-            FreeSDL.LogDebug_C("SimpleESX Init Reflection Loader", "Now loading ReflectionMetadata..."); 
+            SDLDebug.SDLDebug.LogDebug_C("SimpleESX Init Reflection Loader", "Now loading ReflectionMetadata..."); 
 
             try
             {
@@ -144,7 +144,7 @@ namespace Free
                             ReflectionMetadata.Add(SEXCommand);
 
 #if DEBUG
-                            FreeSDL.LogDebug_C("Emerald SimpleESX Reflection Metadata Loader", $"Successfully loaded SimpleESXCommand with name {SEXCommand.CommandName} and class {SEXCommand.CommandExecutor}");
+                            SDLDebug.SDLDebug.LogDebug_C("Emerald SimpleESX Reflection Metadata Loader", $"Successfully loaded SimpleESXCommand with name {SEXCommand.CommandName} and class {SEXCommand.CommandExecutor}");
 #endif
                             continue; 
                     }
@@ -180,7 +180,7 @@ namespace Free
 
         public void ClearLoadedScripts()
         {
-            FreeSDL.LogDebug_C($"SimpleESXScript Loader", $"Clearing all scripts...");
+            SDLDebug.SDLDebug.LogDebug_C($"SimpleESXScript Loader", $"Clearing all scripts...");
             LoadedScripts.Clear();
             Stack.Clear();
             ScriptContext = null; // we are not running a script.
@@ -189,12 +189,12 @@ namespace Free
         public SimpleESXScript LoadScript(string ScriptPath)
         {
 
-            FreeSDL.LogDebug_C($"SimpleESXScript Loader", $"Now loading script at {ScriptPath}..."); 
+            SDLDebug.SDLDebug.LogDebug_C($"SimpleESXScript Loader", $"Now loading script at {ScriptPath}..."); 
 
             SimpleESXScript SEXScript = new SimpleESXScript();
             SEXScript.LoadScript(ScriptPath);
 
-            FreeSDL.LogDebug_C($"SimpleESXScript Loader", $"Now parsing script at {ScriptPath}...");
+            SDLDebug.SDLDebug.LogDebug_C($"SimpleESXScript Loader", $"Now parsing script at {ScriptPath}...");
             SEXScript.ParseScript();
             ScriptContext = SEXScript;
             LoadedScripts.Add(SEXScript);

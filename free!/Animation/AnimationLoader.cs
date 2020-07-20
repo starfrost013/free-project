@@ -84,7 +84,7 @@ namespace Free
                                     case "image":  // load the image
                                         WriteableBitmap AnimFrame = new WriteableBitmap(BitmapFactory.FromStream(new FileStream(XmlNode_CcAttribute.Value, FileMode.Open)));
 
-                                        LogDebug_C("Animation Loader", $"Successfully loaded animation frame at path {XmlNode_CcAttribute.Value} with type {Animation.animationType} for object {GameObjectId}");
+                                        SDLDebug.LogDebug_C("Animation Loader", $"Successfully loaded animation frame at path {XmlNode_CcAttribute.Value} with type {Animation.animationType} for object {GameObjectId}");
                                         Animation.animImages.Add(AnimFrame);
                                         continue;
                                     case "DispMS":
@@ -94,7 +94,7 @@ namespace Free
                                     case "dispms":
                                         int _ = Convert.ToInt32(XmlNode_CcAttribute.Value);
                                         Animation.numMs.Add(_);
-                                        LogDebug_C("Animation Loader", $"Length = {_}");
+                                        SDLDebug.LogDebug_C("Animation Loader", $"Length = {_}");
                                         continue;
                                 }
                             }
@@ -115,7 +115,7 @@ namespace Free
 
                     if (GameObjectId == -1)
                     {
-                        LogDebug_C("Animation Loader", "Last loaded animation has no associated object."); 
+                        SDLDebug.LogDebug_C("Animation Loader", "Last loaded animation has no associated object."); 
                         NonGameObjectAnimList.Add(Animation); // add
                     }
                 }

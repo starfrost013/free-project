@@ -13,9 +13,9 @@ namespace Free
         {
 
 #if DEBUG
-            LogDebug_C("BootNow!", "Shutting down...");
+            SDLDebug.LogDebug_C("BootNow!", "Shutting down...");
 
-            LogDebug_C("BootNow!", "Clearing current level.");
+            SDLDebug.LogDebug_C("BootNow!", "Clearing current level.");
 #endif
 
             if (currentlevel != null)
@@ -25,7 +25,7 @@ namespace Free
             
 
 #if DEBUG
-            LogDebug_C("SDL2 Renderer", "Shutting down...");    
+            SDLDebug.LogDebug_C("SDL2 Renderer", "Shutting down...");    
 #endif
             SDLGame.Game_Shutdown();
 

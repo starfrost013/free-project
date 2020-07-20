@@ -29,16 +29,16 @@ namespace Free
         public void Engine_BootNow() 
         {
 
-            LogDebug_C("BootNow!", $"BootNow! © 2020 avant-gardé eyes | Engine Now Initialising (version {Utils.GetVersion()})...");
+            SDLDebug.LogDebug_C("BootNow!", $"BootNow! © 2020 avant-gardé eyes | Engine Now Initialising (version {Utils.GetVersion()})...");
             
             // Log if we're using SDL
             if (Settings.FeatureControl_DisableWPF)
             {
-                LogDebug_C("BootNow!", "Using SDL2 renderer");
+                SDLDebug.LogDebug_C("BootNow!", "Using SDL2 renderer");
             }
             else
             {
-                LogDebug_C("BootNow!", "Using WPF renderer");
+                SDLDebug.LogDebug_C("BootNow!", "Using WPF renderer");
             }
 
             // Set gamestate
@@ -62,40 +62,40 @@ namespace Free
             GameTickTimer.Interval = 0.001; // We run AFAP as of 2020-05-26
 
             // Load everything that we can load at init
-            LogDebug_C("BootNow!", "Loading settings...");
+            SDLDebug.LogDebug_C("BootNow!", "Loading settings...");
             LoadSettings();
 
             // Init SDL
 
-            LogDebug_C("SDL2 Renderer", "Now Initialising..."); 
+            SDLDebug.LogDebug_C("SDL2 Renderer", "Now Initialising..."); 
             SDLGame.Game_Init();
 
-            LogDebug_C("BootNow!", "Now initialising SimpleESX...");
+            SDLDebug.LogDebug_C("BootNow!", "Now initialising SimpleESX...");
             ScriptingCore.LoadReflection();
-            LogDebug_C("BootNow!", "Now initialising controls...");
+            SDLDebug.LogDebug_C("BootNow!", "Now initialising controls...");
             LoadControls();
-            LogDebug_C("BootNow!", "Now initialising interactions (deprecated)...");
+            SDLDebug.LogDebug_C("BootNow!", "Now initialising interactions (deprecated)...");
             LoadInteractions(); // Will be replaced with the scripting engine
-            LogDebug_C("BootNow!", "Now initialising weapons...");
+            SDLDebug.LogDebug_C("BootNow!", "Now initialising weapons...");
             LoadWeapons();
-            LogDebug_C("BootNow!", "Now initialising AI...");
+            SDLDebug.LogDebug_C("BootNow!", "Now initialising AI...");
             LoadAI();
-            LogDebug_C("BootNow!", "Now initialising animations...");
+            SDLDebug.LogDebug_C("BootNow!", "Now initialising animations...");
             LoadAnimations();
-            LogDebug_C("BootNow!", "Now initialising text XML (deprecated)...");
+            SDLDebug.LogDebug_C("BootNow!", "Now initialising text XML (deprecated)...");
             LoadTextXml();
-            LogDebug_C("BootNow!", "Now initialising master GameObject list...");
+            SDLDebug.LogDebug_C("BootNow!", "Now initialising master GameObject list...");
             LoadIGameObjects();
-            LogDebug_C("BootNow!", "Now initialising main game thread...");
+            SDLDebug.LogDebug_C("BootNow!", "Now initialising main game thread...");
             BootNow_InitMainGameThread();
 
             if (Settings.FeatureControl_UsePhysicsV2)
             {
-                LogDebug_C("BootNow!", "Now initialising physics engine, version 1.0...");
+                SDLDebug.LogDebug_C("BootNow!", "Now initialising physics engine, version 1.0...");
             }
             else
             {
-                LogDebug_C("BootNow!", "Now initalising physics engine, version 2.0...");
+                SDLDebug.LogDebug_C("BootNow!", "Now initalising physics engine, version 2.0...");
             }
 
             InitPhysics();
@@ -103,18 +103,18 @@ namespace Free
             // Get version
             GameVersion = new EVersion();
 
-            LogDebug_C("BootNow!", "Acquiring detailed versioning information...");
+            SDLDebug.LogDebug_C("BootNow!", "Acquiring detailed versioning information...");
             GameVersion.GetGameVersion(); // maybe make this a static api
 
             //TEMP:
             Title = $"free! ({GameVersion.GetVersionString()})";
 
-            LogDebug_C("BootNow!", "Loading levels...");
+            SDLDebug.LogDebug_C("BootNow!", "Loading levels...");
             Levels = LevelPreloader.LoadLevels(); // Static-class based
 
             Gamestate = GameState.Menu;
 
-            LogDebug_C("BootNow!", "Fullscreen mode = on");
+            SDLDebug.LogDebug_C("BootNow!", "Fullscreen mode = on");
             if (Settings.WindowType == WindowType.FullScreen) SetFullscreen(); // SET IT
         }
     }

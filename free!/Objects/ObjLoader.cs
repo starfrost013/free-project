@@ -50,14 +50,14 @@ namespace Free
                             {
                                 case "id":
                                 case "Id":
-                                    LogDebug_C("Object Loader", $"ID = {GameObject.GameObjectID}");
+                                    SDLDebug.LogDebug_C("Object Loader", $"ID = {GameObject.GameObjectID}");
 
                                     GameObject.GameObjectID = Convert.ToInt32(XmlAttribute.Value); // yeah.
                                     continue;
                                 case "name":
                                 case "Name":
                                     GameObject.GameObjectNAME = XmlAttribute.Value;
-                                    LogDebug_C("Object Loader", $"Name = {GameObject.GameObjectID}");
+                                    SDLDebug.LogDebug_C("Object Loader", $"Name = {GameObject.GameObjectID}");
                                     continue;
 
                                 case "objimage":
@@ -66,13 +66,13 @@ namespace Free
 
                                     GameObject.GameObjectIMAGEPATH = XmlAttribute.Value;
 
-                                    LogDebug_C("Object Loader", $"ImagePath = {GameObject.GameObjectID}");
+                                    SDLDebug.LogDebug_C("Object Loader", $"ImagePath = {GameObject.GameObjectID}");
                                     continue;
 
                                 case "gravity":
                                 case "Gravity":
 
-                                    LogDebug_C("Object Loader", $"Gravity = {GameObject.GameObjectGRAV}");
+                                    SDLDebug.LogDebug_C("Object Loader", $"Gravity = {GameObject.GameObjectGRAV}");
 
                                     GameObject.GameObjectGRAV = Convert.ToBoolean(XmlAttribute.Value);
 
@@ -80,7 +80,7 @@ namespace Free
                                 case "playerdamage":
                                 case "PlayerDamage":
 
-                                    LogDebug_C("Object Loader", $"Player Damage = {GameObject.GameObjectPLAYERDAMAGE}");
+                                    SDLDebug.LogDebug_C("Object Loader", $"Player Damage = {GameObject.GameObjectPLAYERDAMAGE}");
 
                                     GameObject.GameObjectPLAYERDAMAGE = Convert.ToInt32(XmlAttribute.Value);
 
@@ -89,7 +89,7 @@ namespace Free
                                 case "IsPlayer":
                                     GameObject.GameObjectPLAYER = Convert.ToBoolean(XmlAttribute.Value);
 
-                                    LogDebug_C("Object Loader", $"Is Player = {GameObject.GameObjectPLAYER}");
+                                    SDLDebug.LogDebug_C("Object Loader", $"Is Player = {GameObject.GameObjectPLAYER}");
 
                                 continue;
                                 case "hitbox":
@@ -98,17 +98,17 @@ namespace Free
                                     XmlValue = XmlValue.Replace(" ", "");
                                     string[] hitboxpre = XmlValue.Split(',');
                                     GameObject.GameObjectHITBOX = new List<Point>();
-                                    LogDebug_C("Object Loader", "Hitbox loading...");
+                                    SDLDebug.LogDebug_C("Object Loader", "Hitbox loading...");
                                     GameObject.GameObjectHITBOX.Add(new Point(Convert.ToDouble(hitboxpre[0]), Convert.ToDouble(hitboxpre[1]))); // convert.
                                     GameObject.GameObjectHITBOX.Add(new Point(Convert.ToDouble(hitboxpre[2]), Convert.ToDouble(hitboxpre[3])));
-                                    LogDebug_C("Object Loader", "Hitbox loaded!");
+                                    SDLDebug.LogDebug_C("Object Loader", "Hitbox loaded!");
                                     continue;
                                 case "mass": // the mass of the IGameObject
                                 case "Mass":
 
                                     GameObject.GameObjectMASS = Convert.ToDouble(XmlAttribute.Value);
 
-                                    LogDebug_C("Object Loader", $"Mass = {GameObject.GameObjectMASS}");
+                                    SDLDebug.LogDebug_C("Object Loader", $"Mass = {GameObject.GameObjectMASS}");
 
                                     continue;
                                 case "priority": //todo: optimize
@@ -151,18 +151,18 @@ namespace Free
                                 case "CanSnap":
                                     GameObject.GameObjectCANSNAP = Convert.ToBoolean(XmlAttribute.Value);
 
-                                    LogDebug_C("Object Loader", $"Can Snap = {GameObject.GameObjectCANSNAP}");
+                                    SDLDebug.LogDebug_C("Object Loader", $"Can Snap = {GameObject.GameObjectCANSNAP}");
                                     continue;
                                 case "collision":
                                 case "Collision":
                                 case "CanCollide":
                                     GameObject.GameObjectCANCOLLIDE = Convert.ToBoolean(XmlAttribute.Value);
 
-                                    LogDebug_C("Object Loader", $"Can Collide = {GameObject.GameObjectCANCOLLIDE}");
+                                    SDLDebug.LogDebug_C("Object Loader", $"Can Collide = {GameObject.GameObjectCANCOLLIDE}");
                                     continue;
                                 case "issentient":
                                 case "IsSentient":
-                                    LogDebug_C("Object Loader", "Converting to SentientBeing...");
+                                    SDLDebug.LogDebug_C("Object Loader", "Converting to SentientBeing...");
                                     GameObject = new SentientBeing(GameObject, GameObject.GameObjectPLAYER, GameObject.GameObjectPLAYERDAMAGE, GameObject.GameObjectPLAYERHEALTH, GameObject.GameObjectPLAYERLEVEL, GameObject.GameObjectPLAYERDAMAGE, GameObject.GameObjectPLAYERLIVES, GameObject.GameObjectINTERNALID); // convert to sentientbeing
                                     continue;
                             }
@@ -294,14 +294,14 @@ namespace Free
                         GameObject.GameObjectPLAYERHEALTH = 100;//TEST value.
                     }
 
-                    LogDebug_C("Emerald Level Loader (SDL)", $"Caching object with ID {GameObject.GameObjectIMAGEPATH}");
+                    SDLDebug.LogDebug_C("Emerald Level Loader (SDL)", $"Caching object with ID {GameObject.GameObjectIMAGEPATH}");
                     SDLGame.SDL_LoadAndCacheTexture(GameObject.GameObjectIMAGEPATH);
 
                     GameObject.GameObjectIMAGE = new WriteableBitmap(BitmapFactory.FromStream(new FileStream(GameObject.GameObjectIMAGEPATH, FileMode.Open)));
                     
                     GameObject.GameObjectANIMATIONS = new List<Animation>();
 
-                    LogDebug_C("Emerald Level Loader (WPF)", $"Loaded object with ID {GameObject.GameObjectIMAGEPATH}");
+                    SDLDebug.LogDebug_C("Emerald Level Loader (WPF)", $"Loaded object with ID {GameObject.GameObjectIMAGEPATH}");
                     IGameObjectList.Add(GameObject);
                 }
             }
