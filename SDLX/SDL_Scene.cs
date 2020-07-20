@@ -87,7 +87,7 @@ namespace SDLX
         }
 
         // 2020-07-16 (v1462.106): now use sdl caching
-        public bool LoadImage(int ObjectId, SDLPoint Position, int SizeX, int SizeY)
+        public bool LoadImage(int ObjectId, SDLPoint Position, int SizeX, int SizeY, int LocalId) // LocalId for syncing purposes
         {
             // Load the image using SDLImage
             IntPtr ImagePtr = GetObjSpriteWithCacheId(ObjectId);
@@ -116,7 +116,7 @@ namespace SDLX
                 SDLSprite SDLSprite = new SDLSprite();
                 SDLSprite.Sprite = ImagePtr;
 
-                SDLSprite.LocalID = LevelSprites.Count - 1; 
+                SDLSprite.LocalID = LocalId; 
                 // Create a new SDL rect.
                 SDL.SDL_Rect RenderRect = new SDL.SDL_Rect();
                 RenderRect.x = 0;

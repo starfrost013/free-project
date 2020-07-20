@@ -90,6 +90,7 @@ namespace Free
         SDLPoint Position { get; set; }
         SDLPoint Size { get; set; }
         PhysicsState PhysState { get; set; }
+        ObjectPhysFlags PhysFlags { get; set; }
         void SetAcceleration(double x, double y); // sets the acceleration
 
         void ChgAcceleration(double x, double y); // changes the acceleration

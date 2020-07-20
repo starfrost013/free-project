@@ -23,7 +23,7 @@ namespace SDLX
             CameraPosition = Pos;
         }
 
-        public void SetFocusedIGameObject(SDLSprite SDLSprite)
+        public void FocusOnObject(SDLSprite SDLSprite)
         {
             FocusedIGameObject = SDLSprite;
             CameraPosition = FocusedIGameObject.Position;

@@ -12,8 +12,15 @@ namespace Free
 {
     public partial class FreeSDL
     {
-        public void GetGlobalObject()
+        public IGameObject GetGlobalObject(int GlobalObjectID)
         {
+            if (GlobalObjectID > IGameObjectList.Count || GlobalObjectID < 0)
+            {
+                Error.Throw(null, ErrorSeverity.FatalError, "Attempted to acquire invalid global object!", "Fatal Error E100", 0);
+                return null; 
+            }
+
+            return IGameObjectList[GlobalObjectID];
 
         }
     }
