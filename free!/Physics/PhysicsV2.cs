@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Emerald.Utilities.Wpf2Sdl;
+using SDLX;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -65,7 +67,7 @@ namespace Free
             GameObject.Position.X += GameObject.GameObjectSPEED;
             GameObject.Position.Y += GameObject.GameObjectSPEEDY;
 
-
+            SDLGame.CurrentScene.SetObJPosition(GameObject.GameObjectINTERNALID, GameObject.Position); // well I hope it works since they're loaded in the smae order
         }
     }
 }

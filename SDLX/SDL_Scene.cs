@@ -30,8 +30,8 @@ namespace SDLX
         public List<SDLSprite> LevelSprites { get; set; }
         public GameCamera GameCamera { get; set; }
         public SDLPoint Resolution { get; set; }
-        private IntPtr TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS { get; set; } // Pre-FreeUI font
-        private SDL_Cache TextureCache { get; set; }
+        public IntPtr TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS { get; set; } // Pre-FreeUI font
+        internal SDL_Cache TextureCache { get; set; }
 
         public GameScene()
         {

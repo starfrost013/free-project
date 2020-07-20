@@ -141,6 +141,7 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetPhysicsState.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetPlayerAcceleration.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
+    <Compile Include="Physics\ObjectPhysicsFlags.cs" />
     <Compile Include="Physics\Physics.Init.cs" />
     <Compile Include="Physics\PhysicsState.cs" />
     <Compile Include="Physics\PhysicsV2.cs" />
