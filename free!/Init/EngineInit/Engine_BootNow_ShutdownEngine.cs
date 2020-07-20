@@ -18,7 +18,11 @@ namespace Free
             LogDebug_C("BootNow!", "Clearing current level.");
 #endif
 
-            currentlevel.LevelIGameObjects.Clear();
+            if (currentlevel != null)
+            {
+                currentlevel.LevelIGameObjects.Clear();
+            }
+            
 
 #if DEBUG
             LogDebug_C("SDL2 Renderer", "Shutting down...");    

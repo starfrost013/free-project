@@ -115,6 +115,7 @@ namespace Free
                         {
                             switch (XmlAttribute.Name)
                             {
+                                case "id":
                                 case "ID":
                                 case "objid":
                                     id = Convert.ToInt32(XmlAttribute.Value);

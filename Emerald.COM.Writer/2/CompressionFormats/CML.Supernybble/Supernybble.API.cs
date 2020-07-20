@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Emerald.COM2.Writer
 {
@@ -13,47 +14,56 @@ namespace Emerald.COM2.Writer
         {
             // Supernybbles only support alphanumeric characters...
 
-            List<Supernybble> LBA = new List<Supernybble>();
-
-            foreach (byte StrByte in Input)
+            try
             {
-                if (StrByte < 0x30 || StrByte > 0x7A)
+                List<Supernybble> LBA = new List<Supernybble>();
+
+                foreach (byte StrByte in Input)
                 {
-                    return null; // Must be alphanumeric
-                }
-                else
-                {
-                    if ((StrByte > 0x38 && StrByte < 0x41) ||
-                        (StrByte > 0x5A && StrByte < 0x61)) // these are non-alphanumeric characters
+                    if (StrByte < 0x30 || StrByte > 0x7A)
                     {
-                        return null;
+                        return null; // Must be alphanumeric
                     }
                     else
                     {
-                        byte SubtractBy = 0x00;
-                        // If it's numerical...
-                        if (StrByte < 0x39)
+                        if ((StrByte > 0x38 && StrByte < 0x41) ||
+                            (StrByte > 0x5A && StrByte < 0x61)) // these are non-alphanumeric characters
                         {
-                            // subtract 0x30
-                            SubtractBy = 0x30;
-                        }
-                        else if (StrByte > 0x40 && StrByte < 0x5B) // if it's alpha... (3a-3f not used)
-                        {
-                            // subtract 0x51
-                            SubtractBy = 0x31; // squish into six bits
+                            return null;
                         }
                         else
                         {
-                            SubtractBy = 0x37; 
+                            byte SubtractBy = 0x00;
+                            // If it's numerical...
+                            if (StrByte < 0x39)
+                            {
+                                // subtract 0x30
+                                SubtractBy = 0x30;
+                            }
+                            else if (StrByte > 0x40 && StrByte < 0x5B) // if it's alpha... (3a-3f not used)
+                            {
+                                // subtract 0x51
+                                SubtractBy = 0x31; // squish into six bits
+                            }
+                            else
+                            {
+                                SubtractBy = 0x37;
+                            }
+                            // sanity check probably not required because we filtered out everything else
+                            Supernybble SN = new Supernybble();
+                            SN.NybbleData = SupernybbleEightToSixBits(Convert.ToByte(StrByte - SubtractBy));
+                            LBA.Add(SN);
                         }
-                        // sanity check probably not required because we filtered out everything else
-                        Supernybble SN = new Supernybble();
-                        SN.NybbleData = SupernybbleEightToSixBits(Convert.ToByte(StrByte - SubtractBy));
                     }
                 }
-            }
 
-            return LBA;
+                return LBA;
+            }
+            catch (OverflowException err)
+            {
+                MessageBox.Show($"An error has occurred attempting to compress using CompressML 2.5 and Supernybble 6-bit bitsmashing enabled.\n\n{err}", "Fatal Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null; 
+            }
         }
 
         public List<byte> SupernybbleToList(List<Supernybble> SN)
@@ -70,7 +80,9 @@ namespace Emerald.COM2.Writer
 
         public byte SupernybbleToByte(BitArray NybbleData)
         {
-            return Convert.ToByte(NybbleData); 
+            byte[] _ = new byte[1]; 
+            NybbleData.CopyTo(_, 0); 
+            return _[0]; // reverses the endianness! Do check for this.
         }
 
         private BitArray SupernybbleEightToSixBits(byte Eight)

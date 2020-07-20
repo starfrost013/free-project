@@ -47,6 +47,11 @@ namespace Emerald.COM2
          * 0x02 = none
          */
         public byte CompressionType { get; set; }
+        /*
+         * 0x00 = no 
+         * 0x01 = yes. Always 0x00 if the compression type is not 0x00 
+         */
+        public byte CML_UseSupernybbles { get; set; }
         public string CRC32 { get; set; } // CRC32 of this file
         public static string CatalogEntryEnd = "CE";
     }

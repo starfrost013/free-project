@@ -26,7 +26,7 @@ namespace Emerald.COM2.Writer
 
                     foreach (COMNode2 ComNode in NodeCatalog2.Nodes)
                     {
-                        if (ComNode.NodeInnerText.Length == 0) continue;
+                        //if (ComNode.NodeInnerText.Length == 0) continue;
 
                         // Write the inner text. Remove spaces here.
 
@@ -47,22 +47,6 @@ namespace Emerald.COM2.Writer
                                 break;
                             }
 
-                            // write the attribute information
-                            foreach (COMAttribute2 CA2 in ComNode2.Attributes)
-                            {
-                                // byte (max 256)
-                                BW.Write(CA2.LocalId);
-                                
-                                // Write the CompressML Supernybble compressed (not optional yet) attribute name.
-                                foreach (byte CByte in CA2.Name)
-                                {
-                                    BW.Write(CByte);
-                                }
-
-                                // Write the attribute content.
-                                BW.Write(CA2.Content);
-
-                            }
                         }
 
                         // Write the node ID and text
@@ -70,12 +54,29 @@ namespace Emerald.COM2.Writer
 
                         if (NID == -1)
                         {
-                            BW.Write(ComNode.NodeInnerText);
+                            if (ComNode.NodeInnerText.Length != 0) BW.Write(ComNode.NodeInnerText);
                         }
                         else
                         {
                             BW.Write(0xB0); // 0xB0 signifies optimised node. Yes we will read 160 bytes. No I don't care. 
                             BW.Write(NID);
+                        }
+
+                        // write the attribute information
+                        foreach (COMAttribute2 CA2 in ComNode.Attributes)
+                        {
+                            // byte (max 256)
+                            BW.Write(CA2.LocalId);
+
+                            // Write the CompressML Supernybble compressed (not optional yet) attribute name.
+                            foreach (byte CByte in CA2.Name)
+                            {
+                                BW.Write(CByte);
+                            }
+
+                            // Write the attribute content.
+                            BW.Write(CA2.Content);
+
                         }
 
                     }

@@ -83,7 +83,7 @@ namespace Emerald.COM.Reader
 
                             // write the bytes to a temp file - if the ComX temp file store directory does not exist then create it
 
-                            string _ = $@"{TempFolder}\Emerald Game Engine COM";
+                            string _ = $@"{TempFolder}\Emerald COM1.6 Legacy";
 
                             if (!Directory.Exists(_))
                             {
