@@ -27,7 +27,7 @@ namespace SDLX
         {
             foreach (SDLSprite SDLSpr in LevelSprites)
             {
-               if (SDLSpr.LocalID == id)
+               if (SDLSpr.LocalID == ID)
                 {
                     SDLSpr.SetPosition(Position); 
                 }
