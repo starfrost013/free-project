@@ -30,8 +30,8 @@ namespace SDLX
         public List<SDLSprite> LevelSprites { get; set; }
         public GameCamera GameCamera { get; set; }
         public SDLPoint Resolution { get; set; }
-        public IntPtr TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS { get; set; } // Pre-FreeUI font
-        public SDL_Cache TextureCache { get; set; }
+        private IntPtr TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS { get; set; } // Pre-FreeUI font
+        private SDL_Cache TextureCache { get; set; }
 
         public GameScene()
         {
@@ -102,10 +102,6 @@ namespace SDLX
             uint Tex = SDL.SDL_PIXELFORMAT_UNKNOWN;
             int TexAccess = (int)SDL.SDL_TextureAccess.SDL_TEXTUREACCESS_STATIC;
 
-
-            // TEMPORARY 64X64
-
-
             if (SDL.SDL_QueryTexture(ImagePtr, out Tex, out TexAccess, out SizeX, out SizeY) < 0)
             {
                 Debug.WriteLine($"An error occurred while caching this image... {SDL.SDL_GetError()} ");
@@ -120,6 +116,7 @@ namespace SDLX
                 SDLSprite SDLSprite = new SDLSprite();
                 SDLSprite.Sprite = ImagePtr;
 
+                SDLSprite.LocalID = LevelSprites.Count - 1; 
                 // Create a new SDL rect.
                 SDL.SDL_Rect RenderRect = new SDL.SDL_Rect();
                 RenderRect.x = 0;
@@ -132,6 +129,7 @@ namespace SDLX
                 SDLSprite.Position = Position;
 
                 SDLSprite.Size = new SDLPoint(SizeX, SizeY);
+                
                 LevelSprites.Add(SDLSprite);
                 return true;
             }

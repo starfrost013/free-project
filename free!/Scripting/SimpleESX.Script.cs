@@ -119,13 +119,13 @@ namespace Free
 
                         CurCommand.UserParameters.Add(CurParameter);
 
-                        SDLDebug.SDLDebug.LogDebug_C("SimpleESX Command Parser", $"Successfully parsed valid SESX command parameter {CurParameter.Name}");
+                        SDLDebug.LogDebug_C("SimpleESX Command Parser", $"Successfully parsed valid SESX command parameter {CurParameter.Name}");
 
                     }
 
                     SEXCommands.Add(CurCommand);
 
-                    SDLDebug.SDLDebug.LogDebug_C("SimpleESX Command Parser", $"Successfully parsed valid SESX command {CurCommand.CommandName}");
+                    SDLDebug.LogDebug_C("SimpleESX Command Parser", $"Successfully parsed valid SESX command {CurCommand.CommandName}");
                 }
             }
 

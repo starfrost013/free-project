@@ -6,8 +6,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Emerald Simple DirectMedia Layer Rendering API (SDLX)")]
-[assembly: AssemblyDescription("Easy-to-use Simple DirectMedia Layer rendering services. ")]
+[assembly: AssemblyTitle("Emerald Simple DirectMedia Layer Rendering Glue API (SDLX)")]
+[assembly: AssemblyDescription("Provides easy to use SDL rendering services for the Emerald engine.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("avant-gardé eyes")]
 [assembly: AssemblyProduct("Emerald SDLX")]
@@ -33,5 +33,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.105.20202")]
-[assembly: AssemblyFileVersion("1.0.105.20202")]
+[assembly: AssemblyVersion("1.0.106.20202")]
+[assembly: AssemblyFileVersion("1.0.106.20202")]

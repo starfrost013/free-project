@@ -29,12 +29,12 @@ namespace Free
             App AppCurrent = (App)Application.Current;
 
 #if DEBUG
-            SDLDebug.SDLDebug.LogDebug_C("ERROR", $"\n\nAn error has occurred with severity {severity}, ID {id}. Error information: {text}\n\n");
+            SDLDebug.LogDebug_C("ERROR", $"An error has occurred with severity {severity}, ID {id}. Error information: {text}\n\n");
             
             if (err != null)
             {
-                SDLDebug.SDLDebug.LogDebug_C("ERROR", $"Detailed exception information is available.");
-                SDLDebug.SDLDebug.LogDebug_C("ERROR", $"{err.Message}");
+                SDLDebug.LogDebug_C("ERROR", $"Detailed exception information is available.");
+                SDLDebug.LogDebug_C("ERROR", $"{err.Message}");
             }
 #endif
             switch (severity)
