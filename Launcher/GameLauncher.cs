@@ -69,13 +69,14 @@ namespace Launcher
             switch (LaunchRenderer)
             {
                 case AvailableRenderers.WPF:
-                    
+                    Debug.WriteLine("Now launching Windows Presentation Foundation (WPF) free! game [M6 only, deprecated]");
                     App FreeWpfApp = new App();
                     FreeWpfApp.InitializeComponent();
                     FreeWpfApp.Run(); 
 
                     return;
                 case AvailableRenderers.SDL:
+                    Debug.WriteLine("Now launching SDL game [M6, M7+ only renderer]");
                     return; 
             }
         }

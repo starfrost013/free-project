@@ -8,7 +8,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("free!")]
-[assembly: AssemblyDescription("powered by avant-gardé engine (ver. 2.20 alpha)")]
+[assembly: AssemblyDescription("powered by avant-gardé engine 3.1")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("avant-gardé engine - free!")]
@@ -51,7 +51,7 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.0.1484.20203")]
-[assembly: AssemblyFileVersion("3.0.1484.20203")]
+[assembly: AssemblyVersion("3.1.1485.20204")]
+[assembly: AssemblyFileVersion("3.1.1485.20204")]
 [assembly: AssemblyInformationalVersion("free! version 0.25 (Pre-Alpha 1)")]
 
