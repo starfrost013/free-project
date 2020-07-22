@@ -48,8 +48,8 @@ namespace Free
             this.GameObjectCANCOLLIDE = GameObject.GameObjectCANCOLLIDE;
             this.GameObjectCANSNAP = GameObject.GameObjectCANSNAP;
             this.CollidedLevelObjects = new List<IGameObject>(); 
-            this.Position.X = GameObject.Position.X;
-            this.Position.Y = GameObject.Position.Y;
+            //this.Position.X = GameObject.Position.X;
+            //this.Position.Y = GameObject.Position.Y;
             this.GameObjectAI = GameObject.GameObjectAI;
             this.GameObjectPLAYER = GameObject.GameObjectPLAYER;
             this.GameObjectINTERNALID = currentIntId;

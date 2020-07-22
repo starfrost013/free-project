@@ -32,7 +32,11 @@ namespace Free
                         {
                             IGameObject CurGameObject = currentlevel.LevelIGameObjects[i];
 
-                            if (CurGameObject.Position.X - Scrollbar.HorizontalOffset > 0 - CurGameObject.GameObjectIMAGE.PixelWidth && CurGameObject.Position.X - Scrollbar.HorizontalOffset < this.Width + CurGameObject.GameObjectIMAGE.PixelWidth & CurGameObject.Position.Y - Scrollbar.VerticalOffset > 0 - CurGameObject.GameObjectIMAGE.PixelHeight && CurGameObject.Position.Y - Scrollbar.VerticalOffset < this.Height + CurGameObject.GameObjectIMAGE.PixelHeight || IsSentientBeing(CurGameObject))
+                            if (CurGameObject.Position.X - Scrollbar.HorizontalOffset > 0 - CurGameObject.GameObjectIMAGE.PixelWidth 
+                                && CurGameObject.Position.X - Scrollbar.HorizontalOffset < this.Width + CurGameObject.GameObjectIMAGE.PixelWidth 
+                                && CurGameObject.Position.Y - Scrollbar.VerticalOffset > 0 - CurGameObject.GameObjectIMAGE.PixelHeight 
+                                && CurGameObject.Position.Y - Scrollbar.VerticalOffset < this.Height + CurGameObject.GameObjectIMAGE.PixelHeight 
+                                || IsSentientBeing(CurGameObject))
                             { // optimization (bld 1037-41) 
                                 if (CurGameObject.GameObjectPRIORITY == currentPriority)
                                 {

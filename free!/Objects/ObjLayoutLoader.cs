@@ -156,20 +156,9 @@ namespace Free
                         {
                             if (IGameObject.GameObjectIMAGE.CanFreeze) IGameObject.GameObjectIMAGE.Freeze();
                         }
-
-                        // Send to SDL for rendering.
-                        App AppSDL = (App)Application.Current;
-
-                        // Here we temporarily use WPF.variables. THIS IS EXTREMELY TEMPORARY CODE WE WILL HAVE OUR OWN SDLLOAD METHOD OK
-                        if (!AppSDL.SDLGame.CurrentScene.LoadImage(IGameObject.GameObjectIMAGEPATH, new SDLPoint(IGameObject.Position.X, IGameObject.Position.Y), IGameObject.GameObjectIMAGE.PixelWidth, IGameObject.GameObjectIMAGE.PixelHeight))
-                        {
-                            Error.Throw(null, ErrorSeverity.FatalError, "Fatal error loading image", "avant-garde engine", 93);
-                        }
-
-                        currentlevel.LevelIGameObjects.Add(IGameObject);
                         */
 
-                        // 2020-07-21 00:59 make this a bit better
+                        // 2020-07-21 00:59 make this better
 
                         // Get current object
                         IGameObject IGO = MnWindow.GetGlobalObject(id);

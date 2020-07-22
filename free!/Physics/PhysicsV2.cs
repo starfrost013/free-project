@@ -25,17 +25,20 @@ namespace Free
             }
             else
             {
-                if (GameObject.CollisionsRight > 0 || GameObject.CollisionsLeft > 0)
+                if (GameObject.CollisionsRight > 0 
+                    || GameObject.CollisionsLeft > 0)
                 {
                     GameObject.GameObjectSPEED = 0;
                 }
-
-                GameObject.GameObjectACCELERATIONY += Physics.Gravity;
-
+                else
+                {
+                    GameObject.GameObjectACCELERATIONY += Physics.Gravity;
+                }
             }
 
 
-            if (!GameObject.GameObjectMOVELEFT && GameObject.LastControl == LastCtrl.MoveLeft)
+            if (!GameObject.GameObjectMOVELEFT 
+                && GameObject.LastControl == LastCtrl.MoveLeft)
             {
                 if (GameObject.GameObjectSPEED < 0)
                 {
@@ -47,7 +50,8 @@ namespace Free
                 }
             }
 
-            if (!GameObject.GameObjectMOVERIGHT && GameObject.LastControl == LastCtrl.MoveRight)
+            if (!GameObject.GameObjectMOVERIGHT 
+                && GameObject.LastControl == LastCtrl.MoveRight)
             {
                 if (GameObject.GameObjectSPEED > 0)
                 {
