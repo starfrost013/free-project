@@ -13,6 +13,9 @@ namespace Free
         /// <summary>
         /// Load settings using the Emerald Settings API.
         /// </summary>
+        /// 
+        public static bool IsLoaded = false;
+
         public static void LoadSettings()
         {
             try
@@ -44,6 +47,8 @@ namespace Free
                 Settings.FeatureControl_UseCollisionV2 = GameSettings.GetBool("FC_UseCollisionV2");
 
                 Settings.FeatureControl_UsePhysicsV2 = GameSettings.GetBool("FC_UsePhysicsV2");
+
+                IsLoaded = true; 
             }
             catch (ArgumentException err)
             {

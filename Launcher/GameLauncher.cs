@@ -30,6 +30,7 @@ namespace Launcher
 
     public static class GameLauncher
     {
+        [STAThread]
         public static void Main(string[] args)
         {
             Launch0 L0 = new Launch0();

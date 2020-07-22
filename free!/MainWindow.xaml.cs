@@ -61,7 +61,7 @@ namespace Free
         public Thread SDLThread { get; set; }
         public EVersion GameVersion { get; set; }
         
-
+        
         public FreeSDL()
         {
             // Yay

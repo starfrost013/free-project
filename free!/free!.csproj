@@ -115,6 +115,7 @@
     <Compile Include="Init\EngineInit\Engine_BootNow_WPF_Stage1.cs" />
     <Compile Include="Init\EngineInit\Engine_BootNow_InitMainGameThread.cs" />
     <Compile Include="Init\EngineInit\Engine_BootNow_ShutdownEngine.cs" />
+    <Compile Include="Init\EngineInit\SDL_Stage1\SDL_Stage1_Init.cs" />
     <Compile Include="Interactions\Interaction.cs" />
     <Compile Include="Interactions\InteractionManager.Bounce.cs" />
     <Compile Include="Interactions\InteractionManager.BounceRight.cs" />
