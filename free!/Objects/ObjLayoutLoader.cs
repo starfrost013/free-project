@@ -65,50 +65,6 @@ namespace Free
                         XmlAttributeCollection XmlAttributes = XmlNode.Attributes; // get the attribute out of each node. 
                         IGameObject GameObject2 = new GameObject();
 
-                        /*
-                         *  // 2020-05-26: This code is literally horrific. Jesus fucking christ.
-                         *  // 2020-07-14: Get rid of this code once and for all. Still kinda bad but oh well lol
-                        foreach (GameObject IGameObject in listOfIGameObjects) // yikes. 
-                        {
-                            if (IGameObject.GameObjectID == Convert.ToInt32(XmlNode.Attributes[0].Value))
-                            {
-                                if (!FreeSDL.IsSentientBeing(IGameObject))
-                                {
-                                    Position.X.GameObjectANIMATIONS = IGameObject.GameObjectANIMATIONS;
-                                    Position.X.CollidedLevelObjects = new List<IGameObject>(); // yeah.
-                                    Position.X.GameObjectINTERNALID = currentIntId;
-                                    Position.X.GameObjectID = IGameObject.GameObjectID;
-                                    Position.X.GameObjectIMAGE = IGameObject.GameObjectIMAGE;
-                                    Position.X.GameObjectIMAGEPATH = IGameObject.GameObjectIMAGEPATH;
-                                    Position.X.GameObjectNAME = IGameObject.GameObjectNAME;
-                                    Position.X.GameObjectGRAV = IGameObject.GameObjectGRAV;
-                                    Position.X.GameObjectACCELERATION = IGameObject.GameObjectACCELERATION;
-                                    Position.X.GameObjectPLAYER = IGameObject.GameObjectPLAYER;
-                                    Position.X.GameObjectPLAYERDAMAGE = IGameObject.GameObjectPLAYERDAMAGE;
-                                    Position.X.GameObjectPLAYERHEALTH = IGameObject.GameObjectPLAYERHEALTH;
-                                    Position.X.GameObjectPLAYERLEVEL = IGameObject.GameObjectPLAYERLEVEL;
-                                    Position.X.GameObjectPLAYERLIVES = IGameObject.GameObjectPLAYERLIVES;
-                                    Position.X.GameObjectFORCE = IGameObject.GameObjectFORCE;
-                                    Position.X.GameObjectHITBOX = IGameObject.GameObjectHITBOX;
-                                    Position.X.GameObjectMASS = IGameObject.GameObjectMASS;
-                                    Position.X.GameObjectPRIORITY = IGameObject.GameObjectPRIORITY;
-                                    Position.X.GameObjectCANCOLLIDE = IGameObject.GameObjectCANCOLLIDE;
-                                    Position.X.GameObjectCANSNAP = IGameObject.GameObjectCANSNAP;
-                                    Position.X.GameObjectAI = IGameObject.GameObjectAI;
-                                    Position.X.GameObjectCANMOVELEFT = true;
-                                    Position.X.GameObjectCANMOVERIGHT = true;
-                                    Position.X.GameObjectCONSTANTANIMNUMBER = 0;
-                                }
-                                else
-                                {
-                                    Position.X = new SentientBeing(IGameObject, IGameObject.GameObjectPLAYER, IGameObject.GameObjectPLAYERDAMAGE, IGameObject.GameObjectPLAYERHEALTH, IGameObject.GameObjectPLAYERLEVEL, IGameObject.GameObjectPLAYERLEVELDAMAGE, IGameObject.GameObjectPLAYERLIVES, currentIntId);
-                                }
-                                // This is real shit code, like yandere simulator shit, and it is, in fact, an ugly hack. Damn reference types...
-
-                            }
-                        }
-                    */
-
                         int id = -1;
                         SDLPoint Position = new SDLPoint(-69, -420); 
                         foreach (XmlAttribute XmlAttribute in XmlAttributes)

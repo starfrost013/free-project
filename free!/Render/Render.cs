@@ -111,11 +111,11 @@ namespace Free
 
                                             if (seconds > 9)
                                             {
-                                                SetText(Textblock, $"--DEBUG--\nFrame No: {GlobalTimer.ToString()}\nLevel Time: {minutes.ToString()}:{seconds.ToString()}.{hundredths.ToString()}\nCurrent Window Size: {this.Width},{this.Height}\n\n-Settings-\nDebug Mode: {Settings.DebugMode}\nDemo Mode: {Settings.DemoMode}\nDemo Mode Max Level: {Settings.DemoModeMaxLevel}\nGame Name: {Settings.GameName}\nResolution: {Settings.Resolution}\nTitle Screen Path: {Settings.TitleScreenPath} \nWindow Size: {Settings.WindowType}");
+                                                SetText(Textblock, $"--DEBUG--\nFrame No: {GlobalTimer}\nLevel Time: {minutes}:{seconds}.{hundredths}\nCurrent Window Size: {this.Width},{this.Height}\n\n-Settings-\nDebug Mode: {Settings.DebugMode}\nDemo Mode: {Settings.DemoMode}\nDemo Mode Max Level: {Settings.DemoModeMaxLevel}\nGame Name: {Settings.GameName}\nResolution: {Settings.Resolution}\nTitle Screen Path: {Settings.TitleScreenPath} \nWindow Size: {Settings.WindowType}");
                                             }
                                             else
                                             {
-                                                SetText(Textblock, $"--DEBUG--\nFrame No: {GlobalTimer.ToString()}\nLevel Time: {minutes.ToString()}:0{seconds.ToString()}.{hundredths.ToString()}\nCurrent Window Size: {this.Width},{this.Height}\n\n-Settings-\nDebug Mode: {Settings.DebugMode}\nDemo Mode: {Settings.DemoMode}\nDemo Mode Max Level: {Settings.DemoModeMaxLevel}\nGame Name: {Settings.GameName}\nResolution: {Settings.Resolution}\nTitle Screen Path: {Settings.TitleScreenPath} \nWindow Size: {Settings.WindowType}");
+                                                SetText(Textblock, $"--DEBUG--\nFrame No: {GlobalTimer}\nLevel Time: {minutes}:0{seconds}.{hundredths}\nCurrent Window Size: {this.Width},{this.Height}\n\n-Settings-\nDebug Mode: {Settings.DebugMode}\nDemo Mode: {Settings.DemoMode}\nDemo Mode Max Level: {Settings.DemoModeMaxLevel}\nGame Name: {Settings.GameName}\nResolution: {Settings.Resolution}\nTitle Screen Path: {Settings.TitleScreenPath} \nWindow Size: {Settings.WindowType}");
                                             }
 
                                             Canvas.SetLeft(Textblock, Scrollbar.HorizontalOffset);

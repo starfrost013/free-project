@@ -44,10 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\SDL_API_GetObjectCacheId.cs" />
-    <Compile Include="API\SDL_API_GetRect.cs" />
-    <Compile Include="API\SDL_API_SetBgColour.cs" />
-    <Compile Include="API\SDL_API_SetObjectPosition.cs" />
+    <Compile Include="PortholeAPI\SDL_API_GetObjectCacheId.cs" />
+    <Compile Include="PortholeAPI\SDL_API_GetRect.cs" />
+    <Compile Include="PortholeAPI\SDL_API_SetBgColour.cs" />
+    <Compile Include="PortholeAPI\SDL_API_SetObjectPosition.cs" />
     <Compile Include="SDL_Cache.cs" />
     <Compile Include="SDL_Camera.cs" />
     <Compile Include="SDL_Sprite.cs" />

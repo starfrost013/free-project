@@ -22,9 +22,9 @@ using Emerald.Utilities.Wpf2Sdl;
 /// 
 /// Created: 2019-10-30, iirc
 /// 
-/// Modified: 2020-05-26
+/// Modified: 2020-07-22
 /// 
-/// Version: 2.10
+/// Version: 3.00
 ///
 /// Purpose: Holds the IGameObject class and the Priority enum.
 /// 

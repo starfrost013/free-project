@@ -63,7 +63,7 @@ namespace Free
 
             // Load everything that we can load at init
             SDLDebug.LogDebug_C("BootNow!", "Loading settings...");
-            LoadSettings();
+            SettingLoader.LoadSettings();
 
             // Init SDL
 

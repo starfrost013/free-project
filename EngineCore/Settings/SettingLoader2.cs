@@ -8,12 +8,12 @@ using System.Windows;
 
 namespace Free
 {
-    public partial class FreeSDL : Window
+    public static class SettingLoader
     {
         /// <summary>
         /// Load settings using the Emerald Settings API.
         /// </summary>
-        public void LoadSettings()
+        public static void LoadSettings()
         {
             try
             {
@@ -38,8 +38,8 @@ namespace Free
                 Settings.FeatureControl_DisableGTDebug = GameSettings.GetBool("FC_DisableGTDebug");
 
                 Settings.FeatureControl_DisableSDL_PublicDemosOnly = GameSettings.GetBool("FC_DisableSDL");
-                Settings.FeatureControl_DisableWPF = GameSettings.GetBool("FC_DisableWPF");
 
+                Settings.FeatureControl_DisableWPF = GameSettings.GetBool("FC_DisableWPF");
 
                 Settings.FeatureControl_UseCollisionV2 = GameSettings.GetBool("FC_UseCollisionV2");
 
@@ -47,7 +47,15 @@ namespace Free
             }
             catch (ArgumentException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, "Fatal error loading settings - Conversion to enum failed.", "Init error", 87);
+                //Error.Throw(err, ErrorSeverity.FatalError, "Fatal error loading settings - Conversion to enum failed.", "Init error", 87);
+
+                // TEMP
+#if DEBUG
+                MessageBox.Show($"EngineCore: Temp error T87: Fatal error loading settings - conversion to enum failed, likely malformed\n\n{err}", "Error T87 Temp", MessageBoxButton.OK);
+#else
+                MessageBox.Show($"EngineCore: Temp error T87: Fatal error loading settings - conversion to enum failed, likely malformed", "Error T87 Temp", MessageBoxButton.OK);
+#endif
+
             }
         }
     }
