@@ -19,11 +19,11 @@ namespace Free
         public void SDL_Init_Stage1()
         {
 
-            // Check that we're loaded
+            // Check that we're loaded. TODO: LOAD GAMEINFO
 
             if (!SettingLoader.IsLoaded)
             {
-                Error.Throw(null, ErrorSeverity.FatalError, "Error - settings weren't loaded. You likely didn't use the Launcher.", "Please use the Launcher", 101);
+                Error.Throw(null, ErrorSeverity.FatalError, "Error - settings have not been loaded. You likely didn't use the Launcher.", "Please use the Launcher", 101);
             }
 
             SDLGame.Game_Init();
