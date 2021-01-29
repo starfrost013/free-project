@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace Free
 {
-    public partial class FreeSDL : Window
+    public partial class FreeSDL
     {
         public void BootNow_InitMainGameThread()
         {
@@ -17,6 +17,8 @@ namespace Free
             MainLoopTimer.Stop(); 
             MainLoopTimer.Interval = 0.001;
             MainLoopTimer.Elapsed += MainLoop;
+
+
 
         }
     }

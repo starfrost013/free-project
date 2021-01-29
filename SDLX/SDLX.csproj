@@ -65,6 +65,10 @@
       <Project>{a677eee2-1fbc-4abe-8072-39fe09cd18b6}</Project>
       <Name>PresentationCompatibility</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EngineCore\EngineCore.csproj">
+      <Project>{e90fd1a8-c4c9-4130-9a09-ceffaad1fcc5}</Project>
+      <Name>EngineCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

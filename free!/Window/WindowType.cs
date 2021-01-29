@@ -26,16 +26,14 @@ namespace Free
                     FullScreen = true;
                     this.WindowStyle = WindowStyle.None;
                     this.WindowState = WindowState.Maximized;
-                    Scrollbar.Width = this.Width;
-                    Scrollbar.Height = this.Height;
+
 
                     return;
                 case true:
                     FullScreen = false;
                     this.WindowStyle = WindowStyle.SingleBorderWindow;
                     this.WindowState = WindowState.Normal;
-                    Scrollbar.Width = this.Width;
-                    Scrollbar.Height = this.Height;
+
 
                     return;
             }

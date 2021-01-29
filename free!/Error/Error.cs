@@ -24,7 +24,7 @@ namespace Free
     public class Error
     {
         // Totally rewrote this function. It was crap
-        public static void Throw(Exception err, ErrorSeverity severity, string text, string caption = "avant-gardé engine", int id = 0)
+        public static void Throw(Exception err, ErrorSeverity severity, string text, string caption = "SDLEmerald", int id = 0)
         {
             App AppCurrent = (App)Application.Current;
 

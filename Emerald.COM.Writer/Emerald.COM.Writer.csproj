@@ -82,11 +82,5 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="1.6\COMWriter.WriteCOM.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Emerald.COM.Shared\Emerald.COM.Shared.csproj">
-      <Project>{36876cbe-7b54-470c-b42d-d9ba830bb9a0}</Project>
-      <Name>Emerald.COM.Shared</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

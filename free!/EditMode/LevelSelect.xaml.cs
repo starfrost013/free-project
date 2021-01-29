@@ -23,7 +23,7 @@ namespace Free
         public LevelSelect(FreeSDL MnWindow)
         {
             InitializeComponent();
-            FreeSDL = MnWindow; // oh oh
+            FreeSDL = MnWindow; // uh oh
         }
 
         private void StartGameButton_Click(object sender, RoutedEventArgs e)

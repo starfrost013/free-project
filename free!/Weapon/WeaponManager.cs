@@ -31,8 +31,8 @@ namespace Free
             if (Gamestate == GameState.EditMode)
             {
                 //editmode - for add-IGameObject picking
-                DbgMouseClickLevelX = e.GetPosition(Game).X; //easy scrolling lol
-                DbgMouseClickLevelY = e.GetPosition(Game).Y;
+                //DbgMouseClickLevelX = e.GetPosition(Game).X; //easy scrolling lol
+                //DbgMouseClickLevelY = e.GetPosition(Game).Y;
             }
             else if (Gamestate == GameState.Game) // fire in the hole
             {

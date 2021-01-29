@@ -90,6 +90,7 @@
     <Compile Include="AI\AILoader.cs" />
     <Compile Include="AI\AIType.Fear.cs" />
     <Compile Include="Animation\Animation.cs" />
+    <Compile Include="Animation\AnimationFrame.cs" />
     <Compile Include="Animation\AnimationPlayer.cs" />
     <Compile Include="Animation\AnimationLoader.cs" />
     <Compile Include="Audio\Audio.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Error\ScriptParseError\ScriptParseError.xaml.cs">
       <DependentUpon>ScriptParseError.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FreeSDL.cs" />
     <Compile Include="Init\EngineInit\Engine_BootNow_WPF_Stage1.cs" />
     <Compile Include="Init\EngineInit\Engine_BootNow_InitMainGameThread.cs" />
     <Compile Include="Init\EngineInit\Engine_BootNow_ShutdownEngine.cs" />
@@ -142,14 +144,14 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectSize.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetPhysicsState.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetPlayerAcceleration.cs" />
+    <Compile Include="Objects\Root\PhysicalObject.cs" />
+    <Compile Include="Objects\Root\RootObject.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
     <Compile Include="Physics\ObjectPhysicsFlags.cs" />
     <Compile Include="Physics\Physics.Init.cs" />
     <Compile Include="Physics\PhysicsState.cs" />
     <Compile Include="Physics\PhysicsV2.cs" />
     <Compile Include="Physics\PhysicsWorker\PhysicsBackgroundWorker.DoWork.cs" />
-    <Compile Include="Render\Render.cs" />
-    <Compile Include="Render\ThreadedRender.cs" />
     <Compile Include="Scripting\Commands\CommandFactory.cs" />
     <Compile Include="Scripting\Commands\Script.DeleteObjectCommand.cs" />
     <Compile Include="Scripting\Commands\Script.InsertObjectCommand.cs" />
@@ -194,10 +196,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -210,10 +208,6 @@
       <DependentUpon>LevelSelect.xaml</DependentUpon>
     </Compile>
     <Compile Include="Level\LevelLoader.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Objects\GameObject.cs" />
@@ -508,18 +502,6 @@
     <Resource Include="Content\Weapons\TestWeapon_Ammo_Explode_04.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Emerald.COM.Reader\Emerald.COM.Reader.csproj">
-      <Project>{a6a93016-6a95-4ae9-bb7f-9968c3f18816}</Project>
-      <Name>Emerald.COM.Reader</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Emerald.COM.Shared\Emerald.COM.Shared.csproj">
-      <Project>{36876cbe-7b54-470c-b42d-d9ba830bb9a0}</Project>
-      <Name>Emerald.COM.Shared</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Emerald.COM.Writer\Emerald.COM.Writer.csproj">
-      <Project>{b53c20fd-afb6-44f8-934c-2ccfbe4f6f95}</Project>
-      <Name>Emerald.COM.Writer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Emerald.Utilities\PresentationCompatibility.csproj">
       <Project>{a677eee2-1fbc-4abe-8072-39fe09cd18b6}</Project>
       <Name>PresentationCompatibility</Name>
@@ -535,18 +517,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>REM Robocopy doesn't use exit code 0 for success, so Visual Studio and MSBUILD crap out.
-
-echo Copying SDL2...
-copy $(ProjectDir)Content\SDL2.dll SDL2.dll
-
-echo Copying content files...We will be moving all files to \Content\ in the near future...
-echo.
-
-xcopy /D /S /Y /MOVE $(TargetDir)Content\*.* $(TargetDir)
-
-IF NOT EXIST $(TargetDir)Content\Game md $(TargetDir)Content\Game
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>echo %25date%25 %25time%25 &gt; "$(ProjectDir)\Resources\CoreBuildDate.txt"</PreBuildEvent>

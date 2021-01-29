@@ -18,13 +18,13 @@ using System.Windows;
 /// 
 /// Modified: 2020-07-12
 /// 
-/// Purpose: Initiailises the engine. 
+/// Purpose: Initialises the engine. 
 ///
 /// </summary>
 
 namespace Free
 {
-    public partial class FreeSDL : Window
+    public partial class FreeSDL
     {
         public void Engine_BootNow() 
         {
@@ -67,8 +67,13 @@ namespace Free
 
             // Init SDL
 
-            SDLDebug.LogDebug_C("SDL2 Renderer", "Now Initialising..."); 
-            SDLGame.Game_Init();
+            SDLDebug.LogDebug_C("SDL2 Renderer", "Now Initialising...");
+
+            if (!SDLGame.Game_Init())
+            {
+                Error.Throw(null, ErrorSeverity.FatalError, "SDL Initialisation failure. Cannot initalise K19.", "SDLEmerald", 0x400DEAD); 
+            }
+
 
             SDLDebug.LogDebug_C("BootNow!", "Now initialising SimpleESX...");
             ScriptingCore.LoadReflection();
@@ -88,20 +93,12 @@ namespace Free
             LoadIGameObjects();
             SDLDebug.LogDebug_C("BootNow!", "Now initialising main game thread...");
             BootNow_InitMainGameThread();
-
-            if (Settings.FeatureControl_UsePhysicsV2)
-            {
-                SDLDebug.LogDebug_C("BootNow!", "Now initialising physics engine, version 1.0...");
-            }
-            else
-            {
-                SDLDebug.LogDebug_C("BootNow!", "Now initalising physics engine, version 2.0...");
-            }
+            SDLDebug.LogDebug_C("BootNow!", "Now initialising physics engine, version 1.0...");
 
             InitPhysics();
 
             // Get version
-            GameVersion = new EVersion();
+            GameVersion = new EngineVersion();
 
             SDLDebug.LogDebug_C("BootNow!", "Acquiring detailed versioning information...");
             GameVersion.GetGameVersion(); // maybe make this a static api
@@ -115,7 +112,10 @@ namespace Free
             Gamestate = GameState.Menu;
 
             SDLDebug.LogDebug_C("BootNow!", "Fullscreen mode = on");
+
             if (Settings.WindowType == WindowType.FullScreen) SetFullscreen(); // SET IT
+
+            // Temporary Code //
         }
     }
 }

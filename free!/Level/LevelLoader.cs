@@ -41,9 +41,6 @@ namespace Free
             // Error checking
             if (level == null) Error.Throw(null, ErrorSeverity.FatalError, "Fatal Error: Failed to set level!", "Fatal Error", 86);
 
-            Game.DataContext = level;
-            LevelBackground.DataContext = level;
-
             // read the level xml file
             // implement this code in the Level class? polymorphic addition.
 
@@ -56,33 +53,7 @@ namespace Free
                     Error.Throw(new Exception("Level size not defined!"), ErrorSeverity.FatalError, "An error occurred while loading a level. This is most likely because its size was not defined.", "avant-gardé engine", 85);
                 }
 
-                BitmapImage LvBackNew = (BitmapImage)LevelBackground.Source;
-
-                LvBackNew = new BitmapImage(); // a massive hack but w/e
-                LvBackNew.BeginInit();
-                LvBackNew.DecodePixelWidth = (int)level.BackgroundSize.X;
-                LvBackNew.DecodePixelHeight = (int)level.BackgroundSize.Y;
-                LvBackNew.UriSource = new Uri(level.BGPATH, UriKind.Relative);
-                LevelBackground.Width = LvBackNew.DecodePixelWidth;
-                LevelBackground.Height = LvBackNew.DecodePixelHeight; // something.getsomething function?????????
-                LvBackNew.EndInit();
-
-                UpdateLayout();
-
-                LevelBackgroundImage = LvBackNew;
-
-
-                if (LvBackNew.DecodePixelWidth > Width || LvBackNew.DecodePixelHeight > Height)
-                {
-                    LvBackNew.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Aliased);
-                    LvBackNew.SetValue(RenderOptions.BitmapScalingModeProperty, BitmapScalingMode.NearestNeighbor);
-                }
-
-                SDLGame.CurrentScene.SDL_LoadLevel(level.BGPATH);
-
-
                 currentlevel = level;
-
 
                 return;
             }

@@ -42,7 +42,7 @@ namespace Free
                     }
                 }
 
-                if (Game.Children.Count > 0) Game.Children.Clear();
+                //if (Game.Children.Count > 0) Game.Children.Clear();
 
                 GlobalTimer = 0;
 
@@ -88,16 +88,20 @@ namespace Free
                 // Set resolution=
                 if (Settings.Resolution.X > 0 || Settings.Resolution.Y > 0) // setresolution()
                 {
-                    Scrollbar.Width = Settings.Resolution.X;
-                    Scrollbar.Height = Settings.Resolution.Y;
-                    Game.Width = currentlevel.Size.X;
-                    Game.Height = currentlevel.Size.Y;
+                    //Legacy WPF Code Removed 2020-12-30
+
+                    /*
+                    //Scrollbar.Width = Settings.Resolution.X;
+                    //Scrollbar.Height = Settings.Resolution.Y;
+                    //Game.Width = currentlevel.Size.X;
+                    //Game.Height = currentlevel.Size.Y;
 
                     if (Scrollbar.Width > this.Width || Scrollbar.Height > this.Height || Game.Width > this.Width || Game.Height > this.Height)
                     {
                         this.Width = Scrollbar.Width + 30;
                         this.Height = Scrollbar.Height + 40;
                     }
+                    */
                 }
 
                 SimpleESXScript SEXScript = new SimpleESXScript();

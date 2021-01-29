@@ -1,4 +1,6 @@
-﻿using Emerald.Utilities.Wpf2Sdl;
+﻿using Emerald.Utilities;
+using Emerald.Utilities.Wpf2Sdl;
+using EngineCore; // temp?
 using SDL2;
 using System;
 using System.Collections.Generic;
@@ -79,7 +81,6 @@ namespace SDLX
 
                     // TEMPORARY CODE START DO NOT USE AFTER FREEUI
 
-
                     SDL_DrawText();
 
                     // TEMPORARY CODE END DO NOT USE AFTER FREEUI
@@ -104,20 +105,31 @@ namespace SDLX
 
         public void SDL_DrawText()
         {
+            // TEMPORARY
             // Render the text to a surface.
-            IntPtr Surface = SDL_ttf.TTF_RenderText_Solid(CurrentScene.TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS, $"Camera Position: {CurrentScene.GameCamera.CameraPosition.X}, {CurrentScene.GameCamera.CameraPosition.Y}", new SDL.SDL_Color { a = 255, r = 0, g = 0, b = 0 });
+            IntPtr Surface = SDL_ttf.TTF_RenderText_Solid(CurrentScene.TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS, $"Camera Position: {CurrentScene.GameCamera.CameraPosition.X}, {CurrentScene.GameCamera.CameraPosition.Y}", new SDL.SDL_Color { a = 255, r = 255, g = 255, b = 255 });
 
+            EngineVersion EV = new EngineVersion();
+            string VString = EV.GetVersionString();
+
+            IntPtr EngineVersion = SDL_ttf.TTF_RenderText_Solid(CurrentScene.TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS, $"Engine Version: {VString}", new SDL.SDL_Color { a = 255, r = 255, g = 255, b = 255 } );
+            
             // Render the text surface to a texture.
             IntPtr Texture = SDL.SDL_CreateTextureFromSurface(SDL_RenderPtr, Surface);
+            IntPtr VerHsx = SDL.SDL_CreateTextureFromSurface(SDL_RenderPtr, EngineVersion);
 
             SDL.SDL_Rect SrcRect = SDL_GetRect(new SDLPoint(0, 0), new SDLPoint(300, 20));
+            SDL.SDL_Rect VerRect = SDL_GetRect(new SDLPoint(500, 250), new SDLPoint(200, 20));
 
             SDL.SDL_Rect DestRect = SrcRect;
+            SDL.SDL_Rect VerDestRect = VerRect;
 
             SDL.SDL_RenderCopy(SDL_RenderPtr, Texture, ref SrcRect, ref DestRect);
-
+            SDL.SDL_RenderCopy(SDL_RenderPtr, VerHsx, ref VerRect, ref VerDestRect);
             SDL.SDL_DestroyTexture(Texture);
+            SDL.SDL_DestroyTexture(VerHsx);
             SDL.SDL_FreeSurface(Surface);
+            SDL.SDL_FreeSurface(EngineVersion);
         }
 
         /// <summary>

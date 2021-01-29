@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    public partial class Game_SDL
+    public partial class SDLBridge
     {
         public Game SDLGame { get; set; }
 
@@ -23,7 +23,8 @@ namespace Free
 
             if (!SettingLoader.IsLoaded)
             {
-                Error.Throw(null, ErrorSeverity.FatalError, "Error - settings have not been loaded. You likely didn't use the Launcher.", "Please use the Launcher", 101);
+                Error.Throw(null, ErrorSeverity.FatalError, "Error - settings have not been loaded - you, most likely, did not use the Launcher.", "Please use the Launcher", 101);
+                Environment.Exit(101);
             }
 
             SDLGame.Game_Init();

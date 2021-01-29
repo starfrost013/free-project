@@ -33,7 +33,7 @@ namespace Free
         public AGTextBlock LoadText(string Text, double x, double y)
         {
             AGTextBlock textBlock = new AGTextBlock();
-            textBlock.DataContext = Game;
+            textBlock.DataContext = this;
             textBlock.Foreground = new SolidColorBrush(new Color { R = 0, G = 0, B = 0, A = 255});
             textBlock.GamePos = new Point(x, y);
             textBlock.Text = Text;

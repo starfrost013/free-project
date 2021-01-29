@@ -26,7 +26,7 @@ using System.Threading.Tasks;
 namespace Launcher
 {
     // IRenderer not really required
-    enum AvailableRenderers { SDL, WPF };
+    public enum AvailableRenderers { SDL, WPF };
 
     public static class GameLauncher
     {
@@ -45,22 +45,12 @@ namespace Launcher
     {
         public void BootNow_S0()
         {
-            AvailableRenderers UsingRenderer = AvailableRenderers.WPF;
+            AvailableRenderers UsingRenderer = AvailableRenderers.SDL;
 
             Debug.WriteLine("BootNow! stage0 now launching...");
 
             SettingLoader.LoadSettings();
             
-            if (Settings.FeatureControl_DisableSDL_PublicDemosOnly && Settings.FeatureControl_DisableWPF)
-            {
-                UsingRenderer = AvailableRenderers.SDL;
-            }
-            
-            if (Settings.FeatureControl_DisableWPF)
-            {
-                UsingRenderer = AvailableRenderers.SDL;
-            }
-
             BootNow_S0_LaunchS0(UsingRenderer);
 
         }

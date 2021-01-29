@@ -95,8 +95,6 @@ namespace SDLX
             IntPtr _ = SDL_WindowPtr;
             IntPtr _2 = SDL_RenderPtr;
 
-
-
             if (SDL.SDL_CreateWindowAndRenderer(800, 450, SDL.SDL_WindowFlags.SDL_WINDOW_SHOWN | SDL.SDL_WindowFlags.SDL_WINDOW_RESIZABLE, out _, out _2) < 0)
             {
                 Debug.WriteLine($"SDL createwindow failure: {SDL.SDL_GetError()}");
@@ -108,7 +106,7 @@ namespace SDLX
             }
             else
             {
-                SDL.SDL_SetWindowTitle(_, "Emerald Simple DirectMedia Layer Renderer");
+                SDL.SDL_SetWindowTitle(_, "Emerald SDL2 Renderer");
 
 
                 SDL_WindowPtr = _;

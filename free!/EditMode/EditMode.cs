@@ -51,9 +51,9 @@ namespace Free
                         this.Height = 463;
                     }
 
-                    Scrollbar.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
-                    Scrollbar.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
-                    EditModeMenu.Height = 19;
+                    //Scrollbar.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+                    //Scrollbar.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+                    //EditModeMenu.Height = 19;
                     return;
                 case GameState.EditMode:
                     Gamestate = GameState.Game;
@@ -63,9 +63,9 @@ namespace Free
                         this.Width = 817;
                         this.Height = 457;
                     }
-                    Scrollbar.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
-                    Scrollbar.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
-                    EditModeMenu.Height = 0;
+                    //Scrollbar.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
+                    //Scrollbar.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
+                    //EditModeMenu.Height = 0;
                     return;
             }
         }

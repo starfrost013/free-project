@@ -38,15 +38,8 @@ namespace Free
 
                 Settings.FeatureControl_DumpConsoleMessagesToW32Console_WindowsOnly = GameSettings.GetBool("FC_Dump2Console");
 
-                Settings.FeatureControl_DisableGTDebug = GameSettings.GetBool("FC_DisableGTDebug");
-
-                Settings.FeatureControl_DisableSDL_PublicDemosOnly = GameSettings.GetBool("FC_DisableSDL");
-
                 Settings.FeatureControl_DisableWPF = GameSettings.GetBool("FC_DisableWPF");
 
-                Settings.FeatureControl_UseCollisionV2 = GameSettings.GetBool("FC_UseCollisionV2");
-
-                Settings.FeatureControl_UsePhysicsV2 = GameSettings.GetBool("FC_UsePhysicsV2");
 
                 IsLoaded = true; 
             }

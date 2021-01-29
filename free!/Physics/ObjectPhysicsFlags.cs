@@ -15,5 +15,7 @@ namespace Free
         public bool ImmuneToNewtons1stLaw { get; set; }
         public bool ImmuneToNewtons2ndLaw { get; set; }
         public bool ImmuneToNewtons3rdLaw { get; set; }
+        public bool SolidOnTop { get; set; }
+        public bool SolidOnBottom { get; set; }
     }
 }

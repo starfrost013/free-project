@@ -23,30 +23,26 @@ namespace Free
         {
             try
             {
-                Game.DataContext = this; // will be changed. 
+                //Game.DataContext = this; // will be changed. 
 
-                BitmapImage XSource = (BitmapImage)LevelBackground.Source;
-                XSource = new BitmapImage();
-                XSource.BeginInit();
+                //BitmapImage XSource = (BitmapImage)LevelBackground.Source;
+                //XSource = new BitmapImage();
+                //XSource.BeginInit();
 
-                if (Settings.TitleScreenPath == null)
-                {
-                    XSource.UriSource = new Uri(@".\Game\Title.png", UriKind.RelativeOrAbsolute);
-                }
-                else
-                {
-                    XSource.UriSource = new Uri(Settings.TitleScreenPath, UriKind.RelativeOrAbsolute);
-                }
+                //if (Settings.TitleScreenPath == null)
+                //{
+                    //XSource.UriSource = new Uri(@".\Game\Title.png", UriKind.RelativeOrAbsolute);
+                //}
+                //else
+                //{
+                    //Source.UriSource = new Uri(Settings.TitleScreenPath, UriKind.RelativeOrAbsolute);
+                //}
 
-                XSource.DecodePixelWidth = (int)Width;
-                XSource.DecodePixelHeight = (int)Height;
-                LevelBackground.Width = XSource.DecodePixelWidth;
-                LevelBackground.Height = XSource.DecodePixelHeight; // something.getsomething function?????????
+                //XSource.DecodePixelWidth = (int)Width;
+                //XSource.DecodePixelHeight = (int)Height;
                 
-                XSource.EndInit();
+                //XSource.EndInit();
                 UpdateLayout();
-
-                LevelBackground.Source = XSource;
 
                 TitleInitialized = true;
             }

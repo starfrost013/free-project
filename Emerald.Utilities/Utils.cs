@@ -174,7 +174,7 @@ namespace Emerald.Utilities
         /// </summary>
         /// <param name="SplitString"></param>
         /// <returns></returns>
-        public static EVersion ToVersion(this String SplitString)
+        public static EngineVersion ToVersion(this String SplitString)
         {
             try
             {
@@ -187,7 +187,7 @@ namespace Emerald.Utilities
                     return null;
                 }
 
-                EVersion Version = new EVersion();
+                EngineVersion Version = new EngineVersion();
 
                 // set the version information
                 Version.Major = Convert.ToInt32(_1[0]);

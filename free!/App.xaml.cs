@@ -39,13 +39,15 @@ namespace Free
             Console.OpenStandardOutput();
 #endif
 
-            if (!Settings.FeatureControl_DisableSDL_PublicDemosOnly)
-            {
-                SDLGame = new Game();
-            }
+            SDLGame = new Game();
 
             FreeSDL MnWindow = new FreeSDL();
-            MnWindow.Show();
+            
+            if (!Settings.FeatureControl_DisableWPF)
+            {
+                MnWindow.Show();
+            }
+            
 
         }
     }

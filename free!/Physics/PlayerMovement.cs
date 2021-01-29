@@ -52,7 +52,7 @@ namespace Free
                             {
                                 GameObject.GameObjectMOVELEFT = true;
                                 GameObject.LastControl = LastCtrl.MoveLeft;
-                                DrawScene(); 
+                                //DrawScene(); 
                                 //DrawScene_Threaded(); 
                             }
                         }
@@ -62,7 +62,7 @@ namespace Free
                             {
                                 GameObject.GameObjectMOVERIGHT = true;
                                 GameObject.LastControl = LastCtrl.MoveRight;
-                                DrawScene();
+                                //DrawScene();
                                 //DrawScene_Threaded(); 
                             }
                         }
@@ -78,7 +78,7 @@ namespace Free
                                 
                             }
 
-                            Window_ContentRendered(this, new EventArgs());
+                            //Window_ContentRendered(this, new EventArgs());
                         }
                     }
                     if (e.Key == Controls.Pause)

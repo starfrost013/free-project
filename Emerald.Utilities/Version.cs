@@ -14,7 +14,7 @@ namespace Emerald.Utilities
     /// 
     /// Emerald version class
     /// </summary>
-    public class EVersion
+    public class EngineVersion
     {
         public DateTime BuildDate { get; set; }
         public string BuildOwner { get; set; } // eg "Cosmo"
@@ -61,6 +61,11 @@ namespace Emerald.Utilities
         }
 
         public string GetVersionString()
+        {
+            return $"Emerald Game Engine version {Major}.{Minor}.{Build}.{Revision}";
+        }
+
+        public string GetFullVersionString()
         {
             return $"Emerald Game Engine version {Major}.{Minor}.{Build}.{Revision} (built by {BuildOwner} at {BuildDate.ToString()})";
         }
