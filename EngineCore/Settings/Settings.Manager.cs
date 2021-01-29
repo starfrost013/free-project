@@ -24,14 +24,19 @@ namespace Emerald.Core
         {
             try
             {
+
+                string SettingsFilePath = @"Content\Settings.xml";
+
                 XmlDocument XDoc = new XmlDocument();
 
-                if (!File.Exists("Settings.xml"))
+                if (!File.Exists(SettingsFilePath))
                 {
-                    GenerateSettings(); 
+                    // TEMP UNTIL PROPER RESULT/VALIDATION APIS
+                    return null; // don't do that..
+                    // END TEMP UNTIL PROPER RESULT/VALIDATION APIS
                 }
 
-                XDoc.Load("Settings.xml");
+                XDoc.Load(SettingsFilePath);
 
                 // get the xmlnode
                 XmlNode XRoot = XDoc.FirstChild;
@@ -60,7 +65,7 @@ namespace Emerald.Core
             }
             catch (XmlException err)
             {
-                MessageBox.Show($"Temp error. ServerSettings.xml corrupted or maflormed! Error 18!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Temp error. Settings.xml corrupted or maflormed! Error 18!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
         }

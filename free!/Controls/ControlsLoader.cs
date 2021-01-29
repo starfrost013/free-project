@@ -14,13 +14,11 @@ using System.Windows.Input;
 /// 
 /// File created: 2019-11-17
 /// 
-/// File modified: 2019-11-17
+/// File modified: 2021-01-29 
 /// 
 /// Purpose: Loads configurable controls.
 /// 
 /// Created by: Cosmo
-/// 
-/// Free ver: 0.05 (Engine 2.5.0/01)
 /// 
 /// </summary>
 namespace Free
@@ -33,7 +31,7 @@ namespace Free
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();
-                XmlDocument.Load("Controls.xml");
+                XmlDocument.Load(@"Content\Controls.xml");
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 
                 while (XmlRootNode.Name != "Controls")

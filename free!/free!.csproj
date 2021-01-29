@@ -128,10 +128,9 @@
     <Compile Include="Interactions\InteractionManager.Kill.cs" />
     <Compile Include="Interactions\InteractionManager.Remove.cs" />
     <Compile Include="Level\LevelPreloader.cs" />
-    <Compile Include="Objects\Humanoid.cs" />
-    <Compile Include="Objects\HumanoidState.cs" />
+    <Compile Include="Objects\Humanoid\Humanoid.cs" />
+    <Compile Include="Objects\Humanoid\HumanoidState.cs" />
     <Compile Include="Objects\IGameObject.cs" />
-    <Compile Include="Objects\MultiplayerClient.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.AddObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.ChangeLevel.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.DeleteObject.cs" />
@@ -147,7 +146,8 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectSize.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetPhysicsState.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetPlayerAcceleration.cs" />
-    <Compile Include="Objects\Player.cs" />
+    <Compile Include="Objects\Humanoid\Player\Player.cs" />
+    <Compile Include="Objects\Humanoid\Player\PlayerMultiplayerClientInfo.cs" />
     <Compile Include="Objects\Root\PhysicalObject.cs" />
     <Compile Include="Objects\Root\RootObject.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
@@ -518,6 +518,9 @@
       <Project>{2bece7a3-3bb0-4213-a097-2698058767b4}</Project>
       <Name>SDLX</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Schema\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -30,7 +30,9 @@ namespace Free
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();
-                XmlDocument.Load("Weapons.xml");
+
+                XmlDocument.Load(@"Content\Weapons.xml");
+
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 
                 while (XmlRootNode.Name != "Weapons")

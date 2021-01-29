@@ -12,7 +12,7 @@ using System.Xml;
 /// 
 /// Created: 2020-06-07
 /// 
-/// Modified: 2020-06-08
+/// Modified: 2021-01-29
 /// 
 /// Purpose: Preloads the level list. 
 /// </summary>
@@ -27,7 +27,7 @@ namespace Free
             try
             {
                 XmlDocument XDoc = new XmlDocument();
-                XDoc.Load("LevelsV2.xml");
+                XDoc.Load(@"Content\LevelsV2.xml");
 
                 XmlNode XRootNode = XDoc.FirstChild;
 

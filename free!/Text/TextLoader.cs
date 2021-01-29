@@ -12,7 +12,7 @@ using System.Windows.Media;
 /// 
 /// Created: 2019-12-07
 ///
-/// Modified: 2019-12-07
+/// Modified: 2021-01-29 [Deprecated]
 /// 
 /// Version: 1.00
 /// 
@@ -38,7 +38,7 @@ namespace Free
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();
-                XmlDocument.Load("Text.xml");
+                XmlDocument.Load(@"Content\Text.xml");
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 
                 while (XmlRootNode.Name != "Text")
