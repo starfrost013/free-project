@@ -12,7 +12,13 @@ namespace Free
     {
         public Animation CurrentAnimation { get; set; }
         public bool CanCollide { get; set; }
-        public ObjectPhysFlags PhysicsFlags { get; set; }
+
+        /// <summary>
+        /// The default sprite that is used if there is no current animation frame.
+        /// </summary>
+        public string DefaultSpritePath { get; set; }
+        public PhysicsFlags PhysicsFlags { get; set; }
+        public PhysicsState PhysicsState { get; set; }
         public SDLPoint Position { get; set; }
 
         /// <summary>

@@ -128,6 +128,8 @@
     <Compile Include="Interactions\InteractionManager.Kill.cs" />
     <Compile Include="Interactions\InteractionManager.Remove.cs" />
     <Compile Include="Level\LevelPreloader.cs" />
+    <Compile Include="Objects\Humanoid.cs" />
+    <Compile Include="Objects\HumanoidState.cs" />
     <Compile Include="Objects\IGameObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.AddObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.ChangeLevel.cs" />
@@ -147,8 +149,8 @@
     <Compile Include="Objects\Root\PhysicalObject.cs" />
     <Compile Include="Objects\Root\RootObject.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
-    <Compile Include="Physics\ObjectPhysicsFlags.cs" />
-    <Compile Include="Physics\Physics.Init.cs" />
+    <Compile Include="Physics\PhysicsFlags.cs" />
+    <Compile Include="Physics\PhysicsInit.cs" />
     <Compile Include="Physics\PhysicsState.cs" />
     <Compile Include="Physics\PhysicsV2.cs" />
     <Compile Include="Physics\PhysicsWorker\PhysicsBackgroundWorker.DoWork.cs" />
