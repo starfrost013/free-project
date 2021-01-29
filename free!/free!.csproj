@@ -131,6 +131,7 @@
     <Compile Include="Objects\Humanoid.cs" />
     <Compile Include="Objects\HumanoidState.cs" />
     <Compile Include="Objects\IGameObject.cs" />
+    <Compile Include="Objects\MultiplayerClient.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.AddObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.ChangeLevel.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.DeleteObject.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetObjectSize.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetPhysicsState.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetPlayerAcceleration.cs" />
+    <Compile Include="Objects\Player.cs" />
     <Compile Include="Objects\Root\PhysicalObject.cs" />
     <Compile Include="Objects\Root\RootObject.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
