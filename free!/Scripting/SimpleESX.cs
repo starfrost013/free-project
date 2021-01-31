@@ -35,7 +35,7 @@ namespace Free
             try
             {
                 XmlDocument XDoc = new XmlDocument();
-                XDoc.Load(@"Game\ReflectionMetadata.xml");
+                XDoc.Load(@"Content\Game\ReflectionMetadata.xml");
 
                 if (!XDoc.HasChildNodes)
                 {

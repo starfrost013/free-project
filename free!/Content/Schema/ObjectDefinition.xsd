@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ObjectDefinition"
+    targetNamespace="http://tempuri.org/ObjectDefinition.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/ObjectDefinition.xsd"
+    xmlns:mstns="http://tempuri.org/ObjectDefinition.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:complexType name="ObjectDefinition">
+    <xs:sequence>
+      <xs:element name="AABB" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="TopLeft" type="xs:string"></xs:element>
+            <xs:element name="BottomRight" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      
+      <xs:element name="Archivable" type="xs:boolean" minOccurs="0"></xs:element> <!-- default - true -->
+      <xs:element name="AIDefinitionPath" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="AnimationDefinitionPath" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="DefaultImage" type="xs:string"></xs:element>
+
+
+      <xs:element name="PhysicsDefinition" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CanCollide" type="xs:boolean" minOccurs="0"></xs:element>
+            <xs:element name="CanSnap" type="xs:boolean" minOccurs="0"></xs:element>
+            <xs:element name="Mass" type="xs:double" minOccurs="0"></xs:element> <!-- default = 1 -->
+            <xs:element name="MaxSpeed" type="xs:double" minOccurs="0"></xs:element> <!-- default = 10 -->
+            <xs:element name="Inertia" type="xs:double" minOccurs="0"></xs:element> <!-- default = 0.2 -->
+            <xs:element name="ImmuneToNewtonsFirstLaw" type="xs:boolean" minOccurs="0"></xs:element> <!-- default = true -->
+            <xs:element name="ImmuneToNewtonsSecondLaw" type="xs:boolean" minOccurs="0"></xs:element> <!-- default = true -->
+            <xs:element name="ImmuneToNewtonsThirdLaw" type="xs:boolean" minOccurs="0"></xs:element> <!-- default = true -->
+            <xs:element name="SolidOnTop" type="xs:boolean" minOccurs="0"></xs:element>
+            <xs:element name="SolidOnLeft" type="xs:boolean" minOccurs="0"></xs:element>
+            <xs:element name="SolidOnRight" type="xs:boolean" minOccurs="0"></xs:element>
+            <xs:element name="SolidOnBottom" type="xs:boolean" minOccurs="0"></xs:element>
+            <xs:element name="Weightless" type="xs:boolean" minOccurs="0"></xs:element>
+            
+          </xs:sequence>
+        </xs:complexType>
+         
+        <!-- default = 1-->
+      </xs:element>
+
+      <xs:element name="PlayerDefinition" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="IsLocalPlayer" type="xs:boolean" minOccurs="0"></xs:element>
+            <xs:element name="UName" type="xs:string" minOccurs="0"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+
+
+      </xs:element>
+      <!-- default = false -->
+
+      <!-- Action & Script Definitions -->
+      <xs:element name="ScriptDefinitionPath" type="xs:string" minOccurs="0"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

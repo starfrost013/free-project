@@ -25,9 +25,17 @@ namespace Free
         public static double Acceleration = 0.4;
         public static double Friction = 0.275;
         public static double Gravity = 0.225;
+
+        /// <summary>
+        /// deprecated
+        /// </summary>
         public static double JumpForce = 7.25; 
         public static double MaxSpeed = 8.5;
         public static double SpeedConst = 13;
+
+        /// <summary>
+        /// deprecated
+        /// </summary>
         public static double MaxJumpIntensity = 1.5; 
     }
 }

@@ -8,15 +8,21 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    public class PhysicalObject : RootObject
+    public class PhysicsObject : RootObject
     {
         public Animation CurrentAnimation { get; set; }
-        public bool CanCollide { get; set; }
+
 
         /// <summary>
         /// The default sprite that is used if there is no current animation frame.
         /// </summary>
         public string DefaultSpritePath { get; set; }
+
+        /// <summary>
+        /// ObjectType of this object
+        /// </summary>
+        public static new ObjectTypes OType = ObjectTypes.NoPhysicsObject;
+
         public PhysicsFlags PhysicsFlags { get; set; }
         public PhysicsState PhysicsState { get; set; }
         public SDLPoint Position { get; set; }
@@ -26,6 +32,14 @@ namespace Free
         /// </summary>
         public SDLPoint Size { get; set; }
         public new void SetName(string NewName) => base.SetName(NewName);
+
+        public SDLPoint GetPosition() => Position;
+
+        public PhysicsObject()
+        {
+            PhysicsFlags = new PhysicsFlags();
+            PhysicsState = new PhysicsState();
+        }
 
         public void SetPosition(SDLPoint NewPosition)
         {

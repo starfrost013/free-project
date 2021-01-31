@@ -10,14 +10,19 @@ namespace Free
     {
 
         /// <summary>
-        /// Is this player contro
+        /// Is this player locally controlled?
         /// </summary>
         public bool IsLocalPlayer { get; set; }
         public MultiplayerClientInfo MPClientInfo { get; set; }
 
+        public static new ObjectTypes OType = ObjectTypes.Player;
         public Player()
         {
-            MPClientInfo = new MultiplayerClientInfo(); 
+            MPClientInfo = new MultiplayerClientInfo();
+            State = new HumanoidState();
+            PhysicsFlags = new PhysicsFlags();
+            PhysicsState = new PhysicsState();
+
         }
 
     }

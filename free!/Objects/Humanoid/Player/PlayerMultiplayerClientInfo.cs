@@ -22,5 +22,10 @@ namespace Free
         /// MP: User ping
         /// </summary>
         public int UPing { get; set; }
+
+        /// <summary>
+        /// MP: User desc
+        /// </summary>
+        public string UDesc { get; set; }
     }
 }

@@ -7,8 +7,8 @@
   <Level>
     <ID>-1</ID>
     <Name>Test Level</Name>
-    <BGPath>.\Levels\TestLevel.png</BGPath>
-    <ObjectLayoutPath>Levels\TestLevel_obj.xml</ObjectLayoutPath>
+    <BGPath>Content\Levels\TestLevel.png</BGPath>
+    <ObjectLayoutPath>Content\Levels\TestLevel_obj.xml</ObjectLayoutPath>
     <BackgroundSize>1920,1080</BackgroundSize>
     <Size>7680,4320</Size>
     <PlayerStartPos>320,1585</PlayerStartPos>
@@ -17,8 +17,8 @@
   <Level>
     <ID>0</ID>
     <Name>Chapter One: Tokyo Dreams</Name>
-    <BGPath>.\Levels\Level00.png</BGPath>
-    <ObjectLayoutPath>Levels\Level00_obj.xml</ObjectLayoutPath>
+    <BGPath>Content\Levels\Level00.png</BGPath>
+    <ObjectLayoutPath>Content\Levels\Level00_obj.xml</ObjectLayoutPath>
     <BackgroundSize>1920,1080</BackgroundSize>
     <Size>7680,4320</Size>
     <PlayerStartPos>320,1585</PlayerStartPos>

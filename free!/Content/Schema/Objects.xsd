@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Objects"
+    targetNamespace="http://tempuri.org/Objects.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/Objects.xsd"
+    xmlns:mstns="http://tempuri.org/Objects.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  
+  <!-- Object Loading Services Schema -->
+
+  <xs:complexType name="Objects">
+    <xs:sequence>
+      <xs:element name="Object" minOccurs="1">
+        <xs:complexType id="Object">
+          <xs:sequence>
+            <xs:element name="ID" type="xs:int" minOccurs="1"></xs:element>
+
+            <xs:element name="Name" type="xs:string" minOccurs="1"></xs:element>
+            <xs:element name="ObjDefPath" type="xs:string" minOccurs="1"></xs:element>
+            <xs:element name="Type" type="xs:string" minOccurs="1"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+       
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+</xs:schema>

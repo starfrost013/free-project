@@ -5,5 +5,5 @@ Modified: 2019-12-05 18:47
  -->
 
 <Weapons>
-	<Weapon accuracy="5" ammo="100" critchance="2.5" critmultiplier="2" crituncertainty="0.32" damage="5" damageuncertainty="0.75" firerate="10" image="Weapons\TestWeapon.png" imageammo="Weapons\TestWeapon_Ammo.png" name="Test Weapon"></Weapon>
+	<Weapon accuracy="5" ammo="100" critchance="2.5" critmultiplier="2" crituncertainty="0.32" damage="5" damageuncertainty="0.75" firerate="10" image="Content\Weapons\TestWeapon.png" imageammo="Content\Weapons\TestWeapon_Ammo.png" name="Test Weapon"></Weapon>
 </Weapons>

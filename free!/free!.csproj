@@ -131,6 +131,7 @@
     <Compile Include="Objects\Humanoid\Humanoid.cs" />
     <Compile Include="Objects\Humanoid\HumanoidState.cs" />
     <Compile Include="Objects\IGameObject.cs" />
+    <Compile Include="Objects\Loader\ObjLoader.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.AddObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.ChangeLevel.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.DeleteObject.cs" />
@@ -148,10 +149,12 @@
     <Compile Include="Objects\ObjectAPI\ObjectAPI.SetPlayerAcceleration.cs" />
     <Compile Include="Objects\Humanoid\Player\Player.cs" />
     <Compile Include="Objects\Humanoid\Player\PlayerMultiplayerClientInfo.cs" />
-    <Compile Include="Objects\Root\PhysicalObject.cs" />
+    <Compile Include="Objects\ObjectTypes.cs" />
+    <Compile Include="Objects\Root\NoPhysicsObject.cs" />
+    <Compile Include="Objects\Root\PhysicsObject.cs" />
     <Compile Include="Objects\Root\RootObject.cs" />
     <Compile Include="Objects\SentientBeing.cs" />
-    <Compile Include="Physics\PhysicsFlags.cs" />
+    <Compile Include="Physics_NotShit\PhysicsFlags.cs" />
     <Compile Include="Physics\PhysicsInit.cs" />
     <Compile Include="Physics\PhysicsState.cs" />
     <Compile Include="Physics\PhysicsV2.cs" />
@@ -217,7 +220,7 @@
     <Compile Include="Objects\GameObject.cs" />
     <Compile Include="Objects\ObjLayoutLoader.cs" />
     <Compile Include="Objects\ObjLoader.cs" />
-    <Compile Include="Physics\PhysicsConstants.cs" />
+    <Compile Include="Physics_NotShit\PhysicsConstants.cs" />
     <Compile Include="Physics\Physics.cs" />
     <Compile Include="Physics\PlayerMovement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -245,7 +248,9 @@
     <Content Include="Content\Game\GameOver.pdn" />
     <Content Include="Content\Game\lessurgent.pdn" />
     <Content Include="Content\Game\LoadingTemplate.pdn" />
-    <None Include="Content\Game\Scripts\PlayerCore.esx" />
+    <Content Include="Content\Game\Scripts\PlayerCore.esx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Game\Title.pdn" />
     <Content Include="Content\Game\TitleV2.pdn" />
     <Content Include="Content\Game\urgent.pdn" />
@@ -255,7 +260,9 @@
     <Content Include="Content\Game\ReflectionMetadata.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Content\LevelsV2.xml" />
+    <Content Include="Content\LevelsV2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Levels\Level00.pdn">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -268,7 +275,9 @@
     <None Include="Content\Objects\Stg00\SnowCoveredTree.pdn" />
     <None Include="Content\Objects\Stg00\Stg00_trincidshouse_01.pdn" />
     <None Include="Content\Objects\Stg06\Stg06_chemicaldisposal_01.pdn" />
-    <None Include="Content\Objects\Stg06\Stg06_chemicaldisposal_02.pdn" />
+    <None Include="Content\Objects\Stg06\Stg06_chemicaldisposal_02.pdn">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Content\Objects\Stg06\Stg06_Load.pdn" />
     <None Include="Content\Objects\Stg06\Stg06_tunnel_01.pdn" />
     <None Include="Content\Objects\Stg06\Stg06_tunnel_02.pdn" />
@@ -286,6 +295,14 @@
     </Content>
     <Content Include="Content\SDL2.dll" />
     <Content Include="Content\Test.esx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Schema\ObjectDefinition.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Schema\Objects.xsd">
+      <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
@@ -332,9 +349,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\InteractionTypes.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Levels.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\LevelsIdeasAndThings.txt">
@@ -434,58 +448,138 @@
     <Content Include="Content\Objects.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\AnimationTest.png" />
-    <Content Include="Content\Objects\AnimationTest2.png" />
-    <Content Include="Content\Objects\AnimationTest_Idle.png" />
-    <Content Include="Content\Objects\DebugMode.png" />
-    <Content Include="Content\Objects\FloorTEMPORARY.png" />
+    <Content Include="Content\Objects\AnimationTest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\AnimationTest2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\AnimationTest_Idle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\DebugMode.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\FloorTEMPORARY.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Objects\General\Yousay.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\PlaceHolderLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\PlaceHolderMedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\PlaceHolderSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\PlaceHolderXSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\PlayerTEMPORARY.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Player\TrincidIdle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\PlaceHolderLarge.png" />
-    <Content Include="Content\Objects\PlaceHolderMedium.png" />
-    <Content Include="Content\Objects\PlaceHolderSmall.png" />
-    <Content Include="Content\Objects\PlaceHolderXSmall.png" />
-    <Content Include="Content\Objects\PlayerTEMPORARY.png" />
-    <Content Include="Content\Objects\Player\TrincidIdle.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\Objects\Player\TrincidIdleL.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Objects\Player\TrincidStanding.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Spring.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Spring.png" />
-    <Content Include="Content\Objects\SpringLeft.png" />
-    <Content Include="Content\Objects\SpringRight.png" />
-    <Content Include="Content\Objects\Stg00\SnowCoveredTree.png" />
-    <Content Include="Content\Objects\Stg00\Stg00_trincidshouse_01.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_chemicaldisposal_02.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_Load.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_01.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_01_idle.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_02.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_03.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_04.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_05.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_06.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_07.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_08.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_09.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_10.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_tunnel_01.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_wall_01.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_wall_02.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_wall_02_top.png" />
-    <Content Include="Content\Objects\Stg06\Stg06_wall_platform_01.png" />
-    <Content Include="Content\Objects\TestObject.png" />
-    <Content Include="Content\Objects\TestObjectPriority.png" />
-    <Content Include="Content\Objects\TestObjectPriority2.png" />
-    <Content Include="Content\Objects\TestObjectPriority3.png" />
-    <Content Include="Content\Objects\TestObjectPriority4.png" />
-    <Content Include="Content\Objects\TestObjectPriority5.png" />
-    <Content Include="Content\Objects\TestObjectPriority6.png" />
+    <Content Include="Content\Objects\SpringLeft.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\SpringRight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg00\SnowCoveredTree.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg00\Stg00_trincidshouse_01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_chemicaldisposal_02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_Load.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_01_idle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_03.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_04.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_05.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_06.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_07.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_08.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_09.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_tunnel_01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_wall_01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_wall_02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_wall_02_top.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\Stg06\Stg06_wall_platform_01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\TestObject.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\TestObjectPriority.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\TestObjectPriority2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\TestObjectPriority3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\TestObjectPriority4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\TestObjectPriority5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Objects\TestObjectPriority6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\REMIND COSMO.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -498,12 +592,24 @@
     <Content Include="Content\Weapons.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Content\Weapons\TestWeapon.png" />
-    <Resource Include="Content\Weapons\TestWeapon_Ammo.png" />
-    <Resource Include="Content\Weapons\TestWeapon_Ammo_Explode_01.png" />
-    <Resource Include="Content\Weapons\TestWeapon_Ammo_Explode_02.png" />
-    <Resource Include="Content\Weapons\TestWeapon_Ammo_Explode_03.png" />
-    <Resource Include="Content\Weapons\TestWeapon_Ammo_Explode_04.png" />
+    <Content Include="Content\Weapons\TestWeapon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Weapons\TestWeapon_Ammo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Weapons\TestWeapon_Ammo_Explode_01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Weapons\TestWeapon_Ammo_Explode_02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Weapons\TestWeapon_Ammo_Explode_03.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Weapons\TestWeapon_Ammo_Explode_04.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Emerald.Utilities\PresentationCompatibility.csproj">
@@ -519,9 +625,7 @@
       <Name>SDLX</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Schema\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
