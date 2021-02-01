@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization; 
 
 namespace Free
 {
@@ -23,8 +24,8 @@ namespace Free
         /// </summary>
         public static new ObjectTypes OType = ObjectTypes.NoPhysicsObject;
 
-        public PhysicsFlags PhysicsFlags { get; set; }
-        public PhysicsState PhysicsState { get; set; }
+        [XmlElement("PhysicsDefinition")]
+        public PhysicsDefinition PhysicsDefinition { get; set; }
         public SDLPoint Position { get; set; }
 
         /// <summary>
@@ -37,8 +38,7 @@ namespace Free
 
         public PhysicsObject()
         {
-            PhysicsFlags = new PhysicsFlags();
-            PhysicsState = new PhysicsState();
+            PhysicsDefinition = new PhysicsDefinition();
         }
 
         public void SetPosition(SDLPoint NewPosition)

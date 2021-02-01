@@ -156,7 +156,7 @@
     <Compile Include="Objects\SentientBeing.cs" />
     <Compile Include="Physics_NotShit\PhysicsFlags.cs" />
     <Compile Include="Physics\PhysicsInit.cs" />
-    <Compile Include="Physics\PhysicsState.cs" />
+    <Compile Include="Physics\PhysicsDefinition.cs" />
     <Compile Include="Physics\PhysicsV2.cs" />
     <Compile Include="Physics\PhysicsWorker\PhysicsBackgroundWorker.DoWork.cs" />
     <Compile Include="Scripting\Commands\CommandFactory.cs" />

@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 namespace Free
 {
 
-    public class PhysicsFlags
+    public class PhysicsDefinition
     {
         public bool AirState { get; set; }
 
@@ -41,5 +41,22 @@ namespace Free
 
         [XmlElement("SolidOnBottom")]
         public bool SolidOnBottom { get; set; }
+
+        public SDLPoint Acceleration { get; set; }
+
+        [XmlElement("Inertia")]
+        public double Inertia { get; set; }
+
+        [XmlElement("Mass")]
+        public double Mass { get; set; }
+
+        [XmlElement("MaxSpeed")]
+        public double MaxSpeed { get; set; }
+
+        public double GetInertia() => Mass;
+
+        public double GetMass() => Mass;
+
+        public void SetMass(double NewMass) => Mass = NewMass;
     }
 }

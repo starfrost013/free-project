@@ -20,8 +20,7 @@ namespace Free
         {
             MPClientInfo = new MultiplayerClientInfo();
             State = new HumanoidState();
-            PhysicsFlags = new PhysicsFlags();
-            PhysicsState = new PhysicsState();
+            PhysicsDefinition = new PhysicsDefinition();
 
         }
 

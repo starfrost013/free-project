@@ -19,8 +19,7 @@ namespace Free
         {
 
             State = new HumanoidState();
-            PhysicsFlags = new PhysicsFlags();
-            PhysicsState = new PhysicsState();
+            PhysicsDefinition = new PhysicsDefinition();
 
         }
     }

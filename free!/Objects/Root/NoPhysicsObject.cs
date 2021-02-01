@@ -15,7 +15,7 @@ namespace Free
         /// <summary>
         /// ObjectType of this object
         /// </summary>
-        public static new ObjectTypes OType = ObjectTypes.Object;
+        public static new ObjectTypes OType = ObjectTypes.RootObject;
         public SDLPoint Position { get; set; }
         public SDLPoint Size { get; set; }
 

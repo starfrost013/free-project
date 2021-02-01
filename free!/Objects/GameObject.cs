@@ -105,7 +105,7 @@ namespace Free
         public virtual int GameObjectLIVES { get; set; }
         public virtual AI GameObjectAI { get; set; }
         public SDLPoint Size { get; set; }
-        public PhysicsFlags PhysFlags { get; set; }
+        public PhysicsDefinition PhysFlags { get; set; }
         public GameObject()
         {
             AssociatedScriptPaths = new List<ScriptReference>();
