@@ -150,6 +150,7 @@
     <Compile Include="Objects\Humanoid\Player\Player.cs" />
     <Compile Include="Objects\Humanoid\Player\PlayerMultiplayerClientInfo.cs" />
     <Compile Include="Objects\ObjectTypes.cs" />
+    <Compile Include="Objects\ObjLoaderSerialised.cs" />
     <Compile Include="Objects\Root\NoPhysicsObject.cs" />
     <Compile Include="Objects\Root\PhysicsObject.cs" />
     <Compile Include="Objects\Root\RootObject.cs" />

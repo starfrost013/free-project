@@ -16,6 +16,7 @@ namespace Free
         public MultiplayerClientInfo MPClientInfo { get; set; }
 
         public static new ObjectTypes OType = ObjectTypes.Player;
+
         public Player()
         {
             MPClientInfo = new MultiplayerClientInfo();
