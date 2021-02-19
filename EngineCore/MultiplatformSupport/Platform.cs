@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 
 namespace EngineCore
 {
-    public enum AvailablePlatform
+    public enum AvailablePlatforms
     {
         // Emerald Game Engine, Win32, .NET Framework (theoretically 4.7.1, practically 4.7.2+) (legacy systems)
         EmeraldPlatformWin32NetFX = 0,
@@ -30,9 +30,9 @@ namespace EngineCore
         EmeraldPlatformWin64NetFX = 2,
         // Emerald Game Engine, Win64, .NET Core (3.1+)
         EmeraldPlatformWin64NetCore = 3,
-        // Emerald Game Engine, Mac, x64, 10.13+, .NET Core (3.1+)
+        // Emerald Game Engine, Mac OS x64, 10.13+, .NET Core (3.1+)
         EmeraldPlatformMac64NetCore = 4,
-        // Emerald Game Engine, Mac, ARM, 11.0+, .NET Core (futureproofing)
+        // Emerald Game Engine, Mac OS x64 AArch64, 11.0+, .NET Core 3.1 / .NET 5+ (futureproofing)
         EmeraldPlatformMacARMNetCore = 5,
         // Emerald Game Engine, Linux, Alpine 3.1 / Fedora 29 / OpenSUSE 15.0 / Ubuntu 16.04, etc+), x64, .NET Core (3.1+)
         EmeraldPlatformLinux64NetCore = 6
@@ -41,7 +41,7 @@ namespace EngineCore
 
     public static class Platforms
     {
-        public static AvailablePlatform CurrentPlatform { get; set; }
+        public static AvailablePlatforms CurrentPlatform { get; set; }
         
         /// <summary>
         /// Determines the current Emerald platform using .NET standard apis.
@@ -54,22 +54,22 @@ namespace EngineCore
                 {
                     if (RuntimeInformation.OSArchitecture == Architecture.X64)
                     {
-                        CurrentPlatform = AvailablePlatform.EmeraldPlatformWin32NetCore;
+                        CurrentPlatform = AvailablePlatforms.EmeraldPlatformWin32NetCore;
                     }
                     else // if we do not have x64 we are probably x86
                     {
-                        CurrentPlatform = AvailablePlatform.EmeraldPlatformWin32NetCore;
+                        CurrentPlatform = AvailablePlatforms.EmeraldPlatformWin32NetCore;
                     }
                 }
                 else // if not .net core, then .net framework (we do not support .net native)
                 {
                     if (RuntimeInformation.OSArchitecture == Architecture.X64)
                     {
-                        CurrentPlatform = AvailablePlatform.EmeraldPlatformWin64NetFX;
+                        CurrentPlatform = AvailablePlatforms.EmeraldPlatformWin64NetFX;
                     }
                     else
                     {
-                        CurrentPlatform = AvailablePlatform.EmeraldPlatformWin32NetFX;
+                        CurrentPlatform = AvailablePlatforms.EmeraldPlatformWin32NetFX;
                     }
                 }
             }
@@ -79,16 +79,16 @@ namespace EngineCore
                 {
                     if (RuntimeInformation.OSArchitecture == Architecture.X64)
                     {
-                        CurrentPlatform = AvailablePlatform.EmeraldPlatformMac64NetCore;
+                        CurrentPlatform = AvailablePlatforms.EmeraldPlatformMac64NetCore;
                     }
-                    else // .NET Core 3.1 only supports 10.13+, and mac x86 is dead, so otherwise we would be running on ARM64
+                    else // .NET Core 3.1 only supports 10.13+, and mac x86 is dead, so otherwise we would be running on ARM64 Mac OS 11.0+
                     {
-                        CurrentPlatform = AvailablePlatform.EmeraldPlatformMacARMNetCore;
+                        CurrentPlatform = AvailablePlatforms.EmeraldPlatformMacARMNetCore;
                     }
                 }
                 else // then we are running Linux - .NET is only available as Core x64 for Linux, so we are using that
                 {
-                    CurrentPlatform = AvailablePlatform.EmeraldPlatformLinux64NetCore;
+                    CurrentPlatform = AvailablePlatforms.EmeraldPlatformLinux64NetCore;
                 }
             }
         }

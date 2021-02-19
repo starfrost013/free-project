@@ -1,4 +1,5 @@
-﻿using Emerald.Utilities;
+﻿using Emerald.Core;
+using Emerald.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,11 +13,11 @@ using System.Xml;
 /// 
 /// Created: 2020-06-07
 /// 
-/// Modified: 2021-01-29
+/// Modified: 2021-02-19 (v1519)
 /// 
 /// Purpose: Preloads the level list. 
 /// </summary>
-/// 
+
 namespace Free
 {
     public static class LevelPreloader

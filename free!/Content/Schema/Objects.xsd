@@ -14,11 +14,16 @@
       <xs:element name="Object" minOccurs="1">
         <xs:complexType id="Object">
           <xs:sequence>
+            
             <xs:element name="ID" type="xs:int" minOccurs="1"></xs:element>
 
             <xs:element name="Name" type="xs:string" minOccurs="1"></xs:element>
             <xs:element name="ObjDefPath" type="xs:string" minOccurs="1"></xs:element>
             <xs:element name="Type" type="xs:string" minOccurs="1"></xs:element>
+
+            <xs:element name="SchemaVersionMajor" type="xs:int" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element name="SchemaVersionMinor" type="xs:int" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element name="SchemaVersionRevision" type="xs:int" minOccurs="1" maxOccurs="1"></xs:element>
           </xs:sequence>
         </xs:complexType>
        

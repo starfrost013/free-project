@@ -8,7 +8,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Project K19")]
-[assembly: AssemblyDescription("Emerald Engine 4.0")]
+[assembly: AssemblyDescription("Emerald SDK Platform")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Project K19")]
@@ -51,7 +51,7 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("4.0.1512.21031")]
-[assembly: AssemblyFileVersion("4.0.1512.21031")]
+[assembly: AssemblyVersion("4.0.1518.21050")]
+[assembly: AssemblyFileVersion("4.0.1518.21050")]
 [assembly: AssemblyInformationalVersion("Project K19 Ver 0.00")]
 

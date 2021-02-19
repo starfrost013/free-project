@@ -44,6 +44,7 @@ namespace Free
                 }
 
                 ScriptError.Throw($"Error: Required parameter {ParameterName} not found!", 11, 0, "Runtime Error");
+                return null; 
             }
             catch (FormatException err)
             {

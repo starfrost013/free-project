@@ -105,7 +105,8 @@ namespace Free
                 }
 
                 SimpleESXScript SEXScript = new SimpleESXScript();
-                ScriptingCore.LoadScript("Test.esx");
+                // fix - 2021-02-19
+                ScriptingCore.LoadScript(@"Content\Test.esx");
                 ScriptingCore.ExecuteCurrentScript(); // Execute the current script.
 
 

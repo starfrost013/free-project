@@ -89,12 +89,12 @@ namespace Free
             }
             catch (XmlException err) //TODO: Add the error class from the track maker.
             {
-                MessageBox.Show($"A critical error occurred while loading IGameObjects.xml: \n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"A critical error occurred while loadingObjects.xml: \n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(6666);
             }
             catch (FormatException err)
             {
-                MessageBox.Show($"A critical error occurred while loading IGameObjects.xml: \n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"A critical error occurred while loading Objects.xml: \n\n{err}", "avant-gardé engine", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(6666);
             }
         }

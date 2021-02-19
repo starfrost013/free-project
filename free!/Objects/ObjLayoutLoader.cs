@@ -1,4 +1,5 @@
-﻿using Emerald.Utilities.Wpf2Sdl; 
+﻿using Emerald.Core;
+using Emerald.Utilities.Wpf2Sdl; 
 using System;
 using System.Collections.Generic;
 using System.IO;

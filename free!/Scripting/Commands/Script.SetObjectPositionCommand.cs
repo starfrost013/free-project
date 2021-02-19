@@ -88,6 +88,7 @@ namespace Free
             if (Parameters.Count != 0)
             {
                 ScriptError.Throw("SetObjectPosition: Must have three parameters!!", 14, 0, "Runtime Error");
+                return; 
             }
 
             // fix this but it's late

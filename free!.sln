@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineCore", "EngineCore\En
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Launcher", "Launcher\Launcher.csproj", "{B4B5AF1F-2D38-4E3E-BF60-98983B43A839}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emerald.Core.StaticSerialiser", "Emerald.Core.StaticSerialiser\Emerald.Core.StaticSerialiser.csproj", "{38AB7380-7162-4C5F-BAFC-37A932B34C6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,18 @@ Global
 		{B4B5AF1F-2D38-4E3E-BF60-98983B43A839}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B4B5AF1F-2D38-4E3E-BF60-98983B43A839}.Release|x64.ActiveCfg = Release|Any CPU
 		{B4B5AF1F-2D38-4E3E-BF60-98983B43A839}.Release|x64.Build.0 = Release|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Debug|x64.Build.0 = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Debug64|Any CPU.ActiveCfg = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Debug64|Any CPU.Build.0 = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Debug64|x64.ActiveCfg = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Debug64|x64.Build.0 = Debug|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Release|x64.ActiveCfg = Release|Any CPU
+		{38AB7380-7162-4C5F-BAFC-37A932B34C6F}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

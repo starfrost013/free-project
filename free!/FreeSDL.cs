@@ -21,9 +21,9 @@ using Emerald.Utilities;
 namespace Free
 {
     /// <summary>
-    /// free! SDL Core
+    /// Emerald Game Engine SDL Core
     /// 
-    /// 2021-01-29
+    /// 2021-01-29 (created 2019-10-30)
     /// </summary>
     public partial class FreeSDL
     {
@@ -77,7 +77,7 @@ namespace Free
 
         public void MainLoop(object sender, EventArgs e)
         {
-            
+           
         }
 
 

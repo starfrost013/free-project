@@ -1,4 +1,5 @@
-﻿using SDLX;
+﻿using Emerald.Core;
+using SDLX;
 using System;
 using System.Collections.Generic;
 using System.IO;

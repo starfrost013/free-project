@@ -23,7 +23,16 @@ namespace Free
 
     public class Error
     {
-        // Totally rewrote this function. It was crap
+        /// <summary>
+        /// Throws an error.
+        /// 
+        /// Todo: rewrite!
+        /// </summary>
+        /// <param name="err"></param>
+        /// <param name="severity"></param>
+        /// <param name="text"></param>
+        /// <param name="caption"></param>
+        /// <param name="id"></param>
         public static void Throw(Exception err, ErrorSeverity severity, string text, string caption = "SDLEmerald", int id = 0)
         {
             App AppCurrent = (App)Application.Current;

@@ -70,7 +70,7 @@ namespace Launcher
         
         private void BootNow_S0_LaunchWPF()
         {
-            Debug.WriteLine("Now launching Windows Presentation Foundation (WPF) free! game [M6 only, deprecated]");
+            Debug.WriteLine("Now launching SDL Emerald...");
             App FreeWpfApp = new App();
             FreeWpfApp.InitializeComponent();
             FreeWpfApp.Run();

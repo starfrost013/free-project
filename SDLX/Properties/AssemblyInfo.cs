@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Emerald Simple DirectMedia Layer Rendering Glue API (SDLX)")]
+[assembly: AssemblyTitle("Emerald SDL2 Renderer DLL")]
 [assembly: AssemblyDescription("Provides easy to use SDL rendering services for the Emerald engine.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("avant-gardé eyes")]
 [assembly: AssemblyProduct("Emerald SDLX")]
-[assembly: AssemblyCopyright("Copyright © 2020 Cosmo/avant-gardé eyes. avant-gardé eyes is Copyright © 2018-2020 Connor Hyde.")]
+[assembly: AssemblyCopyright("Copyright © 2020-2021 Cosmo/avant-gardé eyes. avant-gardé eyes is Copyright © 2018-2020 Connor Hyde.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,5 +33,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.130.21031")]
-[assembly: AssemblyFileVersion("1.0.130.21031")]
+[assembly: AssemblyVersion("1.0.134.21050")]
+[assembly: AssemblyFileVersion("1.0.134.21050")]

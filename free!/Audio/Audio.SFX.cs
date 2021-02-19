@@ -20,6 +20,10 @@ namespace Free
 {
     partial class Level
     {
+        /// <summary>
+        /// Deprecated (2020-02-19); was never used in the first place. We are using NAudio now. 
+        /// </summary>
+        /// <param name="toPlay"></param>
         public void PlaySFX(string toPlay) // i love wonderfully simple code.
         {
             try
