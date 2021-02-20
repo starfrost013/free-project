@@ -1,4 +1,5 @@
-﻿using Emerald.Utilities;
+﻿using Emerald.Core.StaticSerialiser;
+using Emerald.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,6 +77,18 @@ namespace Emerald.Core
         private static void Load_Serialise()
         {
             // Serialise and load the Global Settings XML
+
+            string GlobalSettingsPath = @"Content\GlobalSettings.xml";
+
+            // TODO: SUPPORT RECURSION
+            StaticSerialisationResult SR = StaticSerialiser.StaticSerialiser.Deserialize(typeof(GlobalSettings), GlobalSettingsPath);
+
+            if (!SR.Successful)
+            {
+                // TEMP
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"[TEMP - UNTIL ERROR PORTED TO ENGINECORE] - Fatal global settings serialisation error:\n{SR.Message}");
+                Environment.Exit(0x100FDEAD);
+            }
         }
 
         /// <summary>

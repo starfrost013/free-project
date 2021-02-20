@@ -28,6 +28,7 @@ namespace Free
     {
         public static string DEBUG_COMPONENT_NAME = "Schema-based Object Loader";
 
+        
         public RootObjectCollection NewObjectList { get; set; }
         
         public bool LoadObjects()
@@ -68,7 +69,22 @@ namespace Free
 
         private bool ObjectLoader_LoadObjectList()
         {
-            XmlSerializer Deserialiser = new XmlSerializer(typeof(List<RootObject>));
+            XmlSerializer Deserialiser = new XmlSerializer(typeof(RootObjectCollection));
+
+            try
+            {
+                FileStream FS = new FileStream(@"Content\Objects.xml", FileMode.Open);
+
+                XmlReader XR = XmlReader.Create(FS);
+
+                Deserialiser.Deserialize(XR);
+
+            }
+            catch (DirectoryNotFoundException err)
+            {
+                Error.Throw(err, ErrorSeverity.FatalError, "Fatal error deserialising object list. Cannot find Objects.xml. This game is invalid.")
+            }
+
             return true; 
         }
 

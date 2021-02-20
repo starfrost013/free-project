@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Free
 {
+    [XmlRoot("Objects")]
     public class RootObjectCollection : IEnumerable
     {
         public List<RootObject> RootObjList { get; set; }

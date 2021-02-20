@@ -98,9 +98,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Debug\DebugLogger.cs" />
-    <Compile Include="Core\Game\Game.cs" />
+    <Compile Include="Core\Game\GameDefinition.cs" />
     <Compile Include="Core\Game\GlobalSettings\GlobalSettings.cs" />
-    <Compile Include="Core\Game\EmeraldComponent.cs" />
+    <Compile Include="Core\EmeraldComponent.cs" />
     <Compile Include="Native\NativeMethods.Win32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MultiplatformSupport\Platform.cs" />

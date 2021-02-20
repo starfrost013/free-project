@@ -23,22 +23,25 @@ namespace Emerald.Core
         /// </summary>
         public string ContentFolderLocation { get; set; }
 
-        [XmlElement("")]
+        [XmlElement("DebugEnabled")]
         /// <summary>
         /// Is debug mode enabled for this game?
         /// </summary>
         public bool DebugEnabled { get; set; }
 
+        [XmlElement("GameAuthor")]
         /// <summary>
         /// The author of this game.
         /// </summary>
         public string GameAuthor { get; set; }
 
+        [XmlElement("GameName")]
         /// <summary>
         /// The name of this game.
         /// </summary>
         public string GameName { get; set; }
 
+        [XmlElement("GameVersion")]
         /// <summary>
         /// The version of this game.
         /// </summary>
