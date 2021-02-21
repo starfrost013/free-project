@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 
 /// <summary>
-/// Static native methods.
+/// Static native methods used by Emerald.
 /// </summary>
 
 namespace Free

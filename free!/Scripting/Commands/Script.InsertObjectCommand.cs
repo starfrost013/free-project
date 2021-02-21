@@ -85,7 +85,7 @@ namespace Free
 
         public InsertIGameObjectCommand()
         {
-            MnWindow = (FreeSDL)Application.Current.MainWindow;
+            MnWindow = SDL_Stage0_Init.SDLEngine;
         }
 
         public void Verify()

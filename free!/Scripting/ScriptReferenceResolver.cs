@@ -18,7 +18,7 @@ namespace Free
         public static bool Resolve(ScriptReferenceRunOn EvtClass)
         {
             // WPF only
-            FreeSDL MnWindow = (FreeSDL)Application.Current.MainWindow;
+            FreeSDL MnWindow = SDL_Stage0_Init.SDLEngine;
 
             switch (EvtClass.EventClass)
             {

@@ -35,7 +35,6 @@ namespace Free
         /// <param name="id"></param>
         public static void Throw(Exception err, ErrorSeverity severity, string text, string caption = "SDLEmerald", int id = 0)
         {
-            App AppCurrent = (App)Application.Current;
 
 #if DEBUG
             SDLDebug.LogDebug_C("ERROR", $"An error has occurred with severity {severity}, ID {id}. Error information: {text}\n\n");
@@ -54,14 +53,16 @@ namespace Free
                 case ErrorSeverity.FatalError: // Fatal Error
                     MessageBox.Show($"An error has occurred.\n\nFatal Error #{id}: {text}\n\nDetailed Information: {err}", caption, MessageBoxButton.OK, MessageBoxImage.Error);
 
-                    AppCurrent.SDLGame.Game_Shutdown(); 
+                    // TEMP
+                    SDL_Stage0_Init.SDLGame.Game_Shutdown(); 
 
                     Environment.Exit(id);
                     return;
                 case ErrorSeverity.NonDebugError: // Game crash while not in debug
                     MessageBox.Show($"An error has occurred.\n\nPlease note down or screenshot the details of this error for support purposes and then exit {Settings.GameName}.\n\nError ID {id}: {text}\nDetailed Error Information: {err}", caption, MessageBoxButton.OK, MessageBoxImage.Error);
 
-                    AppCurrent.SDLGame.Game_Shutdown();
+                    // TEMP
+                    SDL_Stage0_Init.SDLGame.Game_Shutdown();
 
                     Environment.Exit(id);
                     return; 

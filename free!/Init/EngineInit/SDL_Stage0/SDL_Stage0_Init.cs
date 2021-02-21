@@ -2,29 +2,38 @@
 using SDLX;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace Free
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
-    {
-        public Game SDLGame { get; set; }
-        private void Application_Activated(object sender, EventArgs e)
-        {
 
-            // temporary
+    /// <summary>
+    /// Emerald Stage 0 initialisation procedure
+    /// 
+    /// Initialises Win32 console functionality and initialises the SDL rendering platform.
+    /// 
+    /// Moved from App.xaml.cs 2021-02-20
+    /// </summary>
+    public static class SDL_Stage0_Init
+    {
+
+        /// <summary>
+        /// still temp...SDL Renderer
+        /// </summary>
+        public static Game SDLGame { get; set; }
+        public static FreeSDL SDLEngine { get; set; }
+
+        [STAThread]
+        public static void Main(string[] Arguments)
+        {   
+
+#if DEBUG
 
             NativeMethods.AllocConsole();
 
-#if DEBUG
             IntPtr _ = NativeMethods.GetConsoleWindow();
 
             if (_ == IntPtr.Zero)
@@ -41,13 +50,8 @@ namespace Free
 
             SDLGame = new Game();
 
-            FreeSDL MnWindow = new FreeSDL();
-            
-            if (!Settings.FeatureControl_DisableWPF)
-            {
-                MnWindow.Show();
-            }
-            
+            SDLEngine = new FreeSDL();
+            SDLEngine.Engine_Init(); 
 
         }
     }

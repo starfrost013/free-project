@@ -81,15 +81,18 @@ namespace SDLX
 
                     // TEMPORARY CODE START DO NOT USE AFTER FREEUI
 
-                    SDL_DrawText();
 
-                    // TEMPORARY CODE END DO NOT USE AFTER FREEUI
 
                 }
-                
 
+                SDL_DrawText();
+
+                // TEMPORARY CODE END DO NOT USE AFTER FREEUI
                 SDL.SDL_RenderPresent(SDL_RenderPtr);
+
             }
+
+            
 
             Game_Shutdown();
 
@@ -119,7 +122,7 @@ namespace SDLX
             IntPtr VerHsx = SDL.SDL_CreateTextureFromSurface(SDL_RenderPtr, EngineVersion);
 
             SDL.SDL_Rect SrcRect = SDL_GetRect(new SDLPoint(0, 0), new SDLPoint(300, 20));
-            SDL.SDL_Rect VerRect = SDL_GetRect(new SDLPoint(500, 250), new SDLPoint(200, 20));
+            SDL.SDL_Rect VerRect = SDL_GetRect(new SDLPoint(0, 40), new SDLPoint(300, 20));
 
             SDL.SDL_Rect DestRect = SrcRect;
             SDL.SDL_Rect VerDestRect = VerRect;

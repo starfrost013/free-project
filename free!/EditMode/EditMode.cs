@@ -38,52 +38,7 @@ namespace Free
 {
     public partial class FreeSDL
     {
-        public void EnterEditMode()
-        {
-            switch (Gamestate)
-            {
-                case GameState.Game: // display scrollbars if edit mode is on
-                    Gamestate = GameState.EditMode;
 
-                    if (!FullScreen) // prevent the drawing from not happening properly if fullscreen off
-                    {
-                        this.Width = 817;
-                        this.Height = 463;
-                    }
-
-                    //Scrollbar.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
-                    //Scrollbar.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
-                    //EditModeMenu.Height = 19;
-                    return;
-                case GameState.EditMode:
-                    Gamestate = GameState.Game;
-
-                    if (!FullScreen)
-                    {
-                        this.Width = 817;
-                        this.Height = 457;
-                    }
-                    //Scrollbar.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
-                    //Scrollbar.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
-                    //EditModeMenu.Height = 0;
-                    return;
-            }
-        }
-
-        private void FileMenu_Load_Click(object sender, RoutedEventArgs e) // we want to load a level, just opens level select
-        {
-            LevelSelect LevelSelect = new LevelSelect(this);
-            LevelSelect.Owner = this;
-            LevelSelect.Show();
-        }
-
-        
-        private void InteractionMenu_Add_Click(object sender, RoutedEventArgs e)
-        {
-            ManageInteractions ManageInteractions = new ManageInteractions(this);
-            ManageInteractions.Owner = this;
-            ManageInteractions.Show();
-        }
 
         private void FileMenu_Save_Click(object sender, RoutedEventArgs e)
         {
@@ -177,12 +132,6 @@ namespace Free
         }
 
 
-        private void GameObjectMenu_GameObjectManager_Click(object sender, RoutedEventArgs e)
-        {
-            IGameObjectManager IGameObjectManager = new IGameObjectManager(this);
-            IGameObjectManager.Owner = this;
-            IGameObjectManager.Show();
-        }
 
     }
 }

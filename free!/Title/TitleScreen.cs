@@ -42,7 +42,7 @@ namespace Free
                 //XSource.DecodePixelHeight = (int)Height;
                 
                 //XSource.EndInit();
-                UpdateLayout();
+                //UpdateLayout();
 
                 TitleInitialized = true;
             }

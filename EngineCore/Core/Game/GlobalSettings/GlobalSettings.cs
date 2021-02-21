@@ -29,12 +29,32 @@ namespace Emerald.Core
         public new static string DEBUG_COMPONENT_NAME = "Global Settings Loader";
 
         [XmlElement("CurrentGameDefinitionPath")]
-        public static string CurrentGameDefinitionPath { get; set; }
+        private static string _currentgamedefinitionpath { get; set; }
+
+        public static string CurrentGameDefinitionPath
+        {
+            get
+            {
+                return _currentgamedefinitionpath;
+            }
+            set
+            {
+                if (value.Length == 0 || !value.Contains('\\'))
+                {
+                    // TEMP
+                    SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, "Attempted to set invalid CurrentGameDefinitionPath!");
+                }
+                else
+                {
+                    _currentgamedefinitionpath = value; 
+                }
+            }
+        }
         /// <summary>
         /// The current game.
         /// </summary>
         public static GameDefinition CurrentGame { get; set; }
-
+         
         public static string GetContentFolderPath() => CurrentGame.ContentFolderLocation;
         public static void SetContentFolderPath(string ContentFolderPathName) => CurrentGame.ContentFolderLocation = ContentFolderPathName;
 

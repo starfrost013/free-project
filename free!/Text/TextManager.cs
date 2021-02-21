@@ -56,7 +56,7 @@ namespace Free
                 if (Text == textblock)
                 {
                     TextList.Remove(Text);
-                    UpdateLayout();
+
                     return;
                 }
             }
@@ -68,7 +68,7 @@ namespace Free
                 if (text.Text == Text)
                 {
                     TextList.Remove(text);
-                    UpdateLayout();
+
                     return;
                 }
             }

@@ -45,8 +45,7 @@ namespace Free
             Gamestate = GameState.Init;
 
             //temp
-            App WinApp = (App)Application.Current;
-            SDLGame = WinApp.SDLGame;
+            SDLGame = SDL_Stage0_Init.SDLGame;
 
             // Load initial structures
             InteractionList = new List<Interaction>();
@@ -55,7 +54,7 @@ namespace Free
             TextList = new List<AGTextBlock>();
             WeaponList = new List<Weapon>();
             ScriptingCore = new SimpleESX();
-            SDLThread = new Thread(new ThreadStart(WinApp.SDLGame.SDL_Main));
+            SDLThread = new Thread(new ThreadStart(SDL_Stage0_Init.SDLGame.SDL_Main));
             // Register the game timer. 
             GameTickTimer = new System.Timers.Timer();
             GameTickTimer.Elapsed += GameTick;
@@ -93,7 +92,7 @@ namespace Free
             LoadIGameObjects();
             SDLDebug.LogDebug_C("BootNow!", "Now initialising main game thread...");
             BootNow_InitMainGameThread();
-            SDLDebug.LogDebug_C("BootNow!", "Now initialising physics engine, version 1.0...");
+            SDLDebug.LogDebug_C("BootNow!", "Now initialising physics engine [old]...");
 
             InitPhysics();
 
@@ -104,7 +103,8 @@ namespace Free
             GameVersion.GetGameVersion(); // maybe make this a static api
 
             //TEMP:
-            Title = $"free! ({GameVersion.GetVersionString()})";
+            // Set SDL title here.
+            //Title = $"free! ({GameVersion.GetVersionString()})";
 
             SDLDebug.LogDebug_C("BootNow!", "Loading levels...");
             Levels = LevelPreloader.LoadLevels(); // Static-class based

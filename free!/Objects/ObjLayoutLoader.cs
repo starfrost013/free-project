@@ -57,7 +57,7 @@ namespace Free
                 // WORKAROUND for weird bug (RETARDED CODE FIX 2020-06-23 21:43)
 
                 // temp
-                FreeSDL MnWindow = (FreeSDL)Application.Current.MainWindow; 
+                FreeSDL MnWindow = SDL_Stage0_Init.SDLEngine; 
 
                 foreach (XmlNode XmlNode in XmlNodes)
                 {                        

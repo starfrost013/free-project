@@ -82,7 +82,7 @@ namespace Free
             }
             catch (DirectoryNotFoundException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, "Fatal error deserialising object list. Cannot find Objects.xml. This game is invalid.")
+                Error.Throw(err, ErrorSeverity.FatalError, "Fatal error deserialising object list. Cannot find Objects.xml. This game is invalid.");
             }
 
             return true; 

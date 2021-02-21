@@ -85,7 +85,7 @@ namespace Free
 
         public DeleteIGameObjectCommand()
         {
-            MnWindow = (FreeSDL)Application.Current.MainWindow;
+            //MnWindow = (FreeSDL)Application.Current.MainWindow;
         }
 
         public void Verify()

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Emerald Game Engine 
+     Global Settings XML
+     © 2019-2021 starfrost [2021.02.20]
+-->
+
+<GlobalSettings>
+  <CurrentGameDefinitionPath>Content\Games\free!\free!.xml</CurrentGameDefinitionPath>
+</GlobalSettings>

@@ -24,15 +24,15 @@ namespace Free
             {
                 case false:
                     FullScreen = true;
-                    this.WindowStyle = WindowStyle.None;
-                    this.WindowState = WindowState.Maximized;
+                    //this.WindowStyle = WindowStyle.None;
+                    //this.WindowState = WindowState.Maximized;
 
 
                     return;
                 case true:
                     FullScreen = false;
-                    this.WindowStyle = WindowStyle.SingleBorderWindow;
-                    this.WindowState = WindowState.Normal;
+                    //this.WindowStyle = WindowStyle.SingleBorderWindow;
+                    //this.WindowState = WindowState.Normal;
 
 
                     return;

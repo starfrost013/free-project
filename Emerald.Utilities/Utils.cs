@@ -285,7 +285,10 @@ namespace Emerald.Utilities
         public static string GetVersion()
         {
             FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.GetCallingAssembly().Location);
-            return FVI.ProductVersion;
+
+
+            string VersionString = $"{FVI.FileVersion} ({FVI.ProductVersion})";
+            return VersionString;
         }
 
         /// <summary>

@@ -25,9 +25,6 @@ using System.Threading.Tasks;
 
 namespace Launcher
 {
-    // IRenderer not really required
-    public enum AvailableRenderers { SDL, WPF };
-
     public static class GameLauncher
     {
         [STAThread]
@@ -43,42 +40,32 @@ namespace Launcher
     /// </summary>
     public class Launch0
     {
+        /// <summary>
+        /// soon this will allow the user to select a game so we aren't getting rid of this weird looking code
+        /// </summary>
         public void BootNow_S0()
         {
-            AvailableRenderers UsingRenderer = AvailableRenderers.SDL;
 
-            Debug.WriteLine("BootNow! stage0 now launching...");
+            Debug.WriteLine("BootNow! prestage0 now launching...");
 
             SettingLoader.LoadSettings();
             
-            BootNow_S0_LaunchS0(UsingRenderer);
+            BootNow_S0_LaunchS0();
 
         }
 
-        private void BootNow_S0_LaunchS0(AvailableRenderers LaunchRenderer)
+        private void BootNow_S0_LaunchS0()
         {
-            switch (LaunchRenderer)
-            {
-                case AvailableRenderers.WPF:
-                    BootNow_S0_LaunchWPF();
-                    return;
-                case AvailableRenderers.SDL:
-                    BootNow_S0_LaunchSDL();
-                    return; 
-            }
+            BootNow_S0_LaunchSDL();
         }
-        
-        private void BootNow_S0_LaunchWPF()
-        {
-            Debug.WriteLine("Now launching SDL Emerald...");
-            App FreeWpfApp = new App();
-            FreeWpfApp.InitializeComponent();
-            FreeWpfApp.Run();
-        }
+
 
         private void BootNow_S0_LaunchSDL()
         {
-            BootNow_S0_LaunchWPF();
+            Debug.WriteLine("Now launching SDL Emerald...");
+            // manually call the entry point
+            SDL_Stage0_Init.Main(new string[] { } ); // fake arguments
+            //FreeSDL FSDL = new FreeSDL();
         }
     }
 }

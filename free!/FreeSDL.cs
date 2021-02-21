@@ -53,26 +53,26 @@ namespace Free
 
         public FreeSDL()
         {
+            // moved to Engine_Init
+            // v4.0.1524.1 [2021-02-21]
+        }
 
+        /// <summary>
+        /// TEMP
+        /// </summary>
+        public void Engine_Init()
+        {
             Engine_BootNow();
             BootNow_SetCurrentLevel(0);
             LoadNow(0);
-
         }
 
         public void GameTick(object sender, EventArgs e)
         {
-            try
-            {
-                this.Dispatcher.Invoke(() =>
-                {
-                    return;
-                });
-            }
-            catch (TaskCanceledException) // BAD but all of our wpf code will be soon obsolete anyway
-            {
-                Close();
-            }
+            // in the future,
+            // this will update everything
+            // as WPF has been completely gutted we are currently doing stuff.
+            return; 
         }
 
         public void MainLoop(object sender, EventArgs e)
