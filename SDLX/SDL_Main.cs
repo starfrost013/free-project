@@ -24,78 +24,74 @@ namespace SDLX
         /// </summary>
         public void SDL_Main()
         {
-            SDL.SDL_Event _ = EventHandler;
 
+            SDL.SDL_Event _ = EventHandler;
             // Initial colour
             SDL_SetBgColour(new SDLColor { R = 170, G = 170, B = 255, A = 255 });
 
             while (RunningNow)
             {
-
                 // Clear the SDL window
                 SDL.SDL_RenderClear(SDL_RenderPtr);
 
-                int LastEvtID = SDL.SDL_PollEvent(out _);
+                int IsEventAvailable = SDL.SDL_PollEvent(out _);
 
-                while (LastEvtID != 0)
+                switch (IsEventAvailable)
                 {
-                    // Check for the events we want to handle.
+                    case 0:
+                        // Draw the background. (TEMP)
 
-                    // The user closed the window so we shutdown the game.
-                    if (_.type == SDL.SDL_EventType.SDL_QUIT)
-                    {
-                        Game_Shutdown();
-                    }
-                    // The user pressed a key.
-                    else if (_.type == SDL.SDL_EventType.SDL_KEYDOWN)
-                    {
-                        HandleKeys(_.key);
-                        break;
-                    }
-                    else
-                    {
-                        break;
-                    }
+                        SDL_DrawBackground();
+
+                        // Render each SDLTexture in the TextureCache. 
+
+                        foreach (SDLSprite SDLSprite in CurrentScene.LevelSprites)
+                        {
+                            if (SDLSprite.Position.X >= (CurrentScene.GameCamera.CameraPosition.X - SDLSprite.Size.X)
+                                && SDLSprite.Position.X <= (CurrentScene.GameCamera.CameraPosition.X + (CurrentScene.Resolution.X + SDLSprite.Size.X))
+                                && SDLSprite.Position.Y >= (CurrentScene.GameCamera.CameraPosition.Y - SDLSprite.Size.Y)
+                                && SDLSprite.Position.Y <= (CurrentScene.GameCamera.CameraPosition.Y + (CurrentScene.Resolution.Y + SDLSprite.Size.Y)))
+                            {
+                                SDL.SDL_Rect SpriteDestRect = SDL_GetRect(new SDLPoint(SDLSprite.Position.X - CurrentScene.GameCamera.CameraPosition.X, SDLSprite.Position.Y - CurrentScene.GameCamera.CameraPosition.Y), new SDLPoint(SDLSprite.RenderRect.w, SDLSprite.RenderRect.h));
+
+                                SDL.SDL_Rect SpriteRenderRect = SDLSprite.RenderRect;
+
+                                SpriteDestRect.x = (int)SDLSprite.Position.X - (int)CurrentScene.GameCamera.CameraPosition.X;
+                                SpriteDestRect.y = (int)SDLSprite.Position.Y - (int)CurrentScene.GameCamera.CameraPosition.Y;
+
+                                SpriteDestRect.w = SpriteRenderRect.w;
+                                SpriteDestRect.h = SpriteRenderRect.h;
+
+
+                                SDL.SDL_RenderCopy(SDL_RenderPtr, SDLSprite.Sprite, ref SpriteRenderRect, ref SpriteDestRect);
+                            }
+
+
+                        }
+
+                        //vtemp
+                        SDL_DrawText();
+
+                        // TEMPORARY CODE END DO NOT USE AFTER FREEUI
+                        SDL.SDL_RenderPresent(SDL_RenderPtr);
+                        continue;
+                    case 1:
+                        switch (_.type)
+                        {
+                            case SDL.SDL_EventType.SDL_QUIT:
+                                Game_Shutdown();
+                                
+                                continue;
+                            case SDL.SDL_EventType.SDL_KEYDOWN:
+                                HandleKeys(_.key);
+
+                                continue;
+
+                        }
+
+                        continue;
+
                 }
-
-                // Draw the background. (TEMP)
-
-                SDL_DrawBackground();
-
-
-                // Render each SDLTexture in the TextureCache. 
-
-                foreach (SDLSprite SDLSprite in CurrentScene.LevelSprites)
-                {
-                    if (SDLSprite.Position.X >= (CurrentScene.GameCamera.CameraPosition.X - SDLSprite.Size.X)
-                        && SDLSprite.Position.X <= (CurrentScene.GameCamera.CameraPosition.X + (CurrentScene.Resolution.X + SDLSprite.Size.X))
-                        && SDLSprite.Position.Y >= (CurrentScene.GameCamera.CameraPosition.Y - SDLSprite.Size.Y)
-                        && SDLSprite.Position.Y <= (CurrentScene.GameCamera.CameraPosition.Y + (CurrentScene.Resolution.Y + SDLSprite.Size.Y)))
-                    {
-                        SDL.SDL_Rect SpriteDestRect = SDL_GetRect(new SDLPoint(SDLSprite.Position.X - CurrentScene.GameCamera.CameraPosition.X, SDLSprite.Position.Y - CurrentScene.GameCamera.CameraPosition.Y), new SDLPoint(SDLSprite.RenderRect.w, SDLSprite.RenderRect.h));
-
-                        SDL.SDL_Rect SpriteRenderRect = SDLSprite.RenderRect;
-
-                        SpriteDestRect.x = (int)SDLSprite.Position.X - (int)CurrentScene.GameCamera.CameraPosition.X;
-                        SpriteDestRect.y = (int)SDLSprite.Position.Y - (int)CurrentScene.GameCamera.CameraPosition.Y;
-
-                        SpriteDestRect.w = SpriteRenderRect.w;
-                        SpriteDestRect.h = SpriteRenderRect.h;
-
-
-                        SDL.SDL_RenderCopy(SDL_RenderPtr, SDLSprite.Sprite, ref SpriteRenderRect, ref SpriteDestRect);
-                    }
-
-                    // TEMPORARY CODE START DO NOT USE AFTER FREEUI
-
-
-
-                }
-
-                SDL_DrawText();
-
-                // TEMPORARY CODE END DO NOT USE AFTER FREEUI
-                SDL.SDL_RenderPresent(SDL_RenderPtr);
 
             }
 

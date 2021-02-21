@@ -64,6 +64,7 @@ namespace Launcher
         {
             Debug.WriteLine("Now launching SDL Emerald...");
             // manually call the entry point
+            GlobalSettings.Load(); 
             SDL_Stage0_Init.Main(new string[] { } ); // fake arguments
             //FreeSDL FSDL = new FreeSDL();
         }
