@@ -14,11 +14,8 @@ namespace Free
         {
             MainLoopTimer = new Timer();
             MainLoopTimer.Enabled = true;
-            MainLoopTimer.Stop(); 
             MainLoopTimer.Interval = 0.001;
             MainLoopTimer.Elapsed += MainLoop;
-
-
 
         }
     }

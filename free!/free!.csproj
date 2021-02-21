@@ -152,15 +152,6 @@
     <Compile Include="Collision\Collision.cs" />
     <Compile Include="Collision\CollisionV2.cs" />
     <Compile Include="EditMode\EditMode.cs" />
-    <Compile Include="EditMode\EditMode.ManageInteractions.xaml.cs">
-      <DependentUpon>EditMode.ManageInteractions.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EditMode\EditMode.MoveObject.xaml.cs">
-      <DependentUpon>EditMode.MoveObject.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EditMode\EditMode.ObjectManagerV2.xaml.cs">
-      <DependentUpon>EditMode.ObjectManagerV2.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Error\Error.cs" />
     <Compile Include="Error\ScriptParseError\ScriptError.cs" />
     <Compile Include="Error\ScriptParseError\ScriptParseError.xaml.cs">
@@ -171,7 +162,6 @@
     <Compile Include="Init\EngineInit\Engine_BootNow_InitMainGameThread.cs" />
     <Compile Include="Init\EngineInit\Engine_BootNow_ShutdownEngine.cs" />
     <Compile Include="Init\EngineInit\SDL_Stage0\SDL_Stage0_Init.cs" />
-    <Compile Include="Init\EngineInit\SDL_Stage1\SDL_Stage1_Init.cs" />
     <Compile Include="Interactions\Interaction.cs" />
     <Compile Include="Interactions\InteractionManager.Bounce.cs" />
     <Compile Include="Interactions\InteractionManager.BounceRight.cs" />
@@ -239,22 +229,6 @@
     <Compile Include="Weapon\WeaponLoader.cs" />
     <Compile Include="Weapon\WeaponManager.cs" />
     <Compile Include="Window\WindowType.cs" />
-    <Page Include="EditMode\EditMode.ManageInteractions.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EditMode\EditMode.MoveObject.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="EditMode\EditMode.ObjectManagerV2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EditMode\LevelSelect.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Error\ScriptParseError\ScriptParseError.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -263,9 +237,6 @@
     <Compile Include="Controls\ControlsLoader.cs" />
     <Compile Include="Init\Init.cs" />
     <Compile Include="Level\Level.cs" />
-    <Compile Include="EditMode\LevelSelect.xaml.cs">
-      <DependentUpon>LevelSelect.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Level\LevelLoader.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -119,11 +119,12 @@ namespace Free
             }
             
             GameTickTimer.Start();
-            //if (Settings.UseSDLX) MainLoopTimer.Start(); 
 
             // Temporary. We will have an SDLLoad function. 
+            MainLoopTimer.Start();
             SDLThread.Start();
             PhysicsTimer.Start();
+            
         }
     }
 }

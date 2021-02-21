@@ -14,8 +14,8 @@ namespace Free
         public void BootNow_SetCurrentLevel(int LevelId)
         {
             // Clear all loaded scripts.
-            ScriptingCore.ClearLoadedScripts(); 
-            
+            ScriptingCore.ClearLoadedScripts();
+
             Level level = null;
             
             // Get the level with this level id./
@@ -27,6 +27,9 @@ namespace Free
                     level = Level;
                 }
             }
+
+            // temp
+            SDL_Stage0_Init.SDLGame.CurrentScene.SDL_LoadLevel(level.BGPATH);
 
             // Error checking
             if (level == null) Error.Throw(null, ErrorSeverity.FatalError, "Fatal Error: Failed to set level!", "Fatal Error", 86);
@@ -56,7 +59,7 @@ namespace Free
             }
             catch (FileNotFoundException err)
             {
-                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent level. This is most likely because a change level IGameObject attempted to trigger its interaction but the next level by ID doesn't exist (yet).", "avant-gardé engine", 7);
+                Error.Throw(err, ErrorSeverity.FatalError, "Attempted to load a non-existent level. This is most likely because a change level object attempted to trigger its interaction but the next level by ID doesn't exist (yet).", "avant-gardé engine", 7);
                 return;
             }
             catch (PathTooLongException err)

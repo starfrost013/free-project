@@ -113,7 +113,7 @@ namespace SDLX
                 SDL_RenderPtr = _2;
 
                 CurrentScene.PreLoadScene();
-
+                
                 RunningNow = true;
 
                 return true;

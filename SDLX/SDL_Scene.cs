@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 /// 
 /// Version: 1.30
 /// 
-/// Purpose: Handles SDL-based rendering engine scenes. 
+/// Purpose: Handles SDL-based rendering engine scenes. TODO: MERGE EVERYTHING HERE
 /// 
 /// </summary>
 
@@ -26,7 +26,7 @@ namespace SDLX
 {
     public partial class GameScene
     {
-        public SDLSprite Background { get; set; } // We might need to fix this before it gets out of control...Shared classes?
+        public SDLSprite Background { get; set; } // We might need to fix this before it gets out of control...Shared classes (RootObject will contain SDL code?)
         public List<SDLSprite> LevelSprites { get; set; }
         public GameCamera GameCamera { get; set; }
         public SDLPoint Resolution { get; set; }
@@ -41,6 +41,7 @@ namespace SDLX
             TextureCache = new SDL_Cache();
             TextureCache.CachedItems = new List<SDL_CachedItem>();
             LevelSprites = new List<SDLSprite>();
+            
         }
 
         public void SDL_LoadLevel(string BackgroundPath)
@@ -48,6 +49,9 @@ namespace SDLX
             LoadScene(BackgroundPath);
         }
 
+        /// <summary>
+        /// temporary
+        /// </summary>
         public void PreLoadScene()
         {
             TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS = SDL_ttf.TTF_OpenFont("consolaz.ttf", 18);

@@ -54,11 +54,14 @@ namespace Free
             TextList = new List<AGTextBlock>();
             WeaponList = new List<Weapon>();
             ScriptingCore = new SimpleESX();
+
+
+
             SDLThread = new Thread(new ThreadStart(SDL_Stage0_Init.SDLGame.SDL_Main));
             // Register the game timer. 
             GameTickTimer = new System.Timers.Timer();
             GameTickTimer.Elapsed += GameTick;
-            GameTickTimer.Interval = 0.001; // We run AFAP as of 2020-05-26
+            GameTickTimer.Interval = 0.15; // We run AFAP as of 2020-05-26
 
             // Load everything that we can load at init
             SDLDebug.LogDebug_C("BootNow!", "Loading settings...");
@@ -68,11 +71,20 @@ namespace Free
 
             SDLDebug.LogDebug_C("SDL2 Renderer", "Now Initialising...");
 
+
+            //TEMP:
+            // Set SDL title here.
+            //Title = $"free! ({GameVersion.GetVersionString()})";
+
+
             if (!SDLGame.Game_Init())
             {
-                Error.Throw(null, ErrorSeverity.FatalError, "SDL Initialisation failure. Cannot initalise K19.", "SDLEmerald", 0x400DEAD); 
+                Error.Throw(null, ErrorSeverity.FatalError, "SDL Initialisation failure. Cannot initalise K19.", "SDLEmerald", 0x400DEAD);
             }
 
+
+            SDLDebug.LogDebug_C("BootNow!", "Loading levels...");
+            Levels = LevelPreloader.LoadLevels(); // Static-class based
 
             SDLDebug.LogDebug_C("BootNow!", "Now initialising SimpleESX...");
             ScriptingCore.LoadReflection();
@@ -88,12 +100,12 @@ namespace Free
             LoadAnimations();
             SDLDebug.LogDebug_C("BootNow!", "Now initialising text XML (deprecated)...");
             LoadTextXml();
+
             SDLDebug.LogDebug_C("BootNow!", "Now initialising master GameObject list...");
             LoadIGameObjects();
             SDLDebug.LogDebug_C("BootNow!", "Now initialising main game thread...");
             BootNow_InitMainGameThread();
             SDLDebug.LogDebug_C("BootNow!", "Now initialising physics engine [old]...");
-
             InitPhysics();
 
             // Get version
@@ -102,12 +114,7 @@ namespace Free
             SDLDebug.LogDebug_C("BootNow!", "Acquiring detailed versioning information...");
             GameVersion.GetGameVersion(); // maybe make this a static api
 
-            //TEMP:
-            // Set SDL title here.
-            //Title = $"free! ({GameVersion.GetVersionString()})";
 
-            SDLDebug.LogDebug_C("BootNow!", "Loading levels...");
-            Levels = LevelPreloader.LoadLevels(); // Static-class based
 
             Gamestate = GameState.Menu;
 

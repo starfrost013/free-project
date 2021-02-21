@@ -1,5 +1,6 @@
 ﻿using Emerald.Core;
 using Emerald.Utilities;
+using SDLX;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -76,6 +77,8 @@ namespace Free
                                         continue;
                                     case "BGPath": // The path to the level's background.
                                         CurrentLevel.BGPATH = XLevelGrandchild.InnerText;
+                                        // very temp
+                                        SDL_Stage0_Init.SDLGame.CurrentScene.Background.Path = CurrentLevel.BGPATH;
                                         SDLDebug.LogDebug_C("Level Loader V2.0", $"Background path = {CurrentLevel.BGPATH}\n");
                                         continue;
                                     case "ObjectLayoutPath": // The path to the IGameObject layout of the level.

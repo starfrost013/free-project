@@ -35,7 +35,9 @@ namespace SDLX
                 // Clear the SDL window
                 SDL.SDL_RenderClear(SDL_RenderPtr);
 
-                while (SDL.SDL_PollEvent(out _) != 0)
+                int LastEvtID = SDL.SDL_PollEvent(out _);
+
+                while (LastEvtID != 0)
                 {
                     // Check for the events we want to handle.
 
@@ -48,6 +50,11 @@ namespace SDLX
                     else if (_.type == SDL.SDL_EventType.SDL_KEYDOWN)
                     {
                         HandleKeys(_.key);
+                        break;
+                    }
+                    else
+                    {
+                        break;
                     }
                 }
 
@@ -91,8 +98,6 @@ namespace SDLX
                 SDL.SDL_RenderPresent(SDL_RenderPtr);
 
             }
-
-            
 
             Game_Shutdown();
 
