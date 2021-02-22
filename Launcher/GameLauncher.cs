@@ -47,7 +47,7 @@ namespace Launcher
         {
 
             Debug.WriteLine("BootNow! prestage0 now launching...");
-
+            GlobalSettings.Load();
             SettingLoader.LoadSettings();
             
             BootNow_S0_LaunchS0();
@@ -64,7 +64,7 @@ namespace Launcher
         {
             Debug.WriteLine("Now launching SDL Emerald...");
             // manually call the entry point
-            GlobalSettings.Load(); 
+            
             SDL_Stage0_Init.Main(new string[] { } ); // fake arguments
             //FreeSDL FSDL = new FreeSDL();
         }

@@ -25,6 +25,7 @@ namespace Emerald.Utilities
             {
                 // Temporary code.
                 BW.Seek(0, SeekOrigin.End);
+                BW.Write("\n");
                 BW.Write($"[Emerald {Component} @ {DateTime.Now}]: {Text}\n");
             }
 

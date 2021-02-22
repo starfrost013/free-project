@@ -28,7 +28,7 @@ namespace Free
 
                 if (Settings.DemoMode) Settings.DemoModeMaxLevel = GameSettings.GetInt("DemoModeMaxLevel");
 
-                Settings.Resolution = GameSettings.GetPoint_V2("Resolution");
+                Settings.Resolution = GameSettings.GetPoint("Resolution");
 
                 Settings.TitleScreenPath = GameSettings.GetString("TitleScreenPath");
 

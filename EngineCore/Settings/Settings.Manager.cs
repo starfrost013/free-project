@@ -217,29 +217,7 @@ namespace Emerald.Core
         /// </summary>
         /// <param name="SettingsElement">The element name to grab.</param>
         /// <returns></returns>
-        public static Point GetPoint(string SettingsElement)
-        {
-            XmlNode XRoot = LoadSettingsXml();
-            XmlNode XElement = GetNode(XRoot, SettingsElement);
-
-            // throw an error if xelement is null
-            if (XElement == null)
-            {
-                MessageBox.Show($"Temp error. Attempted to load invalid setting point! Error 18!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                Application.Current.Shutdown(18);
-            }
-
-            Point XY = XElement.InnerText.SplitXY();
-
-            return XY;
-        }
-        
-            /// <summary>
-        /// Obtains a point setting.
-        /// </summary>
-        /// <param name="SettingsElement">The element name to grab.</param>
-        /// <returns></returns>
-        public static SDLPoint GetPoint_V2(string SettingsElement)
+        public static SDLPoint GetPoint(string SettingsElement)
         {
             XmlNode XRoot = LoadSettingsXml();
             XmlNode XElement = GetNode(XRoot, SettingsElement);

@@ -158,7 +158,7 @@
       <DependentUpon>ScriptParseError.xaml</DependentUpon>
     </Compile>
     <Compile Include="FreeSDL.cs" />
-    <Compile Include="Init\EngineInit\Engine_BootNow_WPF_Stage1.cs" />
+    <Compile Include="Init\EngineInit\Engine_BootNow_Stage1.cs" />
     <Compile Include="Init\EngineInit\Engine_BootNow_InitMainGameThread.cs" />
     <Compile Include="Init\EngineInit\Engine_BootNow_ShutdownEngine.cs" />
     <Compile Include="Init\EngineInit\SDL_Stage0\SDL_Stage0_Init.cs" />
@@ -259,14 +259,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Resource Include="Content\GlobalSettings.xml" />
+    <Content Include="Content\GlobalSettings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\libfreetype-6.dll" />
     <Content Include="Content\SDL2_image.dll" />
     <Content Include="Content\SDL2_ttf.dll" />
     <Content Include="Content\zlib1.dll" />
-    <None Include="Content\Schema\GlobalSettings.xsd">
+    <Content Include="Content\Schema\GlobalSettings.xsd">
       <SubType>Designer</SubType>
-    </None>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="LICENSE" />
     <None Include="README.md" />
     <Resource Include="Emerald.ico" />
