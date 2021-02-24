@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emerald.Core;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace Free
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();
-                XmlDocument.Load(@"Content\Controls.xml");
+                XmlDocument.Load($@"{GlobalSettings.CurrentGame.ContentFolderLocation}\Controls.xml");
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 
                 while (XmlRootNode.Name != "Controls")

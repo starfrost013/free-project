@@ -15,7 +15,7 @@ namespace Free
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();
-                XmlDocument.Load(@"Content\AI.xml");
+                XmlDocument.Load($@"{GlobalSettings.CurrentGame.ContentFolderLocation}\AI.xml");
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 
                 while (XmlRootNode.Name != "AIDefinitions")

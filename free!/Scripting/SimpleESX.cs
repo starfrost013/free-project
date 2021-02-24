@@ -36,7 +36,7 @@ namespace Free
             try
             {
                 XmlDocument XDoc = new XmlDocument();
-                XDoc.Load(@"Content\Game\ReflectionMetadata.xml");
+                XDoc.Load($@"{GlobalSettings.CurrentGame.ContentFolderLocation}\Game\ReflectionMetadata.xml");
 
                 if (!XDoc.HasChildNodes)
                 {

@@ -28,7 +28,7 @@ namespace Free
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();
-                XmlDocument.Load(@"Content\Objects.xml");
+                XmlDocument.Load($@"{GlobalSettings.CurrentGame.ContentFolderLocation}\Objects.xml");
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 
                 while (XmlRootNode.Name != "Objects")

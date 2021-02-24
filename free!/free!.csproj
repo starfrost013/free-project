@@ -175,7 +175,6 @@
     <Compile Include="Objects\Humanoid\Humanoid.cs" />
     <Compile Include="Objects\Humanoid\HumanoidState.cs" />
     <Compile Include="Objects\IGameObject.cs" />
-    <Compile Include="Objects\Loader\ObjLoader.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.AddObject.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.ChangeLevel.cs" />
     <Compile Include="Objects\ObjectAPI\ObjectAPI.DeleteObject.cs" />
@@ -265,7 +264,9 @@
     <Content Include="Content\GlobalSettings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\libfreetype-6.dll" />
+    <Content Include="Content\libfreetype-6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\SDL2_image.dll" />
     <Content Include="Content\SDL2_ttf.dll" />
     <Content Include="Content\zlib1.dll" />
@@ -285,51 +286,59 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Content Include="Content\Game\GameOver.pdn" />
-    <Content Include="Content\Game\lessurgent.pdn" />
-    <Content Include="Content\Game\LoadingTemplate.pdn" />
-    <Content Include="Content\Game\Scripts\PlayerCore.esx">
+    <Content Include="Content\Games\free!\Game\GameOver.pdn" />
+    <Content Include="Content\Games\free!\Game\lessurgent.pdn" />
+    <Content Include="Content\Games\free!\Game\LoadingTemplate.pdn" />
+    <Content Include="Content\Games\free!\Game\Scripts\PlayerCore.esx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Game\Title.pdn" />
-    <Content Include="Content\Game\TitleV2.pdn" />
-    <Content Include="Content\Game\urgent.pdn" />
-    <Content Include="Content\Game\urgent2.pdn" />
-    <None Include="Content\HUD\HUDTimeConcept.pdn" />
-    <None Include="Content\HUD\Level.pdn" />
-    <Content Include="Content\Game\ReflectionMetadata.xml">
+    <Content Include="Content\Games\free!\Game\Title.pdn" />
+    <Content Include="Content\Games\free!\Game\TitleV2.pdn" />
+    <Content Include="Content\Games\free!\Game\urgent.pdn" />
+    <Content Include="Content\Games\free!\Game\urgent2.pdn" />
+    <None Include="Content\Games\free!\HUD\HUDTimeConcept.pdn" />
+    <None Include="Content\Games\free!\HUD\Level.pdn" />
+    <Content Include="Content\Games\free!\Game\ReflectionMetadata.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\LevelsV2.xml">
+    <Content Include="Content\Games\free!\LevelsV2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level00.pdn">
+    <Content Include="Content\Games\free!\Levels\Level00.pdn">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level06.pdn">
+    <Content Include="Content\Games\free!\Levels\Level06.pdn">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Content\Objects\Player\TrincidStanding.pdn" />
-    <None Include="Content\Objects\Player\TrincidStandingL.pdn" />
-    <None Include="Content\Objects\Spring.pdn" />
-    <None Include="Content\Objects\Stg00\SnowCoveredTree.pdn" />
-    <None Include="Content\Objects\Stg00\Stg00_trincidshouse_01.pdn" />
-    <None Include="Content\Objects\Stg06\Stg06_chemicaldisposal_01.pdn" />
-    <None Include="Content\Objects\Stg06\Stg06_chemicaldisposal_02.pdn">
+    <None Include="Content\Games\free!\Objects\Player\TrincidStanding.pdn" />
+    <None Include="Content\Games\free!\Objects\Player\TrincidStandingL.pdn" />
+    <None Include="Content\Games\free!\Objects\Spring.pdn" />
+    <None Include="Content\Games\free!\Objects\Stg00\SnowCoveredTree.pdn" />
+    <None Include="Content\Games\free!\Objects\Stg00\Stg00_trincidshouse_01.pdn" />
+    <None Include="Content\Games\free!\Objects\Stg06\Stg06_chemicaldisposal_01.pdn" />
+    <None Include="Content\Games\free!\Objects\Stg06\Stg06_chemicaldisposal_02.pdn">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Content\Objects\Stg06\Stg06_Load.pdn" />
-    <None Include="Content\Objects\Stg06\Stg06_tunnel_01.pdn" />
-    <None Include="Content\Objects\Stg06\Stg06_tunnel_02.pdn" />
-    <None Include="Content\Objects\Stg06\Stg06_wall_01.pdn" />
-    <None Include="Content\Objects\Stg06\Stg06_wall_02.pdn" />
-    <None Include="Content\Objects\Stg06\Stg06_wall_02_top.pdn" />
-    <None Include="Content\Objects\Stg06\Stg06_wall_platform_01.pdn" />
-    <None Include="Content\Objects\TestObjectPriority2.pdn" />
-    <Content Include="Content\libjpeg-9.dll" />
-    <Content Include="Content\libpng16-16.dll" />
-    <Content Include="Content\libtiff-5.dll" />
-    <Content Include="Content\libwebp-7.dll" />
+    <None Include="Content\Games\free!\Objects\Stg06\Stg06_Load.pdn" />
+    <None Include="Content\Games\free!\Objects\Stg06\Stg06_tunnel_01.pdn" />
+    <None Include="Content\Games\free!\Objects\Stg06\Stg06_tunnel_02.pdn" />
+    <None Include="Content\Games\free!\Objects\Stg06\Stg06_wall_01.pdn" />
+    <None Include="Content\Games\free!\Objects\Stg06\Stg06_wall_02.pdn" />
+    <None Include="Content\Games\free!\Objects\Stg06\Stg06_wall_02_top.pdn" />
+    <None Include="Content\Games\free!\Objects\Stg06\Stg06_wall_platform_01.pdn" />
+    <None Include="Content\Games\free!\Objects\TestObjectPriority2.pdn" />
+    <Content Include="Content\libjpeg-9.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\libpng16-16.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\libtiff-5.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\libwebp-7.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\PrepareRelease.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -355,37 +364,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\AI.xml">
+    <Content Include="Content\Games\free!\AI.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Animations.xml">
+    <Content Include="Content\Games\free!\Animations.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Audio\TowerLightFireworks.mp3">
+    <Content Include="Content\Games\free!\Audio\TowerLightFireworks.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Controls.xml">
+    <Content Include="Content\Games\free!\Controls.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Game\GameOver.png">
+    <Content Include="Content\Games\free!\Game\GameOver.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Game\Placeholder.png">
+    <Content Include="Content\Games\free!\Game\Placeholder.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Game\Title.png">
+    <Content Include="Content\Games\free!\Game\Title.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Game\TitleV2.png">
+    <Content Include="Content\Games\free!\Game\TitleV2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\HUD\Level.png">
+    <Content Include="Content\Games\free!\HUD\Level.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\HUD\Lives.png">
+    <Content Include="Content\Games\free!\HUD\Lives.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Interactions.xml">
+    <Content Include="Content\Games\free!\Interactions.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\InteractionTypes.txt">
@@ -394,260 +403,260 @@
     <Content Include="Content\LevelsIdeasAndThings.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level00.png">
+    <Content Include="Content\Games\free!\Levels\Level00.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level00_obj.xml">
+    <Content Include="Content\Games\free!\Levels\Level00_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level01.png">
+    <Content Include="Content\Games\free!\Levels\Level01.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level01_obj.xml">
+    <Content Include="Content\Games\free!\Levels\Level01_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level02.png">
+    <Content Include="Content\Games\free!\Levels\Level02.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level02_obj.xml">
+    <Content Include="Content\Games\free!\Levels\Level02_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level03.png">
+    <Content Include="Content\Games\free!\Levels\Level03.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level03_obj.xml">
+    <Content Include="Content\Games\free!\Levels\Level03_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level04.png">
+    <Content Include="Content\Games\free!\Levels\Level04.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level04_obj.xml">
+    <Content Include="Content\Games\free!\Levels\Level04_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level05.png">
+    <Content Include="Content\Games\free!\Levels\Level05.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level05_obj.xml">
+    <Content Include="Content\Games\free!\Levels\Level05_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level06.png">
+    <Content Include="Content\Games\free!\Levels\Level06.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level06_obj.xml">
+    <Content Include="Content\Games\free!\Levels\Level06_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level06_text.xml">
+    <Content Include="Content\Games\free!\Levels\Level06_text.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level07.png">
+    <Content Include="Content\Games\free!\Levels\Level07.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level07_obj.xml">
+    <Content Include="Content\Games\free!\Levels\Level07_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level08.png">
+    <Content Include="Content\Games\free!\Levels\Level08.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level08_obj.xml">
+    <Content Include="Content\Games\free!\Levels\Level08_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level09.png">
+    <Content Include="Content\Games\free!\Levels\Level09.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level09_obj.xml">
+    <Content Include="Content\Games\free!\Levels\Level09_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level10.png">
+    <Content Include="Content\Games\free!\Levels\Level10.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level10_obj.xml">
+    <Content Include="Content\Games\free!\Levels\Level10_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level11.png">
+    <Content Include="Content\Games\free!\Levels\Level11.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level11_obj.xml">
+    <Content Include="Content\Games\free!\Levels\Level11_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level12.png">
+    <Content Include="Content\Games\free!\Levels\Level12.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Level12_obj.xml">
+    <Content Include="Content\Games\free!\Levels\Level12_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Content\Levels\Testdebugmodexmloutput2.xml" />
-    <Resource Include="Content\Levels\Testdebugmodexmloutput3.xml" />
-    <Resource Include="Content\Levels\Testdebugmodexmloutput4.xml" />
-    <Resource Include="Content\Levels\Testdebugmodexmloutput5.xml" />
-    <Content Include="Content\Levels\TestLevel.png">
+    <Resource Include="Content\Games\free!\Levels\Testdebugmodexmloutput2.xml" />
+    <Resource Include="Content\Games\free!\Levels\Testdebugmodexmloutput3.xml" />
+    <Resource Include="Content\Games\free!\Levels\Testdebugmodexmloutput4.xml" />
+    <Resource Include="Content\Games\free!\Levels\Testdebugmodexmloutput5.xml" />
+    <Content Include="Content\Games\free!\Levels\TestLevel.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\TestLevel_obj.xml">
+    <Content Include="Content\Games\free!\Levels\TestLevel_obj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects.xml">
+    <Content Include="Content\Games\free!\Objects.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\AnimationTest.png">
+    <Content Include="Content\Games\free!\Objects\AnimationTest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\AnimationTest2.png">
+    <Content Include="Content\Games\free!\Objects\AnimationTest2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\AnimationTest_Idle.png">
+    <Content Include="Content\Games\free!\Objects\AnimationTest_Idle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\DebugMode.png">
+    <Content Include="Content\Games\free!\Objects\DebugMode.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\FloorTEMPORARY.png">
+    <Content Include="Content\Games\free!\Objects\FloorTEMPORARY.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\General\Yousay.png">
+    <Content Include="Content\Games\free!\Objects\General\Yousay.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\PlaceHolderLarge.png">
+    <Content Include="Content\Games\free!\Objects\PlaceHolderLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\PlaceHolderMedium.png">
+    <Content Include="Content\Games\free!\Objects\PlaceHolderMedium.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\PlaceHolderSmall.png">
+    <Content Include="Content\Games\free!\Objects\PlaceHolderSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\PlaceHolderXSmall.png">
+    <Content Include="Content\Games\free!\Objects\PlaceHolderXSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\PlayerTEMPORARY.png">
+    <Content Include="Content\Games\free!\Objects\PlayerTEMPORARY.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Player\TrincidIdle.png">
+    <Content Include="Content\Games\free!\Objects\Player\TrincidIdle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Player\TrincidIdleL.png">
+    <Content Include="Content\Games\free!\Objects\Player\TrincidIdleL.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Player\TrincidStanding.png">
+    <Content Include="Content\Games\free!\Objects\Player\TrincidStanding.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Spring.png">
+    <Content Include="Content\Games\free!\Objects\Spring.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\SpringLeft.png">
+    <Content Include="Content\Games\free!\Objects\SpringLeft.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\SpringRight.png">
+    <Content Include="Content\Games\free!\Objects\SpringRight.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg00\SnowCoveredTree.png">
+    <Content Include="Content\Games\free!\Objects\Stg00\SnowCoveredTree.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg00\Stg00_trincidshouse_01.png">
+    <Content Include="Content\Games\free!\Objects\Stg00\Stg00_trincidshouse_01.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_chemicaldisposal_02.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_chemicaldisposal_02.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_Load.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_Load.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_01.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_toxic_water_01.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_01_idle.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_toxic_water_01_idle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_02.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_toxic_water_02.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_03.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_toxic_water_03.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_04.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_toxic_water_04.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_05.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_toxic_water_05.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_06.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_toxic_water_06.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_07.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_toxic_water_07.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_08.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_toxic_water_08.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_09.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_toxic_water_09.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_toxic_water_10.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_toxic_water_10.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_tunnel_01.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_tunnel_01.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_wall_01.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_wall_01.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_wall_02.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_wall_02.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_wall_02_top.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_wall_02_top.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\Stg06\Stg06_wall_platform_01.png">
+    <Content Include="Content\Games\free!\Objects\Stg06\Stg06_wall_platform_01.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\TestObject.png">
+    <Content Include="Content\Games\free!\Objects\TestObject.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\TestObjectPriority.png">
+    <Content Include="Content\Games\free!\Objects\TestObjectPriority.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\TestObjectPriority2.png">
+    <Content Include="Content\Games\free!\Objects\TestObjectPriority2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\TestObjectPriority3.png">
+    <Content Include="Content\Games\free!\Objects\TestObjectPriority3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\TestObjectPriority4.png">
+    <Content Include="Content\Games\free!\Objects\TestObjectPriority4.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\TestObjectPriority5.png">
+    <Content Include="Content\Games\free!\Objects\TestObjectPriority5.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Objects\TestObjectPriority6.png">
+    <Content Include="Content\Games\free!\Objects\TestObjectPriority6.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\REMIND COSMO.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Settings.xml">
+    <Content Include="Content\Games\free!\Settings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Text.xml">
+    <Content Include="Content\Games\free!\Text.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Weapons.xml">
+    <Content Include="Content\Games\free!\Weapons.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Weapons\TestWeapon.png">
+    <Content Include="Content\Games\free!\Weapons\TestWeapon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Weapons\TestWeapon_Ammo.png">
+    <Content Include="Content\Games\free!\Weapons\TestWeapon_Ammo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Weapons\TestWeapon_Ammo_Explode_01.png">
+    <Content Include="Content\Games\free!\Weapons\TestWeapon_Ammo_Explode_01.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Weapons\TestWeapon_Ammo_Explode_02.png">
+    <Content Include="Content\Games\free!\Weapons\TestWeapon_Ammo_Explode_02.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Weapons\TestWeapon_Ammo_Explode_03.png">
+    <Content Include="Content\Games\free!\Weapons\TestWeapon_Ammo_Explode_03.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Weapons\TestWeapon_Ammo_Explode_04.png">
+    <Content Include="Content\Games\free!\Weapons\TestWeapon_Ammo_Explode_04.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

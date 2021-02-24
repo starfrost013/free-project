@@ -48,7 +48,7 @@ namespace Launcher
 
             Debug.WriteLine("BootNow! prestage0 now launching...");
             GlobalSettings.Load();
-            SettingLoader.LoadSettings();
+            
             
             BootNow_S0_LaunchS0();
 

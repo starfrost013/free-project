@@ -29,7 +29,7 @@ namespace Free
             try
             {
                 XmlDocument XDoc = new XmlDocument();
-                XDoc.Load(@"Content\LevelsV2.xml");
+                XDoc.Load($@"{GlobalSettings.CurrentGame.ContentFolderLocation}\LevelsV2.xml");
 
                 XmlNode XRootNode = XDoc.FirstChild;
 

@@ -32,7 +32,7 @@ namespace Free
             {
                 XmlDocument XmlDocument = new XmlDocument();
 
-                XmlDocument.Load(@"Content\Weapons.xml");
+                XmlDocument.Load($@"{GlobalSettings.CurrentGame.ContentFolderLocation}\Weapons.xml");
 
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 

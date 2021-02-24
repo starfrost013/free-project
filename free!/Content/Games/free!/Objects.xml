@@ -1,0 +1,43 @@
+<!--If you know what You Say! references, you get a cookie. DM me at @starfrost013 on Twitter if you get this ;)-->
+
+<Objects>
+	<Object id="0" name="TestObject" objimage="Content\Games\free!\Objects\TestObject.png" collision="true" gravity="true" cansnap="true"></Object>
+	<Object id="1" name="Trincid" objimage="Content\Games\free!\Objects\Player\TrincidStanding.png" gravity="true" hitbox="8,45,33,63" collision="true" isplayer="true" mass="1" issentient="true">
+    <AssociatedScript>
+    <Name>Player Core Script</Name>
+    <Path>Content\Games\free!\Game\Scripts\PlayerCore.esx</Path>
+			<RunOn>
+				<EventClass>EveryFrame</EventClass>
+				<Name>RunNow</Name>
+				<Parameter>
+					<Name>Test</Name>
+					<Value>1</Value>
+				</Parameter>
+			</RunOn>
+    </AssociatedScript>
+  </Object>
+	<Object id="2" name="Floor" objimage="Content\Games\free!\Objects\FloorTEMPORARY.png" gravity="false"></Object>
+	<Object id="3" name="Stg07 Wall/Platform Top" objimage="Content\Games\free!\Objects\Stg06\Stg06_wall_platform_01.png" gravity="false"></Object> 
+	<Object id="4" name="Object Priority Test" objimage="Content\Games\free!\Objects\TestObjectPriority.png" gravity="false" priority="BG1"></Object> 
+	<Object id="5" name="Object Priority Test 2" objimage="Content\Games\free!\Objects\TestObjectPriority2.png" gravity="false" priority="BG2"></Object> 
+	<Object id="6" name="Object Priority Test 3" objimage="Content\Games\free!\Objects\TestObjectPriority3.png" gravity="false" priority="Low"></Object> 
+	<Object id="7" name="Object Priority Test 4" objimage="Content\Games\free!\Objects\TestObjectPriority4.png" gravity="false" priority="Medium"></Object> 
+	<Object id="8" name="Object Priority Test 5" objimage="Content\Games\free!\Objects\TestObjectPriority5.png" gravity="false" priority="High"></Object> 
+	<Object id="9" name="You Say!" objimage="Content\Games\free!\Objects\General\Yousay.png" gravity="false" priority="Medium"></Object> 
+	<Object id="10" name="Snap Test" objimage="Content\Games\free!\Objects\TestObjectPriority6.png" cansnap="true" gravity="false"></Object>
+	<Object id="11" name="Animation Test" objimage="Content\Games\free!\Objects\AnimationTest.png" cansnap="false" gravity="false" collision="false"></Object>
+	<Object id="12" name="Spring" objimage="Content\Games\free!\Objects\Spring.png" cansnap="false" gravity="false"></Object>
+	<Object id="13" name="Stg07 Tunnel" objimage="Content\Games\free!\Objects\Stg06\Stg06_tunnel_01.png" cansnap="false" gravity="false" priority="Low" hitbox="14,83,280,83"></Object>
+	<Object id="14" name="Stg07 Wall #1" objimage="Content\Games\free!\Objects\Stg06\Stg06_wall_01.png" cansnap="false" gravity="false"></Object>
+	<Object id="15" name="Stg07 Wall #2" objimage="Content\Games\free!\Objects\Stg06\Stg06_wall_02.png" cansnap="false" gravity="false"></Object>
+	<Object id="16" name="Stg07 Wall #2 Top" objimage="Content\Games\free!\Objects\Stg06\Stg06_wall_02_top.png" cansnap="false" gravity="false"></Object>
+	<Object id="17" name="Stg07 Toxic Water" objimage="Content\Games\free!\Objects\Stg06\Stg06_toxic_water_01_idle.png" cansnap="false" collision="false" priority="High"></Object>
+	<Object id="18" name="Stg07 Chemical Disposal" objimage="Content\Games\free!\Objects\Stg06\Stg06_chemicaldisposal_02.png" cansnap="false" collision="false"></Object>
+	<Object id="19" name="Any Stg Placeholder XSmall" objimage="Content\Games\free!\Objects\PlaceHolderXSmall.png" cansnap="true" collision="true" priority="Medium"></Object>
+	<Object id="20" name="Any Stg Placeholder Small" objimage="Content\Games\free!\Objects\PlaceHolderSmall.png" cansnap="true" collision="true" priority="Medium"></Object>
+	<Object id="21" name="Any Stg Placeholder Medium" objimage="Content\Games\free!\Objects\PlaceHolderMedium.png" cansnap="true" collision="true" priority="Medium"></Object>
+	<Object id="22" name="Any Stg Placeholder Large" objimage="Content\Games\free!\Objects\PlaceHolderLarge.png" cansnap="true" collision="true" priority="Medium"></Object>	
+	<Object id="23" name="Stg00 Snow-Coverted Tree" objimage="Content\Games\free!\Objects\Stg00\SnowCoveredTree.png" gravity="true" priority="BG1" issentient="true"></Object>
+	<Object id="24" name="Spring (Left)" objimage="Content\Games\free!\Objects\SpringLeft.png" cansnap="false" gravity="false"></Object>
+	<Object id="25" name="Spring (Right)" objimage="Content\Games\free!\Objects\SpringRight.png" cansnap="false" gravity="false"></Object>
+</Objects>

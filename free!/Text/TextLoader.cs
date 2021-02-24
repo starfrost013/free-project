@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emerald.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,7 +39,7 @@ namespace Free
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();
-                XmlDocument.Load(@"Content\Text.xml");
+                XmlDocument.Load($@"{GlobalSettings.CurrentGame.ContentFolderLocation}\Text.xml");
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 
                 while (XmlRootNode.Name != "Text")

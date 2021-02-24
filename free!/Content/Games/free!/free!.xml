@@ -2,7 +2,7 @@
 <GameDefinition>
   <Author>starfrost</Author>
   <Description>placeholder</Description>
-  <ContentFolderPath>Content\Games\free!</ContentFolderPath>
+  <ContentFolderLocation>Content\Games\free!</ContentFolderLocation>
   <DebugEnabled>true</DebugEnabled>
   <Name>free!</Name>
   <LastModifiedDate>2021-02-23</LastModifiedDate> <!-- UTC/London -->

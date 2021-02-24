@@ -25,7 +25,11 @@ namespace Emerald.Core
             try
             {
 
-                string SettingsFilePath = @"Content\Settings.xml";
+                string SettingsFilePath = $@"{GlobalSettings.CurrentGame.ContentFolderLocation}\Settings.xml";
+
+                // TEMP
+                if (!File.Exists(SettingsFilePath)) return null;
+                // END TEMP
 
                 XmlDocument XDoc = new XmlDocument();
 
@@ -68,14 +72,6 @@ namespace Emerald.Core
                 MessageBox.Show($"Temp error. Settings.xml corrupted or maflormed! Error 18!\n\n{err}", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
-        }
-
-        private static void GenerateSettings()
-        {
-            // TEMP
-            FileStream Fstream = File.Create("Settings.xml");
-            Fstream.Close();
-            // END TEMP
         }
 
         /// <summary>

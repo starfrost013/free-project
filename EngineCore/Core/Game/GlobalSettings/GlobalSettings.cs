@@ -32,7 +32,7 @@ namespace Emerald.Core
 
         public new static string DEBUG_COMPONENT_NAME = "Global Settings Loader";
 
-        [XmlElement("CurrentGameDefinitionPath")]
+        [XmlElement("_currentgamedefinitionpath")]
         private static string _currentgamedefinitionpath { get; set; }
         
         public static string CurrentGameDefinitionPath
@@ -79,7 +79,11 @@ namespace Emerald.Core
             }
             catch (ArgumentNullException err)
             {
-                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"[TEMP - UNTIL ERROR PORTED TO ENGINECORE] - Fatal Error\n{err.Message}\nStack Trace:{err.StackTrace}");
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"[TEMP - UNTIL ERROR PORTED TO ENGINECORE] - Fatal Error\n{err}");
+            }
+            catch (FileNotFoundException err)
+            {
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"[TEMP - UNTIL ERROR PORTED TO ENGINECORE] - Fatal Error {err}.\n\nCouldn't find a critical file!");
             }
             catch (InvalidOperationException err)
             {
@@ -161,7 +165,17 @@ namespace Emerald.Core
             using (StreamReader SerialisedReader = new StreamReader(new FileStream(CurrentGameDefinitionPath, FileMode.Open)))
             {
                 GameDefinition Temp = (GameDefinition)Serializer.Deserialize(SerialisedReader);
-                if (Temp != null) CurrentGame = Temp; 
+                if (Temp != null) CurrentGame = Temp;
+
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME,"Loaded current GameDefinition\n");
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Author: {CurrentGame.Author}");
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Content Folder Path: {CurrentGame.ContentFolderLocation}");
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Debug Enabled: {CurrentGame.DebugEnabled}");
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Description: {CurrentGame.Description}");
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Last Modified: {CurrentGame.LastModifiedDate}");
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Name: {CurrentGame.Name}");
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Version: {CurrentGame.Version}");
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Version status: {CurrentGame.Version_Status}");
             }
   
         }

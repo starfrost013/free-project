@@ -9,7 +9,7 @@
   <FC_UsePhysicsV2>true</FC_UsePhysicsV2>
   <!-- DEPRECATED -->
   <GameName>free!</GameName>
-  <TitleScreenPath>Game\Title.png</TitleScreenPath>
+  <TitleScreenPath>Content\Games\free!\Game\Title.png</TitleScreenPath>
   <Resolution>800,419</Resolution>
   <UseSDLX>false</UseSDLX>
   <!-- WARNING: EXTREMELY UNSTABLE IF SET TO TRUE! Multithreaded SDL2 mode. -->

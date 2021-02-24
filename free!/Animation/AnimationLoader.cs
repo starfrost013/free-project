@@ -31,7 +31,7 @@ namespace Free
             try
             {
                 XmlDocument XmlDocument = new XmlDocument();
-                XmlDocument.Load(@"Content\Animations.xml");
+                XmlDocument.Load($@"{GlobalSettings.CurrentGame.ContentFolderLocation}\Animations.xml");
                 XmlNode XmlRootNode = XmlDocument.FirstChild;
 
                 while (XmlRootNode.Name != "Animations")
