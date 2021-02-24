@@ -42,7 +42,7 @@ using System.Windows;
 
 
 // Version information for an assembly consists of the following four values:
-//
+//asdasd
 //      Major Version
 //      Minor Version
 //      Build Number
@@ -51,7 +51,7 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("4.0.1531.21053")]
-[assembly: AssemblyFileVersion("4.0.1531.21053")]
+[assembly: AssemblyVersion("4.0.1537.21055")]
+[assembly: AssemblyFileVersion("4.0.1537.21055")]
 [assembly: AssemblyInformationalVersion("Project K19 Ver 0.00")]
 

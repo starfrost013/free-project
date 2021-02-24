@@ -29,7 +29,7 @@ namespace Free
         public void Engine_BootNow() 
         {
 
-            SDLDebug.LogDebug_C("BootNow!", $"BootNow! © 2020 avant-gardé eyes | Engine Now Initialising (version {Utils.GetVersion()})...");
+            SDLDebug.LogDebug_C("BootNow!", $"BootNow! © 2020-2021 avant-gardé eyes\nEngine Now Initialising (version {Utils.GetVersion()})...");
             
             // Log if we're using SDL
             if (Settings.FeatureControl_DisableWPF)
@@ -40,6 +40,10 @@ namespace Free
             {
                 SDLDebug.LogDebug_C("BootNow!", "Using WPF renderer");
             }
+
+            SDLDebug.LogDebug_C("BootNow!", "Checking ran via Launcher...");
+
+            if (!GlobalSettings.IsLoaded) Error.Throw(null, ErrorSeverity.FatalError, "Please use the Launcher!", "Emerald SDK Platform", 500);
 
             // Set gamestate
             Gamestate = GameState.Init;
@@ -57,7 +61,6 @@ namespace Free
 
             SDLThread = new Thread(new ThreadStart(SDL_Stage0_Init.SDLGame.SDL_Main));
 
-
             // Load everything that we can load at init
             SDLDebug.LogDebug_C("BootNow!", "Loading settings...");
             SettingLoader.LoadSettings();
@@ -66,11 +69,9 @@ namespace Free
 
             SDLDebug.LogDebug_C("SDL2 Renderer", "Now Initialising...");
 
-
             //TEMP:
             // Set SDL title here.
             //Title = $"free! ({GameVersion.GetVersionString()})";
-
 
             if (!SDLGame.Game_Init())
             {

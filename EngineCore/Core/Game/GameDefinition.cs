@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace Emerald.Core
@@ -15,8 +16,8 @@ namespace Emerald.Core
     /// </summary>
     public class GameDefinition : EmeraldComponent
     {
-        public new static string DEBUG_COMPONENT_NAME = "Game Service"; 
-
+        public new static string DEBUG_COMPONENT_NAME = "Game Service";
+        public new static bool Experimental = true; 
         [XmlElement("ContentFolderLocation")]
         /// <summary>
         /// The path to the content folder of this game.
@@ -29,22 +30,53 @@ namespace Emerald.Core
         /// </summary>
         public bool DebugEnabled { get; set; }
 
-        [XmlElement("GameAuthor")]
+        [XmlElement("Author")]
         /// <summary>
         /// The author of this game.
         /// </summary>
-        public string GameAuthor { get; set; }
+        public string Author { get; set; }
 
-        [XmlElement("GameName")]
+        [XmlElement("Description")]
+        /// <summary>
+        /// The description of this game.
+        /// </summary>
+        public string Description { get; set; }
+
+        [XmlElement("LastModifiedDate")]
+        /// <summary>
+        /// The last modified date of this game. 
+        /// </summary>
+        private string _lastmodifieddate { get; set; }
+
+        public DateTime LastModifiedDate { get 
+            {
+                return DateTime.Parse(_lastmodifieddate);
+            }
+            set
+            {
+                _lastmodifieddate = value.ToString();
+            }
+
+        }
+
+        [XmlElement("Name")]
         /// <summary>
         /// The name of this game.
         /// </summary>
-        public string GameName { get; set; }
+        public string Name { get; set; }
 
-        [XmlElement("GameVersion")]
+        [XmlElement("Version")]
         /// <summary>
         /// The version of this game.
         /// </summary>
-        public string GameVersion { get; set; }
+        public string Version { get; set; }
+
+        [XmlElement("Version_Status")]
+        /// <summary>
+        /// The status of this game. (ex: Alpha), similar to AssemblyInformationalVersion
+        /// </summary>
+        public string Version_Status { get; set; }
+
+
     }
 }

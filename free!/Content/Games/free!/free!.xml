@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GameDefinition>
+  <Author>starfrost</Author>
+  <Description>placeholder</Description>
+  <ContentFolderPath>Content\Games\free!</ContentFolderPath>
+  <DebugEnabled>true</DebugEnabled>
+  <Name>free!</Name>
+  <LastModifiedDate>2021-02-23</LastModifiedDate> <!-- UTC/London -->
+  <Version>0.2.1</Version>
+  <Version_Status>alpha (Milestone 6.1)</Version_Status>
+</GameDefinition>

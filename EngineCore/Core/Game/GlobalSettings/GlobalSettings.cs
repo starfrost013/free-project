@@ -2,6 +2,7 @@
 using Emerald.Utilities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,12 +26,15 @@ namespace Emerald.Core
     /// </summary>
     public class GlobalSettings : EmeraldComponent
     {
+        public new static int API_VERSION_MAJOR = 0;
+        public new static int API_VERSION_MINOR = 3;
+        public new static int API_VERSION_REVISION = 0;
 
         public new static string DEBUG_COMPONENT_NAME = "Global Settings Loader";
 
         [XmlElement("CurrentGameDefinitionPath")]
         private static string _currentgamedefinitionpath { get; set; }
-
+        
         public static string CurrentGameDefinitionPath
         {
             get
@@ -54,15 +58,39 @@ namespace Emerald.Core
         /// The current game.
         /// </summary>
         public static GameDefinition CurrentGame { get; set; }
-         
+
+        /// <summary>
+        /// Are the GlobalSettings loaded?
+        /// </summary>
+        public static bool IsLoaded { get; set; }
+
         public static string GetContentFolderPath() => CurrentGame.ContentFolderLocation;
         public static void SetContentFolderPath(string ContentFolderPathName) => CurrentGame.ContentFolderLocation = ContentFolderPathName;
 
         public static void Load()
         {
-            Load_Validate();
-            Load_Serialise();
-            
+            try
+            {
+                Load_Validate();
+                Load_Serialise();
+                Load_GameDefinition_Validate();
+                Load_GameDefinition_Serialise();
+                IsLoaded = true;
+            }
+            catch (ArgumentNullException err)
+            {
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"[TEMP - UNTIL ERROR PORTED TO ENGINECORE] - Fatal Error\n{err.Message}\nStack Trace:{err.StackTrace}");
+            }
+            catch (InvalidOperationException err)
+            {
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"[TEMP - UNTIL ERROR PORTED TO ENGINECORE - Fatal Error\n{err}: XML serialisation error!");
+                Environment.Exit(0x300FDEAD);
+            }
+            catch (XmlSchemaException err)
+            {
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"[TEMP - UNTIL ERROR PORTED TO ENGINECORE] - Fatal global settings serialisation error [GlobalSettings XML schema invalid - engine bug]:\n{err.Message}");
+                Environment.Exit(0x400FDEAD);
+            }
         }
 
         private static void Load_Validate()
@@ -70,11 +98,12 @@ namespace Emerald.Core
             // loading code goes here...lol.
 
             string GlobalSettingsPath = @"Content\GlobalSettings.xml";
+            string SchemaPath = @"Content\Schema\GlobalSettings.xsd";
 
-            SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, "Logging");
+            SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Validating GlobalSettings XML {GlobalSettingsPath} using schema {SchemaPath}...");
             // Create a schema set for the global settings schema.
             XmlSchemaSet XRS = new XmlSchemaSet();
-            XRS.Add(null, @"Content\Schema\GlobalSettings.xsd");
+            XRS.Add(null, SchemaPath);
 
             // Create and set up the reader settings.
             XmlReaderSettings ReaderSettings = new XmlReaderSettings();
@@ -92,6 +121,49 @@ namespace Emerald.Core
             {
 
             }
+
+            XR.Close(); 
+        }
+
+        /// <summary>
+        /// Loads a gamedefinition.
+        /// 
+        /// Is this the right place?
+        /// </summary>
+        private static void Load_GameDefinition_Validate() // USE RESULT CLASSES/INPUT VALIDATION
+        {
+            
+            string GDSchemaFileName = @"Content\Schema\GameDefinition.xsd";
+
+            SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Validating GameDefinition XML @ {CurrentGameDefinitionPath}  ");
+            XmlSchemaSet GameDefinitionSchemaSet = new XmlSchemaSet();
+
+            XmlReaderSettings ReaderSettings = new XmlReaderSettings();
+            ReaderSettings.ValidationType = ValidationType.Schema;
+            ReaderSettings.Schemas.Add(null, GDSchemaFileName);
+            ReaderSettings.ValidationEventHandler += GDLoad_OnFail;
+
+            XmlReader SchemaReader = XmlReader.Create(CurrentGameDefinitionPath, ReaderSettings);
+
+            while (SchemaReader.Read())
+            {
+                // still dumb
+            }
+
+            SchemaReader.Close();
+
+        }
+
+        private static void Load_GameDefinition_Serialise()
+        {
+            XmlSerializer Serializer = new XmlSerializer(typeof(GameDefinition));
+
+            using (StreamReader SerialisedReader = new StreamReader(new FileStream(CurrentGameDefinitionPath, FileMode.Open)))
+            {
+                GameDefinition Temp = (GameDefinition)Serializer.Deserialize(SerialisedReader);
+                if (Temp != null) CurrentGame = Temp; 
+            }
+  
         }
 
         private static void Load_Serialise()
@@ -132,5 +204,18 @@ namespace Emerald.Core
             }
         }
 
+        private static void GDLoad_OnFail(object sender, ValidationEventArgs e)
+        {
+            switch (e.Severity)
+            {
+                case XmlSeverityType.Warning:
+                    SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Warning validating global definition: {e.Exception}");
+                    return;
+                case XmlSeverityType.Error:
+                    SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Error [TEMP - ERROR NOT PORTED TO ENGINECORE.DLL] {e.Exception}");
+                    Environment.Exit(0x300FDEAD);
+                    return; 
+            }
+        }
     }
 }

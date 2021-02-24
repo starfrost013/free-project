@@ -12,9 +12,9 @@ using System.Windows.Controls;
 /// 
 /// Created: 2019-12-07
 /// 
-/// Modified: 2019-12-07
+/// Modified: 2019-12-07 [Deprecated - 2021-02-23] 
 /// 
-/// Version: 1.21
+/// Version: 1.22
 /// 
 /// Purpose: Defines the AGTextBlock class, allowing text to be displayed in free!.
 /// 
@@ -22,6 +22,9 @@ using System.Windows.Controls;
 
 namespace Free
 {
+    /// <summary>
+    /// DEPRECATED
+    /// </summary>
     public class AGTextBlock : TextBlock
     {
         public Point GamePos { get; set; }

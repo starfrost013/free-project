@@ -8,9 +8,11 @@
 >
 
   <xs:complexType name="GlobalSettings">
-    <!-- Schema Version 0.2.0 -->
+    <!-- Schema Version 0.2.1 -->
     <xs:sequence>
-      <xs:element name="CurrentGameDefinitionPath" ></xs:element>
+      <!-- HACK -->
+      <xs:element name="_currentgamedefinitionpath"></xs:element>
+      <!-- END HACK -->
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

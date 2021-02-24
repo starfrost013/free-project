@@ -1,6 +1,6 @@
-﻿using Emerald.Utilities;
+﻿using Emerald.Core;
+using Emerald.Utilities;
 using Emerald.Utilities.Wpf2Sdl;
-using EngineCore; // temp?
 using SDL2;
 using System;
 using System.Collections.Generic;
@@ -42,7 +42,7 @@ namespace SDLX
                         // Draw the background. (TEMP)
 
                         SDL_DrawBackground();
-
+                        SDL.SDL_PumpEvents();
                         // Render each SDLTexture in the TextureCache. 
 
                         foreach (SDLSprite SDLSprite in CurrentScene.LevelSprites)
@@ -76,6 +76,7 @@ namespace SDLX
                         SDL.SDL_RenderPresent(SDL_RenderPtr);
                         continue;
                     case 1:
+                        SDLDebug.LogDebug_C("SDL Event Handler", $"SDL is alive - handling event {_.type}");
                         switch (_.type)
                         {
                             case SDL.SDL_EventType.SDL_QUIT:

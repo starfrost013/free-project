@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GameDefinition"
+    targetNamespace="http://tempuri.org/GameDefinition.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/GameDefinition.xsd"
+    xmlns:mstns="http://tempuri.org/GameDefinition.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  
+  <!-- Schema Version 0.1.2 -->
+  <!-- Emerald Game Definition XML -->
+  <!-- Copyright © 2021 starfrost/AGE -->
+  <!-- Version History:
+  v0.1.0              2021-02-22      Initial version
+  v0.1.1              2021-02-23      Made several elements optional
+  v0.1.2              2021-02-24      Changed LastModifiedDate to a stirng
+  -->
+  <xs:complexType name="GameDefinition">
+    <xs:sequence>
+      <xs:element name="Author" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="Description" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="ContentFolderPath" type="xs:string"></xs:element>
+      <xs:element name="DebugEnabled" type="xs:boolean"></xs:element>
+      <xs:element name="Name" type="xs:string"></xs:element>
+      <xs:element name="LastModifiedDate" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="Version" type="xs:string" minOccurs="0"></xs:element>
+      <xs:element name="Version_Status" type="xs:string" minOccurs="0"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

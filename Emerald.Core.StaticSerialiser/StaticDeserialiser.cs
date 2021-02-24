@@ -85,20 +85,22 @@ namespace Emerald.Core.StaticSerialiser
 
                     string FinalFieldName = null; 
 
+                    // test for mangled field names (had this issue in some projects)
                     string[] FieldInfo_ExtractNamePre = fieldInfo.Name.Split('>');
                     
-                    if (FieldInfo_ExtractNamePre.Length < 2)
-                    {
-                        return false;
-                    }
-                    else
+                    if (FieldInfo_ExtractNamePre.Length >= 2)
                     {
                         string[] Pre0 = FieldInfo_ExtractNamePre[0].Split('<');
 
-                        if (FieldInfo_ExtractNamePre.Length < 2) return false; 
-
                         FinalFieldName = Pre0[1];
                     }
+                    else
+                    {
+                        FinalFieldName = fieldInfo.Name;
+                    }
+                    
+                    // todo: read the source code of the MS serialiser to figure out
+                    // how it accesses the XmlElement attribute of each C# field
 
                     if (FinalFieldName == currentElement)
                     {

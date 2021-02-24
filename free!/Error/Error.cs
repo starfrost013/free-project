@@ -54,6 +54,7 @@ namespace Free
                     MessageBox.Show($"An error has occurred.\n\nFatal Error #{id}: {text}\n\nDetailed Information: {err}", caption, MessageBoxButton.OK, MessageBoxImage.Error);
 
                     // TEMP
+                    // Todo: Check for SDL init
                     SDL_Stage0_Init.SDLGame.Game_Shutdown(); 
 
                     Environment.Exit(id);
