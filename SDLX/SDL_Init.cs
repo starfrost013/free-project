@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 /// <summary>
 /// 
@@ -14,9 +15,9 @@ using System.Threading.Tasks;
 /// 
 /// Created: 2020-06-14
 /// 
-/// Modified: 2020-06-21
+/// Modified: 2021-02-25
 /// 
-/// Version: 1.40 (core_new_source-v2.21.1402.65 v1.30 → v1.40): added title setting
+/// Version: 1.41 (Emerald v1545)
 /// 
 /// Purpose: Provides rendering initalisation services utilising C# bindings for the Simple DirectMedia Layer, version 2.0.x where SDLX is enabled..
 /// 
@@ -113,7 +114,12 @@ namespace SDLX
                 SDL_RenderPtr = _2;
 
                 CurrentScene.PreLoadScene();
-                
+
+                Debug_Timer = new Timer();
+                Debug_Timer.Interval = 1000;
+                Debug_Timer.AutoReset = true;
+                Debug_Timer.Elapsed += TEMP__SDL_DrawFPSCount;
+                Debug_Timer.Start(); 
                 RunningNow = true;
 
                 return true;

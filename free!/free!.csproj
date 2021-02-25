@@ -152,7 +152,6 @@
     <Compile Include="Collision\Collision.cs" />
     <Compile Include="Collision\CollisionV2.cs" />
     <Compile Include="EditMode\EditMode.cs" />
-    <Compile Include="Error\Error.cs" />
     <Compile Include="Error\ScriptParseError\ScriptError.cs" />
     <Compile Include="Error\ScriptParseError\ScriptParseError.xaml.cs">
       <DependentUpon>ScriptParseError.xaml</DependentUpon>

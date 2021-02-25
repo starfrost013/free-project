@@ -1,4 +1,5 @@
-﻿using Emerald.Utilities;
+﻿using Emerald.Core;
+using Emerald.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -103,6 +103,7 @@
     <Compile Include="PortholeAPI\SDL_API_SetWindowTitle.cs" />
     <Compile Include="SDL_Cache.cs" />
     <Compile Include="SDL_Camera.cs" />
+    <Compile Include="SDL_SceneInfo.cs" />
     <Compile Include="SDL_Sprite.cs" />
     <Compile Include="SDL_Init.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

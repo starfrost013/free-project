@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 /// Static native methods used by Emerald.
 /// </summary>
 
-namespace Free
+namespace Emerald.Core.NativeInterop
 {
     public static class NativeMethods
     {
@@ -23,6 +23,12 @@ namespace Free
 
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool EnumDisplayDevicesW(string lpDevice, uint iDevNum, ref DISPLAY_DEVICE lpDisplayDevice, uint dwFlags);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool EnumDisplaySettingsW(string lpszDeviceName, uint iModeNum, ref DEVMODE lpDevMode);
         public static uint Win32__AttachConsole_Default_PID = 0x0ffffffff; // .NET 
 
         public const uint Win32__Error_Success = 0;

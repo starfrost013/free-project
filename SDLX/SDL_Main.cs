@@ -8,6 +8,7 @@ using System.IO;
 using System.Reflection;
 using System.Linq;
 using System.Text;
+using System.Timers;
 using System.Threading.Tasks;
 
 namespace SDLX
@@ -18,6 +19,12 @@ namespace SDLX
         public SDL.SDL_Event EventHandler { get; set; } // naive?
         public bool RunningNow { get; set; }
 
+        /// <summary>
+        /// TEMP - FPS COUNTER
+        /// </summary>
+        public int Debug_FPS { get; set; }
+
+        public Timer Debug_Timer { get; set; }
 
         /// <summary>
         /// Sorta shit but works for now. Reimplement later.
@@ -42,7 +49,7 @@ namespace SDLX
                         // Draw the background. (TEMP)
 
                         SDL_DrawBackground();
-                        SDL.SDL_PumpEvents();
+                        Debug_FPS++;
                         // Render each SDLTexture in the TextureCache. 
 
                         foreach (SDLSprite SDLSprite in CurrentScene.LevelSprites)
@@ -143,6 +150,12 @@ namespace SDLX
         public void SDL_LoadAndCacheTexture(string RPath)
         {
             CurrentScene.TextureCache.LoadCachedItem($"{RPath}"); 
+        }
+
+        public void TEMP__SDL_DrawFPSCount(object sender, ElapsedEventArgs e)
+        {
+            Console.WriteLine($"FPS: {Debug_FPS}");
+            Debug_FPS = 0; 
         }
     }
 }
