@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Emerald.Core.NativeInterop
 {
-    public static class NativeMethods
+    public static class Win32Api
     {
         [DllImport("kernel32.dll",SetLastError = true)]
         public static extern bool AllocConsole(); // allocconsole probably works better

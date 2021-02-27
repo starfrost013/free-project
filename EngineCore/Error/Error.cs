@@ -28,7 +28,7 @@ namespace Emerald.Core
         public new static int API_VERSION_MINOR = 0;
         public new static int API_VERSION_REVISION = 0;
         public new static string DEBUG_COMPONENT_NAME = "Error Handler";
->
+
         public static void ThrowV2(string Text, string Caption, ErrorSeverity Severity, Exception CException = null, int ID = 0)
         {
             if (CException == null)

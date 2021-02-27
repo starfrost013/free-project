@@ -660,6 +660,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Emerald.Core.NativeInterop\Emerald.Core.NativeInterop.csproj">
+      <Project>{f59b01bd-cd93-4ad6-8f57-d5eb342c137b}</Project>
+      <Name>Emerald.Core.NativeInterop</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Emerald.Utilities\PresentationCompatibility.csproj">
       <Project>{a677eee2-1fbc-4abe-8072-39fe09cd18b6}</Project>
       <Name>PresentationCompatibility</Name>

@@ -1,4 +1,5 @@
 ﻿using Emerald.Core;
+using Emerald.Core.NativeInterop;
 using SDLX;
 using System;
 using System.Collections.Generic;
@@ -32,9 +33,9 @@ namespace Free
 
 #if DEBUG
 
-            NativeMethods.AllocConsole();
+            Win32Api.AllocConsole();
 
-            IntPtr _ = NativeMethods.GetConsoleWindow();
+            IntPtr _ = Win32Api.GetConsoleWindow();
 
             if (_ == IntPtr.Zero)
             {
@@ -42,7 +43,7 @@ namespace Free
             }
             else
             {
-                NativeMethods.ShowWindow(_, (int)NativeMethods.Win32__ShowWindow_Mode.SW_SHOWNORMAL);
+                Win32Api.ShowWindow(_, (int)Win32Api.Win32__ShowWindow_Mode.SW_SHOWNORMAL);
             }
 
             Console.OpenStandardOutput();
