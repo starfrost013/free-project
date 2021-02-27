@@ -124,6 +124,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Version.cs" />
     <Compile Include="Wpf2Native\MessageBox.cs" />
+    <Compile Include="Wpf2Native\MessageBoxButton.cs" />
+    <Compile Include="Wpf2Native\MessageBoxImage.cs" />
+    <Compile Include="Wpf2Native\MessageBoxOptions.cs" />
     <Compile Include="Wpf2Native\MessageBoxResult.cs" />
     <Compile Include="Wpf2Sdl\SDL.Colour.cs" />
     <Compile Include="Wpf2Sdl\SDL.Point.cs" />
@@ -140,6 +143,12 @@
     <None Include="packages.config" />
     <None Include="README.md" />
     <None Include="Resources\corebuilddate.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Emerald.Core.NativeInterop\Emerald.Core.NativeInterop.csproj">
+      <Project>{f59b01bd-cd93-4ad6-8f57-d5eb342c137b}</Project>
+      <Name>Emerald.Core.NativeInterop</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

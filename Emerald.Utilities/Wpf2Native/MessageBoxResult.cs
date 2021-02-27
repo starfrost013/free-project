@@ -8,7 +8,7 @@ namespace Emerald.Utilities.Wpf2Native
 {
     public enum MessageBoxResult
     {
-        Failed = 0,
+        None = 0,
 
         OK = 1,
 
