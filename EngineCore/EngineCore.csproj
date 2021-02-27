@@ -113,6 +113,10 @@
     <Compile Include="Settings\Settings.Manager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Emerald.Core.NativeInterop\Emerald.Core.NativeInterop.csproj">
+      <Project>{f59b01bd-cd93-4ad6-8f57-d5eb342c137b}</Project>
+      <Name>Emerald.Core.NativeInterop</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Emerald.Core.StaticSerialiser\Emerald.Core.StaticSerialiser.csproj">
       <Project>{38ab7380-7162-4c5f-bafc-37a932b34c6f}</Project>
       <Name>Emerald.Core.StaticSerialiser</Name>

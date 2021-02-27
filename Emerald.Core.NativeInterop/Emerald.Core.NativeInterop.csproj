@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Classes\DisplayDevice.cs" />
     <Compile Include="Classes\DisplayMode.cs" />
+    <Compile Include="Classes\MessageBoxType.cs" />
     <Compile Include="NativeMethods.Win32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

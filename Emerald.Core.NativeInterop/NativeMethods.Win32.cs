@@ -29,6 +29,13 @@ namespace Emerald.Core.NativeInterop
 
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool EnumDisplaySettingsW(string lpszDeviceName, uint iModeNum, ref DEVMODE lpDevMode);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern int MessageBoxW(IntPtr Hwnd, 
+            string lpText, 
+            string lpCaption, 
+            [MarshalAs(UnmanagedType.U4)]
+            MessageBoxType uType);
         public static uint Win32__AttachConsole_Default_PID = 0x0ffffffff; // .NET 
 
         public const uint Win32__Error_Success = 0;

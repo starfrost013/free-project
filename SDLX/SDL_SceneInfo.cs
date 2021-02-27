@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
 using System.Threading.Tasks;
 
 namespace SDLX
@@ -13,6 +14,8 @@ namespace SDLX
     /// </summary>
     public class SDL_SceneInfo
     {
-        public int FPS_SDL2 { get; set; }
+        
+        public int FPS { get; set; }
+        public Timer FrameTimer { get; set; }
     }
 }
