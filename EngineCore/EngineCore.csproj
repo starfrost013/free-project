@@ -134,5 +134,8 @@
   <ItemGroup>
     <Content Include="Emerald.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Util\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

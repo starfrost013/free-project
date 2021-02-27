@@ -1,4 +1,5 @@
 ﻿using Emerald.Core;
+using Emerald.Utilities.Wpf2Native;
 using Emerald.Utilities.Wpf2Sdl;
 using Free;
 using SDLX;
@@ -15,9 +16,9 @@ using System.Threading.Tasks;
 /// 
 /// Created: 2020-07-22
 /// 
-/// Modified: 2020-07-22
+/// Modified: 2021-02-27
 /// 
-/// Version: 1.00
+/// Version: 2.01
 /// 
 /// Purpose: Chooses the version of the game to launch (WPF or SDL) and launches it. Passes the settings to the game
 ///
@@ -64,7 +65,10 @@ namespace Launcher
         {
             Debug.WriteLine("Now launching SDL Emerald...");
             // manually call the entry point
-            
+
+            //TEMP
+            MessageBox MB = new MessageBox(); // runs the test (TEMP)
+            //ENDTEMP
             SDL_Stage0_Init.Main(new string[] { } ); // fake arguments
             //FreeSDL FSDL = new FreeSDL();
         }
