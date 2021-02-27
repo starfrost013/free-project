@@ -66,8 +66,6 @@ namespace Launcher
             Debug.WriteLine("Now launching SDL Emerald...");
             // manually call the entry point
 
-            //TEMP
-            MessageBox MB = new MessageBox(); // runs the test (TEMP)
             //ENDTEMP
             SDL_Stage0_Init.Main(new string[] { } ); // fake arguments
             //FreeSDL FSDL = new FreeSDL();
