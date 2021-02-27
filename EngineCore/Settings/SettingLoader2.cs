@@ -1,10 +1,11 @@
 ﻿using Emerald.Core;
+using Emerald.Utilities.Wpf2Native;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
+
 
 namespace Free
 {
@@ -45,14 +46,13 @@ namespace Free
             }
             catch (ArgumentException err)
             {
-                //Error.Throw(err, ErrorSeverity.FatalError, "Fatal error loading settings - Conversion to enum failed.", "Init error", 87);
-
-                // TEMP
 #if DEBUG
-                MessageBox.Show($"EngineCore: Temp error T87: Fatal error loading settings - conversion to enum failed, likely malformed\n\n{err}", "Error T87 Temp", MessageBoxButton.OK);
+                Error.ThrowV2($"EngineCore:Fatal error loading settings - conversion to enum failed, likely malformed!\n\n{err}", "Error 87", ErrorSeverity.Error, 87);
 #else
-                MessageBox.Show($"EngineCore: Temp error T87: Fatal error loading settings - conversion to enum failed, likely malformed", "Error T87 Temp", MessageBoxButton.OK);
+                Error.ThrowV2($"EngineCore:Fatal error loading settings - conversion to enum failed, likely malformed!", "Error 87", ErrorSeverity.Error, 87);
 #endif
+
+
 
             }
         }

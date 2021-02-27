@@ -1,4 +1,5 @@
-﻿using Emerald.Utilities.Wpf2Sdl;
+﻿using Emerald.Utilities.Wpf2Native;
+using Emerald.Utilities.Wpf2Sdl;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -55,7 +56,7 @@ namespace Emerald.Utilities
             {
                 string[] Split = SplitString.Split(',');
 
-                if (Split.Length != 2) MessageBox.Show("Error converting string to position - must be 2 positions supplied", "Error 19", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (Split.Length != 2) Wpf2Native.MessageBox.Show("Error converting string to position - must be 2 positions supplied", "Error 19", Wpf2Native.MessageBoxButton.OK, Wpf2Native.MessageBoxImage.Error);
 
                      // return -1, -1 if failed. 
 
@@ -68,7 +69,7 @@ namespace Emerald.Utilities
             }
             catch (FormatException err)
             {
-                MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Error 20", MessageBoxButton.OK, MessageBoxImage.Error);
+                Wpf2Native.MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Error 20", Wpf2Native.MessageBoxButton.OK, Wpf2Native.MessageBoxImage.Error);
                 return new Point { X = -1, Y = -1 };
             }
         }
@@ -79,7 +80,7 @@ namespace Emerald.Utilities
             {
                 string[] Split = SplitString.Split(',');
 
-                if (Split.Length != 2) MessageBox.Show("Error converting string to position - must be 2 positions supplied", "Error 19", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (Split.Length != 2) Wpf2Native.MessageBox.Show("Error converting string to position - must be 2 positions supplied", "Error 19", Wpf2Native.MessageBoxButton.OK, Wpf2Native.MessageBoxImage.Error);
 
                 // return -1, -1 if failed. 
 
@@ -89,7 +90,7 @@ namespace Emerald.Utilities
             }
             catch (FormatException err)
             {
-                MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Error 20", MessageBoxButton.OK, MessageBoxImage.Error);
+                Wpf2Native.MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Error 20", Wpf2Native.MessageBoxButton.OK, Wpf2Native.MessageBoxImage.Error);
                 return new SDLPoint(-1, -1);
             }
         }
@@ -107,7 +108,7 @@ namespace Emerald.Utilities
                 string[] Split = SplitString.Split(',');
 
                 // RGB has three components - error out if we have less than three
-                if (Split.Length != 3) MessageBox.Show("Error converting string to RGB colour - must be 2 positions supplied", "Emerald Game Engine Error 40", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (Split.Length != 3) Wpf2Native.MessageBox.Show("Error converting string to RGB colour - must be 2 positions supplied", "Emerald Game Engine Error 40", Wpf2Native.MessageBoxButton.OK, Wpf2Native.MessageBoxImage.Error);
 
                 Color RGB = new Color();
 
@@ -126,7 +127,7 @@ namespace Emerald.Utilities
             }
             catch (FormatException err)
             {
-                MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Emerald Game Engine Error 41", MessageBoxButton.OK, MessageBoxImage.Error);
+                Wpf2Native.MessageBox.Show($"Error converting string to position - invalid position\n\n{err}", "Emerald Game Engine Error 41", Wpf2Native.MessageBoxButton.OK, Wpf2Native.MessageBoxImage.Error);
                 return new Color { A = 1, R = 1, B = 0, G = 2 };
             }
 
@@ -146,7 +147,7 @@ namespace Emerald.Utilities
                 // If we don't have 3 versions then error out
                 if (_1.Length != 4)
                 {
-                    MessageBox.Show($"Error converting string to version - must be 4 version components supplied", "Emerald Game Engine Error 42", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Wpf2Native.MessageBox.Show($"Error converting string to version - must be 4 version components supplied", "Emerald Game Engine Error 42", Wpf2Native.MessageBoxButton.OK, Wpf2Native.MessageBoxImage.Error);
                     return null;
                 }
 
@@ -165,7 +166,7 @@ namespace Emerald.Utilities
             // Error condition: Attempted to convert an invalid portion of a string. 
             catch (FormatException err)
             {
-                MessageBox.Show($"Error converting string to version - invalid version information\n\n{err}", "Emerald Game Engine Error 56", MessageBoxButton.OK, MessageBoxImage.Error);
+                Wpf2Native.MessageBox.Show($"Error converting string to version - invalid version information\n\n{err}", "Emerald Game Engine Error 56", Wpf2Native.MessageBoxButton.OK, Wpf2Native.MessageBoxImage.Error);
                 return null;
             }
         }
@@ -184,7 +185,7 @@ namespace Emerald.Utilities
                 // If we don't have 3 versions then error out
                 if (_1.Length != 4)
                 {
-                    MessageBox.Show($"Error converting string to version - must be 4 version components supplied", "Emerald Game Engine Error 60", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Wpf2Native.MessageBox.Show($"Error converting string to version - must be 4 version components supplied", "Emerald Game Engine Error 60", Wpf2Native.MessageBoxButton.OK, Wpf2Native.MessageBoxImage.Error);
                     return null;
                 }
 
@@ -201,7 +202,7 @@ namespace Emerald.Utilities
             }
             catch (FormatException err)
             {
-                MessageBox.Show($"Error converting string to version - invalid version component supplied!\n\n{err}", "Emerald Game Engine Error 61", MessageBoxButton.OK, MessageBoxImage.Error);
+                Wpf2Native.MessageBox.Show($"Error converting string to version - invalid version component supplied!\n\n{err}", "Emerald Game Engine Error 61", Wpf2Native.MessageBoxButton.OK, Wpf2Native.MessageBoxImage.Error);
                 return null;
             }
         }
@@ -238,7 +239,7 @@ namespace Emerald.Utilities
             // There are no child nodes, so throw an error.
             if (!XmlDoc.HasChildNodes)
             {
-                MessageBox.Show("Internal Temporary Error: No child nodes when attempting to load the first node of an XmlDocument", "Emerald Game Engine Error 57", MessageBoxButton.OK, MessageBoxImage.Error);
+                Wpf2Native.MessageBox.Show("Internal Temporary Error: No child nodes when attempting to load the first node of an XmlDocument", "Emerald Game Engine Error 57", Wpf2Native.MessageBoxButton.OK, Wpf2Native.MessageBoxImage.Error);
                 return null; 
             }
 
@@ -258,7 +259,7 @@ namespace Emerald.Utilities
             // There are no child nodes, so throw an error.
             if (!XmlDoc.HasChildNodes)
             {
-                MessageBox.Show("Internal Temporary Error: No child nodes when attempting to load the first node of an XmlDocument", "Emerald Game Engine Error 58", MessageBoxButton.OK, MessageBoxImage.Error);
+                Wpf2Native.MessageBox.Show("Internal Temporary Error: No child nodes when attempting to load the first node of an XmlDocument", "Emerald Game Engine Error 58", Wpf2Native.MessageBoxButton.OK, Wpf2Native.MessageBoxImage.Error);
                 return null;
             }
 
@@ -273,7 +274,7 @@ namespace Emerald.Utilities
                 // If the next sibling is null, this means that we have reached the last child without any matches, so error out
                 if (XChild.NextSibling == null)
                 {
-                    MessageBox.Show($"No nodes with name {VerifyName} found!", "Emerald Game Engine Error 59", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Wpf2Native.MessageBox.Show($"No nodes with name {VerifyName} found!", "Emerald Game Engine Error 59", Wpf2Native.MessageBoxButton.OK, Wpf2Native.MessageBoxImage.Error);
                     return null;
                 }
 

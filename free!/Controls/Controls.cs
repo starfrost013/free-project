@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Emerald.Utilities.Wpf2Native;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 /// <summary>
@@ -43,6 +43,7 @@ namespace Free
             }
             catch (NotSupportedException err)
             {
+                // When we move to SDL_Key: move to error system
                 MessageBox.Show($"An invalid key was used when Controls.xml was being parsed: \n{err}", "avant-gardé engine ver 2.7.0/04", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(6);
                 return new Key();

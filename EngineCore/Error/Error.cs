@@ -1,10 +1,10 @@
-﻿using Emerald.Core; 
+﻿using Emerald.Core;
+using Emerald.Utilities.Wpf2Native;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 /// <summary>
 /// File: Error.cs
@@ -29,7 +29,7 @@ namespace Emerald.Core
         public new static int API_VERSION_REVISION = 0;
         public new static string DEBUG_COMPONENT_NAME = "Error Handler";
 
-        public static void ThrowV2(string Text, string Caption, ErrorSeverity Severity, Exception CException = null, int ID = 0)
+        public static void ThrowV2(string Text, string Caption, ErrorSeverity Severity, int ID = 0, Exception CException = null)
         {
             if (CException == null)
             {
@@ -98,44 +98,7 @@ namespace Emerald.Core
         /// <param name="text"></param>
         /// <param name="caption"></param>
         /// <param name="id"></param>
-        public static void Throw(Exception err, ErrorSeverity severity, string text, string caption = "SDLEmerald", int id = 0)
-        {
+        public static void Throw(Exception err, ErrorSeverity severity, string text, string caption = "SDLEmerald", int id = 0) => ThrowV2(text, caption, severity, id, err);
 
-#if DEBUG
-            SDLDebug.LogDebug_C("ERROR", $"An error has occurred with severity {severity}, ID {id}. Error information: {text}\n\n");
-            
-            if (err != null)
-            {
-                SDLDebug.LogDebug_C("ERROR", $"Detailed exception information is available.");
-                SDLDebug.LogDebug_C("ERROR", $"{err.Message}");
-            }
-#endif
-            switch (severity)
-            {
-                case ErrorSeverity.Warning: // Warning
-                    MessageBox.Show($"Debug Warning: \n{text}", caption, MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
-                case ErrorSeverity.FatalError: // Fatal Error
-                    MessageBox.Show($"An error has occurred.\n\nFatal Error #{id}: {text}\n\nDetailed Information: {err}", caption, MessageBoxButton.OK, MessageBoxImage.Error);
-
-                    // TEMP
-                    // Todo: Check for SDL init
-
-                    // Todo: Port most engine code to EngineCore
-                    //SDL_Stage0_Init.SDLGame.Game_Shutdown(); 
-
-                    Environment.Exit(id);
-                    return;
-                case ErrorSeverity.Error: // Game crash while not in debug
-                    MessageBox.Show($"An error has occurred.\n\nPlease note down or screenshot the details of this error for support purposes and then exit {Settings.GameName}.\n\nError ID {id}: {text}\nDetailed Error Information: {err}", caption, MessageBoxButton.OK, MessageBoxImage.Error);
-
-                    // TEMP
-                    //SDL_Stage0_Init.SDLGame.Game_Shutdown();
-
-                    // Todo: Port most engine code to EngineCore
-                    Environment.Exit(id);
-                    return; 
-            }
-        }
     }
 }

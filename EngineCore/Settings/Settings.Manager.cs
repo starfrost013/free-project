@@ -1,4 +1,5 @@
 ﻿using Emerald.Utilities;
+using Emerald.Utilities.Wpf2Native;
 using Emerald.Utilities.Wpf2Sdl;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using System.Windows;
+
 using System.Windows.Media;
 
 namespace Emerald.Core
@@ -219,11 +220,7 @@ namespace Emerald.Core
             XmlNode XElement = GetNode(XRoot, SettingsElement);
 
             // throw an error if xelement is null
-            if (XElement == null)
-            {
-                MessageBox.Show($"Temp error. Attempted to load invalid setting point! Error 18!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                Application.Current.Shutdown(18);
-            }
+            if (XElement == null) Error.ThrowV2($"Temp error. Attempted to load invalid setting point! Error 18!", "An error has occurred", ErrorSeverity.FatalError, 18, null);
 
             SDLPoint XY = XElement.InnerText.SplitXYV2();
 
@@ -235,11 +232,7 @@ namespace Emerald.Core
             XmlNode XRoot = LoadSettingsXml();
             XmlNode XElement = GetNode(XRoot, SettingsElement);
 
-            if (XElement == null)
-            {
-                MessageBox.Show($"Temp error. Attempted to load invalid setting colour! Error 19!", "An error has occurred.", MessageBoxButton.OK, MessageBoxImage.Error);
-                Application.Current.Shutdown(19);
-            }
+            if (XElement == null) Error.ThrowV2($"Temp error. Attempted to load invalid setting colour! Error 18!", "An error has occurred", ErrorSeverity.FatalError, 19, null); 
 
 
             Color RGB = XElement.InnerText.SplitRGB();

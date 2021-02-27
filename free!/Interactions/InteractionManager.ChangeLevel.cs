@@ -1,10 +1,10 @@
 ﻿using Emerald.Core;
+using Emerald.Utilities.Wpf2Native;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 /// <summary>
 /// 
@@ -12,11 +12,11 @@ using System.Windows;
 /// 
 /// Created: 2019-11-21
 /// 
-/// Modified: 2019-12-23
+/// Modified: 2021-02-27
 /// 
-/// Version: 1.50
+/// Version: 1.51
 /// 
-/// Free Version: 0.20+
+/// Free Version: Engine Version 4.0.1550.0+
 /// 
 /// Purpose: Handles changing level when hitting IGameObject.
 /// 
@@ -40,8 +40,11 @@ namespace Free
                 }
                 else
                 {
+
                     MessageBox.Show($"The demo has ended.\n\nThank you for playing {Settings.GameName}!", Settings.GameName, MessageBoxButton.OK, MessageBoxImage.Information);
-                    Application.Current.Shutdown(); 
+
+                    //todo: proper engine shutdown function
+                    Environment.Exit(7771);  
                 }
             }
         }
