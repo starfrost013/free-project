@@ -31,7 +31,7 @@ namespace Emerald.Core.NativeInterop
         public static extern bool EnumDisplaySettingsW(string lpszDeviceName, uint iModeNum, ref DEVMODE lpDevMode);
 
         [DllImport("user32.dll", SetLastError = true)]
-        public static extern int MessageBoxW(IntPtr Hwnd, 
+        public static extern int MessageBoxA(IntPtr Hwnd, 
             string lpText, 
             string lpCaption, 
             [MarshalAs(UnmanagedType.U4)]

@@ -22,7 +22,7 @@ namespace Emerald.Utilities.Wpf2Native
     /// 
     /// Likely to be moved to EmeraldUI when that becomes a thing
     /// </summary>
-    public class MessageBox : EmeraldComponent
+    public class MessageBox 
     {
 #if DEBUG
         public MessageBox()
@@ -87,7 +87,17 @@ namespace Emerald.Utilities.Wpf2Native
             uint FinalOptions = ButtonType + ImageType + MBOptions;
 
             // IntPtr? to get around bullshit
-            return (MessageBoxResult)Win32Api.MessageBoxW((IntPtr)HWND, Text, Caption, (MessageBoxType)FinalOptions);
+
+            if (HWND == null)
+            {
+                return (MessageBoxResult)Win32Api.MessageBoxA(IntPtr.Zero, Text, Caption, (MessageBoxType)FinalOptions);
+            }
+            else
+            {
+                return (MessageBoxResult)Win32Api.MessageBoxA((IntPtr)HWND, Text, Caption, (MessageBoxType)FinalOptions);
+            }
+
+            
         }
     }
 }
