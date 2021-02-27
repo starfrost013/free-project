@@ -16,6 +16,10 @@ namespace SDLX
         public int CachedSpriteRenderId { get; set; }
         public int LocalID { get; set; }
 
+        /// <summary>
+        /// Is this sprite the background?
+        /// </summary>
+        public bool IsBackground { get; set; }
         public string Name { get; set; }
         public string Path { get; set; }
         public SDLPoint Position { get; set; }

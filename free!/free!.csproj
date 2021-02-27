@@ -153,9 +153,6 @@
     <Compile Include="Collision\CollisionV2.cs" />
     <Compile Include="EditMode\EditMode.cs" />
     <Compile Include="Error\ScriptParseError\ScriptError.cs" />
-    <Compile Include="Error\ScriptParseError\ScriptParseError.xaml.cs">
-      <DependentUpon>ScriptParseError.xaml</DependentUpon>
-    </Compile>
     <Compile Include="FreeSDL.cs" />
     <Compile Include="Init\EngineInit\Engine_BootNow_Stage1.cs" />
     <Compile Include="Init\EngineInit\Engine_BootNow_InitMainGameThread.cs" />
@@ -227,10 +224,6 @@
     <Compile Include="Weapon\WeaponLoader.cs" />
     <Compile Include="Weapon\WeaponManager.cs" />
     <Compile Include="Window\WindowType.cs" />
-    <Page Include="Error\ScriptParseError\ScriptParseError.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="Controls\Controls.cs" />
     <Compile Include="Controls\ControlsLoader.cs" />
     <Compile Include="Init\Init.cs" />

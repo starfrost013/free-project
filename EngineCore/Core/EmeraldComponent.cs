@@ -16,28 +16,34 @@ namespace Emerald.Core
     /// </summary>
     public abstract class EmeraldComponent
     {
-        public static int API_VERSION_MAJOR = 0;
-        public static int API_VERSION_MINOR = 0;
-        public static int API_VERSION_REVISION = 0;
-        public static string DEBUG_COMPONENT_NAME = "SDLEmerald Component";
+        public static int API_VERSION_MAJOR { get; set; }
+        public static int API_VERSION_MINOR { get; set; }
+        public static int API_VERSION_REVISION { get; set; }
+        public static string DEBUG_COMPONENT_NAME { get; set; }
 
         /// <summary>
         /// Is this component deprecated?
         /// </summary>
-        public static bool Deprecated { get; set; }
+        public virtual bool Deprecated { get; set; }
 
         /// <summary>
         /// Does this component exit the Common Language Runtime and call into native code?
         /// </summary>
-        public static bool ExitsCLR { get; set; }
+        public virtual bool ExitsCLR { get; set; }
 
         /// <summary>
         /// Is this component external?
         /// </summary>
-        public static bool Experimental { get; set; }
+        public virtual bool Experimental { get; set; }
 
         public EmeraldComponent()
         {
+            API_VERSION_MAJOR = 0;
+            API_VERSION_MINOR = 0;
+            API_VERSION_REVISION = 0;
+            DEBUG_COMPONENT_NAME = "SDLEmerald";
+            
+
             if (Deprecated) SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Warning: You are initialising deprecated component {DEBUG_COMPONENT_NAME}. This component may be removed soon!");
             if (ExitsCLR) SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Warning: The component {DEBUG_COMPONENT_NAME}, which you are currently initialising, exits the Common Language Runtime\n"
                 + "and calls into native code. This component is NOT PORTABLE between Emerald platforms and you cannot debug it without having access to the original (likely C/C++)\n"

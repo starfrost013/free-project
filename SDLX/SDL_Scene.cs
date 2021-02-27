@@ -32,6 +32,7 @@ namespace SDLX
         public SDLPoint Resolution { get; set; }
         public IntPtr TEMP_SHITTY_DONTUSE_FONTTTFCONSOLAS { get; set; } // Pre-FreeUI font
         internal SDL_Cache TextureCache { get; set; }
+        public SDL_SceneInfo SceneInformation { get; set; }
 
         public GameScene()
         {
