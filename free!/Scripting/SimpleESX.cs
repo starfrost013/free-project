@@ -11,6 +11,18 @@ namespace Free
 {
     // Trigger IGameObjects?
     public enum EventClass { OnLoad, OnDestroy, OnChangeLevel, OnPlayerSpawn, OnBeingDead, OnGameOver, OnSkillObtained, OnSkillLost, OnLevelChange, OnHurt, OnAIChange, OnAICreate, OnAIDie, OnSpecificIGameObjectSpawn, OnSpecificIGameObject, Routine, EveryFrame, OnAnimationPlayed, OnAnimationPlayed_SpecificFrame, OnIGameObjectInteraction, OnSoundPlayed, OnMusicPlayed, OnVFXSpawn, OnVFXParticleNum, OnVFXDespawn, OnPlayerReachCertainPosition, OnCollide, OnGameClose }
+    
+    /// <summary>
+    /// ESX Scripting Subsystem
+    /// 
+    /// Provides scripting services for Emerald-based applications. Implements the ESX (Emerald Scripting eXtensions) language
+    /// 
+    /// API Version 1.0 (2021-02-28)
+    /// 
+    /// TODO (API V1.1): Validate and serialise ReflectionMetadata; remove FreeSDL requirement from ICommandExecutor
+    /// TODO (API V2.0): control flow, variables, multiple scripts
+    /// and an infinite universe of more to come.
+    /// </summary>
     public partial class SimpleESX
     {
         internal List<SimpleESXScript> LoadedScripts { get; set; }
@@ -36,7 +48,10 @@ namespace Free
             try
             {
                 XmlDocument XDoc = new XmlDocument();
-                XDoc.Load($@"{GlobalSettings.CurrentGame.ContentFolderLocation}\Game\ReflectionMetadata.xml");
+
+                // Not per-game for now.
+                // Eventually (2023?) it will be, but it's not for now because the code for each command is implemented on the C# side.
+                XDoc.Load(@"Content\ESX\ReflectionMetadata.xml");
 
                 if (!XDoc.HasChildNodes)
                 {

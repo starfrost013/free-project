@@ -38,7 +38,7 @@ namespace Free
             Environment.Exit(0x1111 ^ Id); //XOR the error ID in the exit code with the key 0x1111
 
 
-            /* remvoed 2020-02-27 (v1551)
+            /* removed 2020-02-27 (v1551)
             ScriptParseError SPE = new ScriptParseError(new ScriptError { Error = Error, Id = Id, Line = Line, ScriptPath = ScriptPath });
             SPE.ShowDialog();
             */

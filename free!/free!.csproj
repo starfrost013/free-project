@@ -151,7 +151,6 @@
     <Compile Include="Audio\Audio.SFX.cs" />
     <Compile Include="Collision\Collision.cs" />
     <Compile Include="Collision\CollisionV2.cs" />
-    <Compile Include="EditMode\EditMode.cs" />
     <Compile Include="Error\ScriptParseError\ScriptError.cs" />
     <Compile Include="FreeSDL.cs" />
     <Compile Include="Init\EngineInit\Engine_BootNow_Stage1.cs" />
@@ -204,6 +203,7 @@
     <Compile Include="Scripting\Commands\Script.DeleteObjectCommand.cs" />
     <Compile Include="Scripting\Commands\Script.InsertObjectCommand.cs" />
     <Compile Include="Scripting\Commands\Script.SetObjectPositionCommand.cs" />
+    <Compile Include="Scripting\Commands\Script.ThrowRuntimeErrorCommand.cs" />
     <Compile Include="Scripting\Commands\ScriptUtilities.cs" />
     <Compile Include="Scripting\Commands\Script.TestCommand.cs" />
     <Compile Include="Scripting\ICommandExecutor.cs" />
@@ -290,7 +290,7 @@
     <Content Include="Content\Games\free!\Game\urgent2.pdn" />
     <None Include="Content\Games\free!\HUD\HUDTimeConcept.pdn" />
     <None Include="Content\Games\free!\HUD\Level.pdn" />
-    <Content Include="Content\Games\free!\Game\ReflectionMetadata.xml">
+    <Content Include="Content\ESX\ReflectionMetadata.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Games\free!\LevelsV2.xml">
