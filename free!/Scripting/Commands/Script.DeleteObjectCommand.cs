@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    public class DeleteIGameObjectCommand : ICommandExecutor
+    public class DeleteIGameObjectCommand : RootCommand
     {
         public FreeSDL MnWindow { get; set; }
         public string Name { get; set; }

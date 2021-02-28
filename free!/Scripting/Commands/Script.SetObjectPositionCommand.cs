@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    public class SetObjectPositionCommand : ICommandExecutor
+    public class SetObjectPositionCommand : RootCommand
     {
         public FreeSDL MnWindow { get; set; }
         public string Name { get; set; }
@@ -98,7 +98,7 @@ namespace Free
             if (Parameters[2].ScParamType != ScriptParameterType.Double) ScriptError.Throw("Parameter 3 must be valid Y position", 15, 0, "Runtime Error");
         }
 
-        public ScriptReturnValue Execute()
+        public new ScriptReturnValue Execute()
         {
             if (!CheckSatisfiesScriptReference()) return new ScriptReturnValue { ReturnCode = 1, ReturnInformation = "Script reference requirements unsatisfied" };
 

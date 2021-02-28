@@ -301,5 +301,16 @@ namespace Emerald.Utilities
         {
             return Str.Replace(@"\\", @"\");
         }
+
+        /// <summary>
+        /// Contains method but case insensitive 
+        /// 
+        /// Ported from TrackMaker Iris 2021-02-28
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Value"></param>
+        /// <param name="SC"></param>
+        /// <returns></returns>
+        public static bool ContainsCaseInsensitive(this string Text, string Value, StringComparison SC = StringComparison.CurrentCultureIgnoreCase) => Text.IndexOf(Value, SC) >= 0;
     }
 }

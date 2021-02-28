@@ -6,16 +6,8 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    public class ThrowRuntimeErrorCommand : ICommandExecutor
+    public class ThrowRuntimeErrorCommand : RootCommand
     {
-        public string Name { get; set; }
-        public List<SimpleESXParameter> Parameters { get; set; }
-        public FreeSDL MnWindow { get; set; }
-        public bool ScriptRan { get; set; }
-        public bool ScriptRunOnce { get; set; }
-        public ScriptReference SR { get; set; }
-
-
         public void Verify()
         {
             throw new NotImplementedException();
@@ -31,17 +23,14 @@ namespace Free
             throw new NotImplementedException(); 
         }
 
-        public object GetParameter(string ParameterName)
-        {
-            throw new NotImplementedException();
-        }
+        public object GetParameter(string ParameterName) => base.GetParameter(ParameterName);
 
         /// <summary>
         /// this is idiotic design.
         /// </summary>
         /// <param name="Parameters"></param>
         /// <returns></returns>
-        public void GetParameters(List<SimpleESXParameter> Parameters)
+        public void GetParameters(List<SimpleESXParameter> Parameters) => base.GetParameters(Parameters);
         {
             throw new NotImplementedException();
         }

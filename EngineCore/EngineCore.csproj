@@ -108,9 +108,11 @@
     <Compile Include="Error\Error.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MultiplatformSupport\Platform.cs" />
+    <Compile Include="Result\Result.cs" />
     <Compile Include="Settings\SettingLoader2.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Settings\Settings.Manager.cs" />
+    <Compile Include="Result\ValidationClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Emerald.Core.NativeInterop\Emerald.Core.NativeInterop.csproj">

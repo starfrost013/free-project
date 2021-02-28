@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Free
 {
-    public class TestCommand : ICommandExecutor
+    public class TestCommand : RootCommand
     {
         public FreeSDL MnWindow { get; set; }
         public string Name { get; set; }

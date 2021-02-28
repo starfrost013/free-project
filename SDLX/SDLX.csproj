@@ -96,6 +96,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Result\KeyResult.cs" />
+    <Compile Include="Core\Result\KeyResultValidator.cs" />
+    <Compile Include="Core\SDL_Key.cs" />
     <Compile Include="PortholeAPI\SDL_API_GetObjectCacheId.cs" />
     <Compile Include="PortholeAPI\SDL_API_GetRect.cs" />
     <Compile Include="PortholeAPI\SDL_API_SetBgColour.cs" />

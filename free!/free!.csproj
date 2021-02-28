@@ -202,6 +202,7 @@
     <Compile Include="Scripting\Commands\CommandFactory.cs" />
     <Compile Include="Scripting\Commands\Script.DeleteObjectCommand.cs" />
     <Compile Include="Scripting\Commands\Script.InsertObjectCommand.cs" />
+    <Compile Include="Scripting\Commands\Script.RootCommand.cs" />
     <Compile Include="Scripting\Commands\Script.SetObjectPositionCommand.cs" />
     <Compile Include="Scripting\Commands\Script.ThrowRuntimeErrorCommand.cs" />
     <Compile Include="Scripting\Commands\ScriptUtilities.cs" />
