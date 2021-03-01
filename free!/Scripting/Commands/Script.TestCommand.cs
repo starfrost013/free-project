@@ -9,49 +9,18 @@ namespace Free
 {
     public class TestCommand : RootCommand
     {
-        public FreeSDL MnWindow { get; set; }
-        public string Name { get; set; }
-        public List<SimpleESXParameter> Parameters { get; set; }
-        public ScriptReference SR { get; set; }
-        public bool ScriptRan { get; set; }
-        public bool ScriptRunOnce { get; set; }
         public TestCommand()
         {
             Parameters = new List<SimpleESXParameter>();
         }
 
-        public object GetParameter(string ParameterName)
-        {
-            throw new NotImplementedException();
-        }
+        /// <summary>
+        /// Special case: doesn't check for script referencing
+        /// </summary>
+        /// <returns></returns>
+        public new bool CheckSatisfiesScriptReference() => true;
 
-        public void GetParameters(List<SimpleESXParameter> Params)
-        {
-            Parameters = Params;
-        }
-
-        public void SetScriptReference(ScriptReference ScriptRef)
-        {
-            SR = ScriptRef;
-        }
-
-        public bool CheckSatisfiesScriptReference()
-        {
-            if (SR == null) return true; 
-
-            foreach (ScriptReferenceRunOn SRX in SR.RunOnParameters)
-            {
-                // Check if we satisfy the script reference. 
-                if (ScriptReferenceResolver.Resolve(SRX))
-                {
-                    return true;
-                }
-
-            }
-            return false;
-        }
-
-        public void Verify()
+        public new void Verify()
         {
             if (Parameters.Count != 0)
             {
@@ -60,7 +29,7 @@ namespace Free
 
         }
 
-        public ScriptReturnValue Execute()
+        public new ScriptReturnValue Execute()
         {
             if (!CheckSatisfiesScriptReference()) return new ScriptReturnValue { ReturnCode = 1, ReturnInformation = "Script reference requirements unsatisfied" }; 
             MessageBox.Show("It works!");

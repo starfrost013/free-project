@@ -9,35 +9,8 @@ namespace Free
 {
     public class InsertIGameObjectCommand : RootCommand
     {
-        public new object GetParameter(string ParameterName) => base.GetParameter(ParameterName);
-        
-        public void GetParameters(List<SimpleESXParameter> Params)
-        {
-            Parameters = Params;
-        }
 
-        public void SetScriptReference(ScriptReference ScriptRef)
-        {
-            SR = ScriptRef;
-        }
-
-        public bool CheckSatisfiesScriptReference()
-        {
-            if (SR == null) return true;
-
-            foreach (ScriptReferenceRunOn SRX in SR.RunOnParameters)
-            {
-                // Check if we satisfy the script reference. 
-                if (ScriptReferenceResolver.Resolve(SRX))
-                {
-                    return true;
-                }
-
-            }
-
-            return false;
-
-        }
+      
 
         public InsertIGameObjectCommand()
         {

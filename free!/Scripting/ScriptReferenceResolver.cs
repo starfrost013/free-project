@@ -30,17 +30,22 @@ namespace Free
                     {
                         ScriptError.Throw("Error: Only one RunOn parameter is allowed for OnPlayerReachCertainPosition event-handler scripts", 9, 0, "ScriptXML Bug"); 
                     }
-
-                   
-                    // TEMP (multiplayer later)
-                    if (Players[0].Position.X > (double)EvtClass.ReferenceRunOn[0].Value[0] && Players[0].Position.Y > (double)EvtClass.ReferenceRunOn[0].Value[1])
-                    {
-                        return true;
-                    }
                     else
                     {
-                        return false;
+
+                        // TEMP (multiplayer later)
+                        if (Players[0].Position.X > (double)EvtClass.ReferenceRunOn[0].Value[0] && Players[0].Position.Y > (double)EvtClass.ReferenceRunOn[0].Value[1])
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
                     }
+
+                    return false;
+
                 case EventClass.OnCollide:
 
                     ScriptReferenceRunOnParameter SRROPID1 = GetRunOnParamWithName(EvtClass, "Obj1ID");
