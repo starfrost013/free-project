@@ -27,7 +27,7 @@ namespace SDLX
             // they are easier to parse
             foreach (SDL.SDL_Scancode Keymod in Enum.GetValues(typeof(SDL.SDL_Scancode)))
             {
-                string Result =
+                // put stuff here
             }
 
             return null;
@@ -66,7 +66,7 @@ namespace SDLX
         public static SDL_Key FromKeysym(SDL.SDL_Keysym Keysym)
         {
             SDL.SDL_Scancode CScancode = Keysym.scancode;
-
+            return null; //temp
         }
 
     }

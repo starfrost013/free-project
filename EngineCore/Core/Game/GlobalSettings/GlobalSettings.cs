@@ -139,7 +139,7 @@ namespace Emerald.Core
             
             string GDSchemaFileName = @"Content\Schema\GameDefinition.xsd";
 
-            SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Validating GameDefinition XML @ {CurrentGameDefinitionPath}  ");
+            SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Validating GameDefinition XML @ {CurrentGameDefinitionPath}...");
             XmlSchemaSet GameDefinitionSchemaSet = new XmlSchemaSet();
 
             XmlReaderSettings ReaderSettings = new XmlReaderSettings();
