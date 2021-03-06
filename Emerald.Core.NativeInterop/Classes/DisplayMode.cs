@@ -70,6 +70,7 @@ namespace Emerald.Core.NativeInterop
     public struct DEVMODE_POINT
     {
         public double X { get; set; }
+
     }
 
 }

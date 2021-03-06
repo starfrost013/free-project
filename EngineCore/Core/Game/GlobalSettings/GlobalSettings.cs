@@ -2,6 +2,7 @@
 using Emerald.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -155,19 +156,24 @@ namespace Emerald.Core
             }
 
             SchemaReader.Close();
-
+           
         }
 
         private static void Load_GameDefinition_Serialise()
         {
+
+            Debug.WriteLine(Directory.GetCurrentDirectory());
             XmlSerializer Serializer = new XmlSerializer(typeof(GameDefinition));
 
-            using (StreamReader SerialisedReader = new StreamReader(new FileStream(CurrentGameDefinitionPath, FileMode.Open)))
+            
+            try
             {
+                StreamReader SerialisedReader = new StreamReader(new FileStream(CurrentGameDefinitionPath, FileMode.Open));
+
                 GameDefinition Temp = (GameDefinition)Serializer.Deserialize(SerialisedReader);
                 if (Temp != null) CurrentGame = Temp;
 
-                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME,"Loaded current GameDefinition\n");
+                SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, "Loaded current GameDefinition\n");
                 SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Author: {CurrentGame.Author}");
                 SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Content Folder Path: {CurrentGame.ContentFolderLocation}");
                 SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Debug Enabled: {CurrentGame.DebugEnabled}");
@@ -176,6 +182,13 @@ namespace Emerald.Core
                 SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Name: {CurrentGame.Name}");
                 SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Version: {CurrentGame.Version}");
                 SDLDebug.LogDebug_C(DEBUG_COMPONENT_NAME, $"Version status: {CurrentGame.Version_Status}");
+
+                SerialisedReader.Close();
+
+            }
+            catch (FileNotFoundException err)
+            {
+                Error.ThrowV2("FATAL: Cannot find current game definition!", "Fatal!", ErrorSeverity.FatalError, 504, err);
             }
   
         }

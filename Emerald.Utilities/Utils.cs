@@ -45,11 +45,9 @@ namespace Emerald.Utilities
 #endif
             LogFile(Component, Text);
 
-
         }
 
-        
-
+       
         public static Point SplitXY(this String SplitString)
         {
             try
